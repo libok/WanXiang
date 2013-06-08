@@ -1,9 +1,7 @@
 //
 //  WWRHuiYuanKaStstus.m
 //  wanxiangerweima
-//
-//  Created by mac on 13-4-19.
-//  Copyright 2013 __MyCompanyName__. All rights reserved.
+
 //
 
 #import "WWRHuiYuanKaStstus.h"
