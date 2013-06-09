@@ -20,6 +20,7 @@
 #import "BYNLogin.h"
 #import <QuartzCore/QuartzCore.h>
 #import "MainControllerAdsViewController.h"
+#import "BYNLoginViewController.h"
 @implementation LPCustomTabBarViewController
 @synthesize adScrollView;
 @synthesize adPageViewController;
@@ -72,24 +73,21 @@
         }
             break;
     }
-//    MainControllerAdsViewController * temp = [[MainControllerAdsViewController alloc]init];
-//    temp.myAdsArry  = self.myArry;
-//    [self.navigationController pushViewController:temp animated:YES];
-//    [temp release]    
+   
 }
 - (void)viewDidLoad 
 {
     [super viewDidLoad];
-    UIScrollView * scrollview = (UIScrollView*)self.view;
+    //UIScrollView * scrollview = (UIScrollView*)self.view;
     
     //scrollview.indicatorStyle     = none;
     
     if (IS_IPHONE5) {
-        scrollview.contentSize = CGSizeMake(320, 568);
+        //scrollview.contentSize = CGSizeMake(320, 568);
 
     }else
     {
-        scrollview.contentSize = CGSizeMake(320, 460.5);
+        //scrollview.contentSize = CGSizeMake(320, 460.5);
     }
     
        
@@ -162,13 +160,13 @@
                             [MBProgressHUD hideHUDForView:view2 animated:YES];
              }];            
          }
-         UIScrollView * scrollView = (UIScrollView *)lp.view;
+         //UIScrollView * scrollView = (UIScrollView *)lp.view;
          if (IS_IPHONE5) {
-             scrollView.contentSize = CGSizeMake(320, 548.1);
+             //scrollView.contentSize = CGSizeMake(320, 548.1);
              
          }else
          {
-             scrollView.contentSize = CGSizeMake(320, 460);
+             //scrollView.contentSize = CGSizeMake(320, 460);
          }
          self.isLoadedAds = YES;
          _myTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(changeImage) userInfo:nil repeats:YES];
@@ -215,9 +213,8 @@
         
     }else
     {
-        UIAlertView * view = [[UIAlertView alloc]initWithTitle:@"您需要登录" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [view show];
-        [view release];
+        BYNLoginViewController * log = [[BYNLoginViewController alloc]init];
+        [self.navigationController pushViewController:log animated:YES];
     }
 
 }
@@ -241,15 +238,18 @@
     [self setAdScrollView:nil];
     [self setAdPageViewController:nil];
     [self setAdPageControl:nil];
+    [self setFefreshScrollview:nil];
     [super viewDidUnload];
 }
 
 
 - (void)dealloc 
 {
+    //[UIScadScrollViewease];
     [adScrollView release];
     [adPageViewController release];
     [adPageControl release];
+    [_fefreshScrollview release];
     [super dealloc];
 }
 

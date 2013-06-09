@@ -20,6 +20,7 @@
 @property (retain, nonatomic) IBOutlet UIPageControl *adPageControl;
 @property(nonatomic,assign)   BOOL isLoadedAds;
 @property (nonatomic,retain)  NSTimer                *myTimer;
+@property (retain, nonatomic) IBOutlet UIScrollView *fefreshScrollview;
 - (IBAction)buttonClick:(id)sender;
 
 
