@@ -48,6 +48,9 @@
 -(void)xxxx
 {
     int uid = [LYGAppDelegate getuid];
+    if (uid == 0) {
+        return;
+    }
     NSString * string = [NSString stringWithFormat:@"%@/API/count/count.aspx?u=%d",SERVER_URL,uid];
     __block LYGEveryPhenomenonViewController * temp = self;
     ASIHTTPRequest * requeset = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:string]];

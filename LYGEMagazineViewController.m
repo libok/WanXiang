@@ -17,7 +17,7 @@
 #import "UIButton+WebCache.h"
 #import <QuartzCore/QuartzCore.h>
 #import "LFSortContentsViewController.h"
-
+#import "BYNLoginViewController.h"
 @interface LYGEMagazineViewController (Private)
 {
 
@@ -164,9 +164,9 @@
         }];        
     }else
     {
-        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"请从个人中心登录" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [alert show];
-        [alert release];
+        BYNLoginViewController * log = [[BYNLoginViewController alloc]init];
+        [self.navigationController pushViewController:log animated:YES];
+        
     }
     _allKindsHuikanScrollview.contentSize = CGSizeMake(320, 379);
     //_mineSortName1.text = @"hahahh";
