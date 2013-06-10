@@ -184,6 +184,8 @@
 		58097F4B17606EAA00BF7C51 /* InPutString.m in Sources */ = {isa = PBXBuildFile; fileRef = 58097F4917606EAA00BF7C51 /* InPutString.m */; };
 		58097F4C17606EAA00BF7C51 /* InPutString.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58097F4A17606EAA00BF7C51 /* InPutString.xib */; };
 		58097F4E17607CA800BF7C51 /* 返回0.png in Resources */ = {isa = PBXBuildFile; fileRef = 58097F4D17607CA700BF7C51 /* 返回0.png */; };
+		581326701765B2F000E2A632 /* MyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5813266F1765B2F000E2A632 /* MyTableView.m */; };
+		581326721765B30E00E2A632 /* MyTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 581326711765B30D00E2A632 /* MyTableView.xib */; };
 		5818C005174D19C2002A54C4 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5818C002174D19C1002A54C4 /* libstdc++.6.0.9.dylib */; };
 		5818C006174D19C2002A54C4 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5818C003174D19C1002A54C4 /* libstdc++.6.dylib */; };
 		5818C007174D19C2002A54C4 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5818C004174D19C1002A54C4 /* libstdc++.dylib */; };
@@ -265,7 +267,6 @@
 		58426B62170ADEB4005818A1 /* 登陆输入框小图标.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426B3E170ADEB4005818A1 /* 登陆输入框小图标.png */; };
 		58426B63170ADEB4005818A1 /* 登陆输入框小图标2.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426B3F170ADEB4005818A1 /* 登陆输入框小图标2.png */; };
 		58426B64170ADEB4005818A1 /* 背景颜色e6ebf0.txt in Resources */ = {isa = PBXBuildFile; fileRef = 58426B40170ADEB4005818A1 /* 背景颜色e6ebf0.txt */; };
-		58426B65170ADEB4005818A1 /* 记住密码未点击状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426B41170ADEB4005818A1 /* 记住密码未点击状态.png */; };
 		58426B66170ADEB4005818A1 /* 账户管理修改资料背景1.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426B42170ADEB4005818A1 /* 账户管理修改资料背景1.png */; };
 		58426B67170ADEB4005818A1 /* 账户管理修改资料背景2.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426B43170ADEB4005818A1 /* 账户管理修改资料背景2.png */; };
 		58426B68170ADEB4005818A1 /* 账户管理找回密码.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426B44170ADEB4005818A1 /* 账户管理找回密码.png */; };
@@ -394,6 +395,9 @@
 		588B6E01171C5C1000C0764F /* duanxin.png in Resources */ = {isa = PBXBuildFile; fileRef = 588B6E00171C5C1000C0764F /* duanxin.png */; };
 		588B6E05171C5D2700C0764F /* LYGTwoDimensionCodeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588B6E03171C5D2600C0764F /* LYGTwoDimensionCodeDetailViewController.m */; };
 		588E03F2174551100024A025 /* point.png in Resources */ = {isa = PBXBuildFile; fileRef = 588E03F11745510F0024A025 /* point.png */; };
+		589C24361764E9250017779A /* 主页背景1.png in Resources */ = {isa = PBXBuildFile; fileRef = 589C24351764E9250017779A /* 主页背景1.png */; };
+		589C243C17650F2A0017779A /* 主页背景1.png in Resources */ = {isa = PBXBuildFile; fileRef = 589C243B17650F2A0017779A /* 主页背景1.png */; };
+		589C24401765101D0017779A /* 记住密码未点击状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 589C243F1765101D0017779A /* 记住密码未点击状态.png */; };
 		589DBDCE174FDF65008BB2F6 /* 顶部.png in Resources */ = {isa = PBXBuildFile; fileRef = 589DBDCD174FDF64008BB2F6 /* 顶部.png */; };
 		589DBDD3174FE6CA008BB2F6 /* emeigang.png in Resources */ = {isa = PBXBuildFile; fileRef = 589DBDCF174FE6CA008BB2F6 /* emeigang.png */; };
 		589DBDD4174FE6CA008BB2F6 /* erweima.png in Resources */ = {isa = PBXBuildFile; fileRef = 589DBDD0174FE6CA008BB2F6 /* erweima.png */; };
@@ -882,6 +886,9 @@
 		58097F4917606EAA00BF7C51 /* InPutString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InPutString.m; sourceTree = "<group>"; };
 		58097F4A17606EAA00BF7C51 /* InPutString.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InPutString.xib; sourceTree = "<group>"; };
 		58097F4D17607CA700BF7C51 /* 返回0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回0.png"; sourceTree = "<group>"; };
+		5813266E1765B2EF00E2A632 /* MyTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableView.h; sourceTree = "<group>"; };
+		5813266F1765B2F000E2A632 /* MyTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableView.m; sourceTree = "<group>"; };
+		581326711765B30D00E2A632 /* MyTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyTableView.xib; sourceTree = "<group>"; };
 		5818C002174D19C1002A54C4 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		5818C003174D19C1002A54C4 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		5818C004174D19C1002A54C4 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
@@ -965,7 +972,6 @@
 		58426B3E170ADEB4005818A1 /* 登陆输入框小图标.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登陆输入框小图标.png"; sourceTree = "<group>"; };
 		58426B3F170ADEB4005818A1 /* 登陆输入框小图标2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登陆输入框小图标2.png"; sourceTree = "<group>"; };
 		58426B40170ADEB4005818A1 /* 背景颜色e6ebf0.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "背景颜色e6ebf0.txt"; sourceTree = "<group>"; };
-		58426B41170ADEB4005818A1 /* 记住密码未点击状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "记住密码未点击状态.png"; sourceTree = "<group>"; };
 		58426B42170ADEB4005818A1 /* 账户管理修改资料背景1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "账户管理修改资料背景1.png"; sourceTree = "<group>"; };
 		58426B43170ADEB4005818A1 /* 账户管理修改资料背景2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "账户管理修改资料背景2.png"; sourceTree = "<group>"; };
 		58426B44170ADEB4005818A1 /* 账户管理找回密码.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "账户管理找回密码.png"; sourceTree = "<group>"; };
@@ -1130,6 +1136,9 @@
 		5896AA0817123A680045F7E1 /* ZBarReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderViewController.h; sourceTree = "<group>"; };
 		5896AA0917123A680045F7E1 /* ZBarSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSDK.h; sourceTree = "<group>"; };
 		5896AA0A17123A680045F7E1 /* ZBarSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSymbol.h; sourceTree = "<group>"; };
+		589C24351764E9250017779A /* 主页背景1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "主页背景1.png"; sourceTree = "<group>"; };
+		589C243B17650F2A0017779A /* 主页背景1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "主页背景1.png"; sourceTree = "<group>"; };
+		589C243F1765101D0017779A /* 记住密码未点击状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "记住密码未点击状态.png"; sourceTree = "<group>"; };
 		589DBDCD174FDF64008BB2F6 /* 顶部.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "顶部.png"; sourceTree = "<group>"; };
 		589DBDCF174FE6CA008BB2F6 /* emeigang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emeigang.png; sourceTree = "<group>"; };
 		589DBDD0174FE6CA008BB2F6 /* erweima.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = erweima.png; sourceTree = "<group>"; };
@@ -1814,6 +1823,7 @@
 		12B8348A171106E60027031D /* 登录 */ = {
 			isa = PBXGroup;
 			children = (
+				589C243F1765101D0017779A /* 记住密码未点击状态.png */,
 				12D190EE170C4B5F009859F6 /* BYNLoginViewController.h */,
 				12D190EF170C4B5F009859F6 /* BYNLoginViewController.m */,
 				12D190F0170C4B5F009859F6 /* BYNLoginViewController.xib */,
@@ -2225,7 +2235,6 @@
 				58426B3E170ADEB4005818A1 /* 登陆输入框小图标.png */,
 				58426B3F170ADEB4005818A1 /* 登陆输入框小图标2.png */,
 				58426B40170ADEB4005818A1 /* 背景颜色e6ebf0.txt */,
-				58426B41170ADEB4005818A1 /* 记住密码未点击状态.png */,
 				58426B42170ADEB4005818A1 /* 账户管理修改资料背景1.png */,
 				58426B43170ADEB4005818A1 /* 账户管理修改资料背景2.png */,
 				58426B44170ADEB4005818A1 /* 账户管理找回密码.png */,
@@ -2329,6 +2338,7 @@
 			isa = PBXGroup;
 			children = (
 				58426C98170B0704005818A1 /* 底部...png */,
+				589C24351764E9250017779A /* 主页背景1.png */,
 				58426C02170AE02F005818A1 /* 主页背景2.png */,
 			);
 			path = "主页背景";
@@ -2660,6 +2670,9 @@
 		58E6FB40170A1BF20029BAAD = {
 			isa = PBXGroup;
 			children = (
+				5813266E1765B2EF00E2A632 /* MyTableView.h */,
+				581326711765B30D00E2A632 /* MyTableView.xib */,
+				5813266F1765B2F000E2A632 /* MyTableView.m */,
 				58E6FBE2170A27610029BAAD /* 个人中心 */,
 				58E6FBDB170A26C80029BAAD /* 万象街道 */,
 				58E6FBD1170A259D0029BAAD /* 万象包 */,
@@ -2678,6 +2691,7 @@
 				582863A5175895F60045211E /* place.png */,
 				587DD2FB175F66260005287E /* shengma.png */,
 				587DD2F7175F63580005287E /* mainpagebackground.png */,
+				589C243B17650F2A0017779A /* 主页背景1.png */,
 				58097F4D17607CA700BF7C51 /* 返回0.png */,
 			);
 			sourceTree = "<group>";
@@ -3313,7 +3327,6 @@
 				58426B62170ADEB4005818A1 /* 登陆输入框小图标.png in Resources */,
 				58426B63170ADEB4005818A1 /* 登陆输入框小图标2.png in Resources */,
 				58426B64170ADEB4005818A1 /* 背景颜色e6ebf0.txt in Resources */,
-				58426B65170ADEB4005818A1 /* 记住密码未点击状态.png in Resources */,
 				58426B66170ADEB4005818A1 /* 账户管理修改资料背景1.png in Resources */,
 				58426B67170ADEB4005818A1 /* 账户管理修改资料背景2.png in Resources */,
 				58426B68170ADEB4005818A1 /* 账户管理找回密码.png in Resources */,
@@ -3559,6 +3572,10 @@
 				58097F4E17607CA800BF7C51 /* 返回0.png in Resources */,
 				580720761762017100856FFC /* ChoujiangViewController.xib in Resources */,
 				5807207B1762151A00856FFC /* MediaViewController.xib in Resources */,
+				589C24361764E9250017779A /* 主页背景1.png in Resources */,
+				589C243C17650F2A0017779A /* 主页背景1.png in Resources */,
+				589C24401765101D0017779A /* 记住密码未点击状态.png in Resources */,
+				581326721765B30E00E2A632 /* MyTableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3767,6 +3784,7 @@
 				58097F4B17606EAA00BF7C51 /* InPutString.m in Sources */,
 				580720751762017100856FFC /* ChoujiangViewController.m in Sources */,
 				5807207A1762151A00856FFC /* MediaViewController.m in Sources */,
+				581326701765B2F000E2A632 /* MyTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

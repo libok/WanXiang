@@ -2,7 +2,7 @@
 //  LYGUserCenterViewController.m
 //  wanxiangerweima
 //
-//  Created by  on 13-4-1.
+//  Created by  on 13-4-1.ss
 //  Copyright (c) 2013年 __MyCompanyName__. All rights reserved.
 //
 #define  ACCOUNT          0

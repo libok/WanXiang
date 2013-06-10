@@ -14,6 +14,7 @@
 #import "LYGAppDelegate.h"
 #import "BYNLogin.h"
 #import "MBProgressHUD.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation BYNLoginViewController
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -32,7 +33,7 @@
 - (void)viewDidLoad 
 {
     [super viewDidLoad];
-    
+    _recordBtn.layer.cornerRadius = 5;
 	_passwordTF.secureTextEntry = YES;
 	
 	//从userDefaults中取_recordPwd的状态，第一次进入时为NO

@@ -98,10 +98,10 @@
 	
 	if ([passwordStr isEqualToString:@""]) return NO;
 	
-	else if ([passwordStr length] <= 6) 
+	else if ([passwordStr length] <= 5)
 	{
 		
-		[self textfieldBeganInput:_passwordField messageString:@"密码不能少于七位"];
+		[self textfieldBeganInput:_passwordField messageString:@"密码不能少于六位"];
 		
 		return NO;
 	}
