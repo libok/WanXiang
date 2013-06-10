@@ -14,6 +14,7 @@
 }
 @property(nonatomic,copy)NSString * title;
 @property(nonatomic,copy)NSString * Contents;
+-(id)initWithDict:(NSDictionary *)dict;
 @end
 @interface LYGScanViewController : UIViewController
 {

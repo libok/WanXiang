@@ -21,7 +21,11 @@
 #import <QuartzCore/QuartzCore.h>
 #import "MainControllerAdsViewController.h"
 #import "BYNLoginViewController.h"
-//#import <>
+#import "LYGZBarReadViewController.h"
+#import "LYGTwoDimensionCodeHistoryViewController.h"
+#import <QuartzCore/QuartzCore.h>
+#import "MyTableView.h"
+#import "LGHelpViewController.h"
 @implementation LPCustomTabBarViewController
 @synthesize adScrollView;
 @synthesize adPageViewController;
@@ -80,19 +84,7 @@
 {
     [super viewDidLoad];
     
-    
-    UIGraphicsBeginImageContext(self.view.frame.size);
-    UIImage *image  = [UIImage imageNamed:@"4.png"];
-    [image drawInRect:self.view.bounds];
-//    CGContextRef context = UIGraphicsGetCurrentContext();
-//    CGContextMoveToPoint(context, self.lastPoint.x, self.lastPoint.y);
-//    CGContextAddLineToPoint(context, point.x, point.y);
-//    CGContextStrokePath(context);
-//    self.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    //UIScrollView * scrollview = (UIScrollView*)self.view;
-    
-    //scrollview.indicatorStyle     = none;
+
     
     if (IS_IPHONE5) {
         //scrollview.contentSize = CGSizeMake(320, 568);
@@ -106,10 +98,6 @@
 
     __block UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0,0, 320, 182)];
     imageView.image         = [UIImage imageNamed:@"4.png"];
-//    imageView.layer.cornerRadius = 16;
-//    imageView.layer.borderWidth  = 8;
-//    imageView.layer.borderColor  = [UIColor lightGrayColor].CGColor;
-//    imageView.clipsToBounds      = YES;
     imageView.tag           =  2;
     [self.adScrollView addSubview:imageView];
     self.adScrollView.backgroundColor = [UIColor lightGrayColor];
@@ -125,8 +113,6 @@
     }
     
     
-    //[MBProgressHUD showHUDAddedTo:self.view message:@"正在加载中" animated:YES];
-    
     __block LPCustomTabBarViewController * lp = self;    
     [AdsEngine getAdsArry:2 function:^(NSMutableArray *arry)
      {
@@ -137,9 +123,6 @@
              return;
          }
          lp.adScrollView.contentSize = CGSizeMake(320*[lp.myArry count], 182);
-//         self.adScrollView.layer.borderWidth  = 1;
-//         self.adScrollView.layer.borderColor  = [UIColor grayColor].CGColor;
-//         self.adScrollView.clipsToBounds      = YES;
          UITapGestureRecognizer * recognizer  = [[UITapGestureRecognizer alloc]init];
          [lp.adScrollView  addGestureRecognizer:recognizer];
          [recognizer release];
@@ -159,10 +142,7 @@
                  [lp.adScrollView addSubview:view];
                  [view release];
              }
-//             view.layer.cornerRadius = 16;
-//             view.layer.borderWidth  = 8;
-//             view.layer.borderColor  = [UIColor lightGrayColor].CGColor;
-//             view.clipsToBounds      = YES;
+
 
              __block UIImageView * view2 = view;
              [view2 setImageWithURL:((AdsClass*)[arry objectAtIndex:i]).url  placeholderImage:[UIImage imageNamed:@"place.png"] success:^(UIImage *image){
@@ -279,7 +259,52 @@
             break;
         case 2:
         {
-            controller = [[LYGScanViewController alloc]init];
+
+            LYGZBarReadViewController * xxx = [[LYGZBarReadViewController alloc]init];
+            LYGScanViewController     * scan = [[LYGScanViewController alloc]init];
+            //LYGTwoDimensionCodeHistoryViewController * history = [[LYGTwoDimensionCodeHistoryViewController alloc]init];
+            //LGHelpViewController      * help = [[LGHelpViewController alloc]init];
+            UITabBarController * tab = [[UITabBarController alloc]init];            
+            tab.viewControllers = [NSArray arrayWithObjects:scan,xxx,nil];
+            tab.selectedIndex   = 1;
+            [self.navigationController pushViewController:tab animated:YES];
+            [tab release];
+            //UITabBarController＊ tabBarController = [[UITabBarController alloc] init];
+            [xxx release];
+            [scan release];
+            //[help release];
+            NSArray *array = [tab.view subviews];
+            
+            UITabBar *tabBar = [array objectAtIndex:1];
+            CGRect rect = tabBar.frame;
+            //UIView *  = [[UIView alloc]init];
+            MyTableView * view2 = (MyTableView*)[[[NSBundle mainBundle]loadNibNamed:@"MyTableView" owner:nil options:nil] objectAtIndex:0];
+            view2.tag = 1000;
+            __block UITabBarController * myxxx = tab;
+            __block LPCustomTabBarViewController * temp = self;
+            view2.oneBlock = ^(int x){
+                if (x==0) {
+                    [temp.navigationController popViewControllerAnimated:YES];
+                    return;
+                }
+                if (x== 3) {
+                    LYGTwoDimensionCodeHistoryViewController * history = [[LYGTwoDimensionCodeHistoryViewController alloc]init];
+                    [self.navigationController pushViewController:history animated:YES];
+                    //[]
+                    return;
+                }
+                if (x==4) {
+                    LGHelpViewController      * help = [[LGHelpViewController alloc]init];
+                    [self.navigationController pushViewController:help animated:YES];
+                    return;
+                }
+                myxxx.selectedIndex = x-1;
+            };
+            view2.frame   = rect;
+            //view2.backgroundColor = [UIColor redColor];
+            [tab.view addSubview:view2];           
+
+           
         }
             break;
         case 3:

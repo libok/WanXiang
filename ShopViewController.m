@@ -103,8 +103,8 @@
         NSArray * arry    = [[NSBundle mainBundle]loadNibNamed:@"UICustomButton" owner:nil options:nil];
         UICustomButton * button = (UICustomButton*)[arry objectAtIndex:0];
         button.frame  = CGRectMake((i%2+1)*10 + (i%2)*145, self.height + (i/2+1)*10 + (i/2)*200,145, 200);
-        button.layer.cornerRadius = 5;
-        button.clipsToBounds      = YES;
+//        button.layer.cornerRadius = 5;
+//        button.clipsToBounds      = YES;
         //UIButton * button  = [[UIButton alloc]initWithFrame:CGRectMake((i%2+1)*10 + (i%2)*145, self.height + (i/2+1)*10 + (i/2)*145,145, 145)];
         [self.myScrollview addSubview:button];
         NSString * string  = [NSString stringWithFormat:@"%@%@",SERVER_URL,com.imgurl];

@@ -18,6 +18,7 @@
     int _v;
 
 }
+@property (retain, nonatomic) IBOutlet UITextField *myEdit;
 
 @property(nonatomic,retain) NSArray *myArray;
 @property(nonatomic,assign) LSBengine           *engine;
@@ -25,6 +26,7 @@
 - (IBAction)btnClick:(id)sender;
 @property(nonatomic,retain) NSArray             *adArray;
 @property (retain, nonatomic) IBOutlet UIView   *xialaView;
+- (IBAction)buttonClick:(id)sender;
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (retain, nonatomic) IBOutlet UIButton *provincebtn;
 - (IBAction)animated:(id)sender;

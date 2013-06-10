@@ -32,8 +32,8 @@
 
 - (IBAction)resetSuccessBtnClick
 {
-	if (_pwdTextField.text.length <= 6) {
-		UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:nil message:@"密码不能少于七位" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK",nil];
+	if (_pwdTextField.text.length <= 5) {
+		UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:nil message:@"密码不能少于六位" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK",nil];
 		[alertView show];
 		return;
 		

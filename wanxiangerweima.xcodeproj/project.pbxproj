@@ -184,6 +184,8 @@
 		58097F4B17606EAA00BF7C51 /* InPutString.m in Sources */ = {isa = PBXBuildFile; fileRef = 58097F4917606EAA00BF7C51 /* InPutString.m */; };
 		58097F4C17606EAA00BF7C51 /* InPutString.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58097F4A17606EAA00BF7C51 /* InPutString.xib */; };
 		58097F4E17607CA800BF7C51 /* 返回0.png in Resources */ = {isa = PBXBuildFile; fileRef = 58097F4D17607CA700BF7C51 /* 返回0.png */; };
+		581326701765B2F000E2A632 /* MyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5813266F1765B2F000E2A632 /* MyTableView.m */; };
+		581326721765B30E00E2A632 /* MyTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 581326711765B30D00E2A632 /* MyTableView.xib */; };
 		5818C005174D19C2002A54C4 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5818C002174D19C1002A54C4 /* libstdc++.6.0.9.dylib */; };
 		5818C006174D19C2002A54C4 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5818C003174D19C1002A54C4 /* libstdc++.6.dylib */; };
 		5818C007174D19C2002A54C4 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5818C004174D19C1002A54C4 /* libstdc++.dylib */; };
@@ -884,6 +886,9 @@
 		58097F4917606EAA00BF7C51 /* InPutString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InPutString.m; sourceTree = "<group>"; };
 		58097F4A17606EAA00BF7C51 /* InPutString.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InPutString.xib; sourceTree = "<group>"; };
 		58097F4D17607CA700BF7C51 /* 返回0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回0.png"; sourceTree = "<group>"; };
+		5813266E1765B2EF00E2A632 /* MyTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableView.h; sourceTree = "<group>"; };
+		5813266F1765B2F000E2A632 /* MyTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableView.m; sourceTree = "<group>"; };
+		581326711765B30D00E2A632 /* MyTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyTableView.xib; sourceTree = "<group>"; };
 		5818C002174D19C1002A54C4 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		5818C003174D19C1002A54C4 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		5818C004174D19C1002A54C4 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
@@ -2665,6 +2670,9 @@
 		58E6FB40170A1BF20029BAAD = {
 			isa = PBXGroup;
 			children = (
+				5813266E1765B2EF00E2A632 /* MyTableView.h */,
+				581326711765B30D00E2A632 /* MyTableView.xib */,
+				5813266F1765B2F000E2A632 /* MyTableView.m */,
 				58E6FBE2170A27610029BAAD /* 个人中心 */,
 				58E6FBDB170A26C80029BAAD /* 万象街道 */,
 				58E6FBD1170A259D0029BAAD /* 万象包 */,
@@ -3567,6 +3575,7 @@
 				589C24361764E9250017779A /* 主页背景1.png in Resources */,
 				589C243C17650F2A0017779A /* 主页背景1.png in Resources */,
 				589C24401765101D0017779A /* 记住密码未点击状态.png in Resources */,
+				581326721765B30E00E2A632 /* MyTableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3775,6 +3784,7 @@
 				58097F4B17606EAA00BF7C51 /* InPutString.m in Sources */,
 				580720751762017100856FFC /* ChoujiangViewController.m in Sources */,
 				5807207A1762151A00856FFC /* MediaViewController.m in Sources */,
+				581326701765B2F000E2A632 /* MyTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
