@@ -286,6 +286,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{88, 161}, {217, 167}}</string>
 								<reference key="NSSuperview" ref="117637838"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">1</int>
@@ -620,7 +621,7 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="主页背景1.png">{639, 959}</string>
+			<string key="主页背景1.png">{480, 800}</string>
 			<string key="返回0.png">{88, 88}</string>
 			<string key="顶部.png">{640, 88}</string>
 		</dictionary>

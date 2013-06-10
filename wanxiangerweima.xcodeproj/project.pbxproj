@@ -184,6 +184,8 @@
 		58097F4B17606EAA00BF7C51 /* InPutString.m in Sources */ = {isa = PBXBuildFile; fileRef = 58097F4917606EAA00BF7C51 /* InPutString.m */; };
 		58097F4C17606EAA00BF7C51 /* InPutString.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58097F4A17606EAA00BF7C51 /* InPutString.xib */; };
 		58097F4E17607CA800BF7C51 /* 返回0.png in Resources */ = {isa = PBXBuildFile; fileRef = 58097F4D17607CA700BF7C51 /* 返回0.png */; };
+		581326701765B2F000E2A632 /* MyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5813266F1765B2F000E2A632 /* MyTableView.m */; };
+		581326721765B30E00E2A632 /* MyTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 581326711765B30D00E2A632 /* MyTableView.xib */; };
 		5818C005174D19C2002A54C4 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5818C002174D19C1002A54C4 /* libstdc++.6.0.9.dylib */; };
 		5818C006174D19C2002A54C4 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5818C003174D19C1002A54C4 /* libstdc++.6.dylib */; };
 		5818C007174D19C2002A54C4 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5818C004174D19C1002A54C4 /* libstdc++.dylib */; };
@@ -544,7 +546,6 @@
 		58EADC24173D956B007140E4 /* ArticleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EADC23173D956A007140E4 /* ArticleModel.m */; };
 		58F72073170B83E10085D693 /* WWREveryPhenomenonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58F72070170B83E10085D693 /* WWREveryPhenomenonCell.xib */; };
 		58F72074170B83E10085D693 /* WWREveryPhenomenonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F72071170B83E10085D693 /* WWREveryPhenomenonCell.m */; };
-		745E4046176627F300C8E775 /* LYGScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 745E4045176627F300C8E775 /* LYGScanViewController.xib */; };
 		CE0D0BD1170C56A20071E7CC /* TextGreatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0D0BCC170C56A20071E7CC /* TextGreatViewController.m */; };
 		CE0D0BD2170C56A20071E7CC /* TextGreatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE0D0BCD170C56A20071E7CC /* TextGreatViewController.xib */; };
 		CE0D0BE8170C56D90071E7CC /* bitstream.c in Sources */ = {isa = PBXBuildFile; fileRef = CE0D0BD8170C56D90071E7CC /* bitstream.c */; };
@@ -578,6 +579,7 @@
 		CEC6C08117159A5A00321165 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC6C08017159A5A00321165 /* AddressBookUI.framework */; };
 		CECF9709170BCF72004B842A /* ZhuanPanView.m in Sources */ = {isa = PBXBuildFile; fileRef = CECF9708170BCF72004B842A /* ZhuanPanView.m */; };
 		CECF9794170BDC85004B842A /* LYGScanViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CECF9792170BDC85004B842A /* LYGScanViewController.mm */; };
+		CECF9795170BDC85004B842A /* LYGScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECF9793170BDC85004B842A /* LYGScanViewController.xib */; };
 		CEE0D39E1711575F00CE7B44 /* LGWeiBoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE0D39C1711575F00CE7B44 /* LGWeiBoViewController.m */; };
 		CEE0D39F1711575F00CE7B44 /* LGWeiBoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE0D39D1711575F00CE7B44 /* LGWeiBoViewController.xib */; };
 		CEE0D63A1711B35C00CE7B44 /* LGPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE0D6381711B35C00CE7B44 /* LGPhoneViewController.m */; };
@@ -884,6 +886,9 @@
 		58097F4917606EAA00BF7C51 /* InPutString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InPutString.m; sourceTree = "<group>"; };
 		58097F4A17606EAA00BF7C51 /* InPutString.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InPutString.xib; sourceTree = "<group>"; };
 		58097F4D17607CA700BF7C51 /* 返回0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回0.png"; sourceTree = "<group>"; };
+		5813266E1765B2EF00E2A632 /* MyTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableView.h; sourceTree = "<group>"; };
+		5813266F1765B2F000E2A632 /* MyTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableView.m; sourceTree = "<group>"; };
+		581326711765B30D00E2A632 /* MyTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyTableView.xib; sourceTree = "<group>"; };
 		5818C002174D19C1002A54C4 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		5818C003174D19C1002A54C4 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		5818C004174D19C1002A54C4 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
@@ -1426,7 +1431,6 @@
 		58F72070170B83E10085D693 /* WWREveryPhenomenonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWREveryPhenomenonCell.xib; sourceTree = "<group>"; };
 		58F72071170B83E10085D693 /* WWREveryPhenomenonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWREveryPhenomenonCell.m; sourceTree = "<group>"; };
 		58F72072170B83E10085D693 /* WWREveryPhenomenonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWREveryPhenomenonCell.h; sourceTree = "<group>"; };
-		745E4045176627F300C8E775 /* LYGScanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LYGScanViewController.xib; sourceTree = "<group>"; };
 		CE0D0BCB170C56A20071E7CC /* TextGreatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextGreatViewController.h; sourceTree = "<group>"; };
 		CE0D0BCC170C56A20071E7CC /* TextGreatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextGreatViewController.m; sourceTree = "<group>"; };
 		CE0D0BCD170C56A20071E7CC /* TextGreatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextGreatViewController.xib; sourceTree = "<group>"; };
@@ -1477,6 +1481,7 @@
 		CECF9707170BCF72004B842A /* ZhuanPanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhuanPanView.h; sourceTree = "<group>"; };
 		CECF9708170BCF72004B842A /* ZhuanPanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhuanPanView.m; sourceTree = "<group>"; };
 		CECF9792170BDC85004B842A /* LYGScanViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LYGScanViewController.mm; sourceTree = "<group>"; };
+		CECF9793170BDC85004B842A /* LYGScanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LYGScanViewController.xib; sourceTree = "<group>"; };
 		CEE0D39B1711575F00CE7B44 /* LGWeiBoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGWeiBoViewController.h; sourceTree = "<group>"; };
 		CEE0D39C1711575F00CE7B44 /* LGWeiBoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGWeiBoViewController.m; sourceTree = "<group>"; };
 		CEE0D39D1711575F00CE7B44 /* LGWeiBoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LGWeiBoViewController.xib; sourceTree = "<group>"; };
@@ -2506,7 +2511,7 @@
 				58EA8E3B1710A4C50093A843 /* LYGZBarReadViewController.h */,
 				58E6FBCC170A23130029BAAD /* LYGScanViewController.h */,
 				CECF9792170BDC85004B842A /* LYGScanViewController.mm */,
-				745E4045176627F300C8E775 /* LYGScanViewController.xib */,
+				CECF9793170BDC85004B842A /* LYGScanViewController.xib */,
 			);
 			name = scan;
 			sourceTree = "<group>";
@@ -2665,6 +2670,9 @@
 		58E6FB40170A1BF20029BAAD = {
 			isa = PBXGroup;
 			children = (
+				5813266E1765B2EF00E2A632 /* MyTableView.h */,
+				581326711765B30D00E2A632 /* MyTableView.xib */,
+				5813266F1765B2F000E2A632 /* MyTableView.m */,
 				58E6FBE2170A27610029BAAD /* 个人中心 */,
 				58E6FBDB170A26C80029BAAD /* 万象街道 */,
 				58E6FBD1170A259D0029BAAD /* 万象包 */,
@@ -3426,6 +3434,7 @@
 				12D18C8F170C4A67009859F6 /* BYNAccountManagementViewController.xib in Resources */,
 				12D18C91170C4A67009859F6 /* BYNRegisterViewController.xib in Resources */,
 				12D18C93170C4A67009859F6 /* BYNTableViewCell.xib in Resources */,
+				CECF9795170BDC85004B842A /* LYGScanViewController.xib in Resources */,
 				587311A1170C55E800BC0CD5 /* 个人中心背景框区分0.png in Resources */,
 				587311A2170C55E800BC0CD5 /* 个人中心背景框区分7.png in Resources */,
 				587311A3170C55E800BC0CD5 /* 个人中心背景框区分8.png in Resources */,
@@ -3566,7 +3575,7 @@
 				589C24361764E9250017779A /* 主页背景1.png in Resources */,
 				589C243C17650F2A0017779A /* 主页背景1.png in Resources */,
 				589C24401765101D0017779A /* 记住密码未点击状态.png in Resources */,
-				745E4046176627F300C8E775 /* LYGScanViewController.xib in Resources */,
+				581326721765B30E00E2A632 /* MyTableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3775,6 +3784,7 @@
 				58097F4B17606EAA00BF7C51 /* InPutString.m in Sources */,
 				580720751762017100856FFC /* ChoujiangViewController.m in Sources */,
 				5807207A1762151A00856FFC /* MediaViewController.m in Sources */,
+				581326701765B2F000E2A632 /* MyTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

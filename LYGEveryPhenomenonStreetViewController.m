@@ -58,6 +58,7 @@
     [_searchView release];
     [_mainView release];
     [_adPageC release];
+    [_myEdit release];
     [super dealloc];
 }
 
@@ -148,6 +149,7 @@
     [self setSearchView:nil];
     [self setMainView:nil];
     [self setAdPageC:nil];
+    [self setMyEdit:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -323,13 +325,13 @@
         }
     }
     LPAd *ad = [_adArray objectAtIndex:indexPath.row];
-    cell.titleLabel.text = ad.title;
-    cell.contentTextView.text = ad.contents;
-    cell.classLabel.text = [NSString stringWithFormat:@"%d",ad.classID];
-    cell.label.text = ad.shopname;
+//    cell.titleLabel.text = ad.title;
+//    cell.contentTextView.text = ad.contents;
+//    cell.classLabel.text = [NSString stringWithFormat:@"%d",ad.classID];
+//    cell.label.text = ad.shopname;
     
     [cell.imgView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",SERVER_URL,ad.imgurl]] placeholderImage:[UIImage imageNamed:@"place.png"]];
-    cell.imgView.contentMode = UIViewContentModeScaleAspectFit;
+    //cell.imgView.contentMode = UIViewContentModeScaleAspectFit;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
@@ -416,5 +418,8 @@
 - (IBAction)animated:(DAReloadActivityButton*)sender {
     [sender startAnimating];
     [_engine requestAd:[self getCity]];
+}
+- (IBAction)buttonClick:(id)sender {
+    [self.myEdit resignFirstResponder];
 }
 @end

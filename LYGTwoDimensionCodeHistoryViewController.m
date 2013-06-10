@@ -45,10 +45,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     _myarry = [LYGTwoDimensionCodeDao getCodes:YES];
     //_imagenameArry = [NSArray arrayWithObjects:@"",@"",@"",@"",@"",@"",@"", nil];
     // Do any additional setup after loading the view from its nib.
 }
+
 
 - (void)viewDidUnload
 {

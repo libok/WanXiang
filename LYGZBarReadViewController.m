@@ -123,19 +123,19 @@
     
     [labIntroudction release];
     
-    //[upView release];    
+    [upView release];    
     
     
     
-    UIView * downView = [[UIView alloc] initWithFrame:CGRectMake(0, 380, 320, 85)];
-    
-    downView.alpha = 0.5;
-    
-    downView.backgroundColor = [UIColor blackColor];
-    
-    [self.view addSubview:downView];
-    
-    [downView release];           
+//    UIView * downView = [[UIView alloc] initWithFrame:CGRectMake(0, 380, 320, 85)];
+//    
+//    downView.alpha = 0.5;
+//    
+//    downView.backgroundColor = [UIColor blackColor];
+//    
+//    [self.view addSubview:downView];
+//    
+//    [downView release];           
     
     
     
@@ -149,8 +149,6 @@
     
     //上面的两个button
     UIButton *openPhotoLib = [[UIButton alloc]init];    
-    
-    //openPhotoLib.alpha = 0.5;
     
     [openPhotoLib setFrame:CGRectMake(15, 10, 50, 40)]; 
     [openPhotoLib setImage:[UIImage imageNamed:@"二维码上边的两个按钮1.png"] forState:UIControlStateNormal];
@@ -179,18 +177,7 @@
     [openPhotoLib2 release];
     
     
-    int x = (IS_IPHONE5?513:415);
-    UIImageView * imageview = [[UIImageView alloc]initWithFrame:CGRectMake(0, x-7, 320, 100)];
-    imageview.image = [UIImage imageNamed:@"scantop.jpg"];
-    [self.view addSubview:imageview];
-    [imageview release];
-    
-    
-    UIButton * button = [[UIButton alloc]initWithFrame:CGRectMake(0, x-5, 44, 44)];
-    [button setImage:[UIImage imageNamed:@"返回0.png"] forState:UIControlStateNormal];
-    [self.view addSubview:button];
-    [button addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    [button release];
+
 }
 
 - (void)lineMove
@@ -282,6 +269,7 @@
     [info objectForKey: ZBarReaderControllerResults];
     NSLog(@"%@",results);
     ZBarSymbol *symbol = nil;
+    AudioServicesPlaySystemSound (_shakeSoundID);
     for(symbol in results)
         break;   
     __block LYGTwoDimensionCodeModel * amodel = [[LYGTwoDimensionCodeModel alloc]init];
@@ -385,9 +373,6 @@
                      break;
             }
 			
-			//加载声音
-			AudioServicesPlaySystemSound (_shakeSoundID);
-
             [LYGTwoDimensionCodeDao insert:amodel];
             LYGTwoDimensionCodeDetailViewController * scan = [[LYGTwoDimensionCodeDetailViewController alloc]init];
             scan.amodel = amodel;
@@ -497,7 +482,7 @@
         {
             amodel.content    = symbol.data;
         }
-		AudioServicesPlaySystemSound (_shakeSoundID);
+		
         if ([amodel.content hasPrefix:@"http"]) {
             amodel.type       = 1;
         }else

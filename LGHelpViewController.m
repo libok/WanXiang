@@ -9,6 +9,9 @@
 #import "LGHelpViewController.h"
 #import "LGHelp2ViewController.h"
 #import "LYGScanViewController.h"
+#import "ASIHTTPRequest.h"
+#import "SBJSON.h"
+#import "LYGScanViewController.h"
 @implementation LGHelpViewController
 @synthesize helpView = _helpView;
 
@@ -27,9 +30,39 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	[self.myTableView reloadData];
+	//[self.myTableView reloadData];
 	self.helpView.hidden = YES;
+    [self loadxxx];
 }
+-(void)loadxxx
+{
+    __block LGHelpViewController *helpVC = self;
+    NSString * str1 = [NSString stringWithFormat:@"%@/API/News/List.aspx?type=1",SERVER_URL];
+    ASIHTTPRequest * request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:str1]];
+    [request setCompletionBlock:^{
+        helpVC.myArry     = [[NSMutableArray alloc]init];
+        SBJSON * json     = [[SBJSON alloc]init];
+        NSString * string = request.responseString;
+        NSDictionary * dict = [json objectWithString:string];
+        NSString  * tempString  = [dict valueForKey:@"Result"];
+        NSArray   * arry        = [json objectWithString:tempString];
+        NSLog(@"%@",[[arry objectAtIndex:0] class]);
+        for (NSDictionary * dict2 in arry) {
+            //                    SBJSON * sj = [[SBJSON alloc]init];
+            //                    NSDictionary * dict = [sj valueForKey:str];
+            HelpClass * oneHelp = [[HelpClass alloc]initWithDict:dict2];
+            [helpVC.myArry addObject:oneHelp];
+            [oneHelp release];
+        }
+        [helpVC.myTableView reloadData];
+    }];
+    [request setFailedBlock:^{
+        
+    }];
+    [request startAsynchronous];
+}
+
+
 
 
 /*
