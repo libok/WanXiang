@@ -33,9 +33,7 @@
 - (id)initWithDictionary:(NSDictionary *)huiYuanKaDictionary
 {
 	if (self = [super init])
-	{
-        
-        
+	{   
         
         
         

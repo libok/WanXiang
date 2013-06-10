@@ -21,6 +21,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "MainControllerAdsViewController.h"
 #import "BYNLoginViewController.h"
+//#import <>
 @implementation LPCustomTabBarViewController
 @synthesize adScrollView;
 @synthesize adPageViewController;
@@ -78,6 +79,17 @@
 - (void)viewDidLoad 
 {
     [super viewDidLoad];
+    
+    
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    UIImage *image  = [UIImage imageNamed:@"4.png"];
+    [image drawInRect:self.view.bounds];
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//    CGContextMoveToPoint(context, self.lastPoint.x, self.lastPoint.y);
+//    CGContextAddLineToPoint(context, point.x, point.y);
+//    CGContextStrokePath(context);
+//    self.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
     //UIScrollView * scrollview = (UIScrollView*)self.view;
     
     //scrollview.indicatorStyle     = none;
