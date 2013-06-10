@@ -28,4 +28,9 @@
 }
 */
 
+- (IBAction)buttonClick:(id)sender {
+    int x = ((UIButton*)sender).tag;
+    //[self.delegate setindex:x];LP
+    self.oneBlock(x);
+}
 @end

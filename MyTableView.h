@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface MyTableView : UIView
-
+- (IBAction)buttonClick:(id)sender;
+@property(nonatomic,assign)id delegate;
+@property(nonatomic,copy)void (^oneBlock)(int);
 @end
+
