@@ -544,6 +544,7 @@
 		58EADC24173D956B007140E4 /* ArticleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EADC23173D956A007140E4 /* ArticleModel.m */; };
 		58F72073170B83E10085D693 /* WWREveryPhenomenonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58F72070170B83E10085D693 /* WWREveryPhenomenonCell.xib */; };
 		58F72074170B83E10085D693 /* WWREveryPhenomenonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F72071170B83E10085D693 /* WWREveryPhenomenonCell.m */; };
+		745E4046176627F300C8E775 /* LYGScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 745E4045176627F300C8E775 /* LYGScanViewController.xib */; };
 		CE0D0BD1170C56A20071E7CC /* TextGreatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0D0BCC170C56A20071E7CC /* TextGreatViewController.m */; };
 		CE0D0BD2170C56A20071E7CC /* TextGreatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE0D0BCD170C56A20071E7CC /* TextGreatViewController.xib */; };
 		CE0D0BE8170C56D90071E7CC /* bitstream.c in Sources */ = {isa = PBXBuildFile; fileRef = CE0D0BD8170C56D90071E7CC /* bitstream.c */; };
@@ -577,7 +578,6 @@
 		CEC6C08117159A5A00321165 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC6C08017159A5A00321165 /* AddressBookUI.framework */; };
 		CECF9709170BCF72004B842A /* ZhuanPanView.m in Sources */ = {isa = PBXBuildFile; fileRef = CECF9708170BCF72004B842A /* ZhuanPanView.m */; };
 		CECF9794170BDC85004B842A /* LYGScanViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CECF9792170BDC85004B842A /* LYGScanViewController.mm */; };
-		CECF9795170BDC85004B842A /* LYGScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECF9793170BDC85004B842A /* LYGScanViewController.xib */; };
 		CEE0D39E1711575F00CE7B44 /* LGWeiBoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE0D39C1711575F00CE7B44 /* LGWeiBoViewController.m */; };
 		CEE0D39F1711575F00CE7B44 /* LGWeiBoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE0D39D1711575F00CE7B44 /* LGWeiBoViewController.xib */; };
 		CEE0D63A1711B35C00CE7B44 /* LGPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE0D6381711B35C00CE7B44 /* LGPhoneViewController.m */; };
@@ -1426,6 +1426,7 @@
 		58F72070170B83E10085D693 /* WWREveryPhenomenonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWREveryPhenomenonCell.xib; sourceTree = "<group>"; };
 		58F72071170B83E10085D693 /* WWREveryPhenomenonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWREveryPhenomenonCell.m; sourceTree = "<group>"; };
 		58F72072170B83E10085D693 /* WWREveryPhenomenonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWREveryPhenomenonCell.h; sourceTree = "<group>"; };
+		745E4045176627F300C8E775 /* LYGScanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LYGScanViewController.xib; sourceTree = "<group>"; };
 		CE0D0BCB170C56A20071E7CC /* TextGreatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextGreatViewController.h; sourceTree = "<group>"; };
 		CE0D0BCC170C56A20071E7CC /* TextGreatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextGreatViewController.m; sourceTree = "<group>"; };
 		CE0D0BCD170C56A20071E7CC /* TextGreatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextGreatViewController.xib; sourceTree = "<group>"; };
@@ -1476,7 +1477,6 @@
 		CECF9707170BCF72004B842A /* ZhuanPanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhuanPanView.h; sourceTree = "<group>"; };
 		CECF9708170BCF72004B842A /* ZhuanPanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhuanPanView.m; sourceTree = "<group>"; };
 		CECF9792170BDC85004B842A /* LYGScanViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LYGScanViewController.mm; sourceTree = "<group>"; };
-		CECF9793170BDC85004B842A /* LYGScanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LYGScanViewController.xib; sourceTree = "<group>"; };
 		CEE0D39B1711575F00CE7B44 /* LGWeiBoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGWeiBoViewController.h; sourceTree = "<group>"; };
 		CEE0D39C1711575F00CE7B44 /* LGWeiBoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGWeiBoViewController.m; sourceTree = "<group>"; };
 		CEE0D39D1711575F00CE7B44 /* LGWeiBoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LGWeiBoViewController.xib; sourceTree = "<group>"; };
@@ -2506,7 +2506,7 @@
 				58EA8E3B1710A4C50093A843 /* LYGZBarReadViewController.h */,
 				58E6FBCC170A23130029BAAD /* LYGScanViewController.h */,
 				CECF9792170BDC85004B842A /* LYGScanViewController.mm */,
-				CECF9793170BDC85004B842A /* LYGScanViewController.xib */,
+				745E4045176627F300C8E775 /* LYGScanViewController.xib */,
 			);
 			name = scan;
 			sourceTree = "<group>";
@@ -3426,7 +3426,6 @@
 				12D18C8F170C4A67009859F6 /* BYNAccountManagementViewController.xib in Resources */,
 				12D18C91170C4A67009859F6 /* BYNRegisterViewController.xib in Resources */,
 				12D18C93170C4A67009859F6 /* BYNTableViewCell.xib in Resources */,
-				CECF9795170BDC85004B842A /* LYGScanViewController.xib in Resources */,
 				587311A1170C55E800BC0CD5 /* 个人中心背景框区分0.png in Resources */,
 				587311A2170C55E800BC0CD5 /* 个人中心背景框区分7.png in Resources */,
 				587311A3170C55E800BC0CD5 /* 个人中心背景框区分8.png in Resources */,
@@ -3567,6 +3566,7 @@
 				589C24361764E9250017779A /* 主页背景1.png in Resources */,
 				589C243C17650F2A0017779A /* 主页背景1.png in Resources */,
 				589C24401765101D0017779A /* 记住密码未点击状态.png in Resources */,
+				745E4046176627F300C8E775 /* LYGScanViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

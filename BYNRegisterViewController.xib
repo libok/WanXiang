@@ -371,7 +371,6 @@
 								<string key="NSFrame">{{35, 234}, {374, 28}}</string>
 								<reference key="NSSuperview" ref="680750966"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
@@ -1050,7 +1049,7 @@
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{640, 960}</string>
 				<string>{47, 46}</string>
-				<string>{34, 34}</string>
+				<string>{26, 25}</string>
 				<string>{544, 396}</string>
 				<string>{22, 42}</string>
 				<string>{40, 45}</string>
