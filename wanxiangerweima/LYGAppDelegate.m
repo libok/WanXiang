@@ -166,16 +166,6 @@ static NSString * UUID = nil;
     {
         [self displayWelcom];
     }
-//    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-//    //self.window.layer.cornerRadius = 20;
-//    self.window.clipsToBounds      = YES;
-//    LPCustomTabBarViewController * mainViewController = [[LPCustomTabBarViewController alloc]init];
-//    UINavigationController * navi = [[UINavigationController alloc]initWithRootViewController:mainViewController];
-//    [mainViewController release];
-//    
-//	navi.navigationBarHidden  = YES;
-//	self.window.rootViewController = navi;
-//    [navi release];
 	
     [self.window makeKeyAndVisible];
     return YES;

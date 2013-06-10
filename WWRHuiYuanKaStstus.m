@@ -33,7 +33,10 @@
 - (id)initWithDictionary:(NSDictionary *)huiYuanKaDictionary
 {
 	if (self = [super init])
-	{  
+	{   
+        
+        
+        
         self.managerID = [huiYuanKaDictionary objectForKey:@"mangerid"];
 		self.userID = [huiYuanKaDictionary objectForKey:@"userId"];
 		self.point = [huiYuanKaDictionary objectForKey:@"Point"];
