@@ -43,6 +43,7 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrameSize">{320, 460}</string>
 						<reference key="NSSuperview" ref="952191570"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="468007119"/>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
@@ -55,6 +56,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrameSize">{320, 49}</string>
 						<reference key="NSSuperview" ref="952191570"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="344380370"/>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -68,6 +70,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrameSize">{44, 44}</string>
 						<reference key="NSSuperview" ref="952191570"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="646928439"/>
 						<object class="NSColor" key="IBUIBackgroundColor" id="682806861">
 							<int key="NSColorSpace">3</int>
@@ -110,7 +113,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{96, 8}, {127, 33}}</string>
 						<reference key="NSSuperview" ref="952191570"/>
-						<reference key="NSNextKeyView"/>
+						<reference key="NSWindow"/>
 						<reference key="IBUIBackgroundColor" ref="682806861"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -138,8 +141,9 @@
 					<object class="IBUIWebView" id="533978155">
 						<reference key="NSNextResponder" ref="952191570"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{0, 49}, {320, 245}}</string>
+						<string key="NSFrame">{{0, 49}, {320, 411}}</string>
 						<reference key="NSSuperview" ref="952191570"/>
+						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
@@ -152,6 +156,7 @@
 				</array>
 				<string key="NSFrame">{{0, 20}, {320, 460}}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="349033488"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -268,13 +273,46 @@
 			<nil key="sourceID"/>
 			<int key="maxID">22</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">ChoujiangViewController</string>
+					<string key="superclassName">UIViewController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">goback:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">goback:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">goback:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">myWebView</string>
+						<string key="NS.object.0">UIWebView</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">myWebView</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">myWebView</string>
+							<string key="candidateClassName">UIWebView</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/ChoujiangViewController.h</string>
+					</object>
+				</object>
+			</array>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="主页背景1.png">{16, 16}</string>
+			<string key="主页背景1.png">{639, 959}</string>
 			<string key="返回0.png">{88, 88}</string>
 			<string key="顶部.png">{640, 88}</string>
 		</dictionary>

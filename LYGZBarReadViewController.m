@@ -19,6 +19,7 @@
 #import "InPutString.h"
 #import "LPCommDatilViewController.h"
 #import "MediaViewController.h"
+#import "YanZhengViewController.h"
 @implementation LYGZBarReadViewController
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -279,6 +280,7 @@
     NSRange range2              = [symbol.data rangeOfString:[NSString stringWithFormat:@"%@/page/page.aspx?id=",SERVER_URL]];
     NSRange range3              = [symbol.data rangeOfString:[NSString stringWithFormat:@"%@/page/lottery.aspx?id=",SERVER_URL]];
     NSRange range4              = [symbol.data rangeOfString:[NSString stringWithFormat:@"河南宝丰石桥水泉"]];
+
     if (range.length > 0) 
     {
         NSArray * arry          = [symbol.data componentsSeparatedByString:@"="];
@@ -457,6 +459,46 @@
         UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"版权所有" message:@"制作人：刘永刚  电话 18638572661" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alert show];
         [alert release];
+
+    }else if([symbol.data hasPrefix:@"y"] || [symbol.data hasPrefix:@"p"] || [symbol.data hasPrefix:@"q"] || [symbol.data hasPrefix:@"L"])
+    {
+        if (isOpenFromSaveAlbum)
+        {
+            //[reader dismissModalViewControllerAnimated:YES];
+            [reader dismissViewControllerAnimated:YES completion:nil];
+        }
+        YanZhengViewController * temp = [[YanZhengViewController alloc]init];
+
+        unichar ss = [symbol.data characterAtIndex:0];
+        NSString * tempstr = nil;
+        switch (ss) {
+            case 'y':
+            {   
+                tempstr = @"/api/pz/yh.aspx?key=";
+            }
+                break;
+            case 'p':
+            {
+                tempstr = @"/api/pz/pz.aspx?key=";
+            }
+                break;
+            case 'q':
+            {
+                tempstr = @"/api/pz/qd.aspx?key=";
+            }
+                break;
+            case 'L':
+            {
+                tempstr = @"/api/pz/lp.aspx?key=";
+            }
+                break;
+                
+            default:
+                break;
+        }
+        temp.urlString = [NSString stringWithFormat:@"%@%@%@",SERVER_URL,tempstr,symbol.data];
+        [self.navigationController pushViewController:temp animated:YES];
+        
 
     }
     else       //来自其它软件的二维码或者本软件产生的未被加过密的二维码；
