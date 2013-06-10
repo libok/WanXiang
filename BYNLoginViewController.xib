@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1552</int>
-		<string key="IBDocument.SystemVersion">12C60</string>
+		<string key="IBDocument.SystemVersion">12D78</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
-		<string key="IBDocument.AppKitVersion">1187.34</string>
-		<string key="IBDocument.HIToolboxVersion">625.00</string>
+		<string key="IBDocument.AppKitVersion">1187.37</string>
+		<string key="IBDocument.HIToolboxVersion">626.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">2083</string>
@@ -156,7 +156,7 @@
 					<object class="IBUIImageView" id="54738817">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 58}, {18, 39}}</string>
+						<string key="NSFrame">{{27, 64}, {11, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="222989941"/>
@@ -170,7 +170,7 @@
 					<object class="IBUIImageView" id="879232605">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{15, 105}, {30, 39}}</string>
+						<string key="NSFrame">{{22, 115}, {20, 23}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="818657567"/>
@@ -184,7 +184,7 @@
 					<object class="IBUITextField" id="222989941">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{58, 52}, {242, 45}}</string>
+						<string key="NSFrame">{{58, 52}, {242, 50}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="879232605"/>
@@ -370,7 +370,6 @@
 						<string key="NSFrame">{{187, 195}, {97, 42}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -535,10 +534,10 @@
 							<reference ref="181877135"/>
 							<reference ref="95213996"/>
 							<reference ref="129401253"/>
-							<reference ref="54738817"/>
-							<reference ref="879232605"/>
 							<reference ref="511883101"/>
 							<reference ref="706918640"/>
+							<reference ref="54738817"/>
+							<reference ref="879232605"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
