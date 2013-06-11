@@ -46,4 +46,7 @@
     [self setMyWebView:nil];
     [super viewDidUnload];
 }
+- (IBAction)buttonClick:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

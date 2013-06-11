@@ -11,4 +11,5 @@
 @interface YanZhengViewController : UIViewController
 @property (retain, nonatomic) IBOutlet UIWebView *myWebView;
 @property(nonatomic,copy)NSString * urlString;
+- (IBAction)buttonClick:(id)sender;
 @end
