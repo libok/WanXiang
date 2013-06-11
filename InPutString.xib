@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1552</int>
-		<string key="IBDocument.SystemVersion">12C60</string>
+		<string key="IBDocument.SystemVersion">12D78</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
-		<string key="IBDocument.AppKitVersion">1187.34</string>
-		<string key="IBDocument.HIToolboxVersion">625.00</string>
+		<string key="IBDocument.AppKitVersion">1187.37</string>
+		<string key="IBDocument.HIToolboxVersion">626.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">2083</string>
@@ -111,7 +111,7 @@
 					<object class="IBUIButton" id="740788824">
 						<reference key="NSNextResponder" ref="333488986"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{274, 13}, {28, 25}}</string>
+						<string key="NSFrame">{{281, 13}, {24, 23}}</string>
 						<reference key="NSSuperview" ref="333488986"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="546029377"/>
@@ -216,6 +216,7 @@
 						<string key="NSFrame">{{42, 128}, {236, 36}}</string>
 						<reference key="NSSuperview" ref="333488986"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MSAxIDEAA</bytes>
@@ -320,11 +321,11 @@
 							<reference ref="418260989"/>
 							<reference ref="546029377"/>
 							<reference ref="692240928"/>
-							<reference ref="740788824"/>
 							<reference ref="469014424"/>
 							<reference ref="827967052"/>
 							<reference ref="687945064"/>
 							<reference ref="270106929"/>
+							<reference ref="740788824"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
