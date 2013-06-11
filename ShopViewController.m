@@ -102,22 +102,23 @@
         LPCommodity * com = [self.oneArry objectAtIndex:i];
         NSArray * arry    = [[NSBundle mainBundle]loadNibNamed:@"UICustomButton" owner:nil options:nil];
         UICustomButton * button = (UICustomButton*)[arry objectAtIndex:0];
-        button.frame  = CGRectMake((i%2+1)*10 + (i%2)*145, self.height + (i/2+1)*10 + (i/2)*200,145, 200);
-//        button.layer.cornerRadius = 5;
-//        button.clipsToBounds      = YES;
+        button.frame  = CGRectMake((i%2+1)*6 + (i%2)*151, self.height + (i/2+1)*6 + (i/2)*200,151, 200);
+        //button.layer.cornerRadius = 5;
+        button.clipsToBounds      = YES;
+        button.layer.borderWidth  = 1;
+        button.layer.borderColor  = [UIColor lightGrayColor].CGColor;
         //UIButton * button  = [[UIButton alloc]initWithFrame:CGRectMake((i%2+1)*10 + (i%2)*145, self.height + (i/2+1)*10 + (i/2)*145,145, 145)];
         [self.myScrollview addSubview:button];
         NSString * string  = [NSString stringWithFormat:@"%@%@",SERVER_URL,com.imgurl];
         button.tag = 10000+i;
         [button.myImageView setImageWithURL:[NSURL URLWithString:string] placeholderImage:[UIImage imageNamed:@"place.png"]];
-        button.label1.text = [@"￥:" stringByAppendingFormat:@"%@",com.price];
-        button.label2.text = [@"原价:" stringByAppendingFormat:@"%@",com.price2];
+        button.label1.text = [@"￥:" stringByAppendingFormat:@"%@",com.price2];
+        button.label2.text = [@"原价:" stringByAppendingFormat:@"%@",com.price];
         button.label3.text = com.title;
         [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
         if (i == [self.oneArry count] - 1) {
-            self.myScrollview.contentSize = CGSizeMake(320, i*145 + 500);
+            self.myScrollview.contentSize = CGSizeMake(320, i*151 + 500);
         }
-
     }
 }
 @end

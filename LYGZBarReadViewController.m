@@ -354,6 +354,14 @@
                     break;
                 case 5:
                 {
+                    //MediaViewController * temp = [[MediaViewController alloc]init];
+                    //temp.urlString             =
+                    NSArray * arry = [request.responseString componentsSeparatedByString:@"|"];
+                    MediaViewController * temp = [[MediaViewController alloc]init];
+                    temp.urlString = [arry objectAtIndex:0];
+                    temp.goodID                = [[arry objectAtIndex:1] intValue];
+                    [self.navigationController pushViewController:temp animated:YES];
+                    return;
                 }
                     break;
                 case 6:
@@ -429,6 +437,7 @@
         temp.urlString = [arry objectAtIndex:0];
         temp.goodID                = [[arry objectAtIndex:1] intValue];
         [self.navigationController pushViewController:temp animated:YES];
+        [temp release];
     }else if (range3.length > 0)
     {
         if (isOpenFromSaveAlbum)
