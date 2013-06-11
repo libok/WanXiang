@@ -40,6 +40,7 @@
 @property (retain, nonatomic) IBOutlet UIView *mainView;
 @property (nonatomic,retain)  NSTimer * myTimer;
 @property (nonatomic,assign)  BOOL isNeedRefresh;
+@property (nonatomic,retain)  NSArray *fenleiArry;
 - (IBAction)end:(id)sender;
 
 @end

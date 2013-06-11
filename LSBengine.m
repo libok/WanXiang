@@ -259,10 +259,10 @@
 	request.timeOutSeconds = 60;
     [request startAsynchronous];
 }
--(void)requestAd:(LPCity *)aCity
+-(void)requestAd:(LPCity *)aCity atype:(int)type
 {
     if (aCity == nil) {
-        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/AD/wxad.aspx?sheng=1&shi=24&p=1",SERVER_URL]]];
+        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/AD/wxad.aspx?sheng=1&shi=24&C=%d&p=1",SERVER_URL,type]]];
         request.delegate = self;
         request.tag = REQUEST_AD;
         //手动设置结束方法

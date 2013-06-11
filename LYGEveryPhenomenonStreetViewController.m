@@ -26,6 +26,9 @@
 #import "LPCommodityViewController.h"
 #import "ShopViewController.h"
 #import "ShopViewController.h"
+#import "ASIHTTPRequest.h"
+#import "SBJSON.h"
+static int currentIndex = 0;
 @implementation LYGEveryPhenomenonStreetViewController
 @synthesize xialaView = _xialaView;
 @synthesize provincebtn = _provincebtn;
@@ -100,6 +103,7 @@
 //    [_viewButton addTarget:self action:@selector(animate:) forControlEvents:UIControlEventTouchUpInside];
 //    _viewButton.frame = CGRectMake(288, 7, 39*0.5, 45*0.5);
     //[_mainView addSubview:_viewButton];
+    [self requestCategory];
     _engine = [[LSBengine alloc] init];
     _engine.delegate = self;
     LPCity *city = [self getCity];
@@ -109,9 +113,9 @@
         [_provincebtn setTitle:tempstr forState:UIControlStateNormal];
         
     }
-    [_engine requestAd:city];
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
+    [_engine requestAd:city atype:0];
+    //[_engine requestAd:<#(LPCity *)#>]
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];    
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -124,7 +128,7 @@
             [_provincebtn setTitle:tempstr forState:UIControlStateNormal];
             
         }
-        [_engine requestAd:city];
+        [_engine requestAd:city atype:0];
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     }
     self.isNeedRefresh = NO;
@@ -132,7 +136,7 @@
 - (void)animate:(DAReloadActivityButton *)button
 {
     [button startAnimating];
-    [_engine requestAd:[self getCity]];   
+    [_engine requestAd:[self getCity] atype:0];
     
 }
 
@@ -173,8 +177,7 @@
     }else
     {
         UIButton * button = (UIButton*)[self.view viewWithTag:8];
-        [button setBackgroundImage:nil forState:UIControlStateNormal];
-        
+        [button setBackgroundImage:nil forState:UIControlStateNormal];        
     }
     UIView * view = [self.view viewWithTag:1000];
     if (view) {
@@ -199,7 +202,7 @@
                 NSLog(@"--------------------");
                 [UIView beginAnimations:nil context:nil];
                 [UIView setAnimationDuration:.5];
-                _xialaView.frame = CGRectMake(0, 43,_xialaView.frame.size.width,_xialaView.frame.size.height);
+                _xialaView.frame = CGRectMake(0, 43,_xialaView.frame.size.width,30*[self.fenleiArry count]);
                 [UIView commitAnimations];
                 i = 2;
                 
@@ -421,5 +424,74 @@
 }
 - (IBAction)buttonClick:(id)sender {
     [self.myEdit resignFirstResponder];
+}
+
+
+-(void)requestCategory
+{
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/Goods/GoodsClass.aspx",SERVER_URL]]];
+    
+    [request setCompletionBlock:^{
+        NSString *timeLineString = request.responseString;
+        SBJSON *json = [[SBJSON alloc] init];
+        NSDictionary *dic = [json objectWithString:timeLineString error:nil];
+        NSDecimalNumber *no = [dic valueForKey:@"NO"];
+        NSString *adString = [dic objectForKey:@"Result"];
+        NSArray *adArray = [json objectWithString:adString error:nil];
+        BOOL isSuccess = ([no intValue] != 0)?YES:NO;
+        if (isSuccess)
+        {
+            NSMutableArray *tempArray = [[NSMutableArray alloc] initWithCapacity:0];
+            NSMutableArray *temp1Array = [[NSMutableArray alloc] init];
+            for (NSDictionary *dic in adArray)
+            {
+                int a = [[dic valueForKey:@"parent_id"] intValue];
+                if(a == 0)
+                {
+                    [tempArray addObject:dic];                    
+                }                
+                else
+                {
+                    [temp1Array addObject:dic];
+                }              
+                
+            }
+            for (NSDictionary *dic in tempArray)
+            {
+                NSMutableArray *subArray = [[NSMutableArray alloc] initWithCapacity:0];
+                for (NSDictionary *dic1 in temp1Array)
+                {
+                    if ([[dic valueForKey:@"id"] intValue] == [[dic1 valueForKey:@"parent_id"] intValue])
+                    {
+                        [subArray addObject:dic1];
+                    }
+                }
+                [dic setValue:subArray forKey:@"subClass"];
+                [subArray release];
+            }
+            self.fenleiArry = tempArray;
+        //UIView * view = [self.view viewWithTag:1000];
+        for (int i = 0 ; i<[self.fenleiArry count]; i++) {
+            UIButton * button = (UIButton*)[_xialaView viewWithTag:10000+i+1];
+            button.hidden     = NO;
+            [button setTitle:[(NSDictionary*)[self.fenleiArry objectAtIndex:i] valueForKey:@"Title"] forState:UIControlStateNormal];
+            [button addTarget:self action:@selector(fenleiButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        }
+                   
+        }
+
+    }];
+        
+    [request setFailedBlock:^{
+        
+    }];
+    [request startAsynchronous];
+}
+-(void)fenleiButtonClick:(UIButton*)sender
+{
+    int x = sender.tag;
+    x-=10001;
+    currentIndex = [[[self.fenleiArry objectAtIndex:x] valueForKey:@"id"] intValue];
+    [_engine requestAd:[self getCity] atype:currentIndex];
 }
 @end

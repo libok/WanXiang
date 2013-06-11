@@ -460,7 +460,7 @@
         [alert show];
         [alert release];
 
-    }else if([symbol.data hasPrefix:@"y"] || [symbol.data hasPrefix:@"p"] || [symbol.data hasPrefix:@"q"] || [symbol.data hasPrefix:@"L"])
+    }else if([symbol.data hasPrefix:@"y"] || [symbol.data hasPrefix:@"p"] || [symbol.data hasPrefix:@"q"] || [symbol.data hasPrefix:@"l"])
     {
         if (isOpenFromSaveAlbum)
         {
@@ -487,7 +487,7 @@
                 tempstr = @"/api/pz/qd.aspx?key=";
             }
                 break;
-            case 'L':
+            case 'l':
             {
                 tempstr = @"/api/pz/lp.aspx?key=";
             }
