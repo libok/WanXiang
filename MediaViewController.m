@@ -1,4 +1,4 @@
-//
+ //
 //  MediaViewController.m
 //  wanxiangerweima
 //
@@ -14,6 +14,7 @@
 #import "MBProgressHUD.h"
 #import "ASIHTTPRequest.h"
 #import "SBJSON.h"
+#import <QuartzCore/QuartzCore.h>
 @interface MediaViewController ()
 
 @end
@@ -32,6 +33,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    for (int i = 1;i< 5;i++) {
+        UIButton * smallbutton = (UIButton*)[self.view viewWithTag:i];
+        smallbutton.layer.cornerRadius =5;
+        smallbutton.clipsToBounds      = YES;
+    }
     [self.myWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.urlString]]];
     NSLog(@"%@",self.urlString);
     [self performSelector:@selector(xxcc) withObject:self afterDelay:0.01];
@@ -63,8 +69,66 @@
         if (isSuccess) {
             temp.dataDictionary = (NSDictionary *)adArray;
             temp.oneCommodity   = [[LPCommodity alloc]initWithDictionary:(NSDictionary *)adArray];
-            temp.label1.text    = [temp.oneCommodity.price description];
-            temp.label2.text    = [temp.oneCommodity.price2 description];
+            for (int i = 1;i< 5;i++) {
+                UIButton * smallbutton = (UIButton*)[self.view viewWithTag:i];
+                switch (i) {
+                    case 1:
+                    {
+                        smallbutton.enabled = temp.oneCommodity.buytype;
+                        smallbutton.userInteractionEnabled = temp.oneCommodity.buytype;
+                    }
+                        break;
+                    case 2:
+                    {
+                        smallbutton.enabled = temp.oneCommodity.isjoin;
+                        smallbutton.userInteractionEnabled = temp.oneCommodity.isjoin;
+
+                    }
+                        break;
+                    case 3:
+                    {
+                        smallbutton.enabled = temp.oneCommodity.isbuy;
+                        smallbutton.userInteractionEnabled = temp.oneCommodity.isbuy;
+
+                    }
+                        break;
+                    case 4:
+                    {
+                        smallbutton.enabled = temp.oneCommodity.isyd;
+                        smallbutton.userInteractionEnabled = temp.oneCommodity.isyd;
+
+                    }
+                        break;
+                        
+                    default:
+                        break;
+                }
+            }
+//            temp.label1.text    = [temp.oneCommodity.price description];
+//            temp.label2.text    = [temp.oneCommodity.price2 description];
+//            int x = temp.oneCommodity.buytype + temp.oneCommodity.isbuy + temp.oneCommodity.isjoin + temp.oneCommodity.isyd;
+//            int a[4] = {1,2,3,4};
+//            BOOL myarry[4] = {temp.oneCommodity.buytype,}
+//            int width = 100;
+//            int height = 50;
+//            int offset = 0;
+//            if (IS_IPHONE5) {
+//                offset = 400 + 576-480;
+//            }else
+//            {
+//                offset = 400;
+//            }
+//            int borderWidth = (320-x*width)/(x+1);
+//            for (int i = 0; i< x ; i++) {
+//                for (int j = i+1; j<5; i++) {
+//                    UIButton * button = [self.view viewWithTag:j]
+//                }
+//                UIButton * button = [[UIButton alloc]init];
+//                button.frame      = CGRectMake(borderWidth + i*(borderWidth+width), offset, width, height);
+//                button.alpha      = 0.5;
+//                //[self.view addSubview:button];
+//                [button release];
+//            }
         }
         
     }];

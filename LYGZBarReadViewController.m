@@ -288,7 +288,7 @@
         amodel.type             = [[arry2 objectAtIndex:0] intValue];
         amodel.isSecret         = YES;
         amodel.encryptedString  = symbol.data;
-        NSString * urlString    = [self createUrlString:symbol.data];
+        NSString * urlString    = [[self createUrlString:symbol.data] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         ASIHTTPRequest * request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:urlString]];
         [request setCompletionBlock:^
         {
@@ -356,11 +356,18 @@
                 {
                     //MediaViewController * temp = [[MediaViewController alloc]init];
                     //temp.urlString             =
-                    NSArray * arry = [request.responseString componentsSeparatedByString:@"|"];
+                    NSLog(@"%@",request.responseString);
+                    SBJSON * json = [[SBJSON alloc]init];
+                    NSDictionary * dict = [json objectWithString:request.responseString];
+                    NSString    * ddddddd = [dict objectForKey:@"Result"];
+                    NSDictionary* tempString  = [json objectWithString:ddddddd];
+                    NSString        * xxx        = [tempString objectForKey:@"url"];
+                    NSArray * arry = [xxx componentsSeparatedByString:@"|"];
                     MediaViewController * temp = [[MediaViewController alloc]init];
                     temp.urlString = [arry objectAtIndex:0];
                     temp.goodID                = [[arry objectAtIndex:1] intValue];
                     [self.navigationController pushViewController:temp animated:YES];
+                    [temp release];
                     return;
                 }
                     break;
