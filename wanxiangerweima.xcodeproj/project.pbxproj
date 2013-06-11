@@ -343,7 +343,6 @@
 		58426C1A170AE043005818A1 /* 万象包图标.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426C07170AE043005818A1 /* 万象包图标.png */; };
 		58426C1B170AE043005818A1 /* 万象节.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426C08170AE043005818A1 /* 万象节.png */; };
 		58426C1C170AE043005818A1 /* 个人中心1.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426C09170AE043005818A1 /* 个人中心1.png */; };
-		58426C1E170AE043005818A1 /* 主页图片.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426C0B170AE043005818A1 /* 主页图片.png */; };
 		58426C1F170AE043005818A1 /* 主页图片2.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426C0C170AE043005818A1 /* 主页图片2.png */; };
 		58426C20170AE043005818A1 /* 二维码按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426C0D170AE043005818A1 /* 二维码按钮.png */; };
 		58426C21170AE043005818A1 /* 会刊图标.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426C0E170AE043005818A1 /* 会刊图标.png */; };
@@ -363,9 +362,6 @@
 		58426C38170AE06C005818A1 /* 生成2背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426C32170AE06C005818A1 /* 生成2背景.png */; };
 		58426C39170AE06C005818A1 /* 生码2.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426C33170AE06C005818A1 /* 生码2.png */; };
 		58426C99170B0704005818A1 /* 底部...png in Resources */ = {isa = PBXBuildFile; fileRef = 58426C98170B0704005818A1 /* 底部...png */; };
-		58426C9C170B0938005818A1 /* ebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426C9B170B0938005818A1 /* ebutton.png */; };
-		58426CA0170B0970005818A1 /* scroll.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426C9F170B0970005818A1 /* scroll.png */; };
-		58426CA2170B0986005818A1 /* erweimabutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426CA1170B0986005818A1 /* erweimabutton.png */; };
 		58426CA8170B1548005818A1 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426CA7170B1547005818A1 /* home.png */; };
 		5843D6F117343C560006A1E0 /* networkerror.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5843D6F017343C560006A1E0 /* networkerror.jpg */; };
 		5851315E1729E4D000054602 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 585131531729E4D000054602 /* NSObject+SBJSON.m */; };
@@ -461,13 +457,11 @@
 		58E6FB96170A1E790029BAAD /* 分割线1.png in Resources */ = {isa = PBXBuildFile; fileRef = 58E6FB6D170A1E780029BAAD /* 分割线1.png */; };
 		58E6FB97170A1E790029BAAD /* 会刊-图片下面圈圈未选中.png in Resources */ = {isa = PBXBuildFile; fileRef = 58E6FB6E170A1E780029BAAD /* 会刊-图片下面圈圈未选中.png */; };
 		58E6FB98170A1E790029BAAD /* 会刊-图片下面圈圈选中.png in Resources */ = {isa = PBXBuildFile; fileRef = 58E6FB6F170A1E780029BAAD /* 会刊-图片下面圈圈选中.png */; };
-		58E6FB99170A1E790029BAAD /* 会刊1-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 58E6FB70170A1E780029BAAD /* 会刊1-1.png */; };
 		58E6FB9A170A1E790029BAAD /* 会刊1-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 58E6FB71170A1E780029BAAD /* 会刊1-2.png */; };
 		58E6FB9B170A1E790029BAAD /* 会刊1-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 58E6FB72170A1E780029BAAD /* 会刊1-3.png */; };
 		58E6FB9C170A1E790029BAAD /* 会刊2-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 58E6FB73170A1E780029BAAD /* 会刊2-1.png */; };
 		58E6FB9D170A1E790029BAAD /* 会刊2-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 58E6FB74170A1E780029BAAD /* 会刊2-2.png */; };
 		58E6FB9E170A1E790029BAAD /* 会刊2-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 58E6FB75170A1E780029BAAD /* 会刊2-3.png */; };
-		58E6FB9F170A1E790029BAAD /* 会刊2-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 58E6FB76170A1E780029BAAD /* 会刊2-4.png */; };
 		58E6FBA0170A1E790029BAAD /* 会刊2-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 58E6FB77170A1E780029BAAD /* 会刊2-5.png */; };
 		58E6FBA1170A1E790029BAAD /* 会刊2-分栏条.png in Resources */ = {isa = PBXBuildFile; fileRef = 58E6FB78170A1E780029BAAD /* 会刊2-分栏条.png */; };
 		58E6FBA2170A1E790029BAAD /* 会刊2-分栏条点击.png in Resources */ = {isa = PBXBuildFile; fileRef = 58E6FB79170A1E780029BAAD /* 会刊2-分栏条点击.png */; };
@@ -496,9 +490,7 @@
 		58E6FBB9170A1E790029BAAD /* 完成按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = 58E6FB90170A1E780029BAAD /* 完成按钮.png */; };
 		58E6FBBA170A1E790029BAAD /* 主页1.png in Resources */ = {isa = PBXBuildFile; fileRef = 58E6FB91170A1E780029BAAD /* 主页1.png */; };
 		58E6FBBB170A1E790029BAAD /* 主页2.png in Resources */ = {isa = PBXBuildFile; fileRef = 58E6FB92170A1E780029BAAD /* 主页2.png */; };
-		58E6FBBC170A1E790029BAAD /* 主页3.png in Resources */ = {isa = PBXBuildFile; fileRef = 58E6FB93170A1E780029BAAD /* 主页3.png */; };
 		58E6FBBD170A1E790029BAAD /* 主页4.png in Resources */ = {isa = PBXBuildFile; fileRef = 58E6FB94170A1E780029BAAD /* 主页4.png */; };
-		58E6FBBE170A1E790029BAAD /* 主页和会刊.png in Resources */ = {isa = PBXBuildFile; fileRef = 58E6FB95170A1E780029BAAD /* 主页和会刊.png */; };
 		58E6FBC9170A22B30029BAAD /* LYGEMagazineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E6FBC7170A22B30029BAAD /* LYGEMagazineViewController.m */; };
 		58E6FBCA170A22B30029BAAD /* LYGEMagazineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58E6FBC8170A22B30029BAAD /* LYGEMagazineViewController.xib */; };
 		58E6FBD5170A260F0029BAAD /* LYGEveryPhenomenonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E6FBD3170A260F0029BAAD /* LYGEveryPhenomenonViewController.m */; };
@@ -1052,7 +1044,6 @@
 		58426C08170AE043005818A1 /* 万象节.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "万象节.png"; sourceTree = "<group>"; };
 		58426C09170AE043005818A1 /* 个人中心1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "个人中心1.png"; sourceTree = "<group>"; };
 		58426C0A170AE043005818A1 /* 主页1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "主页1.png"; sourceTree = "<group>"; };
-		58426C0B170AE043005818A1 /* 主页图片.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "主页图片.png"; sourceTree = "<group>"; };
 		58426C0C170AE043005818A1 /* 主页图片2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "主页图片2.png"; sourceTree = "<group>"; };
 		58426C0D170AE043005818A1 /* 二维码按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "二维码按钮.png"; sourceTree = "<group>"; };
 		58426C0E170AE043005818A1 /* 会刊图标.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会刊图标.png"; sourceTree = "<group>"; };
@@ -1072,9 +1063,6 @@
 		58426C32170AE06C005818A1 /* 生成2背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "生成2背景.png"; path = "../生码2/生成2背景.png"; sourceTree = "<group>"; };
 		58426C33170AE06C005818A1 /* 生码2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "生码2.png"; path = "../生码2/生码2.png"; sourceTree = "<group>"; };
 		58426C98170B0704005818A1 /* 底部...png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "底部...png"; sourceTree = "<group>"; };
-		58426C9B170B0938005818A1 /* ebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ebutton.png; path = wanxiangerweima/ebutton.png; sourceTree = "<group>"; };
-		58426C9F170B0970005818A1 /* scroll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scroll.png; path = wanxiangerweima/scroll.png; sourceTree = "<group>"; };
-		58426CA1170B0986005818A1 /* erweimabutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = erweimabutton.png; path = wanxiangerweima/erweimabutton.png; sourceTree = "<group>"; };
 		58426CA7170B1547005818A1 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home.png; path = wanxiangerweima/home.png; sourceTree = "<group>"; };
 		5843D6F017343C560006A1E0 /* networkerror.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = networkerror.jpg; sourceTree = "<group>"; };
 		585131511729E4D000054602 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
@@ -1308,13 +1296,11 @@
 		58E6FB6D170A1E780029BAAD /* 分割线1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "分割线1.png"; sourceTree = "<group>"; };
 		58E6FB6E170A1E780029BAAD /* 会刊-图片下面圈圈未选中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会刊-图片下面圈圈未选中.png"; sourceTree = "<group>"; };
 		58E6FB6F170A1E780029BAAD /* 会刊-图片下面圈圈选中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会刊-图片下面圈圈选中.png"; sourceTree = "<group>"; };
-		58E6FB70170A1E780029BAAD /* 会刊1-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会刊1-1.png"; sourceTree = "<group>"; };
 		58E6FB71170A1E780029BAAD /* 会刊1-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会刊1-2.png"; sourceTree = "<group>"; };
 		58E6FB72170A1E780029BAAD /* 会刊1-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会刊1-3.png"; sourceTree = "<group>"; };
 		58E6FB73170A1E780029BAAD /* 会刊2-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会刊2-1.png"; sourceTree = "<group>"; };
 		58E6FB74170A1E780029BAAD /* 会刊2-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会刊2-2.png"; sourceTree = "<group>"; };
 		58E6FB75170A1E780029BAAD /* 会刊2-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会刊2-3.png"; sourceTree = "<group>"; };
-		58E6FB76170A1E780029BAAD /* 会刊2-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会刊2-4.png"; sourceTree = "<group>"; };
 		58E6FB77170A1E780029BAAD /* 会刊2-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会刊2-5.png"; sourceTree = "<group>"; };
 		58E6FB78170A1E780029BAAD /* 会刊2-分栏条.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会刊2-分栏条.png"; sourceTree = "<group>"; };
 		58E6FB79170A1E780029BAAD /* 会刊2-分栏条点击.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会刊2-分栏条点击.png"; sourceTree = "<group>"; };
@@ -1343,9 +1329,7 @@
 		58E6FB90170A1E780029BAAD /* 完成按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "完成按钮.png"; sourceTree = "<group>"; };
 		58E6FB91170A1E780029BAAD /* 主页1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "主页1.png"; sourceTree = "<group>"; };
 		58E6FB92170A1E780029BAAD /* 主页2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "主页2.png"; sourceTree = "<group>"; };
-		58E6FB93170A1E780029BAAD /* 主页3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "主页3.png"; sourceTree = "<group>"; };
 		58E6FB94170A1E780029BAAD /* 主页4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "主页4.png"; sourceTree = "<group>"; };
-		58E6FB95170A1E780029BAAD /* 主页和会刊.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "主页和会刊.png"; sourceTree = "<group>"; };
 		58E6FBC6170A22B30029BAAD /* LYGEMagazineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYGEMagazineViewController.h; sourceTree = "<group>"; };
 		58E6FBC7170A22B30029BAAD /* LYGEMagazineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYGEMagazineViewController.m; sourceTree = "<group>"; };
 		58E6FBC8170A22B30029BAAD /* LYGEMagazineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LYGEMagazineViewController.xib; sourceTree = "<group>"; };
@@ -2377,7 +2361,6 @@
 				58426C08170AE043005818A1 /* 万象节.png */,
 				58426C09170AE043005818A1 /* 个人中心1.png */,
 				58426C0A170AE043005818A1 /* 主页1.png */,
-				58426C0B170AE043005818A1 /* 主页图片.png */,
 				58426C0C170AE043005818A1 /* 主页图片2.png */,
 				58426C0D170AE043005818A1 /* 二维码按钮.png */,
 				58426C0E170AE043005818A1 /* 会刊图标.png */,
@@ -2782,13 +2765,11 @@
 				58E6FB6D170A1E780029BAAD /* 分割线1.png */,
 				58E6FB6E170A1E780029BAAD /* 会刊-图片下面圈圈未选中.png */,
 				58E6FB6F170A1E780029BAAD /* 会刊-图片下面圈圈选中.png */,
-				58E6FB70170A1E780029BAAD /* 会刊1-1.png */,
 				58E6FB71170A1E780029BAAD /* 会刊1-2.png */,
 				58E6FB72170A1E780029BAAD /* 会刊1-3.png */,
 				58E6FB73170A1E780029BAAD /* 会刊2-1.png */,
 				58E6FB74170A1E780029BAAD /* 会刊2-2.png */,
 				58E6FB75170A1E780029BAAD /* 会刊2-3.png */,
-				58E6FB76170A1E780029BAAD /* 会刊2-4.png */,
 				58E6FB77170A1E780029BAAD /* 会刊2-5.png */,
 				58E6FB78170A1E780029BAAD /* 会刊2-分栏条.png */,
 				58E6FB79170A1E780029BAAD /* 会刊2-分栏条点击.png */,
@@ -2817,9 +2798,7 @@
 				58E6FB90170A1E780029BAAD /* 完成按钮.png */,
 				58E6FB91170A1E780029BAAD /* 主页1.png */,
 				58E6FB92170A1E780029BAAD /* 主页2.png */,
-				58E6FB93170A1E780029BAAD /* 主页3.png */,
 				58E6FB94170A1E780029BAAD /* 主页4.png */,
-				58E6FB95170A1E780029BAAD /* 主页和会刊.png */,
 			);
 			name = PIC;
 			path = ..;
@@ -2831,9 +2810,6 @@
 				58A5D406172090B500BAFCD3 /* AdsEngine.m */,
 				58A5D407172090B500BAFCD3 /* AdsEngine.h */,
 				58426CA7170B1547005818A1 /* home.png */,
-				58426C9F170B0970005818A1 /* scroll.png */,
-				58426CA1170B0986005818A1 /* erweimabutton.png */,
-				58426C9B170B0938005818A1 /* ebutton.png */,
 				58E6FBF1170A29940029BAAD /* LPCustomTabBarViewController.h */,
 				58E6FBF2170A29A90029BAAD /* LPCustomTabBarViewController.m */,
 				58E6FBF4170A29B20029BAAD /* LPCustomTabBarViewController.xib */,
@@ -3219,13 +3195,11 @@
 				58E6FB96170A1E790029BAAD /* 分割线1.png in Resources */,
 				58E6FB97170A1E790029BAAD /* 会刊-图片下面圈圈未选中.png in Resources */,
 				58E6FB98170A1E790029BAAD /* 会刊-图片下面圈圈选中.png in Resources */,
-				58E6FB99170A1E790029BAAD /* 会刊1-1.png in Resources */,
 				58E6FB9A170A1E790029BAAD /* 会刊1-2.png in Resources */,
 				58E6FB9B170A1E790029BAAD /* 会刊1-3.png in Resources */,
 				58E6FB9C170A1E790029BAAD /* 会刊2-1.png in Resources */,
 				58E6FB9D170A1E790029BAAD /* 会刊2-2.png in Resources */,
 				58E6FB9E170A1E790029BAAD /* 会刊2-3.png in Resources */,
-				58E6FB9F170A1E790029BAAD /* 会刊2-4.png in Resources */,
 				58E6FBA0170A1E790029BAAD /* 会刊2-5.png in Resources */,
 				58E6FBA1170A1E790029BAAD /* 会刊2-分栏条.png in Resources */,
 				58E6FBA2170A1E790029BAAD /* 会刊2-分栏条点击.png in Resources */,
@@ -3254,9 +3228,7 @@
 				58E6FBB9170A1E790029BAAD /* 完成按钮.png in Resources */,
 				58E6FBBA170A1E790029BAAD /* 主页1.png in Resources */,
 				58E6FBBB170A1E790029BAAD /* 主页2.png in Resources */,
-				58E6FBBC170A1E790029BAAD /* 主页3.png in Resources */,
 				58E6FBBD170A1E790029BAAD /* 主页4.png in Resources */,
-				58E6FBBE170A1E790029BAAD /* 主页和会刊.png in Resources */,
 				58E6FBCA170A22B30029BAAD /* LYGEMagazineViewController.xib in Resources */,
 				58E6FBD6170A260F0029BAAD /* LYGEveryPhenomenonViewController.xib in Resources */,
 				58E6FBE1170A27460029BAAD /* LYGEveryPhenomenonStreetViewController.xib in Resources */,
@@ -3410,7 +3382,6 @@
 				58426C1A170AE043005818A1 /* 万象包图标.png in Resources */,
 				58426C1B170AE043005818A1 /* 万象节.png in Resources */,
 				58426C1C170AE043005818A1 /* 个人中心1.png in Resources */,
-				58426C1E170AE043005818A1 /* 主页图片.png in Resources */,
 				58426C1F170AE043005818A1 /* 主页图片2.png in Resources */,
 				58426C20170AE043005818A1 /* 二维码按钮.png in Resources */,
 				58426C21170AE043005818A1 /* 会刊图标.png in Resources */,
@@ -3430,9 +3401,6 @@
 				58426C38170AE06C005818A1 /* 生成2背景.png in Resources */,
 				58426C39170AE06C005818A1 /* 生码2.png in Resources */,
 				58426C99170B0704005818A1 /* 底部...png in Resources */,
-				58426C9C170B0938005818A1 /* ebutton.png in Resources */,
-				58426CA0170B0970005818A1 /* scroll.png in Resources */,
-				58426CA2170B0986005818A1 /* erweimabutton.png in Resources */,
 				58426CA8170B1548005818A1 /* home.png in Resources */,
 				4DF0E4F3170B0C3800F54BA5 /* LSBcategoryViewController.xib in Resources */,
 				4DF0E4F6170B0C3800F54BA5 /* LSBmyViewController.xib in Resources */,
