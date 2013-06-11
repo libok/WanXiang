@@ -14,6 +14,7 @@
 {
     id   _delegate;
 }
+@property(nonatomic,retain)NSMutableArray * requestArry;
 @property(nonatomic,assign) id  delegate;
 +(void)hasNotFinishedTrade:(int)status callbackfunction:(void (^)(NSMutableArray *))function;
 +(void)getUserInfo:(int)aMangerID callbackfunction:(void (^)(ShopInfo*))function;

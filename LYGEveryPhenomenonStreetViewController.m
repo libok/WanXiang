@@ -197,26 +197,13 @@ static int currentIndex = 0;
             break;
         case WANXIANG:
         {
-            static int i = 1;
-            if (i == 1) {
+           {
                 NSLog(@"--------------------");
                 [UIView beginAnimations:nil context:nil];
                 [UIView setAnimationDuration:.5];
                 _xialaView.frame = CGRectMake(0, 43,_xialaView.frame.size.width,30*[self.fenleiArry count]);
-                [UIView commitAnimations];
-                i = 2;
-                
+                [UIView commitAnimations];                
             }
-            else if(i == 2)
-            {
-                [UIView beginAnimations:nil context:nil];
-                [UIView setAnimationDuration:.5];
-                _xialaView.frame = CGRectMake(0, -208, _xialaView.frame.size.width,_xialaView.frame.size.height);
-                [UIView commitAnimations];
-                i = 1;
-                
-            }           
-            
         }
             break;
         case REFRESH :
@@ -420,7 +407,7 @@ static int currentIndex = 0;
 }
 - (IBAction)animated:(DAReloadActivityButton*)sender {
     [sender startAnimating];
-    [_engine requestAd:[self getCity]];
+    [_engine requestAd:[self getCity] atype:currentIndex];
 }
 - (IBAction)buttonClick:(id)sender {
     [self.myEdit resignFirstResponder];
@@ -492,6 +479,11 @@ static int currentIndex = 0;
     int x = sender.tag;
     x-=10001;
     currentIndex = [[[self.fenleiArry objectAtIndex:x] valueForKey:@"id"] intValue];
+    NSLog(@"%d",currentIndex);
     [_engine requestAd:[self getCity] atype:currentIndex];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:.5];
+    _xialaView.frame = CGRectMake(0, -208, _xialaView.frame.size.width,_xialaView.frame.size.height);
+    [UIView commitAnimations];
 }
 @end
