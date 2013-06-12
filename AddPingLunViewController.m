@@ -8,6 +8,7 @@
 
 #import "AddPingLunViewController.h"
 #import "HuikanEngine.h"
+#import <QuartzCore/QuartzCore.h>
 @interface AddPingLunViewController ()
 
 @end
@@ -26,6 +27,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.button1.layer.cornerRadius =5;
+    self.button2.layer.cornerRadius =5;
+    self.myTextView.layer.borderWidth = 2;
+    self.myTextView.layer.borderColor = [UIColor blueColor].CGColor;
+    self.myTextView.layer.cornerRadius = 4;
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -42,11 +48,15 @@
 - (void)dealloc {
     [_titleLabel release];
     [_myTextView release];
+    [_button1 release];
+    [_button2 release];
     [super dealloc];
 }
 - (void)viewDidUnload {
     [self setTitleLabel:nil];
     [self setMyTextView:nil];
+    [self setButton1:nil];
+    [self setButton2:nil];
     [super viewDidUnload];
 }
 - (IBAction)sendorCancel:(id)sender {

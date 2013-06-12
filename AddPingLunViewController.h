@@ -14,5 +14,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *titleLabel;
 - (IBAction)sendorCancel:(id)sender;
 @property (retain, nonatomic) IBOutlet UITextView *myTextView;
+@property (retain, nonatomic) IBOutlet UIButton *button2;
 @property (nonatomic,retain)  ArticleModel * memArticleModel;
+@property (retain, nonatomic) IBOutlet UIButton *button1;
 @end
