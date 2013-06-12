@@ -254,13 +254,10 @@
 //得到解密网址;
 -(NSString *)createUrlString:(NSString *)symbol
 {
-    NSRange range = [symbol rangeOfString:@"Qr"];
-    NSString * string = [symbol stringByReplacingCharactersInRange:range withString:@"GetQR"];
+    NSRange range = [symbol rangeOfString:@"qr"];
+    NSString * string = [symbol stringByReplacingCharactersInRange:range withString:@"getqr"];
     
-    range = [string rangeOfString:@"id"];
-    NSString * string2 =[string stringByReplacingCharactersInRange:range withString:@"ID"];
-    
-    return string2;
+    return string;
 }
 - (void) imagePickerController: (UIImagePickerController*) reader
   didFinishPickingMediaWithInfo: (NSDictionary*) info
@@ -276,7 +273,7 @@
     __block LYGTwoDimensionCodeModel * amodel = [[LYGTwoDimensionCodeModel alloc]init];
                amodel.isCreated = NO;
     NSLog(@"%@",symbol.data);
-    NSRange range               = [symbol.data rangeOfString:[NSString stringWithFormat:@"%@/Page/Qr.aspx?type",SERVER_URL]];
+    NSRange range               = [symbol.data rangeOfString:[NSString stringWithFormat:@"%@/page/qr.aspx?type",SERVER_URL]];
     NSRange range2              = [symbol.data rangeOfString:[NSString stringWithFormat:@"%@/page/page.aspx?id=",SERVER_URL]];
     NSRange range3              = [symbol.data rangeOfString:[NSString stringWithFormat:@"%@/page/lottery.aspx?id=",SERVER_URL]];
     NSRange range4              = [symbol.data rangeOfString:[NSString stringWithFormat:@"河南宝丰石桥水泉"]];
