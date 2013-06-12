@@ -7,7 +7,7 @@
 //
 
 #import "WWRLPQDetailViewController.h"
-
+#import "UIImageView+WebCache.h"
 @implementation WWRLPQDetailViewController
 
 - (void)viewDidLoad 
@@ -28,7 +28,8 @@
 	
 	//二维码图片
 	self.erWeiMaImageView.frame = CGRectMake(116, _dateLabel.frame.origin.y + _dateLabel.frame.size.height, 112, 112);
-	
+    NSString * string = [NSString stringWithFormat:@"%@%@",SERVER_URL,self.oneStatus];
+	[self.erWeiMaImageView setImageWithURL:[NSURL URLWithString:@""]];
 	//二维码标识
 	NSString *numStr = [NSString stringWithFormat:@"NO:%@",self.gidString];
 	self.numberLabel.text = numStr;

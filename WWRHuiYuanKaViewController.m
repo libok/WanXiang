@@ -13,6 +13,7 @@
 #import "WWRHuiYuanKaStstus.h"
 #import "LYGAppDelegate.h" 
 #import "BYNLoginViewController.h"
+#import "UIImageView+WebCache.h"
 @implementation WWRHuiYuanKaViewController
 @synthesize statuesArray = _statuesArray;
 
@@ -87,10 +88,9 @@
 	
 	//将服务器返回的值加载到cell上
 	WWRHuiYuanKaStstus *status = [_statuesArray objectAtIndex:indexPath.row];
+    NSString * string = [NSString stringWithFormat:@"%@%@",SERVER_URL,status.url];
+    [cell.erWeiMaImageView setImageWithURL:[NSURL URLWithString:string]];
 	cell.typeImageView.image = [UIImage imageNamed:@"会员卡.png"];
-	//cell.erWeiMaImageView.image = nil;
-    //[cell.erWeiMaImageView setImageWithURL:[NSURL URLWithString:status.imgURl]];
-	cell.erWeiMaImageView.image = [UIImage imageNamed:@"二维码图片２.png"];
 	cell.goodStateLabel.text = nil;
 	cell.goodNameLabel.text = status.nickName;
 	cell.goodTypeLabel.text = @"会员卡";
@@ -110,6 +110,7 @@
 	
 	//保存获取数据,用于传值给会员卡详细界面
 	WWRHuiYuanKaStstus *status = [_statuesArray objectAtIndex:indexPath.row];
+    viewController.oneStatus   = status;
 	viewController.titleString = status.nickName;
 	//viewController.statusString = self.statusStr;
 	//viewController.imageurling = self.imageurl;

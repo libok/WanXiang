@@ -15,6 +15,7 @@
 #import "UIImageView+WebCache.h"
 #import "LYGAppDelegate.h"
 #import "BYNLoginViewController.h"
+#import "UIImageView+WebCache.h"
 @implementation WWRYouHuiQuanViewController
 @synthesize statuesArray = _statuesArray;
 
@@ -81,14 +82,15 @@
 			if ([obj isKindOfClass:[WWRYHLFatherCell class]])
 			{
 				cell = (WWRYHLFatherCell *)obj;
+                cell.typeImageView.image = [UIImage imageNamed:@"优惠券.png"];
 				break;
 			}
 		}
 	}
 	
 	WWRStatus *status = [_statuesArray objectAtIndex:indexPath.row];
-	cell.typeImageView.image = [UIImage imageNamed:@"优惠券.png"];
-	//cell.erWeiMaImageView.image = nil;
+	NSString  * urstring = [NSString stringWithFormat:@"%@%@",SERVER_URL,status.url];
+	[cell.erWeiMaImageView setImageWithURL:[NSURL URLWithString:urstring]];
     //[cell.erWeiMaImageView setImageWithURL:[NSURL URLWithString:status.imgURl]];
 	if ([status.status intValue] == 1)
 	{
@@ -120,9 +122,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	WWRYHQDetailViewController *viewController = [[WWRYHQDetailViewController alloc]initWithNibName:@"WWRDetailFatherViewController" bundle:nil];
-	
+
 	//保存获取数据,用于传值给优惠券详细界面
 	WWRStatus *status = [_statuesArray objectAtIndex:indexPath.row];
+    viewController.oneStatus   = status;
 	viewController.titleString = status.title;
 	viewController.statusString = status.status;
 	viewController.imageurling = status.imgURl;

@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "WWRDetailFatherViewController.h"
-
+#import "WWRLiPinQuanStatus.h"
 @interface WWRLPQDetailViewController : WWRDetailFatherViewController
 {
 	
 
 }
-
+@property(nonatomic,retain)WWRLiPinQuanStatus * oneStatus;
 @end

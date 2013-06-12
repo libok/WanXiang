@@ -18,7 +18,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import "LFSortContentsViewController.h"
 #import "BYNLoginViewController.h"
-
+#import "ASIHTTPRequest.h"
+#import "SBJSON.h"
+#import "MBProgressHUD.h"
 @interface LYGEMagazineViewController (Private)
 {
 
@@ -211,6 +213,7 @@
 - (void)goBackBtnClick
 {
     [_aTimer invalidate];
+    [HuikanEngine delete:10];
     [self.navigationController popToRootViewControllerAnimated:YES];
     
 }
@@ -362,7 +365,7 @@
     //textField:userID
     UITextField *textField_userId = [[UITextField alloc] initWithFrame:CGRectMake(20, 50, 240, 40)];
     //textField_userId.textColor = [UIColor whiteColor];
-    	textField_userId.tag=1;
+    	textField_userId.tag=100;
 	[textField_userId setBorderStyle:UITextBorderStyleRoundedRect];
 	textField_userId.clearButtonMode=UITextFieldViewModeWhileEditing;
     [alertView addSubview:textField_userId];
@@ -383,8 +386,45 @@
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    //UITextField  *nameTF = (UITextField *)[alertView viewWithTag:ALERTTFTAGTHENE];
-    
+    if (buttonIndex == 1) {
+        return;
+    }
+    UITextField  *nameTF = (UITextField *)[alertView viewWithTag:100];
+    NSString     *searchString = nameTF.text;
+    if (searchString == nil || [searchString length] == 0) {
+        return;
+    }
+    NSString  * urlString = [NSString  stringWithFormat:@"%@/API/book/Search.aspx?Key=%@",SERVER_URL,searchString];
+    NSString *urlString2 = [urlString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    ASIHTTPRequest * request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:urlString2]];
+    [request setCompletionBlock:^{
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        SBJSON *json = [[SBJSON alloc] init];
+        NSDictionary *dic = [json objectWithString:request.responseString  error:nil];
+        NSString *str = [dic valueForKey:@"Result"];
+        int x = [[dic valueForKey:@"NO"] intValue];
+        if (x==0) {
+            return ;
+        }
+        NSArray  *arr = [json objectWithString:str error:nil];
+        NSMutableArray *mutHuikanArr = [[[NSMutableArray alloc] init]autorelease];
+        for (NSDictionary *temp in arr )
+        {
+            [mutHuikanArr addObject:[LFESort initWithDictionary:temp]];
+        }
+        LFListSortViewController * temp = [[LFListSortViewController alloc]init];
+        temp.kindSortArray = mutHuikanArr;
+        temp.kindsSort = @"1";
+        //[mutHuikanArr release];
+        [self.navigationController pushViewController:temp animated:YES];
+        
+    }];
+    [request setFailedBlock:^{
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        NSLog(@"%@",request.responseString);
+    }];
+    [request startAsynchronous];
+    [MBProgressHUD showHUDAddedTo:self.view message:@"正在搜索" animated:YES];
 }
 
 

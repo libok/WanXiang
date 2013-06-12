@@ -56,7 +56,6 @@
 		[_engine requestGetGiftListUser:u];
 		_engine.delegate = self;
 	}
-	
 }
 
 #pragma mark -
@@ -116,7 +115,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	WWRLPQDetailViewController *viewController = [[WWRLPQDetailViewController alloc]initWithNibName:@"WWRDetailFatherViewController" bundle:nil];
-	
+	viewController.oneStatus = [_statuesArray objectAtIndex:indexPath.row];
 	//保存获取数据,用于传值给礼品券详细界面
 	WWRLiPinQuanStatus *status = [_statuesArray objectAtIndex:indexPath.row];
 	viewController.titleString = status.managerName;

@@ -7,7 +7,7 @@
 //
 
 #import "WWRYHQDetailViewController.h"
-
+#import "UIImageView+WebCache.h"
 @implementation WWRYHQDetailViewController
 
 
@@ -25,6 +25,8 @@
 	self.stateLabel.text = nil;
 	//二维码图片
 	self.erWeiMaImageView.frame = CGRectMake(116, _nameLabel.frame.origin.y + _nameLabel.frame.size.height + 10, 112, 112);
+    NSString  * string = [NSString stringWithFormat:@"%@%@",SERVER_URL,self.oneStatus.url];
+    [self.erWeiMaImageView  setImageWithURL:[NSURL URLWithString:string]];
 	//二维码标识
 	NSString *numStr = [NSString stringWithFormat:@"NO:%@",self.gidString];
 	self.numberLabel.text = numStr;
@@ -46,7 +48,7 @@
 	
 	
 	//商家信息
-	[self setSomeLabelToFit:_goodInfoDetailLabel	withPreviousLabel:_usedDateNumLabel withLabelText:@"河南经北三路与第五大街交叉口河南经北三路与第五大街交叉口"];
+	[self setSomeLabelToFit:_goodInfoDetailLabel	withPreviousLabel:_usedDateNumLabel withLabelText:self.oneStatus.shangJia];
 	//[self setSomeLabelToFit:_goodInfoDetailLabel	withPreviousLabel:_usedDateNumLabel withLabelText:self.jianjieString];
 
 	[self setSomeLabelToFit:_goodInfoLabel withPreviousLabel:_usedDateNumLabel withLabelText:@"商家信息: "];

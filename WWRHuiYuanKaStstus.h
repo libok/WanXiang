@@ -40,6 +40,7 @@
 @property (nonatomic,copy) NSString  *huikantime;
 @property (nonatomic,copy) NSString  *sortImg;
 @property (nonatomic,copy) NSString  *groupID;
+@property (nonatomic,copy) NSString  *url;
 
 + (id)huiYuanKaWithDictionary:(NSDictionary *)huiYuanKaDictionary;
 - (id)initWithDictionary:(NSDictionary *)huiYuanKaDictionary;

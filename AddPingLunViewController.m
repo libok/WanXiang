@@ -36,6 +36,7 @@
 }
 
 - (IBAction)goBackButtonClick:(id)sender {
+    [HuikanEngine delete:100];
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)dealloc {

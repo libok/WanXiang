@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "WWRDetailFatherViewController.h"
-
+#import "WWRHuiYuanKaStstus.h"
 @interface WWRHYKDetailViewController : WWRDetailFatherViewController
 {
 
 }
-
+@property(nonatomic,retain)WWRHuiYuanKaStstus * oneStatus;
 @end
