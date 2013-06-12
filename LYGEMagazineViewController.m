@@ -271,7 +271,7 @@
 
 }
 - (IBAction)searchButtonClick:(id)sender {
-    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"搜一搜" message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil ];
+    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"搜一搜" message:nil delegate:self cancelButtonTitle:@"搜索" otherButtonTitles:@"取消", nil ];
     [alert show];
     [alert release];
 }
@@ -356,24 +356,17 @@
     alertView.frame = CGRectMake(self.view.frame.size.width/2-alertView.frame.size.width/2, 200, alertView.frame.size.width, alertView.frame.size.height+60);
     
     //在alertView上添加提示框和输入框
-    UILabel *label_userId = [[UILabel alloc] initWithFrame:CGRectMake(20, 30+20, 140, 20)];
-    label_userId.text = @"搜索:";
-    label_userId.backgroundColor = [UIColor clearColor];
-    label_userId.textColor = [UIColor whiteColor];
-    [alertView addSubview:label_userId];
-    [label_userId release];
-    
-    
+       
         
     
     //textField:userID
-    UITextField *textField_userId = [[UITextField alloc] initWithFrame:CGRectMake(20, 50+20, 240, 30)];
-    textField_userId.textColor = [UIColor whiteColor];
+    UITextField *textField_userId = [[UITextField alloc] initWithFrame:CGRectMake(20, 50, 240, 40)];
+    //textField_userId.textColor = [UIColor whiteColor];
     	textField_userId.tag=1;
 	[textField_userId setBorderStyle:UITextBorderStyleRoundedRect];
 	textField_userId.clearButtonMode=UITextFieldViewModeWhileEditing;
     [alertView addSubview:textField_userId];
-    textField_userId.backgroundColor = [UIColor clearColor];
+    textField_userId.backgroundColor = [UIColor whiteColor];
 	textField_userId.font=[UIFont systemFontOfSize:25];
     [textField_userId release];
     
@@ -384,7 +377,7 @@
     {
         if ([vi isKindOfClass:[UIButton class]])
         {
-            vi.frame = CGRectMake(vi.frame.origin.x, vi.frame.origin.y+110, vi.frame.size.width, vi.frame.size.height);
+            vi.frame = CGRectMake(vi.frame.origin.x, vi.frame.origin.y+50, vi.frame.size.width, vi.frame.size.height);
         }
     }
 }
