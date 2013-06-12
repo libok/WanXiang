@@ -15,7 +15,7 @@
 #define SERVER_URL @"http://119.161.221.204:801"
 #define DECIPERURLSTRING  @"/page/Qr.aspx?type="
 
-//#define __OPTIMIZE__
+#define __OPTIMIZE__
 #ifdef __OPTIMIZE__  
 #define NSLog(...)   
 #endif
