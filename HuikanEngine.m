@@ -17,6 +17,7 @@
 #import "ArticleModel.h"
 #import "ArticleModel.h"
 #import "PingLunModel.h"
+static NSMutableArray * requestArry = nil;
 @implementation HuikanEngine
 + (void)getAdQualityMine:(int)uid typename:(NSString*)aname callbackfunction:(void (^)(NSArray*))function
 {
@@ -184,10 +185,10 @@
     }];
     [request startAsynchronous];
 }
-+(int)issuccessed:(NSString*)aString
-{
-    
-}
+//+(int)issuccessed:(NSString*)aString
+//{
+//    
+//}
 +(void)getHuiKanPingLun:(ArticleModel *) aarticle   arry:(NSMutableArray*)myarry callbackfunction:(void (^)(bool isWin,NSMutableArray * arry))function
 {
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/book/bookMsg.aspx?p=1&u=%d&bid=%@",SERVER_URL,[LYGAppDelegate getuid],aarticle.ID]]];

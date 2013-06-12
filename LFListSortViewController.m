@@ -177,7 +177,9 @@
         
         
     }
+    LFESort * oneSort = [_kindSortArray objectAtIndex:indexPath.row];
     cell.orderButton.tag  = indexPath.row;
+    
     if (indexPath.row % 2 == 1)
     {
         [cell.sortBgCell setImage:[UIImage imageNamed:@"会刊7-1.png"]];

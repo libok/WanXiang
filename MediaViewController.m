@@ -57,7 +57,7 @@
     __block MediaViewController * temp = self;
     [request setCompletionBlock:^{
         [MBProgressHUD hideHUDForView:temp.view animated:YES];
-        NSString * string = request.responseString;
+        //NSString * string = request.responseString;
         NSString *timeLineString = request.responseString;
         SBJSON *json = [[SBJSON alloc] init];
         NSDictionary *dic = [json objectWithString:timeLineString error:nil];

@@ -91,10 +91,11 @@
         
         [HuikanEngine getAdQualityMine:uid typename:@"jingpin" callbackfunction:^(NSArray* myArry){
             temp.jingpinArray = myArry;
-            UIScrollView * scroview = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 30, 320, 121)];
+            UIScrollView * scroview = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 30, 320, 115)];
+            //scroview.backgroundColor = [UIColor redColor];
             [temp.allKindsHuikanScrollview addSubview:scroview];
 
-            scroview.contentSize      = CGSizeMake(15+85* [temp.jingpinArray count],121);
+            scroview.contentSize      = CGSizeMake(15+85* [temp.jingpinArray count],115);
             [scroview release];
             for (int i = 0; i < [temp.jingpinArray count]; i ++)
             {            
@@ -125,11 +126,11 @@
         int x = 130;
         [HuikanEngine getAdQualityMine:uid typename:@"shangjia" callbackfunction:^(NSArray* myArry){
             temp.shangjiaArray = myArry;
-            UIScrollView * scroview = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 41+x, 320, 121)];
+            UIScrollView * scroview = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 41+x, 320, 115)];
             //scroview.backgroundColor = [UIColor redColor];
             [temp.allKindsHuikanScrollview addSubview:scroview];
             
-            scroview.contentSize      = CGSizeMake(15+85* [temp.jingpinArray count],121);
+            scroview.contentSize      = CGSizeMake(15+85* [temp.shangjiaArray count],115);
 ;
             [scroview release];
 

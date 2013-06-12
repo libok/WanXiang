@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "LFCategorizeSort.h"
 #import "ArticleModel.h"
-static NSMutableArray * requestArry = nil;
+
 @interface HuikanEngine : NSObject
 + (void)getAdQualityMine:(int)uid typename:(NSString*)aname callbackfunction:(void (^)(NSArray*))function;
 +(void)getQualityOrMyMagzines:(int)type userId:(int)uid pageCounts:(int)num callbackfunction:(void (^)(NSArray* myarray))function;
