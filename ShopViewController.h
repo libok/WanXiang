@@ -28,6 +28,9 @@
 @property (nonatomic,assign)  int   height;
 - (IBAction)goback:(id)sender;
 -(void)displayShopButtons;
+@property (retain, nonatomic) IBOutlet UIButton *button1;
+@property (retain, nonatomic) IBOutlet UIButton *button2;
+- (IBAction)xxxxclick:(id)sender;
 @property (retain, nonatomic) IBOutlet UIScrollView *myScrollview;
 @end
 

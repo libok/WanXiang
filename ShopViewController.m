@@ -49,9 +49,16 @@
     [super viewDidLoad];
     self.shopNameLabel.text = self.oneShopInfo.NickName;
     self.addressLabel.text  = self.oneShopInfo.adress;
-    self.phoneLabel.text    = self.oneShopInfo.phone;
-    self.qqLabel.text       = self.oneShopInfo.phone;
+    //self.phoneLabel.text    = self.oneShopInfo.phone;
+    //self.qqLabel.text       = self.oneShopInfo.qq;
     self.jianjieTextView.text = self.oneShopInfo.Contents;
+    [self.button1 setTitle:self.oneShopInfo.phone forState:UIControlStateNormal];
+    NSString *str = nil;
+    NSLog(@"%@%@",self.oneShopInfo.qq , str);
+    if (self.oneShopInfo.qq.class != [NSNull class]) {
+        [self.button2 setTitle:self.oneShopInfo.qq forState:UIControlStateNormal];
+    }
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -68,6 +75,8 @@
     [_jianjieTextView release];
     [_shopNameLabel release];
     [_myScrollview release];
+    [_button1 release];
+    [_button2 release];
     [super dealloc];
 }
 - (void)viewDidUnload {
@@ -77,6 +86,8 @@
     [self setJianjieTextView:nil];
     [self setShopNameLabel:nil];
     [self setMyScrollview:nil];
+    [self setButton1:nil];
+    [self setButton2:nil];
     [super viewDidUnload];
 }
 - (IBAction)goback:(id)sender {
@@ -119,6 +130,13 @@
         if (i == [self.oneArry count] - 1) {
             self.myScrollview.contentSize = CGSizeMake(320, i*151 + 500);
         }
+    }
+}
+- (IBAction)xxxxclick:(id)sender {
+    int x = ((UIButton*)sender).tag;
+    if (x==0) {
+        UIWebView * web = [[UIWebView alloc]init];
+        [web loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",((UIButton*)sender).titleLabel.text]]]];
     }
 }
 @end

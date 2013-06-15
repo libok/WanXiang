@@ -130,13 +130,13 @@
         NSLog(@"%@",self.urlString);
         
         Reachability * reach = [Reachability reachabilityWithHostName:@"www.baidu.com"];
-        if (reach.currentReachabilityStatus == NotReachable) {
-            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"您好像没联网" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            [alert show];
-            [alert release];
-            [_mySwitch setOn:NO animated:YES];
-            return;
-        }
+//        if (reach.currentReachabilityStatus == NotReachable) {
+//            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"您好像没联网" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//            [alert show];
+//            [alert release];
+//            [_mySwitch setOn:NO animated:YES];
+//            return;
+//        }
         
         ASIHTTPRequest * request = [[ASIFormDataRequest alloc]initWithURL:[NSURL URLWithString:[self.urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
         
@@ -174,6 +174,7 @@
             [codeCreate.mySwitch setOn:NO];
             [request release];
         }];
+        request.timeOutSeconds = 6;
         [request startAsynchronous];
 		//[SVProgressHUD showWithStatus:@"正在进行网络加密"];
         //[MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -493,6 +494,11 @@
 	[close addTarget:self action:@selector(closeWebView) forControlEvents:UIControlEventTouchUpInside];
 	[self.share addSubview:close];
 }
+-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+
+}
 
 - (void) closeWebView
 {
@@ -500,11 +506,7 @@
 	[self.share removeFromSuperview];
 }
 
-- (void) webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
-{
-	//[SVProgressHUD showErrorWithStatus:@"加载失败"];
-    [MBProgressHUD showHUDAddedTo:self.view message:@"加载失败" animated:YES];
-}
+
 
 
 - (void)didReceiveMemoryWarning {

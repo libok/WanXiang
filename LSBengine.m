@@ -269,7 +269,7 @@
     //手动设置结束方法
     [request setDidFinishSelector:@selector(getTimelineFinised:)];
 	[request setDidFailSelector:@selector(getTimelineFailed:)];
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = 6;
     [request startAsynchronous];
 }
 -(void)requestAd:(LPCity *)aCity atype:(int)type
@@ -282,7 +282,7 @@
         //手动设置结束方法
         [request setDidFinishSelector:@selector(getTimelineFinised:)];
         [request setDidFailSelector:@selector(getTimelineFailed:)];
-        request.timeOutSeconds = 60;
+        request.timeOutSeconds = 10;
         [request startAsynchronous];    
     }
     else
@@ -293,7 +293,7 @@
         //手动设置结束方法
         [request setDidFinishSelector:@selector(getTimelineFinised:)];
         [request setDidFailSelector:@selector(getTimelineFailed:)];
-        request.timeOutSeconds = 60;
+        request.timeOutSeconds = 10;
         [request startAsynchronous];
         
         

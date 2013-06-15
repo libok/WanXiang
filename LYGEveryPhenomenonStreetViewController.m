@@ -280,6 +280,13 @@ static int currentIndex = 0;
             break;
     }
 }
+-(void)getcategoryFail:(NSError *)aError
+{
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络超时" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [alert show];
+    [alert release];
+}
 -(void)changeImage
 {  
     static int i = 0;

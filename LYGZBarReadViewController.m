@@ -279,21 +279,29 @@
     for(symbol in results)
         break;   
     __block LYGTwoDimensionCodeModel * amodel = [[LYGTwoDimensionCodeModel alloc]init];
-               amodel.isCreated = NO;
+    amodel.isCreated = NO;
+    NSString *symbolString = nil;
+    if ([symbol.data hasPrefix:SERVER_URL]) {
+        symbolString = [symbol.data lowercaseString];
+    }else
+    {
+        symbolString = symbol.data;
+    }
+//#define (symbol.data) (symbolString)
     NSLog(@"%@",symbol.data);
-    NSRange range               = [symbol.data rangeOfString:[NSString stringWithFormat:@"%@/page/qr.aspx?type",SERVER_URL]];
-    NSRange range2              = [symbol.data rangeOfString:[NSString stringWithFormat:@"%@/page/page.aspx?id=",SERVER_URL]];
-    NSRange range3              = [symbol.data rangeOfString:[NSString stringWithFormat:@"%@/page/lottery.aspx?id=",SERVER_URL]];
-    NSRange range4              = [symbol.data rangeOfString:[NSString stringWithFormat:@"河南宝丰石桥水泉"]];
+    NSRange range               = [symbolString rangeOfString:[NSString stringWithFormat:@"%@/page/qr.aspx?type",SERVER_URL]];
+    NSRange range2              = [symbolString rangeOfString:[NSString stringWithFormat:@"%@/page/page.aspx?id=",SERVER_URL]];
+    NSRange range3              = [symbolString rangeOfString:[NSString stringWithFormat:@"%@/page/lottery.aspx?id=",SERVER_URL]];
+    NSRange range4              = [symbolString rangeOfString:[NSString stringWithFormat:@"河南宝丰石桥水泉"]];
 
     if (range.length > 0) 
     {
-        NSArray * arry          = [symbol.data componentsSeparatedByString:@"="];
+        NSArray * arry          = [symbolString componentsSeparatedByString:@"="];
         NSArray * arry2         = [[arry objectAtIndex:1] componentsSeparatedByString:@"&"];
         amodel.type             = [[arry2 objectAtIndex:0] intValue];
         amodel.isSecret         = YES;
-        amodel.encryptedString  = symbol.data;
-        NSString * urlString    = [[self createUrlString:symbol.data] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        amodel.encryptedString  = symbolString;
+        NSString * urlString    = [[self createUrlString:symbolString] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         ASIHTTPRequest * request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:urlString]];
         [request setCompletionBlock:^
         {
@@ -481,7 +489,7 @@
         [alert show];
         [alert release];
 
-    }else if([symbol.data hasPrefix:@"y"] || [symbol.data hasPrefix:@"p"] || [symbol.data hasPrefix:@"q"] || [symbol.data hasPrefix:@"l"])
+    }else if([symbolString hasPrefix:@"y"] || [symbolString hasPrefix:@"p"] || [symbolString hasPrefix:@"q"] || [symbolString hasPrefix:@"l"])
     {
         if (isOpenFromSaveAlbum)
         {
@@ -517,7 +525,7 @@
             default:
                 break;
         }
-        temp.urlString = [NSString stringWithFormat:@"%@%@%@",SERVER_URL,tempstr,symbol.data];
+        temp.urlString = [NSString stringWithFormat:@"%@%@%@",SERVER_URL,tempstr,symbolString];
         [self.navigationController pushViewController:temp animated:YES];
         
 
@@ -529,7 +537,7 @@
             //[reader dismissModalViewControllerAnimated:YES];
             [reader dismissViewControllerAnimated:YES completion:nil];
         }   
-        if ([symbol.data canBeConvertedToEncoding:NSShiftJISStringEncoding])
+        if ([symbolString canBeConvertedToEncoding:NSShiftJISStringEncoding])
         {
             
             NSString * str = [NSString stringWithCString:[symbol.data cStringUsingEncoding: NSShiftJISStringEncoding] encoding:NSUTF8StringEncoding];
@@ -539,11 +547,11 @@
         }
         if(!amodel.content)
         {
-            amodel.content    = [symbol.data stringByReplacingPercentEscapesUsingEncoding:kCFStringEncodingGB_18030_2000];
+            amodel.content    = [symbolString stringByReplacingPercentEscapesUsingEncoding:kCFStringEncodingGB_18030_2000];
         }
         if(!amodel.content)
         {
-            amodel.content    = symbol.data;
+            amodel.content    = symbolString;
         }
 		
         if ([amodel.content hasPrefix:@"http"]) {
@@ -555,6 +563,7 @@
         
         amodel.isCreated  = NO;
         amodel.isSecret   = NO;
+        [LYGTwoDimensionCodeDao insert:amodel];
         LYGTwoDimensionCodeDetailViewController * scan = [[LYGTwoDimensionCodeDetailViewController alloc]init];
         scan.amodel = amodel;
         [self.navigationController pushViewController:scan animated:YES];        
