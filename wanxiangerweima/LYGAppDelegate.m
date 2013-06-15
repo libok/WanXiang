@@ -330,10 +330,10 @@ static NSString * UUID = nil;
 //    
 //    NSString * CT = @"^1((33|53|8[09])[0-9]|349)\\d{7}$";
     
-    NSString * PHS = @"^0(10|2[0-5789]|\\d{3})\\d{7,8}$";
-    
+    //NSString * PHS = @"^0(10|2[0-5789]|\\d{3})\\d{7,8}$";
+    NSString * PHS2 = @"^0(10|2[0-5789]|\\d{3})\\d{7,8}$";
     NSPredicate *regextestmobile = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", MOBILE];
-    NSPredicate *regextestcm = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", PHS];
+    NSPredicate *regextestcm = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", PHS2];
 //    NSPredicate *regextestcu = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CU];
 //    NSPredicate *regextestct = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CT];
     

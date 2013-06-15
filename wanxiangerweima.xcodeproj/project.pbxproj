@@ -190,6 +190,7 @@
 		5818C006174D19C2002A54C4 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5818C003174D19C1002A54C4 /* libstdc++.6.dylib */; };
 		5818C007174D19C2002A54C4 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5818C004174D19C1002A54C4 /* libstdc++.dylib */; };
 		582863A6175895F60045211E /* place.png in Resources */ = {isa = PBXBuildFile; fileRef = 582863A5175895F60045211E /* place.png */; };
+		5828FE4D176C1A1A005DE50F /* 未标题-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5828FE4C176C1A1A005DE50F /* 未标题-3.png */; };
 		583663031752FF81002D2DD0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 583663021752FF81002D2DD0 /* Default-568h@2x.png */; };
 		5836630717535221002D2DD0 /* ShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5836630517535221002D2DD0 /* ShopViewController.m */; };
 		5836630817535221002D2DD0 /* ShopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5836630617535221002D2DD0 /* ShopViewController.xib */; };
@@ -887,6 +888,7 @@
 		5818C003174D19C1002A54C4 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		5818C004174D19C1002A54C4 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		582863A5175895F60045211E /* place.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = place.png; sourceTree = "<group>"; };
+		5828FE4C176C1A1A005DE50F /* 未标题-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "未标题-3.png"; sourceTree = "<group>"; };
 		583663021752FF81002D2DD0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5836630417535221002D2DD0 /* ShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopViewController.h; sourceTree = "<group>"; };
 		5836630517535221002D2DD0 /* ShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopViewController.m; sourceTree = "<group>"; };
@@ -2680,6 +2682,7 @@
 				587DD2FB175F66260005287E /* shengma.png */,
 				587DD2F7175F63580005287E /* mainpagebackground.png */,
 				589C243B17650F2A0017779A /* 主页背景1.png */,
+				5828FE4C176C1A1A005DE50F /* 未标题-3.png */,
 				58097F4D17607CA700BF7C51 /* 返回0.png */,
 			);
 			sourceTree = "<group>";
@@ -3553,6 +3556,7 @@
 				589C24401765101D0017779A /* 记住密码未点击状态.png in Resources */,
 				581326721765B30E00E2A632 /* MyTableView.xib in Resources */,
 				58A5859A17663C54001F1FD7 /* YanZhengViewController.xib in Resources */,
+				5828FE4D176C1A1A005DE50F /* 未标题-3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

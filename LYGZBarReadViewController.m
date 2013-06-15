@@ -82,7 +82,13 @@
             
         }
         
-    }    
+        
+    }
+//    for (UIView *temp in [self.view subviews]) {
+//        [temp removeFromSuperview];
+//    }
+//    self.view.backgroundColor = [UIColor clearColor];
+
     //画中间的基准线
   
 	line = [[UIView alloc] init];
@@ -92,8 +98,7 @@
 	[self.view addSubview:line];
 	[line release];
 	
-	timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(lineMove) userInfo:nil repeats:YES];
-    [timer fire];
+
 
     //[line release];   
     
@@ -175,10 +180,19 @@
     openPhotoLib.tag = 2;
     [openPhotoLib2 addTarget:self action:@selector(buttonClick:)forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:openPhotoLib2];
-    [openPhotoLib2 release];
-    
+    [openPhotoLib2 release];  
     
 
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [_timer invalidate];
+    _timer = nil;
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    _timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(lineMove) userInfo:nil repeats:YES];
+    [_timer fire];
 }
 
 - (void)lineMove
@@ -210,16 +224,10 @@
 	}
 }
 
--(void)back
-{
-    [timer invalidate];
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"%f",self.view.frame.origin.y);
     self.showsHelpOnFail = NO;
     self.readerDelegate = (id)self;
     self.supportedOrientationsMask = ZBarOrientationMaskAll;

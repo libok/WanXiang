@@ -302,7 +302,7 @@
             };
             view2.frame   = rect;
             //view2.backgroundColor = [UIColor redColor];
-            [tab.view addSubview:view2];           
+            [tab.view addSubview:view2];
 
            
         }

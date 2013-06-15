@@ -8,7 +8,7 @@
 
 #import "LGPhoneViewController.h"
 #import "LJLCodeCreateViewController.h"
-
+#import "LYGAppDelegate.h"
 #import "NSString+Base64.h"
 
 #import "ZBarSDK.h"
@@ -196,14 +196,15 @@
 //判断输入号码长度是否合法 
 - (BOOL) CheckLegitimacy:(NSString *)aString
 {
-	int length = [aString length];
-	if (length != 11 || ![aString hasPrefix:@"1"])
-	{
-		return NO;
-	}
-	else {
-		return [self isPartialStringValid:aString];
-	}
+//	int length = [aString length];
+//	if (length != 11 || ![aString hasPrefix:@"1"])
+//	{
+//		return NO;
+//	}
+//	else {
+//		return [self isPartialStringValid:aString];
+//	}
+    return [LYGAppDelegate isMobileNumber:aString];
 	
 }
 
