@@ -10,17 +10,12 @@
 
 
 @implementation BYNJPDetailCell
-@synthesize imgView = _imgView;
-@synthesize titleLabel = _titleLabel;
-@synthesize contentLabel = _contentLabel;
-@synthesize addtimeLabel = _addtimeLabel;
-@synthesize sortLabel = _sortLabel;
-@synthesize urllinkLabel = _urllinkLabel;
+
 
 
 -(void)dealloc
 {
-	[_imgView release];
+	[_imgView2 release];
 	[_titleLabel release];
 	[_contentLabel release];
 	[_addtimeLabel release];

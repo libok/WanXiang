@@ -129,7 +129,7 @@
 	{
         NSLog(@"%@",self.urlString);
         
-        Reachability * reach = [Reachability reachabilityWithHostName:@"www.baidu.com"];
+        //Reachability * reach = [Reachability reachabilityWithHostName:@"www.baidu.com"];
 //        if (reach.currentReachabilityStatus == NotReachable) {
 //            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"您好像没联网" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
 //            [alert show];
@@ -482,12 +482,13 @@
 - (void) webViewDidStartLoad:(UIWebView *)webView
 {
 	//[SVProgressHUD showWithStatus:@"正在努力的加载"];
-    [MBProgressHUD showHUDAddedTo:self.view message:@"正在努力的加载" animated:YES];
+    NSLog(@"%@",webView.request.URL);
+    [MBProgressHUD showHUDAddedTo:webView message:@"正在努力的加载" animated:YES];
 }
 - (void) webViewDidFinishLoad:(UIWebView *)webView
 {	
 	//[SVProgressHUD dismiss];
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [MBProgressHUD hideHUDForView:webView animated:YES];
 	close = [UIButton buttonWithType:UIButtonTypeCustom];
 	close.frame = CGRectMake(10, 430, 20, 20);
 	[close setBackgroundImage:[UIImage imageNamed:@"close@2x.png"] forState:UIControlStateNormal];
@@ -496,7 +497,7 @@
 }
 -(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [MBProgressHUD hideHUDForView:webView animated:YES];
 
 }
 

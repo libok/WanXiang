@@ -12,7 +12,7 @@
 @interface BYNJPDetailCell : UITableViewCell
 {
 
-	IBOutlet UIImageView  *_imgView;
+	IBOutlet UIImageView  *_imgView2;
 	IBOutlet UILabel      *_titleLabel;
 	IBOutlet UILabel      *_contentLabel;
 	IBOutlet UILabel      *_addtimeLabel;
@@ -20,7 +20,7 @@
 	IBOutlet UILabel      *_urllinkLabel;
 	
 }
-@property (nonatomic,retain) UIImageView  *imgView;
+@property (nonatomic,retain) UIImageView  *imgView2;
 @property (nonatomic,retain) UILabel      *titleLabel;
 @property (nonatomic,retain) UILabel      *contentLabel;
 @property (nonatomic,retain) UILabel      *addtimeLabel;

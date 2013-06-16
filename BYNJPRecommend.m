@@ -7,7 +7,7 @@
 //
 
 #import "BYNJPRecommend.h"
-
+#import "LYGAppDelegate.h"
 
 @implementation BYNJPRecommend
 @synthesize ID = _ID;
@@ -30,7 +30,7 @@
 		self.imgUrl = [jpDictionary objectForKey:@"imgurl"];
 		self.name = [jpDictionary objectForKey:@"name"];
 		self.contents = [jpDictionary objectForKey:@"contents"];
-		self.addtime = [jpDictionary objectForKey:@"addtime"];
+		self.addtime = [[LYGAppDelegate getTimeDate:[jpDictionary objectForKey:@"addtime"]] description];
 		self.sort = [jpDictionary objectForKey:@"sort"];
 		self.urllink =[jpDictionary objectForKey:@"urllink"];
 	}

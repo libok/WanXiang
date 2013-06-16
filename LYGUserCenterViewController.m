@@ -111,7 +111,7 @@
 #pragma mark UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	BYNTableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+	BYNTableViewCell * cell = (BYNTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
 	UIViewController *viewController = nil; 
@@ -137,7 +137,10 @@
 			break;
 		case SCORE:
 		{
-
+            NSString *str = [NSString stringWithFormat:
+                             @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%d",
+                             123];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
 		}
 			break;
 			
@@ -152,7 +155,9 @@
 			break;
 		case CLEARCACHE:
 		{
-			
+			UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"缓存清除完成" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK" ,nil];
+			[alertView show];
+			[alertView release];
 		}
 			break;
 		case JPRECOMMEND:
