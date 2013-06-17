@@ -87,17 +87,18 @@
 
 + (void)getLoginPhoneContent:(NSString *)phoneNumStr passwordContent:(NSString *)passwordStr completionBlock:(void (^) (NSDictionary *,int))completionBlock
 {
-	
+	NSLog(@"%@ %@",phoneNumStr,passwordStr);
 	//NSString * uuid = [(LYGAppDelegate*)([UIApplication sharedApplication].delegate) getuuid];	
     NSString * uuid   = [LYGAppDelegate getUUID];
     NSLog(@"%@",uuid);
 	NSString * str = [NSString stringWithFormat:@"%@/API/User/login.aspx?u=%@&p=%@&ct=%d&clientid=%@",SERVER_URL,phoneNumStr,passwordStr,1,uuid];
-	NSURL *url = [NSURL URLWithString:str];
+    NSString * str2 = [str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+	NSURL *url = [NSURL URLWithString:str2];
 	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];	
 	[request setCompletionBlock:^
 	 {
          //[MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
-
+         NSLog(@"%@",request.responseString);
          //NSLog(@"------ %@",request.responseString);
 		 SBJSON *json = [[SBJSON alloc]init];
 		 NSDictionary *dic = [json objectWithString:request.responseString error:nil];

@@ -48,6 +48,7 @@
 @property (nonatomic,copy) NSString  *useTime;
 @property (nonatomic,copy) NSString  *adress;
 @property (nonatomic,copy) NSString  *jianJie;
+@property (nonatomic,copy) NSString  *url;
 
 + (id)youHuiQuanWithDictionary:(NSDictionary *)youHuiQuanDictionary;
 - (id)initWithDictionary:(NSDictionary *)youHuiQuanDictionary;

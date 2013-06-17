@@ -9,7 +9,7 @@
 #import "SubCateViewController.h"
 #define COLUMN 4
 #import "UIButton+WebCache.h"
-
+#import <QuartzCore/QuartzCore.h>
 @interface SubCateViewController ()
 
 @end
@@ -48,7 +48,7 @@
         view.backgroundColor = [UIColor clearColor];
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.frame = CGRectMake(15, 20, 50, 50);
-
+        
         [btn addTarget:self.cateVc
                 action:@selector(subCateBtnAction:)
       forControlEvents:UIControlEventTouchUpInside];
@@ -57,7 +57,8 @@
                  btn.tag = [[data valueForKey:@"id"] intValue];
         
         [view addSubview:btn];
-        
+        btn.layer.cornerRadius = 4;
+        btn.clipsToBounds      = YES;
         UILabel *lbl = [[[UILabel alloc] initWithFrame:CGRectMake(0, 73, 80, 14)] autorelease];
         lbl.textAlignment = NSTextAlignmentCenter;
         lbl.textColor = [UIColor colorWithRed:204/255.0 

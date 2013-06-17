@@ -17,10 +17,19 @@
 #import "ArticleModel.h"
 #import "ArticleModel.h"
 #import "PingLunModel.h"
+static NSMutableArray * requestArry = nil;
 @implementation HuikanEngine
 + (void)getAdQualityMine:(int)uid typename:(NSString*)aname callbackfunction:(void (^)(NSArray*))function
 {
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/book/Default.aspx?uid=%d",SERVER_URL,uid]]];
+    request.tag = 10;
+    if (requestArry == nil) {
+        requestArry = [[NSMutableArray alloc]init];
+        [requestArry addObject:request];
+    }else
+    {
+        [requestArry addObject:request];
+    }
     [request setCompletionBlock:^{
         //NSLog(@"%@",request.responseString);
         SBJSON *json = [[SBJSON alloc] init];
@@ -52,6 +61,15 @@
 {
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/book/list.aspx?type=%d&uid=%d&p=%d",SERVER_URL,type,uid,num]]];
     //NSMutableArray * resultArry = [[NSMutableArray alloc]init];
+    request.tag = 0;
+    if (requestArry == nil) {
+        requestArry = [[NSMutableArray alloc]init];
+        [requestArry addObject:request];
+    }else
+    {
+        [requestArry addObject:request];
+    }
+
     [request setCompletionBlock:^{
         //NSLog(@"%@",request.responseString);
         SBJSON *json = [[SBJSON alloc] init];
@@ -72,6 +90,15 @@
 {
         
         ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/book/DetailClass.aspx?s=%d",SERVER_URL,shopID]]];
+    request.tag = 12;
+    if (requestArry == nil) {
+        requestArry = [[NSMutableArray alloc]init];
+        [requestArry addObject:request];
+    }else
+    {
+        [requestArry addObject:request];
+    }
+
         [request setCompletionBlock:^{
             NSLog(@"%@",request.responseString);
             SBJSON *json = [[SBJSON alloc] init];
@@ -95,6 +122,14 @@
 +(void)mangzineClassifyContents:(LFCategorizeSort*)asort callbackfunction:(void (^)(NSArray* myarray))function
 {    
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/book/DetailList.aspx?t=%@&s=%@",SERVER_URL,asort.aId,asort.sortUid]]];
+    request.tag = 25;
+    if (requestArry == nil) {
+        requestArry = [[NSMutableArray alloc]init];
+        [requestArry addObject:request];
+    }else
+    {
+        [requestArry addObject:request];
+    }
     NSLog(@"%@",[request.url absoluteString]);
     [request setCompletionBlock:^{
         NSLog(@"%@",request.responseString);
@@ -120,6 +155,15 @@
 +(void)mangzineCollection:(ArticleModel *) aarticle callbackfunction:(void (^)(bool isWin,NSString * result))function
 {
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/Api/book/fav.aspx?bid=%@&uid=%d",SERVER_URL,aarticle.ID,[LYGAppDelegate getuid]]]];
+    request.tag = 50;
+    if (requestArry == nil) {
+        requestArry = [[NSMutableArray alloc]init];
+        [requestArry addObject:request];
+    }else
+    {
+        [requestArry addObject:request];
+    }
+
     NSLog(@"%@",[request.url absoluteString]);
     [request setCompletionBlock:^{
         NSLog(@"%@",request.responseString);
@@ -141,11 +185,23 @@
     }];
     [request startAsynchronous];
 }
-
+//+(int)issuccessed:(NSString*)aString
+//{
+//    
+//}
 +(void)getHuiKanPingLun:(ArticleModel *) aarticle   arry:(NSMutableArray*)myarry callbackfunction:(void (^)(bool isWin,NSMutableArray * arry))function
 {
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/book/bookMsg.aspx?p=1&u=%d&bid=%@",SERVER_URL,[LYGAppDelegate getuid],aarticle.ID]]];
     //NSLog(@"%@",[request.url absoluteString]);
+    request.tag = 50;
+    if (requestArry == nil) {
+        requestArry = [[NSMutableArray alloc]init];
+        [requestArry addObject:request];
+    }else
+    {
+        [requestArry addObject:request];
+    }
+
     [request setCompletionBlock:^{
         NSLog(@"%@",request.responseString);
         SBJSON *json = [[SBJSON alloc] init];
@@ -173,6 +229,15 @@
     NSString * string = [NSString stringWithFormat:@"%@/Api/book/addbookMsg.aspx?con=%@&u=%d&bid=%@",SERVER_URL,str,[LYGAppDelegate getuid],aarticle.ID];
     NSString * str2 = [string stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:str2]];
+    request.tag  = 100;
+    if (requestArry == nil) {
+        requestArry = [[NSMutableArray alloc]init];
+        [requestArry addObject:request];
+    }else
+    {
+        [requestArry addObject:request];
+    }
+
     NSLog(@"%@",request.url.absoluteString);
     [request setCompletionBlock:^{
         NSLog(@"%@",request.responseString);
@@ -187,7 +252,17 @@
     }];
     [request startAsynchronous];
 }
-
++(void)delete:(int)aid
+{
+    if ([requestArry count] > 0) {
+        for (ASIHTTPRequest * re in requestArry) {
+            if (re.tag == aid) {
+                [re cancel];
+                //[requestArry removeObject:re];
+            }
+        }
+    }
+}
 
 
 @end

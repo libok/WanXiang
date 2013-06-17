@@ -147,8 +147,7 @@
 	 }
 	
 
-	 //[cell.imgView setImageWithURL:[NSURL URLWithString:jpDetail.imgUrl]];
-	 [cell.imageView setImageWithURL:[NSURL URLWithString:jpDetail.imgUrl] placeholderImage:[UIImage imageNamed:@"place.png"]];
+     [cell.imgView2 setImageWithURL:[NSURL URLWithString:jpDetail.imgUrl] placeholderImage:[UIImage imageNamed:@"place.png"]];
 	 cell.titleLabel.text = jpDetail.name;
 	 cell.contentLabel.text = jpDetail.contents;
 	 cell.addtimeLabel.text = jpDetail.addtime;
@@ -168,7 +167,23 @@
 	tableView.frame = CGRectMake(0, 85, 320, 375);
 	tableView.rowHeight = 100;
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    BYNJPRecommend *jpDetail;
+    if (tableView == _searchDisplay.searchResultsTableView)
+    {
+        jpDetail = [_searchResultArray objectAtIndex:indexPath.row];
+    }
+    else
+    {
+        jpDetail = [_jpArray objectAtIndex:indexPath.row];
+    }
+    
+    NSString * string = jpDetail.imgUrl;
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:string]];
+    
+}
 
 
  - (IBAction)backButtonClick

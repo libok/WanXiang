@@ -176,9 +176,21 @@
     [[NSUserDefaults standardUserDefaults] setValue:aDic forKey:@"tempDic"];
     [[NSUserDefaults standardUserDefaults ] synchronize];
 }
+-(void)dealloc
+{
+    if (_requestArry) {
+        for (ASIHTTPRequest *request in _requestArry) {
+            [request cancel];
+        }
+    }
+    
+    [_requestArry release];
+    [super dealloc];
+}
 -(void)readURl
 {
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:PROVINCE_URL]];
+    [_requestArry addObject:request];
     [request setCompletionBlock:^{
         SBJSON *json = [[SBJSON alloc] init];
         NSDictionary *dic = [json objectWithString:request.responseString error:nil];
@@ -251,35 +263,37 @@
 -(void)requestCategory
 {
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/Goods/GoodsClass.aspx",SERVER_URL]]];
+    [_requestArry addObject:request];
     request.delegate = self;
     request.tag = REQUEST_GOODSCLASS;
     //手动设置结束方法
     [request setDidFinishSelector:@selector(getTimelineFinised:)];
 	[request setDidFailSelector:@selector(getTimelineFailed:)];
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = 6;
     [request startAsynchronous];
 }
--(void)requestAd:(LPCity *)aCity
+-(void)requestAd:(LPCity *)aCity atype:(int)type
 {
     if (aCity == nil) {
-        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/AD/wxad.aspx?sheng=1&shi=24&p=1",SERVER_URL]]];
+        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/AD/wxad.aspx?sheng=1&shi=24&C=%d&p=1",SERVER_URL,type]]];
+        [_requestArry addObject:request];
         request.delegate = self;
         request.tag = REQUEST_AD;
         //手动设置结束方法
         [request setDidFinishSelector:@selector(getTimelineFinised:)];
         [request setDidFailSelector:@selector(getTimelineFailed:)];
-        request.timeOutSeconds = 60;
+        request.timeOutSeconds = 10;
         [request startAsynchronous];    
     }
     else
     {
-        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/AD/wxad.aspx?sheng=%d&shi=%d&p=%d",SERVER_URL,[aCity.proID intValue],[aCity.cityID intValue],1]]];
+        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/AD/wxad.aspx?sheng=%d&shi=%d&C=%d&p=%d",SERVER_URL,[aCity.proID intValue],[aCity.cityID intValue],type,1]]];
         request.delegate = self;
         request.tag = REQUEST_AD;
         //手动设置结束方法
         [request setDidFinishSelector:@selector(getTimelineFinised:)];
         [request setDidFailSelector:@selector(getTimelineFailed:)];
-        request.timeOutSeconds = 60;
+        request.timeOutSeconds = 10;
         [request startAsynchronous];
         
         
@@ -715,6 +729,7 @@
 -(void)requestSingleCommodit:(int)aId
 {
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/Goods/GetGoods.aspx?id=%d",SERVER_URL,aId]]];
+    [_requestArry addObject:request];
     request.delegate = self;
     request.tag = REQUEST_SINGLE;
     //手动设置结束方法
@@ -736,12 +751,14 @@
         case 0:
         {
             request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/Goods/GoodsList.aspx?c=%d&djd=%f&dwd=%f",SERVER_URL,c,xx.longitude,xx.latitude]]];
+            [_requestArry addObject:request];
 
         }
             break;
         case 1:
         {
             request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/Goods/GoodsList.aspx?c=%d",SERVER_URL,c]]];
+            [_requestArry addObject:request];
         }
             break;
             
@@ -761,6 +778,7 @@
 -(void)requestCommodityDatil:(int)p category:(int)c
 {
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/Goods/goodsByShop.aspx?p=%d&s=%d",SERVER_URL,p,c]]];
+    [_requestArry addObject:request];
     request.delegate = self;
     request.tag = REQUEST_COMMODITY_DATIL;
     [request setDidFinishSelector:@selector(getTimelineFinised:)];
@@ -772,6 +790,7 @@
 -(void)requestshoucangU:(int)u s:(int)s g:(int)g
 {
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/Goods/AddFav.aspx?u=%d&s=%d&g=%d",SERVER_URL,u,s,g]]];
+    [_requestArry addObject:request];
     request.delegate = self;
     request.tag = REQUEST_SHOUCANG;
     //手动设置结束方法
@@ -783,6 +802,7 @@
 -(void)requestDidshoucang:(int)u
 {
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/Goods/FavGoodsList.aspx?u=%d",SERVER_URL,u]]];
+    [_requestArry addObject:request];
     request.delegate = self;
     request.tag = REQUEST_DIDSC;
     //手动设置结束方法
@@ -795,6 +815,7 @@
 -(void)requestDeleshouCang:(int)favId
 {
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/Goods/DelFav.aspx?favid=%d",SERVER_URL,favId]]];
+    [_requestArry addObject:request];
     request.delegate = self;
     request.tag = REQUEST_DELE;
     //手动设置结束方法
@@ -807,6 +828,7 @@
 -(void)requestYHQ:(int)u managerID:(int)s commodityID:(int)g
 {
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/goods/preqr.aspx?u=%d&s=%d&g=%d",SERVER_URL,u,s,g]]];
+    [_requestArry addObject:request];
     request.delegate = self;
     request.tag = REQUEST_YHQ;
     //手动设置结束方法
@@ -818,6 +840,7 @@
 -(void)reQuestHY:(int)u managerID:(int)s
 {
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/shop/JoinShopUser.aspx?u=%d&s=%d",SERVER_URL,u,s]]];
+    [_requestArry addObject:request];
     request.delegate = self;
     request.tag = REQUEST_HY;
     //手动设置结束方法
@@ -830,6 +853,7 @@
 -(void)requestShangjiaInfo:(int)s
 {
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/shop/GetShop.aspx?s=%d",SERVER_URL,s]]];
+    [_requestArry addObject:request];
     request.delegate = self;
     request.tag = REQUEST_SHANGPIN;
     //手动设置结束方法
@@ -844,6 +868,7 @@
     NSString *urlStr = [NSString stringWithFormat:@"%@/API/goods/search.aspx?k=%@",SERVER_URL,aStr ];
     urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:urlStr]];
+    [_requestArry addObject:request];
     request.delegate = self;
     request.tag = REQUEST_SEARCH;
     //手动设置结束方法

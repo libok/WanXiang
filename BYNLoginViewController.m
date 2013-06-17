@@ -118,7 +118,13 @@
     }
 	NSString *phoneStr = [_phoneNumberTF.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];	
 	NSString *pwdStr = [_passwordTF.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];	
-	if ([phoneStr isEqualToString:@""]||[pwdStr isEqualToString:@""]) return;
+	if ([phoneStr isEqualToString:@""]||[pwdStr isEqualToString:@""])
+    {
+        UIAlertView *alet = [[UIAlertView alloc]initWithTitle:@"请输入正确的用户名和密码" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alet show];
+        [alet release];
+        return;
+    }
 	
 	[BYNUserCenterEngine getLoginPhoneContent:_phoneNumberTF.text passwordContent:_passwordTF.text completionBlock:^ (NSDictionary *loginDic,int num)
 	{
@@ -142,7 +148,8 @@
 			temp.clientID = login.clientID;
 			temp.phone = login.phone;
 			[[NSNotificationCenter defaultCenter] postNotificationName:@"success" object:nil];
-			UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[[NSUserDefaults standardUserDefaults] objectForKey:@"msg"] message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK",nil];
+			//UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[[NSUserDefaults standardUserDefaults] objectForKey:@"msg"] message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK",nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"登录成功" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK",nil];
 			[alertView show];
 			[alertView release];
             [self loginBackBtnClick];

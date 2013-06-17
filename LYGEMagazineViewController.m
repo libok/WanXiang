@@ -18,6 +18,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import "LFSortContentsViewController.h"
 #import "BYNLoginViewController.h"
+#import "ASIHTTPRequest.h"
+#import "SBJSON.h"
+#import "MBProgressHUD.h"
 @interface LYGEMagazineViewController (Private)
 {
 
@@ -88,10 +91,11 @@
         
         [HuikanEngine getAdQualityMine:uid typename:@"jingpin" callbackfunction:^(NSArray* myArry){
             temp.jingpinArray = myArry;
-            UIScrollView * scroview = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 30, 320, 121)];
+            UIScrollView * scroview = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 30, 320, 115)];
+            //scroview.backgroundColor = [UIColor redColor];
             [temp.allKindsHuikanScrollview addSubview:scroview];
 
-            scroview.contentSize      = CGSizeMake(15+85* [temp.jingpinArray count],121);
+            scroview.contentSize      = CGSizeMake(15+85* [temp.jingpinArray count],115);
             [scroview release];
             for (int i = 0; i < [temp.jingpinArray count]; i ++)
             {            
@@ -122,11 +126,11 @@
         int x = 130;
         [HuikanEngine getAdQualityMine:uid typename:@"shangjia" callbackfunction:^(NSArray* myArry){
             temp.shangjiaArray = myArry;
-            UIScrollView * scroview = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 41+x, 320, 121)];
+            UIScrollView * scroview = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 41+x, 320, 115)];
             //scroview.backgroundColor = [UIColor redColor];
             [temp.allKindsHuikanScrollview addSubview:scroview];
             
-            scroview.contentSize      = CGSizeMake(15+85* [temp.jingpinArray count],121);
+            scroview.contentSize      = CGSizeMake(15+85* [temp.shangjiaArray count],115);
 ;
             [scroview release];
 
@@ -210,6 +214,7 @@
 - (void)goBackBtnClick
 {
     [_aTimer invalidate];
+    [HuikanEngine delete:10];
     [self.navigationController popToRootViewControllerAnimated:YES];
     
 }
@@ -269,6 +274,12 @@
     [SortContentsVC  release];
 
 }
+- (IBAction)searchButtonClick:(id)sender {
+    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"搜一搜" message:nil delegate:self cancelButtonTitle:@"搜索" otherButtonTitles:@"取消", nil ];
+    [alert show];
+    [alert release];
+}
+
 - (IBAction)clickBtn:(id)sender
 {
     UIButton *btn = (UIButton *)sender;
@@ -341,6 +352,82 @@
         else [subview setImage:[UIImage imageNamed:@"会刊-图片下面圈圈未选中.png"]];
     }
 }
+
+- (void)willPresentAlertView:(UIAlertView *)alertView
+{
+    
+    //重新定义alertView的大小
+    alertView.frame = CGRectMake(self.view.frame.size.width/2-alertView.frame.size.width/2, 200, alertView.frame.size.width, alertView.frame.size.height+60);
+    
+    //在alertView上添加提示框和输入框
+       
+        
+    
+    //textField:userID
+    UITextField *textField_userId = [[UITextField alloc] initWithFrame:CGRectMake(20, 50, 240, 40)];
+    //textField_userId.textColor = [UIColor whiteColor];
+    	textField_userId.tag=100;
+	[textField_userId setBorderStyle:UITextBorderStyleRoundedRect];
+	textField_userId.clearButtonMode=UITextFieldViewModeWhileEditing;
+    [alertView addSubview:textField_userId];
+    textField_userId.backgroundColor = [UIColor whiteColor];
+	textField_userId.font=[UIFont systemFontOfSize:25];
+    [textField_userId release];
+    
+    
+    
+    //让上面的按钮都往下移
+    for(UIView *vi in [alertView subviews])
+    {
+        if ([vi isKindOfClass:[UIButton class]])
+        {
+            vi.frame = CGRectMake(vi.frame.origin.x, vi.frame.origin.y+50, vi.frame.size.width, vi.frame.size.height);
+        }
+    }
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        return;
+    }
+    UITextField  *nameTF = (UITextField *)[alertView viewWithTag:100];
+    NSString     *searchString = nameTF.text;
+    if (searchString == nil || [searchString length] == 0) {
+        return;
+    }
+    NSString  * urlString = [NSString  stringWithFormat:@"%@/API/book/Search.aspx?Key=%@",SERVER_URL,searchString];
+    NSString *urlString2 = [urlString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    ASIHTTPRequest * request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:urlString2]];
+    [request setCompletionBlock:^{
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        SBJSON *json = [[SBJSON alloc] init];
+        NSDictionary *dic = [json objectWithString:request.responseString  error:nil];
+        NSString *str = [dic valueForKey:@"Result"];
+        int x = [[dic valueForKey:@"NO"] intValue];
+        if (x==0) {
+            return ;
+        }
+        NSArray  *arr = [json objectWithString:str error:nil];
+        NSMutableArray *mutHuikanArr = [[[NSMutableArray alloc] init]autorelease];
+        for (NSDictionary *temp in arr )
+        {
+            [mutHuikanArr addObject:[LFESort initWithDictionary:temp]];
+        }
+        LFListSortViewController * temp = [[LFListSortViewController alloc]init];
+        temp.kindSortArray = mutHuikanArr;
+        temp.kindsSort = @"1";
+        //[mutHuikanArr release];
+        [self.navigationController pushViewController:temp animated:YES];
+        
+    }];
+    [request setFailedBlock:^{
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        NSLog(@"%@",request.responseString);
+    }];
+    [request startAsynchronous];
+    [MBProgressHUD showHUDAddedTo:self.view message:@"正在搜索" animated:YES];
+}
+
 
 
 

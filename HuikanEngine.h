@@ -18,4 +18,5 @@
 +(void)mangzineCollection:(ArticleModel *) aarticle callbackfunction:(void (^)(bool isWin,NSString * result))function;
 +(void)getHuiKanPingLun:(ArticleModel *) aarticle   arry:(NSMutableArray*)myarry callbackfunction:(void (^)(bool isWin,NSMutableArray * arry))function;
 +(void)addHuiKanPingLun:(ArticleModel *) aarticle con:(NSString*)str callbackfunction:(void (^)(bool isWin))function;
++(void)delete:(int)aid;
 @end

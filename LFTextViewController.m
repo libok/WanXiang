@@ -69,7 +69,11 @@
     switch (btn.tag)
     {
         case 1:
-            [self.navigationController popViewControllerAnimated:YES];
+        {
+            [HuikanEngine delete:50];
+             [self.navigationController popViewControllerAnimated:YES];
+        }
+           
             break;
         case 2:
         {

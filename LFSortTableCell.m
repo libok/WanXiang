@@ -34,6 +34,7 @@
     [sortImgView release];
     [sortNameLabel release];
     [sortContents release];
+    [_orderButton release];
     [super dealloc];
 }
 - (IBAction)downloadBtn:(id)sender

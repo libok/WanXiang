@@ -18,6 +18,7 @@
 @property (retain, nonatomic) IBOutlet UIImageView *sortImgView;
 @property (retain, nonatomic) IBOutlet UILabel *sortNameLabel;
 @property (retain, nonatomic) IBOutlet UITextView *sortContents;
+@property (retain, nonatomic) IBOutlet UIButton *orderButton;
 
 - (IBAction)downloadBtn:(id)sender;
 

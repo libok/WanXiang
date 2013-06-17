@@ -50,6 +50,7 @@
 		self.huikantime = [huiYuanKaDictionary objectForKey:@"huikantime"];
 		self.sortImg = [huiYuanKaDictionary objectForKey:@"sortimg"];
 		self.groupID = [huiYuanKaDictionary objectForKey:@"groupid"];
+        self.url     = [huiYuanKaDictionary objectForKey:@"imgurl"];
 	}
 	return self;
 	

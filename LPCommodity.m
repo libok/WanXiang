@@ -17,7 +17,7 @@
 @synthesize classId = _classId;
 @synthesize price = _price;
 @synthesize price2 = _price2;
-@synthesize buytype;
+
 @synthesize info = _info;
 @synthesize sheng;
 @synthesize shi;
@@ -28,6 +28,7 @@
 @synthesize isok;
 @synthesize attr = _attr;
 @synthesize imgList = _imgList;
+@synthesize buytype;
 @synthesize isbuy;
 @synthesize isjoin;
 @synthesize isyd;

@@ -32,11 +32,13 @@
 
 + (id)youHuiQuanWithDictionary:(NSDictionary *)youHuiQuanDictionary
 {
+    NSLog(@"%@",youHuiQuanDictionary);
 	return [[[self alloc] initWithDictionary:youHuiQuanDictionary] autorelease];
 }
 
 - (id)initWithDictionary:(NSDictionary *)youHuiQuanDictionary
 {
+    NSLog(@"%@",youHuiQuanDictionary);
 	if (self = [super init])
 	{
 		self.iD = [youHuiQuanDictionary objectForKey:@"id"];
@@ -56,7 +58,7 @@
 		self.useTime = [youHuiQuanDictionary objectForKey:@"usetime"];
 		self.adress = [youHuiQuanDictionary objectForKey:@"adress"];
 		self.jianJie = [youHuiQuanDictionary objectForKey:@"jianjie"];
-		
+		self.url     = [youHuiQuanDictionary objectForKey:@"imgurl"];
 	}
 	return self;
 }

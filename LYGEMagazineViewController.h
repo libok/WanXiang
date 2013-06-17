@@ -7,6 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@interface MyAlertView:UIAlertView
+{
+    
+}
+@end
 @interface LYGEMagazineViewController : UIViewController <UIScrollViewDelegate>
 {
     IBOutlet UIPageControl *_adPageControl;
@@ -41,6 +46,7 @@
 @property(nonatomic,retain)NSArray       * shangjiaArray;
 @property(nonatomic,retain)NSTimer       * aTimer;
 
+- (IBAction)searchButtonClick:(id)sender;
 
 - (IBAction)clickBtn:(id)sender;
 - (void) setCurrentPage:(NSInteger)secondPage;

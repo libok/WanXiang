@@ -17,6 +17,8 @@
 #import "LFCategorizeSort.h"
 #import "MBProgressHUD.h"
 #import <QuartzCore/QuartzCore.h>
+#import "ASIHTTPRequest.h"
+#import "SBJSON.h"
 @interface LFListSortViewController ()
 
 @end
@@ -69,6 +71,7 @@
 }
 - (IBAction)gobackBtnClick
 {
+    [HuikanEngine delete:12];
     [self.navigationController popViewControllerAnimated:YES];
     
 }
@@ -117,7 +120,41 @@
 
 }
 
-
+-(void)orderButtonClick:(UIButton*)sender
+{
+    int x =  [((LFESort *)[_kindSortArray objectAtIndex:sender.tag]).merchantID intValue];
+    int uid = [LYGAppDelegate getuid];
+    NSString  * urlString = [NSString  stringWithFormat:@"%@/API/book/JoinHK.aspx?u=%d&s=%d",SERVER_URL,uid,x];
+    NSString *urlString2 = [urlString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    ASIHTTPRequest * request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:urlString2]];
+    [request setCompletionBlock:^{
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        SBJSON *json = [[SBJSON alloc] init];
+        NSDictionary *dic = [json objectWithString:request.responseString  error:nil];
+        NSString *str = [dic valueForKey:@"Result"];
+        int x = [[dic valueForKey:@"NO"] intValue];
+        if (x==0) {
+            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"订阅失败" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+            [alert release];
+        }else
+        {
+            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"订阅成功" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+            [alert release];
+        }       
+        
+    }];
+    [request setFailedBlock:^{
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"订阅失败" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        NSLog(@"%@",request.responseString);
+    }];
+    [request startAsynchronous];
+    [MBProgressHUD showHUDAddedTo:self.view message:@"正在订阅" animated:YES];
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -129,8 +166,19 @@
         cell = [nib objectAtIndex:0];
         cell.sortImgView.layer.cornerRadius  = 3;
         cell.sortImgView.clipsToBounds       = YES;
+        if ([_kindsSort isEqualToString:@"1"])
+        {
+            [cell.orderButton addTarget:self action:@selector(orderButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        }
+        if ([_kindsSort isEqualToString:@"2"])
+        {
+            cell.orderButton.hidden = YES;
+        }
+        
         
     }
+    LFESort * oneSort = [_kindSortArray objectAtIndex:indexPath.row];
+    cell.orderButton.tag  = indexPath.row;
     
     if (indexPath.row % 2 == 1)
     {

@@ -14,6 +14,7 @@
 {
     id   _delegate;
 }
+@property(nonatomic,retain)NSMutableArray * requestArry;
 @property(nonatomic,assign) id  delegate;
 +(void)hasNotFinishedTrade:(int)status callbackfunction:(void (^)(NSMutableArray *))function;
 +(void)getUserInfo:(int)aMangerID callbackfunction:(void (^)(ShopInfo*))function;
@@ -22,7 +23,8 @@
 +(void)orderAtOnce:(int)mangerID good:(int)goodID  content:(NSString *)astr callbackFunction:(void (^)(NSString* msg))aFunction;
 -(BOOL)isLogin;
 -(void)readURl;
--(void)requestAd:(LPCity *)aCity;
+//-(void)requestAd:(LPCity *)aCity;
+-(void)requestAd:(LPCity *)aCity atype:(int)type;
 -(void)requestCategory;
 -(void)requestSingleCommodit:(int)aId;
 -(void)requestCommodity:(int)p class:(int)c index:(int)aIndex;
@@ -45,6 +47,7 @@
 //得到商品类别
 -(void)getCategory:(NSArray *)aArray;
 -(void)getcategoryFail:(NSError *)aError;
+-(void)requestAd:(LPCity *)aCity atype:(int)type;
 @end
 
 @protocol LSBengineAdDelegate <NSObject>
