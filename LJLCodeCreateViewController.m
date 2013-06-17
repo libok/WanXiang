@@ -38,6 +38,7 @@
 @synthesize mySwitch  = _mySwitch;
 @synthesize oneModel  = _oneModel;
 @synthesize currentColor = _currentColor;
+@synthesize infoImage;
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad 
 {
@@ -66,7 +67,12 @@
 //****把一张图片画到另一张图片上面，添加二维码中间个性码的原理（中间图片的大小控制在28.5一下可以被有效识别，大于识别率会降低）
 - (UIImage *) image:(UIImage *)aImage
 {
-	//合并图片的方法
+	return [self mergeImage:_erweimaImageView.image topImage:aImage];
+}
+
+- (UIImage *) mergeImage:(UIImage *)backImage topImage:(UIImage *)topImage
+{
+    //合并图片的方法
 	
 	//背景图片的大小
 	CGSize finalSize = {192,192};
@@ -74,11 +80,12 @@
  	UIGraphicsBeginImageContext(finalSize);
 	
 	//把下面的画在上面的，注意顺序
-	[_erweimaImageView.image drawInRect:CGRectMake(0,0,finalSize.width,finalSize.height)];
-	[aImage drawInRect:CGRectMake(82.25,82.25,28.5,28.5)];
+	[backImage drawInRect:CGRectMake(0,0,finalSize.width,finalSize.height)];
+	[topImage drawInRect:CGRectMake(82.25,82.25,28.5,28.5)];
 	UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
 	
 	return newImage;
+
 }
 
 
@@ -183,8 +190,17 @@
 	}
 	else 
 	{
-		self.erweimaImageView.image = [QRCodeGenerator qrImageForString:self.contentStr imageSize:self.erweimaImageView.bounds.size.width color:self.currentColor];
-	}
+        UIImage *image = [QRCodeGenerator qrImageForString:self.contentStr imageSize:self.erweimaImageView.bounds.size.width color:self.currentColor];
+        if (infoImage)
+        {
+            
+            self.erweimaImageView.image = [self mergeImage:image topImage:infoImage];
+        }
+        else
+        {
+            self.erweimaImageView.image = image;
+        }
+    }
 }
 
 - (IBAction) gexingshengma
@@ -198,6 +214,7 @@
 	else 
 	{
 		UIImagePickerController *imageController = [[UIImagePickerController alloc] init];
+        imageController.allowsEditing = YES;
 		//判断当前设备是否有摄像头，或者相册
 		if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
 		{
@@ -354,36 +371,39 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
 {	
-	backImageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
-	backImageView.image = [UIImage imageNamed:@"主页背景1.png"];
-	backImageView.userInteractionEnabled = YES;
-	UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-	imageView.image = [UIImage imageNamed:@"顶部.png"];
-	[backImageView addSubview:imageView];
-	[self.view addSubview:backImageView];
-	
-	UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(125, 0, 100, 38)];
-	label.text = @"设置图标";
-	label.textColor = [UIColor whiteColor];
-	label.backgroundColor = [UIColor clearColor];
-	[imageView addSubview:label];
-	[label release];
-	
-	self.imageCropper = [[NLImageCropperView alloc] initWithFrame:CGRectMake(0, 44, 320, 436)];
-    [backImageView addSubview:_imageCropper];
-	[_imageCropper release];
-    [_imageCropper setImage:image];
-    [_imageCropper setCropRegionRect:CGRectMake(10, 50, 100, 100)];
-				
-	[self addbackAndOKButton];
-	
-	UILabel *tishiLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 380, 300, 100)];
-	tishiLabel.text = @"可以通过放大缩小和移动取景框设置图标";
-	tishiLabel.font = [UIFont fontWithName:@"Arial" size:12.0];
-	tishiLabel.backgroundColor = [UIColor clearColor];
-	tishiLabel.textColor = [UIColor redColor];
-	[backImageView addSubview:tishiLabel];
-	[tishiLabel release];
+//	backImageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+//	backImageView.image = [UIImage imageNamed:@"主页背景1.png"];
+//	backImageView.userInteractionEnabled = YES;
+//	UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+//	imageView.image = [UIImage imageNamed:@"顶部.png"];
+//	[backImageView addSubview:imageView];
+//	[self.view addSubview:backImageView];
+//	
+//	UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(125, 0, 100, 38)];
+//	label.text = @"设置图标";
+//	label.textColor = [UIColor whiteColor];
+//	label.backgroundColor = [UIColor clearColor];
+//	[imageView addSubview:label];
+//	[label release];
+//	
+//	self.imageCropper = [[NLImageCropperView alloc] initWithFrame:CGRectMake(0, 44, 320, 436)];
+//    [backImageView addSubview:_imageCropper];
+//	[_imageCropper release];
+//    [_imageCropper setImage:image];
+//    [_imageCropper setCropRegionRect:CGRectMake(10, 50, 100, 100)];
+//				
+//	[self addbackAndOKButton];
+//	
+//	UILabel *tishiLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 380, 300, 100)];
+//	tishiLabel.text = @"可以通过放大缩小和移动取景框设置图标";
+//	tishiLabel.font = [UIFont fontWithName:@"Arial" size:12.0];
+//	tishiLabel.backgroundColor = [UIColor clearColor];
+//	tishiLabel.textColor = [UIColor redColor];
+//	[backImageView addSubview:tishiLabel];
+//	[tishiLabel release];
+    self.infoImage = image;
+    self.erweimaImageView.image = [self image:image];
+    
 	[picker dismissModalViewControllerAnimated:YES];
 }
 
@@ -532,6 +552,8 @@
 	[_myType release];
 	[_share release];
     [_oneModel release];
+    [infoImage release];
+    
     [super dealloc];
 }
 

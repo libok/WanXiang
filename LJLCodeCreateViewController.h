@@ -21,6 +21,7 @@
     NSString               *_urlString;
 	NSString               *weiboleixing;
 	UIButton			   *close;
+    UIImage                *infoImage;
 }
 
 @property (nonatomic,retain) NLImageCropperView     *imageCropper;
@@ -33,6 +34,8 @@
 @property (nonatomic,retain) IBOutlet UISwitch      *mySwitch;
 @property (nonatomic,retain) LYGTwoDimensionCodeModel * oneModel;
 @property (nonatomic,retain) UIColor * currentColor;
+@property (nonatomic,retain) UIImage                *infoImage;
+
 - (IBAction) back;
 - (IBAction) gexingshengma;
 - (IBAction) isEnciphermented;
