@@ -103,7 +103,17 @@
     {
         image = [QRCodeGenerator qrImageForString:self.oneModel.content imageSize:192 color:self.currentColor];
     }
-    self.erweimaImageView.image = image;    
+    
+    if (infoImage)
+    {
+        
+        self.erweimaImageView.image = [self mergeImage:image topImage:infoImage];
+    }
+    else
+    {
+        self.erweimaImageView.image = image;
+    }
+
 }
 
 - (UIImage *) aimage
