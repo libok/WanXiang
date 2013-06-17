@@ -260,6 +260,26 @@
     }];
     [request startAsynchronous];
 }
+
++(void)deletnotfinished:(int)x callBackFunction:(void (^)(BOOL result))function
+{
+    int uid = [LYGAppDelegate getuid];
+    NSString * urlstr = nil;
+   // NSString * urlString2 = [SERVER_URL stringByAppendingString:@"/API/order/delorder.aspx?id=%d",x];
+    NSString * urlString2 = [NSString stringWithFormat:@"%@/API/order/delorder.aspx?id=%d&T=1",SERVER_URL,x];
+    ASIHTTPRequest * request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:urlString2]];
+    [request setCompletionBlock:^{
+        NSLog(@"%@",request.responseString);
+        int x = [LYGAppDelegate getAsihttpResult:request.responseString];
+        function(x);
+    }];
+    [request setFailedBlock:^{
+        function(NO);
+        NSLog(@"%@",request.responseString);
+    }];
+    [request startAsynchronous];
+}
+
 -(void)requestCategory
 {
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/Goods/GoodsClass.aspx",SERVER_URL]]];

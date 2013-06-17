@@ -17,6 +17,7 @@
 #import "LPCommDatilViewController.h"
 #import "LPCommodity.h"
 #import "MBProgressHUD.h"
+#import "ASIHTTPRequest.h"
 #define BIANJIBUTTON_TAG   1000
 #define QINGCHUBUTTON_TAG  1001
 #define QUXIQOBUTTON_TAG   1002
@@ -89,7 +90,7 @@
 }
 -(void)valueChange:(SVSegmentedControl *)aSvs
 {
-    self.tableView.editing = NO;
+    [self.tableView setEditing:NO];
     __block LSBmyViewController * temp = self;
     int x = aSvs.selectedIndex;
     switch (x) {
@@ -111,13 +112,13 @@
             break;
         case 2:
         {
-             [MBProgressHUD showHUDAddedTo:self.view message:@"正在加载中" animated:YES];
-            [LSBengine hasNotFinishedTrade:1 callbackfunction:^(NSMutableArray * myarry){
-                temp.dataArray = myarry;
-                [temp.tableView reloadData];
-                [MBProgressHUD hideHUDForView:temp.view animated:YES];
-
-            }];
+//             [MBProgressHUD showHUDAddedTo:self.view message:@"正在加载中" animated:YES];
+//            [LSBengine hasNotFinishedTrade:1 callbackfunction:^(NSMutableArray * myarry){
+//                temp.dataArray = myarry;
+//                [temp.tableView reloadData];
+//                [MBProgressHUD hideHUDForView:temp.view animated:YES];
+//
+//            }];
 
         }
             break;
@@ -177,7 +178,7 @@
 }
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.navSc.selectedIndex == 1) {
+    if (self.navSc.selectedIndex == 2) {
         return NO;
     }else
     {
@@ -190,16 +191,18 @@
 {
     //NSUInteger row = [indexPath row];
     LPShouCang *ad = [_dataArray objectAtIndex:indexPath.row];
-    int x = self.navSc.selected;
+    int x = self.navSc.selectedIndex;
     switch (x) {
         case 0:
         {
             [_engine requestDeleshouCang:[ad.ID intValue]];
         }
             break;
-        case 2:
+        case 1:
         {
-            //[LSBengine deleteNotFinishedOrder:(int)];
+            [LSBengine deletnotfinished:[ad.ID intValue] callBackFunction:^(BOOL result) {
+                
+            }];
         }
             break;
             
@@ -242,14 +245,14 @@
             break;
         case 2:
         {
-//            int  
-//            if(self.navSc.selectedIndex == 1)
-//            {
-//                UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"未完成交易列表不能编辑" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-//                [alert show];
-//                [alert release];
-//                return;
-//            }
+ 
+            if(self.navSc.selectedIndex == 2)
+            {
+                UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"已完成交易列表不能编辑" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                [alert show];
+                [alert release];
+                return;
+            }
             _actionSheet = [[UIActionSheet alloc]initWithTitle:@"\n\n\n\n\n\n\n\n\n\n\n" delegate:nil cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
             
             UIButton  *bianJiBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -277,6 +280,7 @@
             [_actionSheet addSubview:quXiaoBtn];
             
             [_actionSheet showInView:self.view];
+            [_actionSheet release];
         }
             break;
             
@@ -292,8 +296,7 @@
 	{
 		case BIANJIBUTTON_TAG:
 		{
- 
-			[self.tableView setEditing:!self.tableView.editing animated:YES];
+                [self.tableView setEditing:YES animated:YES];
 		}
 			break;
 		case QINGCHUBUTTON_TAG:
