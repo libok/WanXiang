@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1552</int>
-		<string key="IBDocument.SystemVersion">12C60</string>
+		<string key="IBDocument.SystemVersion">12D78</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
-		<string key="IBDocument.AppKitVersion">1187.34</string>
-		<string key="IBDocument.HIToolboxVersion">625.00</string>
+		<string key="IBDocument.AppKitVersion">1187.37</string>
+		<string key="IBDocument.HIToolboxVersion">626.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">2083</string>
@@ -291,7 +291,7 @@
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 			<object class="IBUIView" id="379044516">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIImageView" id="947158482">
@@ -299,6 +299,7 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrameSize">{320, 50}</string>
 						<reference key="NSSuperview" ref="379044516"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="992713788"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -313,6 +314,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{80, 13}, {22, 20}}</string>
 						<reference key="NSSuperview" ref="379044516"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="393158095"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -323,6 +325,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{278, 15}, {22, 20}}</string>
 						<reference key="NSSuperview" ref="379044516"/>
+						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -332,6 +335,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{206, 15}, {22, 20}}</string>
 						<reference key="NSSuperview" ref="379044516"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="474105063"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -342,6 +346,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{50, 13}, {22, 20}}</string>
 						<reference key="NSSuperview" ref="379044516"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="644121523"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -352,6 +357,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{13, 13}, {22, 20}}</string>
 						<reference key="NSSuperview" ref="379044516"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="894762261"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -362,6 +368,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrameSize">{64, 50}</string>
 						<reference key="NSSuperview" ref="379044516"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="771617155"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -386,6 +393,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{64, 0}, {64, 50}}</string>
 						<reference key="NSSuperview" ref="379044516"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="611144113"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -407,6 +415,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{128, 0}, {64, 50}}</string>
 						<reference key="NSSuperview" ref="379044516"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="882884831"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -428,6 +437,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{192, 0}, {64, 50}}</string>
 						<reference key="NSSuperview" ref="379044516"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="852042101"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -449,6 +459,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{256, 0}, {64, 50}}</string>
 						<reference key="NSSuperview" ref="379044516"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="948772495"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -467,6 +478,8 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{320, 50}</string>
+				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="947158482"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
