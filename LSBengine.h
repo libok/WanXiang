@@ -36,6 +36,7 @@
 -(void)reQuestHY:(int)u managerID:(int)s;
 -(void)requestShangjiaInfo:(int)s;
 -(void)requestSearch:(NSString *)aStr;
++(void)deletnotfinished:(int)x callBackFunction:(void (^)(BOOL result))function;
 @end
 
 @protocol LSBengineDelegate <NSObject>
