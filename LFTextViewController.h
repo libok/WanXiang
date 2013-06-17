@@ -25,4 +25,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *contenTItleLabel;
 - (IBAction)addPinglun:(id)sender;
 
+- (IBAction)biggerFont:(id)sender;
+- (IBAction)smallerFont:(id)sender;
+
 @end

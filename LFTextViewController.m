@@ -136,12 +136,14 @@
             cell = [nib0 objectAtIndex:0];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             LygMyTableViewCell* cell2 =  (LygMyTableViewCell*)cell;
-            if (self.oneArticleModel.img.length > 3) {
+            if (self.oneArticleModel.img.length > 3)
+            {
                 CGRect rect          = cell2.textView.frame;
                 rect.size.height     = self.oneArticleModel.heightOfTextView;
                 cell2.textView.frame =  rect;
                 
-            }else
+            }
+            else
             {
                 self.height          = cell2.myContentImageView.frame.size.height;
                 [cell2.myContentImageView removeFromSuperview];
@@ -247,4 +249,25 @@
     temp.memArticleModel = self.oneArticleModel;
     [self.navigationController pushViewController:temp animated:YES];
 }
+
+- (IBAction)biggerFont:(id)sender
+{
+    LygMyTableViewCell *cell = (LygMyTableViewCell *)[self.myTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    if (cell.textView.font.pointSize <= 20)
+    {
+        cell.textView.font = [UIFont systemFontOfSize:cell.textView.font.pointSize + 1];
+    }
+    
+}
+
+- (IBAction)smallerFont:(id)sender
+{
+    LygMyTableViewCell *cell = (LygMyTableViewCell *)[self.myTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    if (cell.textView.font.pointSize >= 10)
+    {
+        cell.textView.font = [UIFont systemFontOfSize:cell.textView.font.pointSize - 1];
+    }
+}
+
+
 @end

@@ -23,6 +23,7 @@
 #import "LYGAppDelegate.h"
 //#import "SVProgressHUD.h"
 #import "MBProgressHUD.h"
+#import "NSString+MD5HexDigest.h"
 
 
 @implementation BYNUserCenterEngine
@@ -39,6 +40,7 @@
 	
 	//NSString * uuid = [(LYGAppDelegate*)([UIApplication sharedApplication].delegate) getuuid];
     NSString * uuid   = [LYGAppDelegate getUUID];
+    passwordStr = [[passwordStr md5EncodeString] lowercaseString];
 	NSString * str = [NSString stringWithFormat:@"%@/API/User/reg.aspx?u=%@&p=%@&ct=%d&clientid=%@&e=%@&q=%@&a=%@",SERVER_URL,phoneStr,passwordStr,1,uuid,emailStr,questionStr,answerStr];
 	
 	NSURL *url = [NSURL URLWithString:str];
@@ -91,6 +93,7 @@
 	//NSString * uuid = [(LYGAppDelegate*)([UIApplication sharedApplication].delegate) getuuid];	
     NSString * uuid   = [LYGAppDelegate getUUID];
     NSLog(@"%@",uuid);
+    passwordStr = [[passwordStr md5EncodeString] lowercaseString];
 	NSString * str = [NSString stringWithFormat:@"%@/API/User/login.aspx?u=%@&p=%@&ct=%d&clientid=%@",SERVER_URL,phoneNumStr,passwordStr,1,uuid];
     NSString * str2 = [str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 	NSURL *url = [NSURL URLWithString:str2];

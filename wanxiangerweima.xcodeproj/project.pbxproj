@@ -541,6 +541,7 @@
 		58EADC24173D956B007140E4 /* ArticleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EADC23173D956A007140E4 /* ArticleModel.m */; };
 		58F72073170B83E10085D693 /* WWREveryPhenomenonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58F72070170B83E10085D693 /* WWREveryPhenomenonCell.xib */; };
 		58F72074170B83E10085D693 /* WWREveryPhenomenonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F72071170B83E10085D693 /* WWREveryPhenomenonCell.m */; };
+		744A8FE9176EE3630039CF8E /* NSString+MD5HexDigest.m in Sources */ = {isa = PBXBuildFile; fileRef = 744A8FE8176EE3630039CF8E /* NSString+MD5HexDigest.m */; };
 		CE0D0BD1170C56A20071E7CC /* TextGreatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0D0BCC170C56A20071E7CC /* TextGreatViewController.m */; };
 		CE0D0BD2170C56A20071E7CC /* TextGreatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE0D0BCD170C56A20071E7CC /* TextGreatViewController.xib */; };
 		CE0D0BE8170C56D90071E7CC /* bitstream.c in Sources */ = {isa = PBXBuildFile; fileRef = CE0D0BD8170C56D90071E7CC /* bitstream.c */; };
@@ -1422,6 +1423,8 @@
 		58F72070170B83E10085D693 /* WWREveryPhenomenonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWREveryPhenomenonCell.xib; sourceTree = "<group>"; };
 		58F72071170B83E10085D693 /* WWREveryPhenomenonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWREveryPhenomenonCell.m; sourceTree = "<group>"; };
 		58F72072170B83E10085D693 /* WWREveryPhenomenonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWREveryPhenomenonCell.h; sourceTree = "<group>"; };
+		744A8FE7176EE3630039CF8E /* NSString+MD5HexDigest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5HexDigest.h"; sourceTree = "<group>"; };
+		744A8FE8176EE3630039CF8E /* NSString+MD5HexDigest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5HexDigest.m"; sourceTree = "<group>"; };
 		CE0D0BCB170C56A20071E7CC /* TextGreatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextGreatViewController.h; sourceTree = "<group>"; };
 		CE0D0BCC170C56A20071E7CC /* TextGreatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextGreatViewController.m; sourceTree = "<group>"; };
 		CE0D0BCD170C56A20071E7CC /* TextGreatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextGreatViewController.xib; sourceTree = "<group>"; };
@@ -1789,6 +1792,8 @@
 		12B83486171104BA0027031D /* 账户管理 */ = {
 			isa = PBXGroup;
 			children = (
+				744A8FE7176EE3630039CF8E /* NSString+MD5HexDigest.h */,
+				744A8FE8176EE3630039CF8E /* NSString+MD5HexDigest.m */,
 				12D18C85170C4A67009859F6 /* BYNAccountManagementViewController.h */,
 				12D18C86170C4A67009859F6 /* BYNAccountManagementViewController.m */,
 				12D18C87170C4A67009859F6 /* BYNAccountManagementViewController.xib */,
@@ -3767,6 +3772,7 @@
 				5807207A1762151A00856FFC /* MediaViewController.m in Sources */,
 				581326701765B2F000E2A632 /* MyTableView.m in Sources */,
 				58A5859917663C54001F1FD7 /* YanZhengViewController.m in Sources */,
+				744A8FE9176EE3630039CF8E /* NSString+MD5HexDigest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3793,8 +3799,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: yali liu (ZXHENKXVL6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yali liu (ZXHENKXVL6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lili He (4FCQ67TXMC)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lili He (4FCQ67TXMC)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -3816,8 +3822,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "";
-				PROVISIONING_PROFILE = "A268A4D0-083C-407D-BD05-CF739FE70FDB";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A268A4D0-083C-407D-BD05-CF739FE70FDB";
+				PROVISIONING_PROFILE = "766B3927-3C8B-4739-AE10-5B83EFBEE132";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "766B3927-3C8B-4739-AE10-5B83EFBEE132";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				SDKROOT = iphoneos;
@@ -3833,8 +3839,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: yali liu (ZXHENKXVL6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yali liu (ZXHENKXVL6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lili He (4FCQ67TXMC)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lili He (4FCQ67TXMC)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -3850,8 +3856,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "";
-				PROVISIONING_PROFILE = "A268A4D0-083C-407D-BD05-CF739FE70FDB";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A268A4D0-083C-407D-BD05-CF739FE70FDB";
+				PROVISIONING_PROFILE = "766B3927-3C8B-4739-AE10-5B83EFBEE132";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "766B3927-3C8B-4739-AE10-5B83EFBEE132";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				SDKROOT = iphoneos;
@@ -3862,8 +3868,8 @@
 		58E6FB6A170A1BF30029BAAD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: yali liu (ZXHENKXVL6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yali liu (ZXHENKXVL6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lili He (4FCQ67TXMC)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lili He (4FCQ67TXMC)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wanxiangerweima/wanxiangerweima-Prefix.pch";
 				INFOPLIST_FILE = "wanxiangerweima/wanxiangerweima-Info.plist";
@@ -3874,8 +3880,8 @@
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "万象二维码";
-				PROVISIONING_PROFILE = "33CABFB6-F4FF-4D86-84EB-7B031DFDD16F";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "33CABFB6-F4FF-4D86-84EB-7B031DFDD16F";
+				PROVISIONING_PROFILE = "766B3927-3C8B-4739-AE10-5B83EFBEE132";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "766B3927-3C8B-4739-AE10-5B83EFBEE132";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -3885,8 +3891,8 @@
 		58E6FB6B170A1BF30029BAAD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: yali liu (ZXHENKXVL6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yali liu (ZXHENKXVL6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lili He (4FCQ67TXMC)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lili He (4FCQ67TXMC)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wanxiangerweima/wanxiangerweima-Prefix.pch";
 				INFOPLIST_FILE = "wanxiangerweima/wanxiangerweima-Info.plist";
@@ -3897,8 +3903,8 @@
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "33CABFB6-F4FF-4D86-84EB-7B031DFDD16F";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "33CABFB6-F4FF-4D86-84EB-7B031DFDD16F";
+				PROVISIONING_PROFILE = "766B3927-3C8B-4739-AE10-5B83EFBEE132";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "766B3927-3C8B-4739-AE10-5B83EFBEE132";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
