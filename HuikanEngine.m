@@ -31,7 +31,7 @@ static NSMutableArray * requestArry = nil;
         [requestArry addObject:request];
     }
     [request setCompletionBlock:^{
-        //NSLog(@"%@",request.responseString);
+        NSLog(@"%@",request.responseString);
         SBJSON *json = [[SBJSON alloc] init];
         NSDictionary *dic = [json objectWithString:request.responseString error:nil];
         NSString *temp = [dic valueForKey:@"Result"];

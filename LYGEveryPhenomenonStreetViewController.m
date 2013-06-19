@@ -65,6 +65,11 @@ static int currentIndex = 0;
     [super dealloc];
 }
 
+- (IBAction)backClicked:(id)sender
+{
+    [self.searchView endEditing:YES];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -257,7 +262,8 @@ static int currentIndex = 0;
              {
                  lp.myArray = arry;
                  //lp.adPageC.numberOfPages = [lp.myArray count];
-                 for (int i = 0; i< [arry count]; i++) {
+                 for (int i = 0; i< [arry count]; i++)
+                 {
                      UIImageView * view = [[UIImageView alloc]initWithFrame:CGRectMake(320*i,0, 320, lp.scrollView.frame.size.height)];
                      //view.backgroundColor = [UIColor redColor];
                      view.tag = i+1;
@@ -266,6 +272,7 @@ static int currentIndex = 0;
 
                      [view setImageWithURL:((AdsClass*)[arry objectAtIndex:i]).url placeholderImage:[UIImage imageNamed:@"place.png"]];
                  }
+                
                  lp.scrollView.contentSize = CGSizeMake(320, lp.scrollView.frame.size.height);
                  lp.myTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(changeImage) userInfo:nil repeats:YES];
                  
@@ -394,7 +401,18 @@ static int currentIndex = 0;
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.2];
+    textField.frame = CGRectMake(66, 361, 188, 30);
+    UIView * temp = [self.searchView viewWithTag:-100];
+    temp.center = textField.center;
+    [UIView commitAnimations];
+}
 
+- (IBAction)end:(id)sender
+{
+    UITextField *textField = (UITextField *)sender;
+    
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.2];
     textField.frame = CGRectMake(66, 361, 188, 30);
@@ -402,14 +420,11 @@ static int currentIndex = 0;
     temp.center = textField.center;
     [UIView commitAnimations];
     LPCommodityViewController *tempcommodity = [[LPCommodityViewController alloc] init];
-
+    
     tempcommodity.searchStr = textField.text;
     [self.navigationController pushViewController:tempcommodity animated:YES];
-
+    
     [tempcommodity release];
-}
-
-- (IBAction)end:(id)sender {
 
 }
 - (IBAction)animated:(DAReloadActivityButton*)sender {

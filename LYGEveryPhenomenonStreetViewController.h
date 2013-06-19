@@ -42,5 +42,6 @@
 @property (nonatomic,assign)  BOOL isNeedRefresh;
 @property (nonatomic,retain)  NSArray *fenleiArry;
 - (IBAction)end:(id)sender;
+- (IBAction)backClicked:(id)sender;
 
 @end

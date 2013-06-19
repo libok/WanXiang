@@ -61,7 +61,7 @@
 						<string key="NSFrame">{{137, 7}, {47, 30}}</string>
 						<reference key="NSSuperview" ref="584469078"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="351131729"/>
+						<reference key="NSNextKeyView" ref="332621119"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -102,6 +102,17 @@
 						<bool key="IBUIScrollEnabled">NO</bool>
 						<bool key="IBUIPagingEnabled">YES</bool>
 					</object>
+					<object class="IBUIView" id="332621119">
+						<reference key="NSNextResponder" ref="584469078"/>
+						<int key="NSvFlags">274</int>
+						<array class="NSMutableArray" key="NSSubviews"/>
+						<string key="NSFrame">{{0, 45}, {320, 523}}</string>
+						<reference key="NSSuperview" ref="584469078"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="351131729"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+					</object>
 					<object class="IBUIImageView" id="631857253">
 						<reference key="NSNextResponder" ref="584469078"/>
 						<int key="NSvFlags">292</int>
@@ -124,7 +135,6 @@
 						<string key="NSFrame">{{66, 361}, {206, 30}}</string>
 						<reference key="NSSuperview" ref="584469078"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -364,7 +374,6 @@
 						<string key="NSFrame">{{276, 417}, {23, 23}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -396,7 +405,7 @@
 								<int key="IBUISeparatorStyle">1</int>
 								<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
 								<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
-								<float key="IBUIRowHeight">366</float>
+								<float key="IBUIRowHeight">368</float>
 								<float key="IBUISectionHeaderHeight">22</float>
 								<float key="IBUISectionFooterHeight">22</float>
 							</object>
@@ -1171,6 +1180,15 @@
 					</object>
 					<int key="connectionID">96</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">backClicked:</string>
+						<reference key="source" ref="332621119"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">108</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -1392,6 +1410,7 @@
 							<reference ref="51456680"/>
 							<reference ref="351131729"/>
 							<reference ref="631857253"/>
+							<reference ref="332621119"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -1408,11 +1427,6 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">87</int>
 						<reference key="object" ref="51456680"/>
-						<reference key="parent" ref="584469078"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">74</int>
-						<reference key="object" ref="351131729"/>
 						<reference key="parent" ref="584469078"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -1455,6 +1469,17 @@
 						<reference key="object" ref="974208181"/>
 						<reference key="parent" ref="467990625"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">74</int>
+						<reference key="object" ref="351131729"/>
+						<array class="NSMutableArray" key="children"/>
+						<reference key="parent" ref="584469078"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">107</int>
+						<reference key="object" ref="332621119"/>
+						<reference key="parent" ref="584469078"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -1468,6 +1493,8 @@
 				<string key="102.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="103.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="106.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="107.CustomClassName">UIControl</string>
+				<string key="107.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="11.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="13.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="20.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -1517,7 +1544,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">106</int>
+			<int key="maxID">108</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1534,6 +1561,7 @@
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="animated:">id</string>
+						<string key="backClicked:">id</string>
 						<string key="btnClick:">id</string>
 						<string key="buttonClick:">id</string>
 						<string key="end:">id</string>
@@ -1541,6 +1569,10 @@
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="animated:">
 							<string key="name">animated:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="backClicked:">
+							<string key="name">backClicked:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="btnClick:">

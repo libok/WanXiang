@@ -10,9 +10,9 @@
 #import "ASIFormDataRequest.h"
 #import "SBJSON.h"
 #import "MBProgressHUD.h"
-#define CLIENT_KEY     @"1061534660"
-#define CLIENT_SECRET  @"052795a8a00dfc0dd91a67102e3faf41"
-#define REDIRECT_URL   @"http://www.zksem.com/"
+#define CLIENT_KEY     @"2506984097"
+#define CLIENT_SECRET  @"3454aa2b1fb3c87f4571f345022b1f16"
+#define REDIRECT_URL   @"http://www.zhiyou100.com/"
 
 #define ACCESS_TOKEN_KEY @"access_token"
 #define EXPIRES_IN_KEY   @"expires_in"
@@ -91,7 +91,7 @@
 	{
 		//发表腾讯微博
 		
-		NSString *urlString = [NSString stringWithFormat:@"https://open.t.qq.com/api/t/add_pic?oauth_consumer_key=801343710&access_token=%@&openid=%@&clientip=10.0.0.172&oauth_version=2.a&scope=all",self.myToken,self.openid];
+		NSString *urlString = [NSString stringWithFormat:@"https://open.t.qq.com/api/t/add_pic?oauth_consumer_key=801371833&access_token=%@&openid=%@&clientip=10.0.0.172&oauth_version=2.a&scope=all",self.myToken,self.openid];
 		
 		ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:urlString]];
 		[request setPostValue:@"json" forKey:@"format"];
@@ -145,11 +145,11 @@
 - (void)gettengxunToken:(NSString *)aCode
 {
 	ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:@"https://open.t.qq.com/cgi-bin/oauth2/access_token?"]];
-	[request setPostValue:@"801343710" forKey:@"client_id"];
-	[request setPostValue:@"ee18310541177ceed128b4504d0f7bf4" forKey:@"client_secret"];
+	[request setPostValue:@"801371833" forKey:@"client_id"];
+	[request setPostValue:@"7d01ae6047e522b71a5a1e6ef5414000" forKey:@"client_secret"];
 	[request setPostValue:@"authorization_code" forKey:@"grant_type"];
 	[request setPostValue:aCode forKey:@"code"];
-	[request setPostValue:@"http://blog.sina.com.cn/lijinliangforever" forKey:@"redirect_uri"];
+	[request setPostValue:@"http://www.zhiyou100.com/" forKey:@"redirect_uri"];
 	request.delegate = self;
 	[request startAsynchronous];	
 }
