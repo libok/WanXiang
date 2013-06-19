@@ -57,7 +57,7 @@
                  btn.tag = [[data valueForKey:@"id"] intValue];
         
         [view addSubview:btn];
-        btn.layer.cornerRadius = 4;
+        btn.layer.cornerRadius = 8;
         btn.clipsToBounds      = YES;
         UILabel *lbl = [[[UILabel alloc] initWithFrame:CGRectMake(0, 73, 80, 14)] autorelease];
         lbl.textAlignment = NSTextAlignmentCenter;
