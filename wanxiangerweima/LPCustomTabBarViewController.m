@@ -249,6 +249,7 @@
 - (IBAction)buttonClick:(id)sender {
     int index = ((UIButton*)sender).tag;
     UIViewController * controller = nil;
+    int  selectindex = 0;
     [_myTimer invalidate];
     _myTimer = nil;
     switch (index) {
@@ -257,7 +258,7 @@
             controller = [[LYGEMagazineViewController alloc]init];
         }
             break;
-        case 2:
+        case 20:
         {
 
             LYGZBarReadViewController * xxx = [[LYGZBarReadViewController alloc]init];
@@ -266,6 +267,55 @@
             //LGHelpViewController      * help = [[LGHelpViewController alloc]init];
             UITabBarController * tab = [[UITabBarController alloc]init];            
             tab.viewControllers = [NSArray arrayWithObjects:scan,xxx,nil];
+            
+            tab.selectedIndex   = 0;
+            [self.navigationController pushViewController:tab animated:YES];
+            [tab release];
+            //UITabBarController＊ tabBarController = [[UITabBarController alloc] init];
+            [xxx release];
+            [scan release];
+            //[help release];
+            NSArray *array = [tab.view subviews];
+            
+            UITabBar *tabBar = [array objectAtIndex:1];
+            CGRect rect = tabBar.frame;
+            //UIView *  = [[UIView alloc]init];
+            MyTableView * view2 = (MyTableView*)[[[NSBundle mainBundle]loadNibNamed:@"MyTableView" owner:nil options:nil] objectAtIndex:0];
+            view2.tag = 1000;
+            __block UITabBarController * myxxx = tab;
+            __block LPCustomTabBarViewController * temp = self;
+            view2.oneBlock = ^(int x){
+                if (x==0) {
+                    [temp.navigationController popViewControllerAnimated:YES];
+                    return;
+                }
+                if (x== 3) {
+                    LYGTwoDimensionCodeHistoryViewController * history = [[LYGTwoDimensionCodeHistoryViewController alloc]init];
+                    [self.navigationController pushViewController:history animated:YES];
+                    //[]
+                    return;
+                }
+                if (x==4) {
+                    LGHelpViewController      * help = [[LGHelpViewController alloc]init];
+                    [self.navigationController pushViewController:help animated:YES];
+                    return;
+                }
+                myxxx.selectedIndex = x-1;
+            };
+            view2.frame   = rect;
+            //view2.backgroundColor = [UIColor redColor];
+            [tab.view addSubview:view2];           
+        }
+            break;
+        case 21:
+        {
+            LYGZBarReadViewController * xxx = [[LYGZBarReadViewController alloc]init];
+            LYGScanViewController     * scan = [[LYGScanViewController alloc]init];
+            //LYGTwoDimensionCodeHistoryViewController * history = [[LYGTwoDimensionCodeHistoryViewController alloc]init];
+            //LGHelpViewController      * help = [[LGHelpViewController alloc]init];
+            UITabBarController * tab = [[UITabBarController alloc]init];
+            tab.viewControllers = [NSArray arrayWithObjects:scan,xxx,nil];
+            
             tab.selectedIndex   = 1;
             [self.navigationController pushViewController:tab animated:YES];
             [tab release];
@@ -303,8 +353,6 @@
             view2.frame   = rect;
             //view2.backgroundColor = [UIColor redColor];
             [tab.view addSubview:view2];
-
-           
         }
             break;
         case 3:
