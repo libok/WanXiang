@@ -21,6 +21,12 @@
     DAReloadActivityButton *_viewButton;
     NSArray *_imglistArray;
 }
+
+@property (retain, nonatomic) IBOutlet UIButton *button1;
+@property (retain, nonatomic) IBOutlet UIButton *button2;
+@property (retain, nonatomic) IBOutlet UIButton *button3;
+@property (retain, nonatomic) IBOutlet UIButton *button4;
+
 @property(nonatomic,assign)            int      managerid;
 @property (retain, nonatomic) IBOutlet UIImageView *bigimg;
 @property(nonatomic,retain) NSArray *imglistArray;
