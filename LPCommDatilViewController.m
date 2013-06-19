@@ -73,9 +73,65 @@
     [_engine requestSingleCommodit:_ID];
     
 }
+-(void)hideFourButton
+{
+    NSLog(@"%@",self.dataDictionary);
+    int x = 199,y=41,width=100,height= 30;
+    for (int i = 1; i< 5; i++) {
+        switch (i) {
+            case 1:
+            {
+                int xx = [[self.dataDictionary objectForKey:@"buytype"] intValue];
+                if (!xx) {
+                    self.button1.hidden = YES;
+                }else{
+                    self.button1.frame = CGRectMake(x, y, width, height);
+                    y+=40;
+                }
+            }
+                break;
+            case 2:
+            {
+                int xx = [[self.dataDictionary objectForKey:@"isjoin"] intValue];
+                if (!xx) {
+                    self.button2.hidden = YES;
+                }else{
+                    self.button2.frame = CGRectMake(x, y, width, height);
+                    y+=40;
+                }
+            }
+                break;
+            case 3:
+            {
+                int xx = [[self.dataDictionary objectForKey:@"isbuy"] intValue];
+                if (!xx) {
+                    self.button3.hidden = YES;
+                }else{
+                    self.button3.frame = CGRectMake(x, y, width, height);
+                    y+=40;
+                }
+            }
+                break;
+            case 4:
+            {
+                int xx = [[self.dataDictionary objectForKey:@"isyd"] intValue];
+                if (!xx) {
+                    self.button4.hidden = YES;
+                }else{
+                    self.button4.frame = CGRectMake(x, y, width, height);
+                    y+=40;
+                }
+            }
+                
+            default:
+                break;
+        }
+    }
+}
 -(void)getSingleCommomditySuccess:(NSDictionary *)aDic
 {
     self.dataDictionary = aDic;
+    [self hideFourButton];
     [_viewButton stopAnimating];
     self.price.text = [ NSString stringWithFormat:@"%@%@",@"￥",[aDic valueForKey:@"price2"] ];
     self.price1.text = [ NSString stringWithFormat:@"%@",[aDic valueForKey:@"price"]];
