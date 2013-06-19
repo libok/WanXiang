@@ -116,8 +116,8 @@
         button.frame  = CGRectMake((i%2+1)*6 + (i%2)*151, self.height + (i/2+1)*6 + (i/2)*200,151, 200);
         //button.layer.cornerRadius = 5;
         button.clipsToBounds      = YES;
-        button.layer.borderWidth  = 1;
-        button.layer.borderColor  = [UIColor lightGrayColor].CGColor;
+//        button.layer.borderWidth  = 1;
+//        button.layer.borderColor  = [UIColor lightGrayColor].CGColor;
         //UIButton * button  = [[UIButton alloc]initWithFrame:CGRectMake((i%2+1)*10 + (i%2)*145, self.height + (i/2+1)*10 + (i/2)*145,145, 145)];
         [self.myScrollview addSubview:button];
         NSString * string  = [NSString stringWithFormat:@"%@%@",SERVER_URL,com.imgurl];
@@ -128,7 +128,7 @@
         button.label3.text = com.title;
         [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
         if (i == [self.oneArry count] - 1) {
-            self.myScrollview.contentSize = CGSizeMake(320, i*151 + 500);
+            self.myScrollview.contentSize = CGSizeMake(320, i*151 + 400);
         }
     }
 }
