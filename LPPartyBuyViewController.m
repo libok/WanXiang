@@ -110,6 +110,7 @@
     [self.view bringSubviewToFront:self.naviImageView];
     [self.view bringSubviewToFront:self.backButton];
     [self.view bringSubviewToFront:self.titleIlabel];
+    self.textField.text = @"1";
 }
 
 - (void)didReceiveMemoryWarning
@@ -190,8 +191,7 @@
     //[_myScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
         self.view.frame = CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height);
     _myScrollView.scrollEnabled = YES;
-    self.price.text = [NSString stringWithFormat:@"%d",[_textField.text intValue]*danjia ];
-    
+    self.price.text = [NSString stringWithFormat:@"%d",[_textField.text intValue]*danjia ];    
 }
 
 - (IBAction)btnClick:(id)sender {
@@ -226,7 +226,9 @@
             LPAffirmViewController *affirmVC = [[LPAffirmViewController alloc] init];
             affirmVC.oneCommodity            = temp2.oneCommodity;
             affirmVC.orderID                 = string;
-            affirmVC.wareModel = [[LPWareModel alloc] initWithDictionary:_dataDictionary number:[_textField.text intValue] size:0];
+            affirmVC.wareModel  = [[LPWareModel alloc] initWithDictionary:_dataDictionary number:[_textField.text intValue] size:0];
+            affirmVC.myShopInfo = temp2.myShopInfo;
+            affirmVC.num     = [self.textField.text intValue];
             [temp2 presentViewController:affirmVC animated:YES completion:nil];
             [affirmVC release];
             [MBProgressHUD hideHUDForView:temp2.view animated:YES];            

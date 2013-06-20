@@ -9,12 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "LPWareModel.h"
 #import "LPCommodity.h"
+#import "ShopViewController.h"
 @interface LPAffirmViewController : UIViewController
 {
    LPWareModel *_wareModel;
 }
 @property(nonatomic,retain) LPWareModel *wareModel;
+@property (retain, nonatomic) IBOutlet UILabel *shangjiaLabel1;
 - (IBAction)btnClick:(id)sender;
+@property (retain, nonatomic) IBOutlet UILabel *shangjiaLabel2;
+@property (retain, nonatomic) IBOutlet UILabel *shangjiaLabel3;
 @property (retain, nonatomic) IBOutlet UIImageView *smallimg;
 @property (retain, nonatomic) IBOutlet UILabel *price;
 @property (retain, nonatomic) IBOutlet UILabel *yhprice;
@@ -28,6 +32,7 @@
 @property (retain, nonatomic) IBOutlet UIScrollView *scrollerView;
 @property (nonatomic,retain)  LPCommodity      *oneCommodity;
 @property (nonatomic,copy)    NSString         *orderID;
-- (IBAction)pay:(id)sender;
+@property (nonatomic,retain)  ShopInfo         *myShopInfo;
+@property (nonatomic,assign)  int               num;
 
 @end

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "LPCommodity.h"
+#import "ShopViewController.h"
 @interface LPPartyBuyViewController : UIViewController
 {
     NSDictionary *_dataDictionary;
@@ -34,6 +35,7 @@
 @property (retain, nonatomic) IBOutlet UIImageView *naviImageView;
 @property (retain, nonatomic) IBOutlet UIButton *backButton;
 @property (retain, nonatomic) IBOutlet UILabel *titleIlabel;
+@property (retain,nonatomic)  ShopInfo * myShopInfo;
 - (IBAction)view3Touchupinside:(id)sender;
 
  

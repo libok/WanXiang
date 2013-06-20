@@ -33,6 +33,9 @@
     [_zhongjia release];
     [_zhongjia1 release];
     [_scrollerView release];
+    [_shangjiaLabel1 release];
+    [_shangjiaLabel2 release];
+    [_shangjiaLabel3 release];
     [super dealloc];
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -54,10 +57,18 @@
     self.cdname.text = _wareModel.title;
     self.price.text = _wareModel.price;
     self.yhprice.text = _wareModel.yhprice;
-//    self.number.text = _wareModel.number;
-//    self.size.text = _wareModel.size;
-//    self.info.text = _wareModel.info;
-//    self.zhongjia.text = [NSString stringWithFormat:@"%@",];
+    
+    self.shangjiaLabel1.text = self.myShopInfo.NickName;
+    self.shangjiaLabel2.text = self.myShopInfo.adress;
+    self.shangjiaLabel3.text = self.myShopInfo.Contents;
+    
+    
+    
+    self.price.text         = [self.oneCommodity.price description];
+    self.yhprice.text       = [self.oneCommodity.price2 description];
+    self.number.text        = [NSString stringWithFormat:@"%d",self.num];
+    float temp              = [self.oneCommodity.price2  floatValue]*self.num;
+    self.zhongjia.text      = [NSString stringWithFormat:@"%.2f",temp];
     _scrollerView.contentSize = CGSizeMake(0,550);
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(goBack) name:@"fukuan" object:nil];
 
@@ -141,6 +152,9 @@
     [self setZhongjia:nil];
     [self setZhongjia1:nil];
     [self setScrollerView:nil];
+    [self setShangjiaLabel1:nil];
+    [self setShangjiaLabel2:nil];
+    [self setShangjiaLabel3:nil];
     [super viewDidUnload];
 }
 - (IBAction)pay:(id)sender {
