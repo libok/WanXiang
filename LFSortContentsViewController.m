@@ -13,6 +13,15 @@
 #import "ArticleModel.h"
 #import "UIImageView+WebCache.h"
 #import "MBProgressHUD.h"
+@implementation HuiKanGuangGao
+-(id)initWithaDictionary:(NSDictionary*)adictionary
+{
+    if (self = [super init]) {
+        
+    }
+    return self;
+}
+@end
 @interface LFSortContentsViewController ()
 
 @end
@@ -35,7 +44,6 @@
     [super viewDidLoad];
     self.className.text = self.oneSort.aSortName;
     NSString * string = [NSString stringWithFormat:@"%@%@",SERVER_URL,self.oneSort.aSortImg];
-    //self.huiKanImageView setImageWithURL:<#(NSURL *)#>
     [self.huiKanImageView setImageWithURL:[NSURL URLWithString:string] placeholderImage:[UIImage imageNamed:@"会刊2-4.png"]];
 }
 -(void)initGet
