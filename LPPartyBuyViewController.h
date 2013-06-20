@@ -14,6 +14,7 @@
     int danjia;    
 }
 @property(nonatomic,retain) NSDictionary *dataDictionary;
+@property(nonatomic,retain) NSArray      * attrArry;
 - (IBAction)btnClick:(id)sender;
 @property (retain, nonatomic) IBOutlet UIScrollView *myScrollView;
 @property (retain, nonatomic) IBOutlet UIImageView *imgView;
@@ -27,6 +28,13 @@
 @property (retain, nonatomic) IBOutlet UILabel *price;
 @property (nonatomic,retain)   LPCommodity * oneCommodity;
 - (IBAction)buyButtonClick:(id)sender;
+@property (retain, nonatomic) IBOutlet UIView *colorView;
+@property (retain, nonatomic) IBOutlet UIView *inchView;
+@property (retain, nonatomic) IBOutlet UIView *view3;
+@property (retain, nonatomic) IBOutlet UIImageView *naviImageView;
+@property (retain, nonatomic) IBOutlet UIButton *backButton;
+@property (retain, nonatomic) IBOutlet UILabel *titleIlabel;
+- (IBAction)view3Touchupinside:(id)sender;
 
  
  
