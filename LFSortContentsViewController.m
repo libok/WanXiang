@@ -58,6 +58,9 @@
         NSDictionary * dict = [sb objectWithString:request.responseString];
         NSArray  * arry  = [sb objectWithString:[dict valueForKey:@"Result"]];
         __block int  x = 0;
+        if (arry == nil || [arry count] == 0) {
+            self.myTableView.frame = self.mainScrollview.bounds;
+        }
         for (NSDictionary * dict in arry) {
             NSLog(@"%@",dict);
             UIButton *vi = [[UIButton alloc]initWithFrame:CGRectMake(x*320, 0, 320, 171)];
@@ -169,12 +172,14 @@
     [_myTableView release];
     [_huiKanImageView release];
     [_guangaoScroview release];
+    [_mainScrollview release];
     [super dealloc];
 }
 - (void)viewDidUnload {
     [self setClassName:nil];
     [self setMySegmentController:nil];
     [self setGuangaoScroview:nil];
+    [self setMainScrollview:nil];
     [super viewDidUnload];
 }
 - (IBAction)segmentValueChanged:(id)sender {

@@ -247,7 +247,7 @@
 								<float key="IBUISectionHeaderHeight">22</float>
 								<float key="IBUISectionFooterHeight">22</float>
 							</object>
-							<object class="IBUIScrollView" id="801160390">
+							<object class="IBUIScrollView" id="51620500">
 								<reference key="NSNextResponder" ref="60814286"/>
 								<int key="NSvFlags">268</int>
 								<string key="NSFrameSize">{320, 171}</string>
@@ -264,7 +264,7 @@
 						<string key="NSFrame">{{0, 84}, {320, 376}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="801160390"/>
+						<reference key="NSNextKeyView" ref="51620500"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
@@ -324,9 +324,17 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">guangaoScroview</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="801160390"/>
+						<reference key="destination" ref="51620500"/>
 					</object>
 					<int key="connectionID">24</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">mainScrollview</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="60814286"/>
+					</object>
+					<int key="connectionID">25</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -432,7 +440,7 @@
 						<reference key="object" ref="60814286"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="286142958"/>
-							<reference ref="801160390"/>
+							<reference ref="51620500"/>
 						</array>
 						<reference key="parent" ref="191373211"/>
 					</object>
@@ -448,7 +456,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">23</int>
-						<reference key="object" ref="801160390"/>
+						<reference key="object" ref="51620500"/>
 						<reference key="parent" ref="60814286"/>
 					</object>
 				</array>
@@ -475,7 +483,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">24</int>
+			<int key="maxID">25</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -500,6 +508,7 @@
 						<string key="className">UILabel</string>
 						<string key="guangaoScroview">UIScrollView</string>
 						<string key="huiKanImageView">UIImageView</string>
+						<string key="mainScrollview">UIScrollView</string>
 						<string key="mySegmentController">UISegmentedControl</string>
 						<string key="myTableView">UITableView</string>
 					</dictionary>
@@ -515,6 +524,10 @@
 						<object class="IBToOneOutletInfo" key="huiKanImageView">
 							<string key="name">huiKanImageView</string>
 							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="mainScrollview">
+							<string key="name">mainScrollview</string>
+							<string key="candidateClassName">UIScrollView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="mySegmentController">
 							<string key="name">mySegmentController</string>

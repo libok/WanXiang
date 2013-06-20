@@ -28,6 +28,7 @@
 @property(nonatomic,retain) NSMutableDictionary * dict;
 @property(nonatomic,assign) int      currentIndex;
 @property (nonatomic,retain) LFESort * oneSort;
+@property (retain, nonatomic) IBOutlet UIScrollView *mainScrollview;
 
 @property (retain, nonatomic) IBOutlet UILabel *className;
 
