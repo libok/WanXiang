@@ -21,6 +21,7 @@
 {
      
 }
+@property (retain, nonatomic) IBOutlet UIScrollView *guangaoScroview;
 @property(nonatomic,retain) NSString *categorize;
 @property(nonatomic,retain) NSArray  *fenleiArry;
 @property(nonatomic,assign) NSArray  * currentArry;
