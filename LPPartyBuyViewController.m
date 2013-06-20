@@ -57,6 +57,7 @@
         NSLog(@"%@",dict);
         int x = [[dict valueForKey:@"Type"] intValue];
         if (x == 0) {
+            XX  = 1;
             UIButton * button = [[UIButton alloc]init];
             button.frame      = CGRectMake(border*(xx+1)+80*xx, 30, 80, 30);
             xx++;
@@ -68,6 +69,7 @@
             [button setTitle:[dict valueForKey:@"value"] forState:UIControlStateNormal];
         }
         if (x == 1) {
+            YY = 1;
             UIButton * button = [[UIButton alloc]init];
             button.frame      = CGRectMake(border*(yy+1)+80*yy, 30, 80, 30);
             yy++;
@@ -82,14 +84,19 @@
     CGRect rect = self.colorView.frame;
     rect.size.height = 25 + (xx+1)/3 * 60;
     self.colorView.frame = rect;
-    
+    if (XX == -1) {
+        self.colorView.hidden = YES;
+    }
     
     CGRect rect2 = self.inchView.frame;
     rect2.size.height = 25 + (yy+1)/3 * 60;
     rect2.origin.y   = rect.origin.y + rect.size.height;
     self.inchView.frame = rect2;
     
-    
+    if (YY == -1) {
+        self.inchView.hidden = YES;
+    }
+
     
     CGRect rect3 = self.view3.frame;
     rect3.origin.y   = rect2.origin.y + rect2.size.height;
@@ -171,14 +178,17 @@
 }
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    [_myScrollView setContentOffset:CGPointMake(0, 250) animated:YES];
-    _myScrollView.scrollEnabled = NO;
     
+    //[_myScrollView setContentOffset:CGPointMake(0, 230) animated:YES];
+    self.view.frame = CGRectMake(0, -100, self.view.frame.size.width, self.view.frame.size.height);
+    //[_myScrollView scrollRectToVisible:self.view3.frame animated:YES];
+    _myScrollView.scrollEnabled = NO;    
 }
 - (IBAction)downKeyboard
 {
 	[_myScrollView endEditing:YES];
-    [_myScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+    //[_myScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+        self.view.frame = CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height);
     _myScrollView.scrollEnabled = YES;
     self.price.text = [NSString stringWithFormat:@"%d",[_textField.text intValue]*danjia ];
     
