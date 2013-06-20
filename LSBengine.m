@@ -295,7 +295,7 @@
 -(void)requestAd:(LPCity *)aCity atype:(int)type
 {
     if (aCity == nil) {
-        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/AD/wxad.aspx?sheng=1&shi=24&C=%d&p=1",SERVER_URL,type]]];
+        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/AD/wxad.aspx?sheng=17&shi=187&C=%d&p=1",SERVER_URL,type]]];
         [_requestArry addObject:request];
         request.delegate = self;
         request.tag = REQUEST_AD;
@@ -315,10 +315,7 @@
         [request setDidFailSelector:@selector(getTimelineFailed:)];
         request.timeOutSeconds = 10;
         [request startAsynchronous];
-        
-        
     }
-    
 }
 - (void)getTimelineFinised:(ASIHTTPRequest *)request
 {

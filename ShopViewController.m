@@ -51,7 +51,11 @@
     self.addressLabel.text  = self.oneShopInfo.adress;
     //self.phoneLabel.text    = self.oneShopInfo.phone;
     //self.qqLabel.text       = self.oneShopInfo.qq;
-    self.jianjieTextView.text = self.oneShopInfo.Contents;
+    self.jianjieTextView.text = self.oneShopInfo.Contents;    
+    UIFont *font = [UIFont systemFontOfSize:14];
+    CGSize contentSize = [(self.oneShopInfo.Contents ? self.oneShopInfo.Contents : @"") sizeWithFont:font constrainedToSize:CGSizeMake(220, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap];
+    self.jianjieTextView.frame = CGRectMake(88,159,self.jianjieTextView.bounds.size.width, contentSize.height + 15);
+    
     [self.button1 setTitle:self.oneShopInfo.phone forState:UIControlStateNormal];
     NSString *str = nil;
     NSLog(@"%@%@",self.oneShopInfo.qq , str);
@@ -113,7 +117,7 @@
         LPCommodity * com = [self.oneArry objectAtIndex:i];
         NSArray * arry    = [[NSBundle mainBundle]loadNibNamed:@"UICustomButton" owner:nil options:nil];
         UICustomButton * button = (UICustomButton*)[arry objectAtIndex:0];
-        button.frame  = CGRectMake((i%2+1)*6 + (i%2)*151, self.height + (i/2+1)*6 + (i/2)*200,151, 200);
+        button.frame  = CGRectMake((i%2+1)*6 + (i%2)*151, self.jianjieTextView.frame.origin.y + self.jianjieTextView.frame.size.height + (i/2+1)*6 + (i/2)*200,151, 200);
         //button.layer.cornerRadius = 5;
         button.clipsToBounds      = YES;
 //        button.layer.borderWidth  = 1;
@@ -127,8 +131,9 @@
         button.label2.text = [@"原价:" stringByAppendingFormat:@"%@",com.price];
         button.label3.text = com.title;
         [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-        if (i == [self.oneArry count] - 1) {
-            self.myScrollview.contentSize = CGSizeMake(320, i*151 + 400);
+        if (i == [self.oneArry count] - 1)
+        {
+            self.myScrollview.contentSize = CGSizeMake(320,button.frame.origin.y + button.frame.size.height + 10);
         }
     }
 }

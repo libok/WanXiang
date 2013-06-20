@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1552</int>
-		<string key="IBDocument.SystemVersion">12C60</string>
+		<string key="IBDocument.SystemVersion">12D78</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
-		<string key="IBDocument.AppKitVersion">1187.34</string>
-		<string key="IBDocument.HIToolboxVersion">625.00</string>
+		<string key="IBDocument.AppKitVersion">1187.37</string>
+		<string key="IBDocument.HIToolboxVersion">626.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">2083</string>
@@ -134,7 +134,7 @@
 							<object class="IBUIImageView" id="627006445">
 								<reference key="NSNextResponder" ref="117637838"/>
 								<int key="NSvFlags">274</int>
-								<string key="NSFrameSize">{320, 460}</string>
+								<string key="NSFrameSize">{320, 467}</string>
 								<reference key="NSSuperview" ref="117637838"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="156461989"/>
@@ -293,8 +293,8 @@
 							</object>
 							<object class="IBUITextView" id="368609844">
 								<reference key="NSNextResponder" ref="117637838"/>
-								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{88, 159}, {217, 167}}</string>
+								<int key="NSvFlags">301</int>
+								<string key="NSFrame">{{88, 159}, {220, 167}}</string>
 								<reference key="NSSuperview" ref="117637838"/>
 								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -616,12 +616,12 @@
 							<reference ref="374585208"/>
 							<reference ref="939300386"/>
 							<reference ref="579974116"/>
-							<reference ref="627006445"/>
 							<reference ref="372437219"/>
 							<reference ref="687164407"/>
 							<reference ref="368609844"/>
 							<reference ref="348302444"/>
 							<reference ref="515930562"/>
+							<reference ref="627006445"/>
 						</array>
 						<reference key="parent" ref="533429481"/>
 					</object>

@@ -114,14 +114,78 @@ static int currentIndex = 0;
     LPCity *city = [self getCity];
     if (city != nil)
     {
-        NSString * tempstr = [city.cityName substringToIndex:city.cityName.length - 1];
-        [_provincebtn setTitle:tempstr forState:UIControlStateNormal];
+       // NSString * tempstr = [city.cityName substringToIndex:city.cityName.length - 1];
+        [_provincebtn setTitle:city.cityName forState:UIControlStateNormal];
         
     }
     [_engine requestAd:city atype:0];
+    
+    self.geocoder = [[[ReverseGeocoder alloc] init] autorelease];
+    self.geocoder.geocoderDelegate = self;
+    CLAuthorizationStatus authStatus = [self.geocoder getAuthStatus];
+    if (authStatus == kCLAuthorizationStatusNotDetermined || authStatus == kCLAuthorizationStatusAuthorized)
+    {
+        [self.geocoder reverseGeocode];
+    } else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"警告" message:@"定位城市失败,请在系统设置中打开GPS" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alertView show];
+        [alertView release];
+    }
     //[_engine requestAd:<#(LPCity *)#>]
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];    
 }
+
+
+#pragma mark - 
+#pragma mark ReverseGEODelegate
+
+- (void)gotUserLocation {
+    [self updateFieldsWithError:NO];
+}
+
+- (void)gotUserLocationError {
+    [self updateFieldsWithError:YES];
+}
+
+- (void)gotUserPlacemarks {
+    [self updateFieldsWithError:NO];
+}
+
+- (void)gotUserPlacemarksError {
+    [self updateFieldsWithError:YES];
+}
+
+- (void)updateFieldsWithError:(BOOL)error {
+    if (error)
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"警告" message:@"定位城市失败,请手动选择城市!" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alertView show];
+        [alertView release];
+    }
+    else
+    {
+        NSLog(@"定位到城市  %@",self.geocoder.city);
+        [_provincebtn setTitle:self.geocoder.city forState:UIControlStateNormal];
+        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[[NSString stringWithFormat:@"http://119.161.221.204:801/API/city/getcityid.aspx?city=%@",self.geocoder.city] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+        [request setCompletionBlock:
+        ^{
+            NSLog(@"_____________  %@",request.responseString);
+            LPCity *city = [[LPCity alloc] init];
+            city.cityName = self.geocoder.city;
+            city.proID = [[request.responseString  componentsSeparatedByString:@"|"] objectAtIndex:1];
+            city.cityID = [[request.responseString  componentsSeparatedByString:@"|"] objectAtIndex:0];
+            [_engine requestAd:city atype:0];
+            
+            NSData *data = [NSKeyedArchiver archivedDataWithRootObject:city];
+            [[NSUserDefaults standardUserDefaults] setValue:data forKey:@"province"];
+        }];
+        [request startAsynchronous];
+    
+    }
+}
+
+
 -(void)viewDidAppear:(BOOL)animated
 {
     if(self.isNeedRefresh)
@@ -129,8 +193,8 @@ static int currentIndex = 0;
         LPCity *city = [self getCity];
         if (city != nil)
         {
-            NSString * tempstr = [city.cityName substringToIndex:city.cityName.length - 1];
-            [_provincebtn setTitle:tempstr forState:UIControlStateNormal];
+            //NSString * tempstr = [city.cityName substringToIndex:city.cityName.length - 1];
+            [_provincebtn setTitle:city.cityName forState:UIControlStateNormal];
             
         }
         [_engine requestAd:city atype:0];
@@ -203,11 +267,22 @@ static int currentIndex = 0;
         case WANXIANG:
         {
            {
-                NSLog(@"--------------------");
-                [UIView beginAnimations:nil context:nil];
-                [UIView setAnimationDuration:.5];
-                _xialaView.frame = CGRectMake(0, 43,_xialaView.frame.size.width,30*[self.fenleiArry count]);
-                [UIView commitAnimations];                
+               if (_xialaView.frame.origin.y < 0)
+               {
+                   NSLog(@"--------------------");
+                   [UIView beginAnimations:nil context:nil];
+                   [UIView setAnimationDuration:.5];
+                   _xialaView.frame = CGRectMake(0, 43,_xialaView.frame.size.width,30*[self.fenleiArry count]);
+                   [UIView commitAnimations];
+               }
+               else
+               {
+                   [UIView beginAnimations:nil context:nil];
+                   [UIView setAnimationDuration:.5];
+                   _xialaView.frame = CGRectMake(0, -208, _xialaView.frame.size.width,_xialaView.frame.size.height);
+                   [UIView commitAnimations];
+
+               }
             }
         }
             break;
@@ -352,9 +427,9 @@ static int currentIndex = 0;
         CGSize size = [shop.oneShopInfo.Contents sizeWithFont:font constrainedToSize:CGSizeMake(shop.jianjieTextView.frame.size.width, 1000) lineBreakMode:UILineBreakModeWordWrap];
         shop.height += size.height;
         [xxx.navigationController pushViewController:shop animated:YES];
-        CGRect rect =  shop.jianjieTextView.frame;
-        rect.size.height  = size.height;
-        shop.jianjieTextView.frame = rect;
+//        CGRect rect =  shop.jianjieTextView.frame;
+//        rect.size.height  = size.height;
+//        shop.jianjieTextView.frame = rect;
         [xxx getGoodsArry:shop mangetID:ad.managerid];
      }];
     

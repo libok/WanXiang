@@ -209,7 +209,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{69, 10}, {203, 31}}</string>
 								<reference key="NSSuperview" ref="1065085120"/>
-								<reference key="NSNextKeyView"/>
 								<reference key="IBUIBackgroundColor" ref="220276745"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -490,7 +489,7 @@
 			</object>
 			<object class="NSArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>{480, 800}</string>
+				<string>{639, 959}</string>
 				<string>{602, 145}</string>
 				<string>{47, 46}</string>
 				<string>{560, 47}</string>

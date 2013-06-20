@@ -101,7 +101,7 @@
 	[request setCompletionBlock:^
 	 {
          //[MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
-         NSLog(@"%@",request.responseString);
+        // NSLog(@"%@",request.responseString);
          //NSLog(@"------ %@",request.responseString);
 		 SBJSON *json = [[SBJSON alloc]init];
 		 NSDictionary *dic = [json objectWithString:request.responseString error:nil];

@@ -9,6 +9,8 @@
 #import "LSBprovinceViewController.h"
 #import "LYGEveryPhenomenonStreetViewController.h"
 #import "MBProgressHUD.h"
+#import <QuartzCore/QuartzCore.h>
+
 @interface LSBprovinceViewController ()
 
 @end
@@ -129,11 +131,80 @@
 }
 #pragma mark -
 #pragma mark UITableViewDatasoure
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 43;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 43)];
+        
+    UIButton *headerButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [headerButton addTarget:self action:@selector(headerClicked:) forControlEvents:UIControlEventTouchUpInside];
+    headerButton.tag = section;
+    headerButton.frame = CGRectMake(0, 0, 320, 43);
+    [headerView addSubview:headerButton];
+    
+    UIImageView *headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 43)];
+    headerImageView.image = [UIImage imageNamed:@"section_height.png"];
+    [headerView addSubview:headerImageView];
+    [headerImageView release];
+    
+    UIImageView *indicatorImageView = [[UIImageView alloc] initWithFrame:CGRectMake(280, 14, 15, 15)];
+    indicatorImageView.image = [UIImage imageNamed:@"to.png"];
+    indicatorImageView.tag = 5;
+    [headerView addSubview:indicatorImageView];
+    [indicatorImageView release];
+    if (flag[section])
+    {
+        indicatorImageView.transform = CGAffineTransformMakeRotation(90 * M_PI / 180);
+    }
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 310, 43)];
+    LPPro *pro = [_provinceArray objectAtIndex:section];
+    label.text = pro.proName;
+    label.backgroundColor = [UIColor clearColor];
+    [headerView addSubview:label];
+    [label release];
+    
+    return [headerView autorelease];
+}
+
+- (void)headerClicked:(UIButton *)aButton
+{
+    int index = aButton.tag;
+    flag[index] = !flag[index];
+    
+    UIView *headerView = aButton.superview;
+    UIImageView *indicatorView = (UIImageView *)[headerView viewWithTag:5];
+    
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:index] withRowAnimation:UITableViewRowAnimationFade];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.39];
+    if (flag[index])
+    {
+        indicatorView.transform = CGAffineTransformMakeRotation(90 * M_PI / 180);
+    }
+    else
+    {
+        indicatorView.transform = CGAffineTransformIdentity;
+    }
+    
+    [UIView commitAnimations];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSArray *nameSection = [_dic valueForKey:[NSString stringWithFormat:@"%d",section + 1]];
-    return [nameSection count];
-
+    if (flag[section])
+    {
+        NSArray *nameSection = [_dic valueForKey:[NSString stringWithFormat:@"%d",section + 1]];
+        return [nameSection count];
+    }
+    
+    return 0;
 }
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -157,12 +228,12 @@
     return cell;
 }
 //返回某个区的区头
-- (NSString *)tableView:(UITableView *)tableView
-titleForHeaderInSection:(NSInteger)section
-{
-    LPPro *pro = [_provinceArray objectAtIndex:section];
-    return pro.proName;
-}
+//- (NSString *)tableView:(UITableView *)tableView
+//titleForHeaderInSection:(NSInteger)section
+//{
+//    LPPro *pro = [_provinceArray objectAtIndex:section];
+//    return pro.proName;
+//}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return [_provinceArray count];

@@ -17,6 +17,8 @@
     id                  _delegate;
     LSBengine           *_engine;
     
+    BOOL                flag[100];
+    
 }
 @property(nonatomic,retain) LSBengine           *engine;
 @property(nonatomic,retain) NSArray             *cityArray;

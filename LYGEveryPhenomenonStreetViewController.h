@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "LSBengine.h"
+#import "ReverseGeocoder.h"
+
 @class DAReloadActivityButton;
-@interface LYGEveryPhenomenonStreetViewController : UIViewController <LSBengineAdDelegate,UITableViewDelegate>
+@interface LYGEveryPhenomenonStreetViewController : UIViewController <LSBengineAdDelegate,UITableViewDelegate,GeocoderProtocol>
 {
     LSBengine *_engine;
     NSArray   *_adArray;
@@ -19,6 +21,8 @@
 
 }
 @property (retain, nonatomic) IBOutlet UITextField *myEdit;
+
+@property (nonatomic, retain) ReverseGeocoder *geocoder;
 
 @property(nonatomic,retain) NSArray *myArray;
 @property(nonatomic,assign) LSBengine           *engine;

@@ -104,7 +104,6 @@ enum {TEXT,PHONE,CARD,WEIBO,WEB,EMAIL,MAP,WIFI,MESSAGES,HTTP};
             tempScanViewController.bigZhuanPanView.imageView.transform = CGAffineTransformRotate(tempScanViewController.bigZhuanPanView.imageView.transform, angle);
         }
     };
-	
 }
 - (IBAction)createButtonClick:(id)sender {
     NSLog(@"currentindex%d",_currentIndex);
