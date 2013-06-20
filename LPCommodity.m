@@ -51,6 +51,7 @@
 }
 -(id)initWithDictionary:(NSDictionary *)aDic
 {
+    NSLog(@"%@",aDic);
     if (self = [super init]) {
         self.yhprice = [[aDic valueForKey:@"yhprice"] intValue];
         self.ID = [aDic valueForKey:@"id"];
@@ -75,6 +76,7 @@
         self.isbuy  = [[aDic valueForKey:@"isbuy"] intValue];
         self.isjoin = [[aDic valueForKey:@"isjoin"] intValue];
         self.attr   = [aDic valueForKey:@"Attr"];
+        self.shangjia = [aDic valueForKey:@"shangjia"];
     }
     return self;
 }

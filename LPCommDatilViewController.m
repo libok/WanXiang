@@ -76,7 +76,7 @@
 -(void)hideFourButton
 {
     NSLog(@"%@",self.dataDictionary);
-    int x = 199,y=41,width=100,height= 30;
+    int x = 210,y=41,width=70,height= 25;
     for (int i = 1; i< 5; i++) {
         switch (i) {
             case 1:

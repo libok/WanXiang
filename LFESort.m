@@ -13,6 +13,7 @@
 
 -(id)initWithDictionary:(NSDictionary *)aDic
 {
+    NSLog(@"%@",aDic);
     if (self = [super init])
     {
         self.merchantID = [aDic valueForKey:@"id"];

@@ -25,6 +25,8 @@
 {
     [_engine release];
     [_title_label release];
+    [_nameTextField release];
+    [_phoneTextField release];
     [super dealloc];
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -53,31 +55,48 @@
     UIButton *btn = (UIButton *)sender;
         switch (btn.tag) {
         case 1:
-            //[self dismissModalViewControllerAnimated:YES];
-                [self dismissViewControllerAnimated:YES completion:nil];
-            break;
-            case 2:
         {
-//            LoginedUserInfo * log = [LYGAppDelegate getSharedLoginedUserInfo];
-//            
-//            if (log.ID == -1)
-//            {
-//                BYNLoginViewController * login = [[BYNLoginViewController alloc]init];
-//                [self presentModalViewController:login animated:YES];
-//                [login release];
-//                [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:@"success" object:nil];
-//                
-//            }
-//            else
-//            {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+            break;
+        case 2:
+        {
                 if (_viewControllerTag ==100)
                 {
+                    if (self.nameTextField.text == nil || [self.nameTextField.text length]==0) {
+                        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"请输入名字" message:nil delegate:nil
+                    cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                        [alert show];
+                        [alert release];
+                        return;
+                    }
+                    if (self.phoneTextField.text == nil || [self.phoneTextField.text length]==0) {
+                        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"请输入联系电话" message:nil delegate:nil
+                                                              cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                        [alert show];
+                        [alert release];
+                        return;
+                    }
                     _engine = [[LSBengine alloc] init];
                     [_engine requestYHQ:_user_id managerID:_manager_id commodityID:_commodity_id];
                     
                 }
                 else
                 {
+                    if (self.nameTextField.text == nil || [self.nameTextField.text length]==0) {
+                        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"请输入名字" message:nil delegate:nil
+                                                              cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                        [alert show];
+                        [alert release];
+                        return;
+                    }
+                    if (self.phoneTextField.text == nil || [self.phoneTextField.text length]==0) {
+                        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"请输入联系电话" message:nil delegate:nil
+                                                              cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                        [alert show];
+                        [alert release];
+                        return;
+                    }                    
                     _engine = [[LSBengine alloc] init];
                     [_engine reQuestHY:_user_id managerID:_manager_id];
                 }
@@ -95,6 +114,8 @@
 }
 - (void)viewDidUnload {
     [self setTitle_label:nil];
+    [self setNameTextField:nil];
+    [self setPhoneTextField:nil];
     [super viewDidUnload];
 }
 @end

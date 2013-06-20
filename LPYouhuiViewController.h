@@ -16,6 +16,8 @@
     int _commodity_id;
     int _viewControllerTag;
 }
+@property (retain, nonatomic) IBOutlet UITextField *phoneTextField;
+@property (retain, nonatomic) IBOutlet UITextField *nameTextField;
 @property(nonatomic,retain) LSBengine *engine;
 @property(nonatomic,assign) int user_id;
 @property(nonatomic,assign) int manager_id;

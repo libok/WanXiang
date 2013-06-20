@@ -8,11 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "LFESort.h"
+@interface HuiKanGuangGao:NSObject
+{
+    
+}
+-(id)initWithaDictionary:(NSDictionary*)adictionary;
+
+@end
 
 @interface LFSortContentsViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
 
 {
-  
+     
 }
 @property(nonatomic,retain) NSString *categorize;
 @property(nonatomic,retain) NSArray  *fenleiArry;

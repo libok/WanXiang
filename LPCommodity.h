@@ -57,6 +57,7 @@
 @property(nonatomic,assign) int isjoin;
 @property(nonatomic,assign) int isbuy;
 @property(nonatomic,copy)   NSString * attribute;
+@property(nonatomic,copy)   NSString * shangjia;
 -(id)initWithDictionary:(NSDictionary *)aDic;
 +(id)initWithDictionary:(NSDictionary *)aDic;
 

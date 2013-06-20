@@ -54,7 +54,7 @@
             break;
         case 2:
         {
-                   }
+        }
             
             break;
 
@@ -72,7 +72,16 @@
     [self.phoneLabel resignFirstResponder];
     [self.nameLabel  resignFirstResponder];
     [self.addressLabel resignFirstResponder];
+    if (self.nameLabel.text == nil || [self.nameLabel.text length]==0) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"请输入名字" message:nil delegate:nil
+                                              cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+   
     NSString *emailStr = [self.phoneLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
     int x = [LYGAppDelegate isMobileNumber:emailStr];
     if (!x) {
         UIAlertView * view = [[UIAlertView alloc]initWithTitle:@"请输入正确的电话号码" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
@@ -80,6 +89,14 @@
         [view release];
         return;
     }
+    if (self.addressLabel.text == nil || [self.addressLabel.text length]==0) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"请输入地址" message:nil delegate:nil
+                                              cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+
     
     __block LPBookViewController * temp = self;
     [MBProgressHUD showHUDAddedTo:self.view message:@"正在订购中" animated:YES];
