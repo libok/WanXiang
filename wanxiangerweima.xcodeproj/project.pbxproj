@@ -541,6 +541,9 @@
 		58EADC24173D956B007140E4 /* ArticleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EADC23173D956A007140E4 /* ArticleModel.m */; };
 		58F72073170B83E10085D693 /* WWREveryPhenomenonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58F72070170B83E10085D693 /* WWREveryPhenomenonCell.xib */; };
 		58F72074170B83E10085D693 /* WWREveryPhenomenonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F72071170B83E10085D693 /* WWREveryPhenomenonCell.m */; };
+		740EE0431774545B00829EF1 /* chexiao.png in Resources */ = {isa = PBXBuildFile; fileRef = 740EE0411774545A00829EF1 /* chexiao.png */; };
+		740EE0441774545B00829EF1 /* xueren.png in Resources */ = {isa = PBXBuildFile; fileRef = 740EE0421774545A00829EF1 /* xueren.png */; };
+		740EE046177455B800829EF1 /* 订阅按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = 740EE045177455B800829EF1 /* 订阅按钮.png */; };
 		744A8FE9176EE3630039CF8E /* NSString+MD5HexDigest.m in Sources */ = {isa = PBXBuildFile; fileRef = 744A8FE8176EE3630039CF8E /* NSString+MD5HexDigest.m */; };
 		745C431F1772A86A001129FA /* section_height.png in Resources */ = {isa = PBXBuildFile; fileRef = 745C431D1772A86A001129FA /* section_height.png */; };
 		745C43201772A86A001129FA /* to.png in Resources */ = {isa = PBXBuildFile; fileRef = 745C431E1772A86A001129FA /* to.png */; };
@@ -1426,6 +1429,9 @@
 		58F72070170B83E10085D693 /* WWREveryPhenomenonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWREveryPhenomenonCell.xib; sourceTree = "<group>"; };
 		58F72071170B83E10085D693 /* WWREveryPhenomenonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWREveryPhenomenonCell.m; sourceTree = "<group>"; };
 		58F72072170B83E10085D693 /* WWREveryPhenomenonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWREveryPhenomenonCell.h; sourceTree = "<group>"; };
+		740EE0411774545A00829EF1 /* chexiao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chexiao.png; sourceTree = "<group>"; };
+		740EE0421774545A00829EF1 /* xueren.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xueren.png; sourceTree = "<group>"; };
+		740EE045177455B800829EF1 /* 订阅按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "订阅按钮.png"; sourceTree = "<group>"; };
 		744A8FE7176EE3630039CF8E /* NSString+MD5HexDigest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5HexDigest.h"; sourceTree = "<group>"; };
 		744A8FE8176EE3630039CF8E /* NSString+MD5HexDigest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5HexDigest.m"; sourceTree = "<group>"; };
 		745C431D1772A86A001129FA /* section_height.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = section_height.png; sourceTree = "<group>"; };
@@ -1876,6 +1882,7 @@
 		201DFA5517138F2600B8ACC7 /* Iterms View */ = {
 			isa = PBXGroup;
 			children = (
+				740EE045177455B800829EF1 /* 订阅按钮.png */,
 				201DFA5017138F1600B8ACC7 /* LFSortTableCell.h */,
 				201DFA5117138F1600B8ACC7 /* LFSortTableCell.m */,
 				201DFA5217138F1600B8ACC7 /* LFSortTableCell.xib */,
@@ -2867,6 +2874,8 @@
 				588661C21742862F00E97CDA /* AddPingLunViewController.h */,
 				588661C31742862F00E97CDA /* AddPingLunViewController.m */,
 				588661C41742862F00E97CDA /* AddPingLunViewController.xib */,
+				740EE0411774545A00829EF1 /* chexiao.png */,
+				740EE0421774545A00829EF1 /* xueren.png */,
 				58426C8D170AE1DE005818A1 /* 图片 */,
 			);
 			name = "E报刊";
@@ -3575,6 +3584,9 @@
 				5828FE4D176C1A1A005DE50F /* 未标题-3.png in Resources */,
 				745C431F1772A86A001129FA /* section_height.png in Resources */,
 				745C43201772A86A001129FA /* to.png in Resources */,
+				740EE0431774545B00829EF1 /* chexiao.png in Resources */,
+				740EE0441774545B00829EF1 /* xueren.png in Resources */,
+				740EE046177455B800829EF1 /* 订阅按钮.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
