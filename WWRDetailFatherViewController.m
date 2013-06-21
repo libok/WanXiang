@@ -33,7 +33,16 @@
 	//设置给label自适应大小
 	CGSize size = [text sizeWithFont:font constrainedToSize:CGSizeMake(260, 2000) lineBreakMode:NSLineBreakByWordWrapping];
 	//设置label的frame以上一个label的frame为参照设置
-	aLabel.frame = CGRectMake(65, previousLabel.frame.origin.y + previousLabel.frame.size.height , size.width, size.height + 5); 
+    
+    if ( [previousLabel.text isEqualToString:nil] || [previousLabel.text isEqualToString:@"" ])
+    {
+        aLabel.frame = CGRectMake(65, previousLabel.frame.origin.y + 20, size.width, size.height + 5);
+    }
+    else
+    {
+        aLabel.frame = CGRectMake(65, previousLabel.frame.origin.y + previousLabel.frame.size.height , size.width, size.height + 5); 
+    }
+	
 	aLabel.backgroundColor = [UIColor clearColor];
 	aLabel.textColor = [UIColor blackColor];
 	aLabel.font = font ;
