@@ -221,6 +221,7 @@
             LPPartyBuyViewController *partyBuyViewController = [[LPPartyBuyViewController alloc] init];
             partyBuyViewController.oneCommodity   = self.oneCommodity;
             partyBuyViewController.dataDictionary = _dataDictionary;
+            partyBuyViewController.myShopInfo     = self.m_shopInfo;
             [self presentViewController:partyBuyViewController animated:YES completion:nil];
             [partyBuyViewController release];
         }

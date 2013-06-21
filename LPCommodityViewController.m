@@ -69,8 +69,7 @@
     navSc.backgroundColor = [UIColor clearColor];
     //navSc.LKWidth = 160;
     navSc.height = 42;
-    [self.view addSubview:navSc];
-    
+    [self.view addSubview:navSc];    
 }
 -(void)valueChange:(SVSegmentedControl *)aSvs
 {

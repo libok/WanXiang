@@ -21,12 +21,14 @@
 {
      
 }
+@property (retain, nonatomic) IBOutlet UIScrollView *guangaoScroview;
 @property(nonatomic,retain) NSString *categorize;
 @property(nonatomic,retain) NSArray  *fenleiArry;
 @property(nonatomic,assign) NSArray  * currentArry;
 @property(nonatomic,retain) NSMutableDictionary * dict;
 @property(nonatomic,assign) int      currentIndex;
 @property (nonatomic,retain) LFESort * oneSort;
+@property (retain, nonatomic) IBOutlet UIScrollView *mainScrollview;
 
 @property (retain, nonatomic) IBOutlet UILabel *className;
 

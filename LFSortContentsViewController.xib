@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1552</int>
-		<string key="IBDocument.SystemVersion">12D78</string>
+		<string key="IBDocument.SystemVersion">12C60</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
-		<string key="IBDocument.AppKitVersion">1187.37</string>
-		<string key="IBDocument.HIToolboxVersion">626.00</string>
+		<string key="IBDocument.AppKitVersion">1187.34</string>
+		<string key="IBDocument.HIToolboxVersion">625.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">2083</string>
@@ -152,6 +152,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
+						<string key="IBUINormalTitle">Button</string>
 						<reference key="IBUIHighlightedTitleColor" ref="1000644713"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
@@ -177,6 +178,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
+						<string key="IBUINormalTitle">Button</string>
 						<reference key="IBUIHighlightedTitleColor" ref="1000644713"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
@@ -227,21 +229,6 @@
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">276</int>
 						<array class="NSMutableArray" key="NSSubviews">
-							<object class="IBUIImageView" id="515121147">
-								<reference key="NSNextResponder" ref="60814286"/>
-								<int key="NSvFlags">258</int>
-								<string key="NSFrameSize">{320, 172}</string>
-								<reference key="NSSuperview" ref="60814286"/>
-								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="286142958"/>
-								<string key="NSReuseIdentifierKey">_NS:9</string>
-								<bool key="IBUIUserInteractionEnabled">NO</bool>
-								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">会刊2-4.png</string>
-								</object>
-							</object>
 							<object class="IBUITableView" id="286142958">
 								<reference key="NSNextResponder" ref="60814286"/>
 								<int key="NSvFlags">274</int>
@@ -260,11 +247,24 @@
 								<float key="IBUISectionHeaderHeight">22</float>
 								<float key="IBUISectionFooterHeight">22</float>
 							</object>
+							<object class="IBUIScrollView" id="51620500">
+								<reference key="NSNextResponder" ref="60814286"/>
+								<int key="NSvFlags">268</int>
+								<string key="NSFrameSize">{320, 171}</string>
+								<reference key="NSSuperview" ref="60814286"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="286142958"/>
+								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<bool key="IBUIClipsSubviews">YES</bool>
+								<bool key="IBUIMultipleTouchEnabled">YES</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<bool key="IBUIPagingEnabled">YES</bool>
+							</object>
 						</array>
 						<string key="NSFrame">{{0, 84}, {320, 376}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="515121147"/>
+						<reference key="NSNextKeyView" ref="51620500"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
@@ -322,11 +322,19 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">huiKanImageView</string>
+						<string key="label">guangaoScroview</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="515121147"/>
+						<reference key="destination" ref="51620500"/>
 					</object>
-					<int key="connectionID">22</int>
+					<int key="connectionID">24</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">mainScrollview</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="60814286"/>
+					</object>
+					<int key="connectionID">25</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -431,15 +439,10 @@
 						<int key="objectID">11</int>
 						<reference key="object" ref="60814286"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="515121147"/>
 							<reference ref="286142958"/>
+							<reference ref="51620500"/>
 						</array>
 						<reference key="parent" ref="191373211"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">12</int>
-						<reference key="object" ref="515121147"/>
-						<reference key="parent" ref="60814286"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">13</int>
@@ -450,6 +453,11 @@
 						<int key="objectID">10</int>
 						<reference key="object" ref="871061676"/>
 						<reference key="parent" ref="191373211"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">23</int>
+						<reference key="object" ref="51620500"/>
+						<reference key="parent" ref="60814286"/>
 					</object>
 				</array>
 			</object>
@@ -462,8 +470,8 @@
 				<string key="10.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<integer value="0" key="10.IUISegmentedControlInspectorSelectedSegmentMetadataKey"/>
 				<string key="11.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="12.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="13.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="23.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -475,7 +483,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">22</int>
+			<int key="maxID">25</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -498,7 +506,9 @@
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="className">UILabel</string>
+						<string key="guangaoScroview">UIScrollView</string>
 						<string key="huiKanImageView">UIImageView</string>
+						<string key="mainScrollview">UIScrollView</string>
 						<string key="mySegmentController">UISegmentedControl</string>
 						<string key="myTableView">UITableView</string>
 					</dictionary>
@@ -507,9 +517,17 @@
 							<string key="name">className</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
+						<object class="IBToOneOutletInfo" key="guangaoScroview">
+							<string key="name">guangaoScroview</string>
+							<string key="candidateClassName">UIScrollView</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="huiKanImageView">
 							<string key="name">huiKanImageView</string>
 							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="mainScrollview">
+							<string key="name">mainScrollview</string>
+							<string key="candidateClassName">UIScrollView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="mySegmentController">
 							<string key="name">mySegmentController</string>
@@ -534,7 +552,6 @@
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="会刊2-1.png">{12, 22}</string>
 			<string key="会刊2-10.png">{12, 22}</string>
-			<string key="会刊2-4.png">{640, 340}</string>
 			<string key="会刊2-分栏条.png">{640, 80}</string>
 			<string key="返回0.png">{88, 88}</string>
 			<string key="顶部.png">{640, 88}</string>
