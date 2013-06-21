@@ -13,6 +13,7 @@
 #import "UIImageView+WebCache.h"
 #import "LYGAppDelegate.h"
 #import "BYNLoginViewController.h"
+#import "UIImageView+WebCache.h"
 @implementation WWRLiPinQuanViewController
 @synthesize statuesArray = _statuesArray;
 
@@ -92,7 +93,8 @@
 	cell.typeImageView.image = [UIImage imageNamed:@"礼品券.png"];
 	//cell.erWeiMaImageView.image = nil;
 	//[cell.erWeiMaImageView setImageWithURL:[NSURL URLWithString:status.imgURl]];
-	//cell.erWeiMaImageView.image = [UIImage imageNamed:@"二维码图片２.png"];
+    NSString * str = [NSString stringWithFormat:@"%@%@",SERVER_URL,status.qRImg];
+	[cell.erWeiMaImageView setImageWithURL:[NSURL URLWithString:str]];
 	cell.goodTypeLabel.text = @"礼品券"; 
 	cell.goodNameLabel.text = status.managerName;
 	if (status.status == 0)

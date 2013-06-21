@@ -42,7 +42,7 @@
 	_tableView.showsVerticalScrollIndicator = NO;
 	_tableView.separatorColor = [UIColor clearColor];
     
-    [self performSelector:@selector(xxxx) withObject:self afterDelay:0.01];
+    //[self performSelector:@selector(xxxx) withObject:self afterDelay:0.01];
     
 }
 -(void)xxxx
@@ -67,6 +67,10 @@
         
     }];
     [requeset startAsynchronous];
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self xxxx];
 }
 - (void)dealloc
 {

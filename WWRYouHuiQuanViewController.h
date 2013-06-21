@@ -10,13 +10,11 @@
 #import "WWRYHLFatherViewController.h"
 #import "WWRWXBEngine.h"
 
-@interface WWRYouHuiQuanViewController : WWRYHLFatherViewController<WWRWXBEnginePreQRListDelegate,UIAlertViewDelegate>
+@interface WWRYouHuiQuanViewController : WWRYHLFatherViewController<WWRWXBEnginePreQRListDelegate,UIAlertViewDelegate,UIActionSheetDelegate,UITableViewDelegate,UITableViewDataSource>
 
 {
 	WWRWXBEngine   *_engine;
-    NSArray        *_statuesArray;
-	
 }
-@property (nonatomic,retain) NSArray  *statuesArray;
+@property (nonatomic,retain) NSMutableArray  *statuesArray;
 
 @end

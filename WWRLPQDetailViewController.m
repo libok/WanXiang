@@ -28,8 +28,9 @@
 	
 	//二维码图片
 	self.erWeiMaImageView.frame = CGRectMake(116, _dateLabel.frame.origin.y + _dateLabel.frame.size.height, 112, 112);
-    //NSString * string = [NSString stringWithFormat:@"%@%@",SERVER_URL,self.oneStatus];
-	[self.erWeiMaImageView setImageWithURL:[NSURL URLWithString:@""]];
+    NSString * str = [NSString  stringWithFormat:@"%@%@",SERVER_URL,self.oneStatus.qRImg];
+	[self.erWeiMaImageView setImageWithURL:[NSURL URLWithString:str]];
+    
 	//二维码标识
 	NSString *numStr = [NSString stringWithFormat:@"NO:%@",self.gidString];
 	self.numberLabel.text = numStr;
@@ -43,13 +44,14 @@
 	self.usedKnownLabel.frame = CGRectMake(2, _usedKnownDetailLabel.frame.origin.y - 10, 60, 40);
 	//有效期
 	[self setSomeLabelToFit:_usedDateNumLabel withPreviousLabel:_usedKnownDetailLabel withLabelText:@"20100305-20101205"];
-	//[self setSomeLabelToFit:_usedDateNumLabel withPreviousLabel:_usedKnownDetailLabel withLabelText:self.useTimeString];
+
+    
 	[self setSomeLabelToFit:_usedDateLabel withPreviousLabel:_usedKnownDetailLabel withLabelText:@"有效期: "];
 	self.usedDateLabel.frame = CGRectMake(2, _usedDateNumLabel.frame.origin.y - 10, 60, 40);
 	
 	
 	//商家信息
-	//[self setSomeLabelToFit:_goodInfoDetailLabel	withPreviousLabel:_usedDateNumLabel withLabelText:@"河南经北三路与第五大街交叉口河南经北三路与第五大街交叉口"];
+
 	[self setSomeLabelToFit:_goodInfoDetailLabel	withPreviousLabel:_usedDateNumLabel withLabelText:self.adressString];
 	[self setSomeLabelToFit:_goodInfoLabel withPreviousLabel:_usedDateNumLabel withLabelText:@"商家信息: "];
 	self.goodInfoLabel.frame = CGRectMake(2, _goodInfoDetailLabel.frame.origin.y - 10, 60, 40);

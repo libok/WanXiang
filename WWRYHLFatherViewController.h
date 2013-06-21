@@ -18,5 +18,6 @@
 @property (nonatomic,retain) UITableView  *tableView;
 
 - (IBAction)backButtonClick;
+- (IBAction)deleteButtonClick:(id)sender;
 
 @end

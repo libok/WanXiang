@@ -30,7 +30,23 @@
 	_tableView.separatorColor = [UIColor clearColor];
 	
 }
-- (void)dealloc 
+-(void)deleteButtonClick:(id)sender
+{
+    UIActionSheet * action = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"全部删除" otherButtonTitles:@"编辑", nil];
+    [action showInView:self.view];
+    [action release];
+}
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        [self.tableView setEditing:YES animated:YES];
+    }else
+    {
+        self.statuesArray = nil;
+        [self.tableView reloadData];
+    }
+}
+- (void)dealloc
 {
 	[_engine release];
 	[_statuesArray release];
@@ -103,17 +119,19 @@
 	cell.goodNameLabel.text = status.title;
 	cell.goodTypeLabel.text = @"优惠券";
 
-	//NSLog(@"status.title %@",self.titleStr);
-	//NSLog(@"self.statusStr %@",self.statusStr);
-	//NSLog(@"self.imageurl %@",self.imageurl);
-	//NSLog(@"self.gidStr  %@",self.gidStr );
-	//NSLog(@"self.preContentStr %@",self.preContentStr);
-	//NSLog(@"self.useTimeStr %@",self.useTimeStr);
-	//NSLog(@"self.jianjieStr %@",self.jianjieStr);
-	//NSLog(@"self.adressStr %@",self.adressStr);
+
 	
 	return cell;
 	
+}
+- (void)tableView:(UITableView*)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"xxxx");
+}
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.statuesArray removeObjectAtIndex:indexPath.row];
+    [self.tableView reloadData];
 }
 
 #pragma mark -
@@ -142,7 +160,7 @@
 #pragma mark -
 #pragma mark WWRWXBEnginePreQRListDelegate
 
--(void)getPreQRListSuccess:(NSArray *)aArray
+-(void)getPreQRListSuccess:(NSMutableArray *)aArray
 {
 	self.statuesArray = aArray;
     [_tableView reloadData];

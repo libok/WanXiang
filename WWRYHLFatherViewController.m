@@ -28,5 +28,8 @@
 	[self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)deleteButtonClick:(id)sender {
+}
+
 
 @end
