@@ -119,12 +119,21 @@
 {
 	//[SVProgressHUD dismiss];
     //MBProgressHUD showHUDAddedTo:self.view message:<#(NSString *)#> animated:<#(BOOL)#>
+   // [MBProgressHUD showHUDAddedTo:self.view message:@"微博发表成功" animated:YES];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"恭喜" message:@"微博发表成功" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    [alertView show];
+    [alertView release];
+    
 }
 - (void) Filed:(ASIHTTPRequest *)request
 {
 	//[SVProgressHUD showErrorWithStatus:@"微博发表失败"];
-    [MBProgressHUD showHUDAddedTo:self.view message:@"微博发表失败" animated:YES];
+    //[MBProgressHUD showHUDAddedTo:self.view message:@"微博发表失败" animated:YES];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"警告" message:@"微博发表失败" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    [alertView show];
+    [alertView release];
 }
 
 
@@ -149,7 +158,7 @@
 	[request setPostValue:@"7d01ae6047e522b71a5a1e6ef5414000" forKey:@"client_secret"];
 	[request setPostValue:@"authorization_code" forKey:@"grant_type"];
 	[request setPostValue:aCode forKey:@"code"];
-	[request setPostValue:@"http://www.zhiyou100.com/" forKey:@"redirect_uri"];
+	[request setPostValue:@"http://www.wanxiangwang.net" forKey:@"redirect_uri"];
 	request.delegate = self;
 	[request startAsynchronous];	
 }

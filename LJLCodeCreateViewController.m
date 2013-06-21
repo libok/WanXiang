@@ -21,8 +21,8 @@
 #import "QRCodeGenerator.h"
 #import "MBProgressHUD.h"
 
-#define CLIENT_KEY     @"1061534660"
-#define REDIRECT_URL   @"http://www.zksem.com/"
+#define CLIENT_KEY     @"2506984097"
+#define REDIRECT_URL   @"http://www.zhiyou100.com/"
 #define ACCESS_TOKEN_KEY @"access_token"
 #define AUTHORIZE_URL  @"https://api.weibo.com/oauth2/authorize"
 #define EXPIRES_IN_KEY   @"expires_in"
@@ -349,7 +349,7 @@
 	
 	[self.share release];
 	
-	NSString *urlString =@"https://open.t.qq.com/cgi-bin/oauth2/authorize?client_id=801343710&response_type=code&redirect_uri=http://blog.sina.com.cn/lijinliangforever";
+	NSString *urlString =@"https://open.t.qq.com/cgi-bin/oauth2/authorize?client_id=801371833&response_type=code&redirect_uri=http://www.wanxiangwang.net";
 	NSURL *url = [NSURL URLWithString:urlString]; 
 	NSURLRequest *request = [NSURLRequest requestWithURL:url];
 	[_share loadRequest:request];							
@@ -484,7 +484,7 @@
 		NSString *urlString = url.absoluteString;
 		NSLog(@"%@",urlString);
 		
-		if ([urlString rangeOfString:@"http://blog.sina.com.cn/lijinliangforever"].location != NSNotFound && [urlString rangeOfString:@"code="].location != NSNotFound) 
+		if ([urlString rangeOfString:@"http://www.wanxiangwang.net"].location != NSNotFound && [urlString rangeOfString:@"code="].location != NSNotFound) 
 		{
 			NSString *xCode = [[url.query componentsSeparatedByString:@"="] objectAtIndex:1];
 			NSString *code = [[xCode componentsSeparatedByString:@"&"] objectAtIndex:0];
