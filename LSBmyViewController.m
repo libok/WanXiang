@@ -253,7 +253,7 @@
                 [alert release];
                 return;
             }
-            _actionSheet = [[UIActionSheet alloc]initWithTitle:@"\n\n\n\n\n\n\n\n\n\n\n" delegate:nil cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+            self.actionSheet = [[[UIActionSheet alloc]initWithTitle:@"\n\n\n\n\n\n\n\n\n\n\n" delegate:nil cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil] autorelease];
             
             UIButton  *bianJiBtn = [UIButton buttonWithType:UIButtonTypeCustom];
             bianJiBtn.frame = CGRectMake(21, 21, 278, 45);
@@ -280,7 +280,6 @@
             [_actionSheet addSubview:quXiaoBtn];
             
             [_actionSheet showInView:self.view];
-            [_actionSheet release];
         }
             break;
             

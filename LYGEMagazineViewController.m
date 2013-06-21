@@ -57,7 +57,6 @@
     gobackBtn.frame = CGRectMake(0, 0, 44, 44);
 
     [gobackBtn setBackgroundImage:[UIImage imageNamed:@"返回0.png"] forState:UIControlStateNormal];
-    [gobackBtn setBackgroundImage:[UIImage imageNamed:@"返回按钮.png"] forState:UIControlStateHighlighted];
     [gobackBtn addTarget:self action:@selector(goBackBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:gobackBtn];
     self.huikanHomepageScrollView.backgroundColor = [UIColor lightGrayColor];
