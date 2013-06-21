@@ -115,7 +115,7 @@
 	//viewController.statusString = self.statusStr;
 	//viewController.imageurling = self.imageurl;
 	//viewController.gidString = self.gidStr;
-	//viewController.preContentString = self.preContentStr;
+	viewController.preContentString = status.sortContents;
 	//viewController.useTimeString = self.useTimeStr;
 	//viewController.jianjieString = self.jianjieStr;
 	viewController.adressString = status.adress;
