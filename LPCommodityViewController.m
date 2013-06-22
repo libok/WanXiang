@@ -124,6 +124,11 @@
             if ([obj isKindOfClass:[LPCommodityCell class]])
             {
                 cell = (LPCommodityCell *)obj;
+                UIImageView * vi = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, tableView.rowHeight)];
+                vi.image         = [UIImage  imageNamed:@"参加团购大的白色背景上面的.png"];
+                [cell addSubview:vi];
+                [cell sendSubviewToBack:vi];
+                [vi release];
                 break;
             }
         }

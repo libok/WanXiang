@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1552</int>
-		<string key="IBDocument.SystemVersion">12D78</string>
+		<string key="IBDocument.SystemVersion">12C60</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
-		<string key="IBDocument.AppKitVersion">1187.37</string>
-		<string key="IBDocument.HIToolboxVersion">626.00</string>
+		<string key="IBDocument.AppKitVersion">1187.34</string>
+		<string key="IBDocument.HIToolboxVersion">625.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">2083</string>
@@ -125,6 +125,21 @@
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">276</int>
 						<array class="NSMutableArray" key="NSSubviews">
+							<object class="IBUIImageView" id="9935865">
+								<reference key="NSNextResponder" ref="571939647"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrameSize">{320, 248}</string>
+								<reference key="NSSuperview" ref="571939647"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="449099953"/>
+								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<object class="NSCustomResource" key="IBUIImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">参加团购大的白色背景上面的.png</string>
+								</object>
+							</object>
 							<object class="IBUIButton" id="542100415">
 								<reference key="NSNextResponder" ref="571939647"/>
 								<int key="NSvFlags">292</int>
@@ -352,7 +367,7 @@
 								<string key="NSFrame">{{0, 413}, {320, 23}}</string>
 								<reference key="NSSuperview" ref="571939647"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="449099953"/>
+								<reference key="NSNextKeyView" ref="9935865"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<int key="IBUIContentMode">4</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -1056,6 +1071,7 @@
 							<reference ref="542100415"/>
 							<reference ref="323671196"/>
 							<reference ref="449099953"/>
+							<reference ref="9935865"/>
 						</array>
 						<reference key="parent" ref="191373211"/>
 					</object>
@@ -1189,6 +1205,11 @@
 						<reference key="object" ref="387447145"/>
 						<reference key="parent" ref="571939647"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">77</int>
+						<reference key="object" ref="9935865"/>
+						<reference key="parent" ref="571939647"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -1228,12 +1249,13 @@
 				<string key="66.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="67.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="68.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="77.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">76</int>
+			<int key="maxID">77</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1384,6 +1406,7 @@
 			<string key="lsb44.png">{159, 48}</string>
 			<string key="分割线.png">{614, 2}</string>
 			<string key="刷新按钮.png">{39, 45}</string>
+			<string key="参加团购大的白色背景上面的.png">{640, 960}</string>
 			<string key="商品详情五角星.png">{23, 22}</string>
 			<string key="商品详情背景2.png">{640, 390}</string>
 			<string key="返回0.png">{88, 88}</string>

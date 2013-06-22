@@ -281,14 +281,12 @@
 		58426BB6170ADED4005818A1 /* wodeshoucang弹出.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426B72170ADED4005818A1 /* wodeshoucang弹出.png */; };
 		58426BB7170ADED4005818A1 /* 万象下拉.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426B73170ADED4005818A1 /* 万象下拉.png */; };
 		58426BB8170ADED4005818A1 /* 万象下拉点击状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426B74170ADED4005818A1 /* 万象下拉点击状态.png */; };
-		58426BB9170ADED4005818A1 /* 万象图片1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 58426B75170ADED4005818A1 /* 万象图片1.jpg */; };
 		58426BBA170ADED4005818A1 /* 万象小三角.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426B76170ADED4005818A1 /* 万象小三角.png */; };
 		58426BBB170ADED4005818A1 /* 万象底部.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426B77170ADED4005818A1 /* 万象底部.png */; };
 		58426BBC170ADED4005818A1 /* 万象底部点击.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426B78170ADED4005818A1 /* 万象底部点击.png */; };
 		58426BBD170ADED4005818A1 /* 万象框框.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426B79170ADED4005818A1 /* 万象框框.png */; };
 		58426BBE170ADED4005818A1 /* 优惠信息按钮1.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426B7A170ADED4005818A1 /* 优惠信息按钮1.png */; };
 		58426BBF170ADED4005818A1 /* 优惠提示背景框.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426B7B170ADED4005818A1 /* 优惠提示背景框.png */; };
-		58426BC0170ADED4005818A1 /* 优惠的图片.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 58426B7C170ADED4005818A1 /* 优惠的图片.jpg */; };
 		58426BC2170ADED4005818A1 /* 删除按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426B7E170ADED4005818A1 /* 删除按钮.png */; };
 		58426BC3170ADED4005818A1 /* 刷新按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426B7F170ADED4005818A1 /* 刷新按钮.png */; };
 		58426BC4170ADED4005818A1 /* 参加团购大的白色背景上面的.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426B80170ADED4005818A1 /* 参加团购大的白色背景上面的.png */; };
@@ -322,8 +320,6 @@
 		58426BE4170ADED4005818A1 /* 地区选择背景条1.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426BA0170ADED4005818A1 /* 地区选择背景条1.png */; };
 		58426BE5170ADED4005818A1 /* 已付款按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426BA1170ADED4005818A1 /* 已付款按钮.png */; };
 		58426BE6170ADED4005818A1 /* 已付款背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426BA2170ADED4005818A1 /* 已付款背景.png */; };
-		58426BE7170ADED4005818A1 /* 店铺图片1.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426BA3170ADED4005818A1 /* 店铺图片1.png */; };
-		58426BE8170ADED4005818A1 /* 店铺图片21.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426BA4170ADED4005818A1 /* 店铺图片21.png */; };
 		58426BE9170ADED4005818A1 /* 我的按钮收藏2.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426BA5170ADED4005818A1 /* 我的按钮收藏2.png */; };
 		58426BEA170ADED4005818A1 /* 我的收藏分栏条.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426BA6170ADED4005818A1 /* 我的收藏分栏条.png */; };
 		58426BEB170ADED4005818A1 /* 我的收藏分栏条点击.png in Resources */ = {isa = PBXBuildFile; fileRef = 58426BA7170ADED4005818A1 /* 我的收藏分栏条点击.png */; };
@@ -988,14 +984,12 @@
 		58426B72170ADED4005818A1 /* wodeshoucang弹出.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wodeshoucang弹出.png"; sourceTree = "<group>"; };
 		58426B73170ADED4005818A1 /* 万象下拉.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "万象下拉.png"; sourceTree = "<group>"; };
 		58426B74170ADED4005818A1 /* 万象下拉点击状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "万象下拉点击状态.png"; sourceTree = "<group>"; };
-		58426B75170ADED4005818A1 /* 万象图片1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "万象图片1.jpg"; sourceTree = "<group>"; };
 		58426B76170ADED4005818A1 /* 万象小三角.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "万象小三角.png"; sourceTree = "<group>"; };
 		58426B77170ADED4005818A1 /* 万象底部.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "万象底部.png"; sourceTree = "<group>"; };
 		58426B78170ADED4005818A1 /* 万象底部点击.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "万象底部点击.png"; sourceTree = "<group>"; };
 		58426B79170ADED4005818A1 /* 万象框框.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "万象框框.png"; sourceTree = "<group>"; };
 		58426B7A170ADED4005818A1 /* 优惠信息按钮1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "优惠信息按钮1.png"; sourceTree = "<group>"; };
 		58426B7B170ADED4005818A1 /* 优惠提示背景框.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "优惠提示背景框.png"; sourceTree = "<group>"; };
-		58426B7C170ADED4005818A1 /* 优惠的图片.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "优惠的图片.jpg"; sourceTree = "<group>"; };
 		58426B7D170ADED4005818A1 /* 分割线.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "分割线.png"; sourceTree = "<group>"; };
 		58426B7E170ADED4005818A1 /* 删除按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "删除按钮.png"; sourceTree = "<group>"; };
 		58426B7F170ADED4005818A1 /* 刷新按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "刷新按钮.png"; sourceTree = "<group>"; };
@@ -1030,8 +1024,6 @@
 		58426BA0170ADED4005818A1 /* 地区选择背景条1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "地区选择背景条1.png"; sourceTree = "<group>"; };
 		58426BA1170ADED4005818A1 /* 已付款按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "已付款按钮.png"; sourceTree = "<group>"; };
 		58426BA2170ADED4005818A1 /* 已付款背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "已付款背景.png"; sourceTree = "<group>"; };
-		58426BA3170ADED4005818A1 /* 店铺图片1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "店铺图片1.png"; sourceTree = "<group>"; };
-		58426BA4170ADED4005818A1 /* 店铺图片21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "店铺图片21.png"; sourceTree = "<group>"; };
 		58426BA5170ADED4005818A1 /* 我的按钮收藏2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我的按钮收藏2.png"; sourceTree = "<group>"; };
 		58426BA6170ADED4005818A1 /* 我的收藏分栏条.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我的收藏分栏条.png"; sourceTree = "<group>"; };
 		58426BA7170ADED4005818A1 /* 我的收藏分栏条点击.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我的收藏分栏条点击.png"; sourceTree = "<group>"; };
@@ -2284,14 +2276,12 @@
 				58426B72170ADED4005818A1 /* wodeshoucang弹出.png */,
 				58426B73170ADED4005818A1 /* 万象下拉.png */,
 				58426B74170ADED4005818A1 /* 万象下拉点击状态.png */,
-				58426B75170ADED4005818A1 /* 万象图片1.jpg */,
 				58426B76170ADED4005818A1 /* 万象小三角.png */,
 				58426B77170ADED4005818A1 /* 万象底部.png */,
 				58426B78170ADED4005818A1 /* 万象底部点击.png */,
 				58426B79170ADED4005818A1 /* 万象框框.png */,
 				58426B7A170ADED4005818A1 /* 优惠信息按钮1.png */,
 				58426B7B170ADED4005818A1 /* 优惠提示背景框.png */,
-				58426B7C170ADED4005818A1 /* 优惠的图片.jpg */,
 				58426B7D170ADED4005818A1 /* 分割线.png */,
 				58426B7E170ADED4005818A1 /* 删除按钮.png */,
 				58426B7F170ADED4005818A1 /* 刷新按钮.png */,
@@ -2326,8 +2316,6 @@
 				58426BA0170ADED4005818A1 /* 地区选择背景条1.png */,
 				58426BA1170ADED4005818A1 /* 已付款按钮.png */,
 				58426BA2170ADED4005818A1 /* 已付款背景.png */,
-				58426BA3170ADED4005818A1 /* 店铺图片1.png */,
-				58426BA4170ADED4005818A1 /* 店铺图片21.png */,
 				58426BA5170ADED4005818A1 /* 我的按钮收藏2.png */,
 				58426BA6170ADED4005818A1 /* 我的收藏分栏条.png */,
 				58426BA7170ADED4005818A1 /* 我的收藏分栏条点击.png */,
@@ -3348,14 +3336,12 @@
 				58426BB6170ADED4005818A1 /* wodeshoucang弹出.png in Resources */,
 				58426BB7170ADED4005818A1 /* 万象下拉.png in Resources */,
 				58426BB8170ADED4005818A1 /* 万象下拉点击状态.png in Resources */,
-				58426BB9170ADED4005818A1 /* 万象图片1.jpg in Resources */,
 				58426BBA170ADED4005818A1 /* 万象小三角.png in Resources */,
 				58426BBB170ADED4005818A1 /* 万象底部.png in Resources */,
 				58426BBC170ADED4005818A1 /* 万象底部点击.png in Resources */,
 				58426BBD170ADED4005818A1 /* 万象框框.png in Resources */,
 				58426BBE170ADED4005818A1 /* 优惠信息按钮1.png in Resources */,
 				58426BBF170ADED4005818A1 /* 优惠提示背景框.png in Resources */,
-				58426BC0170ADED4005818A1 /* 优惠的图片.jpg in Resources */,
 				58426BC2170ADED4005818A1 /* 删除按钮.png in Resources */,
 				58426BC3170ADED4005818A1 /* 刷新按钮.png in Resources */,
 				58426BC4170ADED4005818A1 /* 参加团购大的白色背景上面的.png in Resources */,
@@ -3389,8 +3375,6 @@
 				58426BE4170ADED4005818A1 /* 地区选择背景条1.png in Resources */,
 				58426BE5170ADED4005818A1 /* 已付款按钮.png in Resources */,
 				58426BE6170ADED4005818A1 /* 已付款背景.png in Resources */,
-				58426BE7170ADED4005818A1 /* 店铺图片1.png in Resources */,
-				58426BE8170ADED4005818A1 /* 店铺图片21.png in Resources */,
 				58426BE9170ADED4005818A1 /* 我的按钮收藏2.png in Resources */,
 				58426BEA170ADED4005818A1 /* 我的收藏分栏条.png in Resources */,
 				58426BEB170ADED4005818A1 /* 我的收藏分栏条点击.png in Resources */,
@@ -3825,8 +3809,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: cheng zhong (HNMKUCN358)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: cheng zhong (HNMKUCN358)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yali liu (ZXHENKXVL6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yali liu (ZXHENKXVL6)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -3848,8 +3832,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "";
-				PROVISIONING_PROFILE = "D693349A-79F1-4053-A4F8-EA9088F3A2EA";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D693349A-79F1-4053-A4F8-EA9088F3A2EA";
+				PROVISIONING_PROFILE = "A268A4D0-083C-407D-BD05-CF739FE70FDB";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A268A4D0-083C-407D-BD05-CF739FE70FDB";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				SDKROOT = iphoneos;
@@ -3865,8 +3849,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: cheng zhong (HNMKUCN358)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: cheng zhong (HNMKUCN358)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yali liu (ZXHENKXVL6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yali liu (ZXHENKXVL6)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -3882,8 +3866,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "";
-				PROVISIONING_PROFILE = "D693349A-79F1-4053-A4F8-EA9088F3A2EA";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D693349A-79F1-4053-A4F8-EA9088F3A2EA";
+				PROVISIONING_PROFILE = "A268A4D0-083C-407D-BD05-CF739FE70FDB";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A268A4D0-083C-407D-BD05-CF739FE70FDB";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				SDKROOT = iphoneos;
@@ -3894,8 +3878,8 @@
 		58E6FB6A170A1BF30029BAAD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: cheng zhong (HNMKUCN358)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: cheng zhong (HNMKUCN358)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yali liu (ZXHENKXVL6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yali liu (ZXHENKXVL6)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wanxiangerweima/wanxiangerweima-Prefix.pch";
 				INFOPLIST_FILE = "wanxiangerweima/wanxiangerweima-Info.plist";
@@ -3906,8 +3890,8 @@
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "万象二维码";
-				PROVISIONING_PROFILE = "D693349A-79F1-4053-A4F8-EA9088F3A2EA";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D693349A-79F1-4053-A4F8-EA9088F3A2EA";
+				PROVISIONING_PROFILE = "33CABFB6-F4FF-4D86-84EB-7B031DFDD16F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "33CABFB6-F4FF-4D86-84EB-7B031DFDD16F";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -3917,8 +3901,8 @@
 		58E6FB6B170A1BF30029BAAD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: cheng zhong (HNMKUCN358)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: cheng zhong (HNMKUCN358)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yali liu (ZXHENKXVL6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yali liu (ZXHENKXVL6)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wanxiangerweima/wanxiangerweima-Prefix.pch";
 				INFOPLIST_FILE = "wanxiangerweima/wanxiangerweima-Info.plist";
@@ -3929,8 +3913,8 @@
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "D693349A-79F1-4053-A4F8-EA9088F3A2EA";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D693349A-79F1-4053-A4F8-EA9088F3A2EA";
+				PROVISIONING_PROFILE = "33CABFB6-F4FF-4D86-84EB-7B031DFDD16F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "33CABFB6-F4FF-4D86-84EB-7B031DFDD16F";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

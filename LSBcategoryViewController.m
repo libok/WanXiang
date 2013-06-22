@@ -85,6 +85,11 @@
     if (cell == nil) {
         cell = [[[CateTableCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                      reuseIdentifier:CellIdentifier] autorelease];
+        UIImageView * vi = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, tableView.rowHeight)];
+        vi.image         = [UIImage  imageNamed:@"参加团购大的白色背景上面的.png"];
+        [cell addSubview:vi];
+        [cell sendSubviewToBack:vi];
+        [vi release];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
     }
