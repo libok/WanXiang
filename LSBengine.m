@@ -83,6 +83,7 @@
             return;
         }
         for (NSDictionary * dict in adArray) {
+            NSLog(@"%@",dict);
             LPShouCang * temp = [[LPShouCang alloc]initWithDictionary:dict];
             [mutablearry addObject:temp];
             [temp release];

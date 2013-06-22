@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "LSBengine.h"
 #import "SVSegmentedControl.h"
-@interface LSBmyViewController : UIViewController<UITableViewDataSource>
+@interface LSBmyViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 {
     LSBengine *_engine;
     NSMutableArray *_dataArray;                                                                                                   

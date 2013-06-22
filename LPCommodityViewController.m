@@ -82,9 +82,6 @@
     {
         [_engine requestSearch:_searchStr];        
     }
-
-//    [_engine requestCommodity:0 class:_class_id index:x];
-//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 
 

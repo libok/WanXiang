@@ -18,6 +18,7 @@
 #import "LPCommodity.h"
 #import "MBProgressHUD.h"
 #import "ASIHTTPRequest.h"
+#import "LPCommDatilViewController.h"
 #define BIANJIBUTTON_TAG   1000
 #define QINGCHUBUTTON_TAG  1001
 #define QUXIQOBUTTON_TAG   1002
@@ -96,8 +97,7 @@
     switch (x) {
         case 0:
         {
-            [_engine requestDidshoucang:[LYGAppDelegate getSharedLoginedUserInfo].ID];
-            
+            [_engine requestDidshoucang:[LYGAppDelegate getSharedLoginedUserInfo].ID];            
         }
             break;
         case 1:
@@ -112,14 +112,6 @@
             break;
         case 2:
         {
-//             [MBProgressHUD showHUDAddedTo:self.view message:@"正在加载中" animated:YES];
-//            [LSBengine hasNotFinishedTrade:1 callbackfunction:^(NSMutableArray * myarry){
-//                temp.dataArray = myarry;
-//                [temp.tableView reloadData];
-//                [MBProgressHUD hideHUDForView:temp.view animated:YES];
-//
-//            }];
-
         }
             break;
             
@@ -139,7 +131,6 @@
 {
     self.dataArray = aArray;
     [self.tableView reloadData];
-    
 }
 -(void)getshoucangtableviewFail:(NSError *)aError
 {
@@ -219,21 +210,30 @@
     
 }
 #pragma mark - Table view delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
+    LPShouCang *ad = [_dataArray objectAtIndex:indexPath.row];
+    
+    __block LSBmyViewController * xxx = self;
+    __block LPCommDatilViewController *datilViewController = [[LPCommDatilViewController alloc] init];
+    //datilViewController.oneCommodity = ad;
+    //datilViewController.class_id = [ad.classId intValue];
+    datilViewController.ID = [ad.goodid intValue];
+    datilViewController.managerid = [ad.managerid intValue];
+    [LSBengine getUserInfo:datilViewController.managerid callbackfunction:^(ShopInfo * info){
+        datilViewController.m_shopInfo = info;
+        [xxx.navigationController pushViewController:datilViewController animated:YES];
+        [datilViewController release];
+    }];
+
+}
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return UITableViewCellEditingStyleDelete;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-//    LPCommodity *ad = [_dataArray objectAtIndex:indexPath.row];
-//    LPCommDatilViewController *datilViewController = [[LPCommDatilViewController alloc] init];
-//    datilViewController.class_id = [ad.classId intValue];
-//    datilViewController.ID = [ad.ID intValue];
-//    datilViewController.managerid = [ad.managerId intValue];
-//    [self.navigationController pushViewController:datilViewController animated:YES];
-//    [datilViewController release];
-}
+
 
 - (IBAction)btnClick:(id)sender {
     UIButton *btn = (UIButton *)sender;

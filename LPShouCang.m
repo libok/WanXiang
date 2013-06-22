@@ -35,6 +35,9 @@
         self.title = [aDic valueForKey:@"Title"];
         self.imgurl = [aDic valueForKey:@"imgurl"];
         self.goodid = [aDic valueForKey:@"goodsid"];
+        if (self.goodid == 0) {
+            self.goodid = [aDic valueForKey:@"goodid"];
+        }
         self.ID = [aDic valueForKey:@"id"];
         self.uid = [aDic valueForKey:@"uid"];
         self.managerid = [aDic valueForKey:@"managerid"];
