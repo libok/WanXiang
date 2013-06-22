@@ -16,6 +16,7 @@
 #import "LYGAppDelegate.h"
 #import "BYNLoginViewController.h"
 #import "UIImageView+WebCache.h"
+#import "ASIHTTPRequest.h"
 @implementation WWRYouHuiQuanViewController
 @synthesize statuesArray = _statuesArray;
 
@@ -32,13 +33,18 @@
 }
 -(void)deleteButtonClick:(id)sender
 {
-    UIActionSheet * action = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"全部删除" otherButtonTitles:@"编辑", nil];
+    if (self.tableView.editing == YES) {
+        [self.tableView setEditing:NO animated:YES];
+        return ;
+    }
+    UIActionSheet * action = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"编辑" otherButtonTitles:@"全部删除", nil];
+    action.destructiveButtonIndex = 1;
     [action showInView:self.view];
     [action release];
 }
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1) {
+    if (buttonIndex == 0) {
         [self.tableView setEditing:YES animated:YES];
     }else
     {
@@ -130,8 +136,33 @@
 }
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.statuesArray removeObjectAtIndex:indexPath.row];
-    [self.tableView reloadData];
+    __block WWRYouHuiQuanViewController * temp = self;
+    WWRStatus *status = [_statuesArray objectAtIndex:indexPath.row];
+    NSString * urlString = [NSString stringWithFormat:@"%@/api/goods/DelpreQr.aspx?id=%d",SERVER_URL,[status.iD intValue]];
+    ASIHTTPRequest * request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:urlString]];
+    [request setCompletionBlock:^{
+        int x = [LYGAppDelegate getAsihttpResult:request.responseString];
+        if (x== 0) {
+            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"删除优惠券失败" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+            [alert release];
+            return;
+        }
+        [temp.statuesArray removeObjectAtIndex:indexPath.row];
+        [temp.tableView reloadData];
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"删除优惠券成功" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+    }];
+    [request setFailedBlock:^{
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"删除优惠券失败" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+
+    }];
+    [request startAsynchronous];
+    
+   
 }
 
 #pragma mark -
