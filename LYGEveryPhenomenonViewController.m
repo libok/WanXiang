@@ -35,7 +35,7 @@
 {
     [super viewDidLoad];
 	
-	_ePCellLabelArray = [[NSArray alloc] initWithObjects:@"优惠券",@"会员卡",@"付款凭证",@"礼品券",@"e媒港收藏",nil];
+	_ePCellLabelArray = [[NSArray alloc] initWithObjects:@"优惠券",@"会员卡",@"付款凭证",@"礼品券",@"e媒港收藏",@"预定",@"签到二维码",nil];
 	
 	_tableView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"会刊3背景.png"]];
 	_tableView.rowHeight = 52;
@@ -58,7 +58,7 @@
         NSArray * arry = [requeset.responseString componentsSeparatedByString:@","];
         NSString  * string = requeset.responseString;
         NSLog(@"%@",string);
-        for (int i =0; i<5; i++) {
+        for (int i =0; i<7; i++) {
             WWREveryPhenomenonCell * cell = (WWREveryPhenomenonCell*)[temp.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
             cell.numLabel.text = [arry objectAtIndex:i];
         }
