@@ -133,7 +133,7 @@
 	BYNMember *member = [self.memberArray objectAtIndex:_buttonRow];
 	_suidStr = member.suid;
 	
-	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"确定要注销该商家会员？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定",nil];
+	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"注销该会员后将同时退订其会员刊物并不再享受相关优惠服务" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定",nil];
 	[alertView setTag:3];
 	[alertView show];
 	[alertView release];
