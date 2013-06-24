@@ -390,15 +390,19 @@
         return;
     }
     UITextField  *nameTF = (UITextField *)[alertView viewWithTag:100];
-    NSString     *searchString = nameTF.text;
+    NSString     *searchString = [nameTF.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     if (searchString == nil || [searchString length] == 0) {
         return;
     }
-    NSString  * urlString = [NSString  stringWithFormat:@"%@/API/book/Search.aspx?Key=%@",SERVER_URL,searchString];
-    NSString *urlString2 = [urlString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString  * urlString = [NSString  stringWithFormat:@"%@/API/book/Search.aspx?K=%@",SERVER_URL,searchString];
+    NSLog(@"%@",urlString);
+    NSString *urlString2 = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"%@",urlString2);
     ASIHTTPRequest * request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:urlString2]];
+    __block LYGEMagazineViewController * temp = self;
     [request setCompletionBlock:^{
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        //NSLog(@"%@",request.responseString);
+        [MBProgressHUD hideHUDForView:temp.view animated:YES];
         SBJSON *json = [[SBJSON alloc] init];
         NSDictionary *dic = [json objectWithString:request.responseString  error:nil];
         NSString *str = [dic valueForKey:@"Result"];
@@ -407,20 +411,27 @@
             return ;
         }
         NSArray  *arr = [json objectWithString:str error:nil];
-        NSMutableArray *mutHuikanArr = [[[NSMutableArray alloc] init]autorelease];
-        for (NSDictionary *temp in arr )
-        {
-            [mutHuikanArr addObject:[LFESort initWithDictionary:temp]];
+        if ([arr count] == 0) {
+            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"没搜到" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+            [alert release];
+            return;
         }
-        LFListSortViewController * temp = [[LFListSortViewController alloc]init];
-        temp.kindSortArray = mutHuikanArr;
-        temp.kindsSort = @"1";
+        NSMutableArray *mutHuikanArr = [[[NSMutableArray alloc] init]autorelease];
+        for (NSDictionary *temp3 in arr )
+        {
+            [mutHuikanArr addObject:[LFESort initWithDictionary:temp3]];
+        }
+        LFListSortViewController * temp2 = [[LFListSortViewController alloc]init];
+        temp2.kindSortArray = mutHuikanArr;
+        temp2.kindsSort = @"1";
         //[mutHuikanArr release];
-        [self.navigationController pushViewController:temp animated:YES];
+        [temp.navigationController pushViewController:temp2 animated:YES];
         
     }];
-    [request setFailedBlock:^{
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [request setFailedBlock:^{        
+        NSLog(@"%@",request.responseString);
+        [MBProgressHUD hideHUDForView:temp.view animated:YES];
         NSLog(@"%@",request.responseString);
     }];
     [request startAsynchronous];
