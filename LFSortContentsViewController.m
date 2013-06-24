@@ -46,7 +46,7 @@
 {
     [super viewDidLoad];
     self.className.text = self.oneSort.aSortName;
-    NSString * string = [NSString stringWithFormat:@"%@%@",SERVER_URL,self.oneSort.aSortImg];
+   // NSString * string = [NSString stringWithFormat:@"%@%@",SERVER_URL,self.oneSort.aSortImg];
     
     
     __block LFSortContentsViewController * temp = self;

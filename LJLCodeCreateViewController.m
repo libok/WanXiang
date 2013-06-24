@@ -158,7 +158,7 @@
         ASIHTTPRequest * request = [[ASIFormDataRequest alloc]initWithURL:[NSURL URLWithString:[self.urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
         
         NSLog(@"%@",self.urlString);
-        request.timeOutSeconds = 20;
+        request.timeOutSeconds = TIMEOUTSECONDS;
         __block LJLCodeCreateViewController * codeCreate = self;        
 		[request setCompletionBlock:^{        
             NSLog(@"xxxx  %@",request.responseString);
@@ -191,7 +191,7 @@
             [codeCreate.mySwitch setOn:NO];
             [request release];
         }];
-        request.timeOutSeconds = 6;
+        request.timeOutSeconds = TIMEOUTSECONDS;
         [request startAsynchronous];
 		//[SVProgressHUD showWithStatus:@"正在进行网络加密"];
         //[MBProgressHUD showHUDAddedTo:self.view animated:YES];

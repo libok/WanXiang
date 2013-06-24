@@ -11,7 +11,7 @@
 #import "ReverseGeocoder.h"
 
 @class DAReloadActivityButton;
-@interface LYGEveryPhenomenonStreetViewController : UIViewController <LSBengineAdDelegate,UITableViewDelegate,GeocoderProtocol>
+@interface LYGEveryPhenomenonStreetViewController : UIViewController <LSBengineAdDelegate,GeocoderProtocol>
 {
     LSBengine *_engine;
     NSArray   *_adArray;

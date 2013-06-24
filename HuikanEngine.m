@@ -54,7 +54,7 @@ static NSMutableArray * requestArry = nil;
         function(myarry);
         [myarry autorelease];
     }];
-    
+    request.timeOutSeconds = TIMEOUTSECONDS; 
     [request startAsynchronous];
 }
 +(void)getQualityOrMyMagzines:(int)type userId:(int)uid pageCounts:(int)num callbackfunction:(void (^)(NSArray* myarray))function
@@ -84,6 +84,7 @@ static NSMutableArray * requestArry = nil;
         function(mutHuikanArr);
         [mutHuikanArr release];
     }];
+    request.timeOutSeconds = TIMEOUTSECONDS; 
     [request startAsynchronous];
 }
 +(void)mangzineClassify:(int)shopID callbackfunction:(void (^)(NSArray* myarray))function
@@ -117,6 +118,7 @@ static NSMutableArray * requestArry = nil;
             function(mutArr);
             [mutArr release];
         }];
+        request.timeOutSeconds = TIMEOUTSECONDS; 
         [request startAsynchronous];
 }
 +(void)mangzineClassifyContents:(LFCategorizeSort*)asort callbackfunction:(void (^)(NSArray* myarray))function
@@ -150,6 +152,7 @@ static NSMutableArray * requestArry = nil;
         function(mutArr);
         [mutArr release];
     }];
+    request.timeOutSeconds = TIMEOUTSECONDS; 
     [request startAsynchronous];
 }
 +(void)mangzineCollection:(ArticleModel *) aarticle callbackfunction:(void (^)(bool isWin,NSString * result))function

@@ -135,7 +135,7 @@
     [request setFailedBlock:^{
         [MBProgressHUD hideHUDForView:temp.view animated:YES];
     }];
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS; 
     [request startAsynchronous];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     

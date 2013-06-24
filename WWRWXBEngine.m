@@ -36,7 +36,7 @@
     //手动设置结束方法
     [request setDidFinishSelector:@selector(getTimelineFinised:)];
 	[request setDidFailSelector:@selector(getTimelineFailed:)];
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS; 
     [request startAsynchronous];
 	
 }
@@ -49,7 +49,7 @@
     //手动设置结束方法
     [request setDidFinishSelector:@selector(getTimelineFinised:)];
 	[request setDidFailSelector:@selector(getTimelineFailed:)];
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS; 
     [request startAsynchronous];
 }
 
@@ -62,7 +62,7 @@
     //手动设置结束方法
     [request setDidFinishSelector:@selector(getTimelineFinised:)];
 	[request setDidFailSelector:@selector(getTimelineFailed:)];
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS; 
     [request startAsynchronous];
 }
 
@@ -78,7 +78,7 @@
 //    [request setCompletionBlock:^{
 //        NSLog(@"%@",request.responseString);
 //    }];
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS; 
     [request startAsynchronous];
 	
 }
@@ -92,7 +92,7 @@
     //手动设置结束方法
     [request setDidFinishSelector:@selector(getTimelineFinised:)];
 	[request setDidFailSelector:@selector(getTimelineFailed:)];
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS; 
     [request startAsynchronous];
 }
 
@@ -105,7 +105,7 @@
     //手动设置结束方法
     [request setDidFinishSelector:@selector(getTimelineFinised:)];
 	[request setDidFailSelector:@selector(getTimelineFailed:)];
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS;
     [request startAsynchronous];
 }
 
@@ -118,7 +118,7 @@
     //手动设置结束方法
     [request setDidFinishSelector:@selector(getTimelineFinised:)];
 	[request setDidFailSelector:@selector(getTimelineFailed:)];
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS;
     [request startAsynchronous];
 }
 
@@ -131,7 +131,7 @@
     //手动设置结束方法
     [request setDidFinishSelector:@selector(getTimelineFinised:)];
 	[request setDidFailSelector:@selector(getTimelineFailed:)];
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS;
     [request startAsynchronous];
 }
 +(void)requestEBookDelFavAllListUser:(int)u callbackfunction:(void (^)(bool isWin))function
@@ -163,7 +163,7 @@
     //手动设置结束方法
     [request setDidFinishSelector:@selector(getTimelineFinised:)];
 	[request setDidFailSelector:@selector(getTimelineFailed:)];
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS;
     [request startAsynchronous];
 }
 
@@ -176,7 +176,7 @@
     //手动设置结束方法
     [request setDidFinishSelector:@selector(getTimelineFinised:)];
 	[request setDidFailSelector:@selector(getTimelineFailed:)];
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS;
     [request startAsynchronous];
 }
 

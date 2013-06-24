@@ -82,7 +82,7 @@
             [MBProgressHUD showHUDAddedTo:self.view message:@"微博发表中" animated:YES];
 			[request setDidFinishSelector:@selector(Successed:)];
 			[request setDidFailSelector:@selector(Filed:)];
-			request.timeOutSeconds = 20;
+			request.timeOutSeconds = TIMEOUTSECONDS;
 			
 			[request startAsynchronous];
 		}		
@@ -107,7 +107,7 @@
 		[MBProgressHUD showHUDAddedTo:self.view message:@"微博发表中" animated:YES];
 		[request setDidFinishSelector:@selector(Successed:)];
 		[request setDidFailSelector:@selector(Filed:)];
-		request.timeOutSeconds = 20;
+		request.timeOutSeconds = TIMEOUTSECONDS;
 		
 		[request startAsynchronous];		
 	}

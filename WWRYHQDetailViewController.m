@@ -28,7 +28,7 @@
     NSString  * string = [NSString stringWithFormat:@"%@%@",SERVER_URL,self.oneStatus.url];
     [self.erWeiMaImageView  setImageWithURL:[NSURL URLWithString:string]];
 	//二维码标识
-	NSString *numStr = [NSString stringWithFormat:@"NO:%@",self.gidString];
+	//NSString *numStr = [NSString stringWithFormat:@"NO:%@",self.gidString];
 	//self.numberLabel.text = numStr;
 	self.numberLabel.frame = CGRectMake((116 + (_erWeiMaImageView.frame.size.width - 87)/2), _erWeiMaImageView.frame.origin.y + _erWeiMaImageView.frame.size.height, 87, 25);
 	

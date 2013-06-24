@@ -67,6 +67,7 @@
     [request setFailedBlock:^{
         afunction(nil);
     }];
+    request.timeOutSeconds = TIMEOUTSECONDS;
     [request startAsynchronous];
 }
 

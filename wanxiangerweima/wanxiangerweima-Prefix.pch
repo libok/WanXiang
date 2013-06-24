@@ -22,4 +22,5 @@
 
 #define SELLER   @"1810692723@qq.com"
 #define PARTER   @"2088901716977584"
+#define TIMEOUTSECONDS  10
 

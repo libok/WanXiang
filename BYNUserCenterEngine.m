@@ -77,7 +77,7 @@
 		 aCompletionBlock(nil,0);
 	 }];
 	
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS; 
 	[request startAsynchronous];
 	
 	
@@ -142,7 +142,7 @@
 		 //[MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
 		 completionBlock(nil,0);
 	 }];	
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS; 
 	[request startAsynchronous];
 	//[SVProgressHUD showWithStatus:@"Login..."];
     //[MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
@@ -196,7 +196,7 @@
 		 
 	 }];
 	
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS; 
 	[request startAsynchronous];	
 	
 }
@@ -245,7 +245,7 @@
 		 completionBlock(nil,0);
 	 }];
 	
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS; 
 	[request startAsynchronous];	
 	
 }
@@ -291,7 +291,7 @@
 		 completionBlock(0,nil);
 	 }];
 	
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS; 
 	[request startAsynchronous];	
 	
 }
@@ -336,7 +336,7 @@
 		 
 	 }];
 	
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS; 
 	[request startAsynchronous];	
 	
 }
@@ -392,7 +392,7 @@
 		 completionBlock(nil,0);
 	 }];
 	
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS; 
 	[request startAsynchronous];	
 	
 }
@@ -438,7 +438,7 @@
 		 completionBlock(nil,0);
 	 }];
 	
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS; 
 	[request startAsynchronous];	
 	
 }
@@ -490,7 +490,7 @@
 		 completionBlock(0,request.responseString);
 	 }];
 
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS; 
 	[request startAsynchronous];
 	
 }
@@ -549,7 +549,7 @@
 		 completionBlock(nil,0);
 	 }];
 	
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS; 
 	[request startAsynchronous];	
 	
 }
@@ -597,7 +597,7 @@
 		 completionBlock(0,request.responseString);
 	 }];
 	
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS; 
 	[request startAsynchronous];
 	
 }
@@ -657,7 +657,7 @@
 		 completionBlock(nil,0);
 	 }];
 	
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS; 
 	[request startAsynchronous];	
 	
 }

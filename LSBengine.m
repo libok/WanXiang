@@ -264,8 +264,8 @@
 
 +(void)deletnotfinished:(int)x callBackFunction:(void (^)(BOOL result))function
 {
-    int uid = [LYGAppDelegate getuid];
-    NSString * urlstr = nil;
+    //int uid = [LYGAppDelegate getuid];
+    //NSString * urlstr = nil;
    // NSString * urlString2 = [SERVER_URL stringByAppendingString:@"/API/order/delorder.aspx?id=%d",x];
     NSString * urlString2 = [NSString stringWithFormat:@"%@/API/order/delorder.aspx?id=%d&T=1",SERVER_URL,x];
     ASIHTTPRequest * request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:urlString2]];
@@ -290,7 +290,7 @@
     //手动设置结束方法
     [request setDidFinishSelector:@selector(getTimelineFinised:)];
 	[request setDidFailSelector:@selector(getTimelineFailed:)];
-	request.timeOutSeconds = 6;
+	request.timeOutSeconds = TIMEOUTSECONDS;
     [request startAsynchronous];
 }
 -(void)requestAd:(LPCity *)aCity atype:(int)type
@@ -303,7 +303,7 @@
         //手动设置结束方法
         [request setDidFinishSelector:@selector(getTimelineFinised:)];
         [request setDidFailSelector:@selector(getTimelineFailed:)];
-        request.timeOutSeconds = 10;
+        request.timeOutSeconds = TIMEOUTSECONDS; 
         [request startAsynchronous];    
     }
     else
@@ -314,7 +314,7 @@
         //手动设置结束方法
         [request setDidFinishSelector:@selector(getTimelineFinised:)];
         [request setDidFailSelector:@selector(getTimelineFailed:)];
-        request.timeOutSeconds = 10;
+        request.timeOutSeconds = TIMEOUTSECONDS; 
         [request startAsynchronous];
     }
 }
@@ -753,7 +753,7 @@
     //手动设置结束方法
     [request setDidFinishSelector:@selector(getTimelineFinised:)];
     [request setDidFailSelector:@selector(getTimelineFailed:)];
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS;
     [request startAsynchronous];
     
 }
@@ -789,7 +789,7 @@
     //手动设置结束方法
     [request setDidFinishSelector:@selector(getTimelineFinised:)];
 	[request setDidFailSelector:@selector(getTimelineFailed:)];
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS;
     [request startAsynchronous];
     
 }
@@ -801,7 +801,7 @@
     request.tag = REQUEST_COMMODITY_DATIL;
     [request setDidFinishSelector:@selector(getTimelineFinised:)];
 	[request setDidFailSelector:@selector(getTimelineFailed:)];
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS;
     [request startAsynchronous];
     
 }
@@ -814,7 +814,7 @@
     //手动设置结束方法
     [request setDidFinishSelector:@selector(getTimelineFinised:)];
 	[request setDidFailSelector:@selector(getTimelineFailed:)];
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS;
     [request startAsynchronous];
 }
 -(void)requestDidshoucang:(int)u
@@ -826,7 +826,7 @@
     //手动设置结束方法
     [request setDidFinishSelector:@selector(getTimelineFinised:)];
 	[request setDidFailSelector:@selector(getTimelineFailed:)];
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS;
     [request startAsynchronous];
     
 }
@@ -839,7 +839,7 @@
     //手动设置结束方法
     [request setDidFinishSelector:@selector(getTimelineFinised:)];
 	[request setDidFailSelector:@selector(getTimelineFailed:)];
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS;
     [request startAsynchronous];
     
 }
@@ -852,7 +852,7 @@
     //手动设置结束方法
     [request setDidFinishSelector:@selector(getTimelineFinised:)];
 	[request setDidFailSelector:@selector(getTimelineFailed:)];
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS;
     [request startAsynchronous];
 }
 -(void)reQuestHY:(int)u managerID:(int)s
@@ -864,7 +864,7 @@
     //手动设置结束方法
     [request setDidFinishSelector:@selector(getTimelineFinised:)];
 	[request setDidFailSelector:@selector(getTimelineFailed:)];
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS;
     [request startAsynchronous];
     
 }
@@ -877,9 +877,8 @@
     //手动设置结束方法
     [request setDidFinishSelector:@selector(getTimelineFinised:)];
 	[request setDidFailSelector:@selector(getTimelineFailed:)];
-	request.timeOutSeconds = 60;
-    [request startAsynchronous];
-    
+	request.timeOutSeconds = TIMEOUTSECONDS;
+    [request startAsynchronous];    
 }
 -(void)requestSearch:(NSString *)aStr
 {
@@ -892,7 +891,7 @@
     //手动设置结束方法
     [request setDidFinishSelector:@selector(getTimelineFinised:)];
 	[request setDidFailSelector:@selector(getTimelineFailed:)];
-	request.timeOutSeconds = 60;
+	request.timeOutSeconds = TIMEOUTSECONDS;
     [request startAsynchronous];
     
 }

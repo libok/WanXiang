@@ -131,7 +131,7 @@
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         SBJSON *json = [[SBJSON alloc] init];
         NSDictionary *dic = [json objectWithString:request.responseString  error:nil];
-        NSString *str = [dic valueForKey:@"Result"];
+        //NSString *str = [dic valueForKey:@"Result"];
         int x = [[dic valueForKey:@"NO"] intValue];
         if (x==0) {
             UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"订阅失败" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
@@ -177,7 +177,7 @@
         
         
     }
-    LFESort * oneSort = [_kindSortArray objectAtIndex:indexPath.row];
+    //LFESort * oneSort = [_kindSortArray objectAtIndex:indexPath.row];
     cell.orderButton.tag  = indexPath.row;
     
     if (indexPath.row % 2 == 1)

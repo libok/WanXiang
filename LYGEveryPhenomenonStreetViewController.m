@@ -155,6 +155,10 @@ static int currentIndex = 0;
 - (void)gotUserPlacemarksError {
     [self updateFieldsWithError:YES];
 }
+- (void)locationServicesDisabled
+{
+    
+}
 
 - (void)updateFieldsWithError:(BOOL)error {
     if (error)

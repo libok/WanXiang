@@ -283,7 +283,7 @@
 //			 }
 //		 }];
 //		
-//		request.timeOutSeconds = 20;
+//		request.timeOutSeconds = TIMEOUTSECONDS; = 20;
 //		[request startAsynchronous];
 				
 	}

@@ -249,7 +249,7 @@
 - (IBAction)buttonClick:(id)sender {
     int index = ((UIButton*)sender).tag;
     UIViewController * controller = nil;
-    int  selectindex = 0;
+    //int  selectindex = 0;
     [_myTimer invalidate];
     _myTimer = nil;
     switch (index) {
