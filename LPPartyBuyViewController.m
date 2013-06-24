@@ -43,8 +43,16 @@
     [super viewDidLoad];
     self.myScrollView.contentSize = CGSizeMake(320, 600);
     NSArray *array = [_dataDictionary valueForKey:@"imglist"];
-    NSDictionary *dic = [array objectAtIndex:0];
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",SERVER_URL,[dic valueForKey:@"Small_img"]]];
+    NSURL * url = nil;
+    if ([array count]>0) {
+        NSDictionary *dic = [array objectAtIndex:0];
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",SERVER_URL,[dic valueForKey:@"Small_img"]]];
+    }else
+    {
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",SERVER_URL,[_dataDictionary valueForKey:@"imgurl"]]];
+    }
+//    NSDictionary *dic = [array objectAtIndex:0];
+//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",SERVER_URL,[dic valueForKey:@"Small_img"]]];
     self.attrArry     = [self.dataDictionary valueForKey:@"Attr"];
     int xx = 0;
     int yy = 0;
