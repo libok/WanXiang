@@ -21,6 +21,7 @@
 {
 	[_tableView release];
 	[_titleLabel release];
+    [_removeButton release];
     [super dealloc];
 }
 - (IBAction)backButtonClick
@@ -32,4 +33,8 @@
 }
 
 
+- (void)viewDidUnload {
+    [self setRemoveButton:nil];
+    [super viewDidUnload];
+}
 @end

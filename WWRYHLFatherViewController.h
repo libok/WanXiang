@@ -19,5 +19,6 @@
 
 - (IBAction)backButtonClick;
 - (IBAction)deleteButtonClick:(id)sender;
+@property (retain, nonatomic) IBOutlet UIButton *removeButton;
 
 @end

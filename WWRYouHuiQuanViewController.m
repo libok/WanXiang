@@ -24,7 +24,7 @@
 {
     [super viewDidLoad];
 	self.titleLabel.text = @"优惠券";
-	
+	self.removeButton.hidden = NO;
 	_tableView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"会刊3背景.png"]];
 	_tableView.rowHeight = 114;
 	_tableView.showsVerticalScrollIndicator = NO;
