@@ -130,16 +130,16 @@
                 [cell sendSubviewToBack:vi];
                 [vi release];
                 break;
+                //cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
         }
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     LPCommodity *ad = [_dataArray objectAtIndex:indexPath.row];
     cell.infoLabel.text = ad.title;
     cell.price.text = [NSString stringWithFormat:@"￥%@",ad.price2];
     cell.price2.text = [NSString stringWithFormat:@"￥%@",ad.price];
-    cell.classLabel.text = [NSString stringWithFormat:@"商家:%@",ad.shangjia];
-    cell.selectionStyle = UITableViewCellSelectionStyleGray;
-    
+    cell.classLabel.text = [NSString stringWithFormat:@"商家:%@",ad.shangjia];    
     [cell.imgView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",SERVER_URL,ad.imgurl]] placeholderImage:[UIImage imageNamed:@"place.png"]];
     
     return cell;
