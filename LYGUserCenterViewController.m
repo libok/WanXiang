@@ -26,7 +26,7 @@
 #import "WWRAboutUsViewController.h"
 #import "BYNRecommendViewController.h"
 #import "BYNJPRecommendViewController.h"
-
+#import "SDImageCache.h"
 @implementation LYGUserCenterViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -155,6 +155,9 @@
 			break;
 		case CLEARCACHE:
 		{
+            [[SDImageCache sharedImageCache] clearDisk];
+			
+			[[SDImageCache sharedImageCache] clearMemory];
 			UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"缓存清除完成" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK" ,nil];
 			[alertView show];
 			[alertView release];
