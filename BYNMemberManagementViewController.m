@@ -178,10 +178,8 @@
 			BYNLoginViewController *loginVC = [[BYNLoginViewController alloc] init];
 			//[self.navigationController presentModalViewController:loginVC animated:YES];
             [self.navigationController presentViewController:loginVC animated:YES completion:nil];
-			[loginVC release];
-			
-		}
-			
+			[loginVC release];			
+		}			
 	}
 	
 	else if(alertView.tag == 2) 

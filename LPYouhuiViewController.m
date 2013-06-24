@@ -27,6 +27,7 @@
     [_title_label release];
     [_nameTextField release];
     [_phoneTextField release];
+    [_myScrollview release];
     [super dealloc];
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -112,10 +113,23 @@
             break;
     }
 }
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    CGRect rect = textField.frame;
+    if (rect.origin.y - self.myScrollview.contentOffset.y > 83) {
+        //self.myScrollview.contentOffset = CGPointMake(0, rect.origin.y - 100);
+        [self.myScrollview setContentOffset:CGPointMake(0, rect.origin.y - 84) animated:YES];
+    }else if (rect.origin.y - self.myScrollview.contentOffset.y < 84 && textField!= self.nameTextField)
+    {
+        [self.myScrollview setContentOffset:CGPointMake(0, rect.origin.y - 84) animated:YES];
+    }
+    
+}
 - (void)viewDidUnload {
     [self setTitle_label:nil];
     [self setNameTextField:nil];
     [self setPhoneTextField:nil];
+    [self setMyScrollview:nil];
     [super viewDidUnload];
 }
 @end

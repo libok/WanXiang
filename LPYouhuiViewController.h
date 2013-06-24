@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "LSBengine.h"
-@interface LPYouhuiViewController : UIViewController
+@interface LPYouhuiViewController : UIViewController<UITextFieldDelegate>
 {
     LSBengine *_engine;
     int _user_id;
@@ -24,6 +24,7 @@
 @property(nonatomic,assign) int commodity_id;
 @property(nonatomic,assign) int viewControllerTag;
 - (IBAction)btnClick:(id)sender;
+@property (retain, nonatomic) IBOutlet UIScrollView *myScrollview;
 @property (retain, nonatomic) IBOutlet UILabel *title_label;
 
 @end
