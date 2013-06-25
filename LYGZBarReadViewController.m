@@ -133,15 +133,15 @@
     
     
     
-//    UIView * downView = [[UIView alloc] initWithFrame:CGRectMake(0, 380, 320, 85)];
-//    
-//    downView.alpha = 0.5;
-//    
-//    downView.backgroundColor = [UIColor blackColor];
-//    
-//    [self.view addSubview:downView];
-//    
-//    [downView release];           
+    UIView * downView = [[UIView alloc] initWithFrame:CGRectMake(0, 380, 320, 85)];
+    
+    downView.alpha = 0.5;
+    
+    downView.backgroundColor = [UIColor blackColor];
+    
+    [self.view addSubview:downView];
+    
+    [downView release];           
     
     
     
@@ -227,10 +227,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"%f",self.view.frame.origin.y);
+    self.view = self.readerView;
     self.showsHelpOnFail = NO;
     self.readerDelegate = (id)self;
-    self.supportedOrientationsMask = ZBarOrientationMaskAll;
     
 
     self.wantsFullScreenLayout = NO;
