@@ -42,20 +42,10 @@
     return self;
 }
 
-- (void)viewDidLoad
+-(void)xxxinit
 {
-    [super viewDidLoad];
-    _engine = [[LSBengine alloc] init];
-    _engine.delegate = self;
-//    if (!_searchStr) {
-//        [_engine requestCommodity:0 class:_class_id index:0];
-//        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//    }
-//    else
-//    {
-//        [_engine requestSearch:_searchStr];
-//    }
     SVSegmentedControl *navSc = nil;
+    
     if (_searchStr) {
         navSc = [[SVSegmentedControl alloc] initWithSectionTitles:[NSArray arrayWithObjects:@"搜索结果", nil]];
         navSc.LKWidth = 320;
@@ -69,7 +59,16 @@
     navSc.backgroundColor = [UIColor clearColor];
     //navSc.LKWidth = 160;
     navSc.height = 42;
-    [self.view addSubview:navSc];    
+    [self.view addSubview:navSc];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    _engine = [[LSBengine alloc] init];
+    _engine.delegate = self;
+    [self xxxinit];
+        
 }
 -(void)valueChange:(SVSegmentedControl *)aSvs
 {

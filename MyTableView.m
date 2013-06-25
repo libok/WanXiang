@@ -33,4 +33,8 @@
     //[self.delegate setindex:x];LP
     self.oneBlock(x);
 }
+- (void)dealloc {
+    [_myInDicatorView release];
+    [super dealloc];
+}
 @end
