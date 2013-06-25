@@ -32,6 +32,7 @@
 @property (nonatomic,retain) UITextField *addressTextFiled;
 @property (nonatomic,retain) UITextField *jobTextFiled;
 @property (nonatomic,retain) UITextField *currentTextFiled;
+@property (retain, nonatomic) IBOutlet UIScrollView *mySCroview;
 
 - (IBAction) back;
 - (IBAction) setting;

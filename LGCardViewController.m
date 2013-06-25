@@ -28,6 +28,7 @@
 - (void)viewDidLoad 
 {
     [super viewDidLoad];
+    self.mySCroview.contentSize = CGSizeMake(320, self.view.frame.size.height + 300);
 	
 	//注册通知
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleKeyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
@@ -115,6 +116,16 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
+    CGRect rect = textField.frame;
+    //NSLog(@"%f  %f",rect.origin.y,self.mySCroview.contentOffset.y);
+    if (rect.origin.y - self.mySCroview.contentOffset.y > 108) {
+        //self.myScrollview.contentOffset = CGPointMake(0, rect.origin.y - 100);
+        [self.mySCroview setContentOffset:CGPointMake(0, rect.origin.y - 110) animated:YES];
+    }else if (rect.origin.y - self.mySCroview.contentOffset.y < 108 && textField!= self.xingTextFiled)
+    {
+        [self.mySCroview setContentOffset:CGPointMake(0, rect.origin.y - 110) animated:YES];
+    }
+
 	self.currentTextFiled = textField;
 	
 	if (textField.tag == 11) 
@@ -124,9 +135,11 @@
 	}
 }
 
+
+
 - (void)textFieldDidEndEditing:(UITextField *)textField
-{	
-	if (textField.tag == 11)
+{
+       	if (textField.tag == 11)
 	{
 		doneInKeyboardButton.hidden = YES;
 
@@ -227,6 +240,7 @@
 }
 
 - (void)viewDidUnload {
+    [self setMySCroview:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -245,6 +259,7 @@
 	[_jobTextFiled release];
 	[_currentTextFiled release];
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
+    [_mySCroview release];
     [super dealloc];
 }
 

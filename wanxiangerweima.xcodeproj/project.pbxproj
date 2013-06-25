@@ -533,7 +533,6 @@
 		58EA8E3C1710A4C50093A843 /* LYGScanResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EA8E361710A4C50093A843 /* LYGScanResultViewController.m */; };
 		58EA8E3D1710A4C50093A843 /* LYGScanResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58EA8E381710A4C50093A843 /* LYGScanResultViewController.xib */; };
 		58EA8E3E1710A4C50093A843 /* LYGZBarReadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EA8E391710A4C50093A843 /* LYGZBarReadViewController.m */; };
-		58EA8E3F1710A4C50093A843 /* LYGZBarReadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58EA8E3A1710A4C50093A843 /* LYGZBarReadViewController.xib */; };
 		58EADC24173D956B007140E4 /* ArticleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EADC23173D956A007140E4 /* ArticleModel.m */; };
 		58F72073170B83E10085D693 /* WWREveryPhenomenonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58F72070170B83E10085D693 /* WWREveryPhenomenonCell.xib */; };
 		58F72074170B83E10085D693 /* WWREveryPhenomenonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F72071170B83E10085D693 /* WWREveryPhenomenonCell.m */; };
@@ -1414,7 +1413,6 @@
 		58EA8E371710A4C50093A843 /* LYGScanResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYGScanResultViewController.h; sourceTree = "<group>"; };
 		58EA8E381710A4C50093A843 /* LYGScanResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LYGScanResultViewController.xib; sourceTree = "<group>"; };
 		58EA8E391710A4C50093A843 /* LYGZBarReadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYGZBarReadViewController.m; sourceTree = "<group>"; };
-		58EA8E3A1710A4C50093A843 /* LYGZBarReadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LYGZBarReadViewController.xib; sourceTree = "<group>"; };
 		58EA8E3B1710A4C50093A843 /* LYGZBarReadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYGZBarReadViewController.h; sourceTree = "<group>"; };
 		58EADC22173D956A007140E4 /* ArticleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleModel.h; sourceTree = "<group>"; };
 		58EADC23173D956A007140E4 /* ArticleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleModel.m; sourceTree = "<group>"; };
@@ -2501,7 +2499,6 @@
 				580720721762016E00856FFC /* ChoujiangViewController.h */,
 				580720731762016E00856FFC /* ChoujiangViewController.m */,
 				580720741762016F00856FFC /* ChoujiangViewController.xib */,
-				58EA8E3A1710A4C50093A843 /* LYGZBarReadViewController.xib */,
 				58097F4817606EAA00BF7C51 /* InPutString.h */,
 				58097F4917606EAA00BF7C51 /* InPutString.m */,
 				58097F4A17606EAA00BF7C51 /* InPutString.xib */,
@@ -3449,7 +3446,6 @@
 				12066EB1170DC16C003EDF45 /* BYNFeedbackViewController.xib in Resources */,
 				04A75F681710233B00FBC0E8 /* WWRAboutUsViewController.xib in Resources */,
 				58EA8E3D1710A4C50093A843 /* LYGScanResultViewController.xib in Resources */,
-				58EA8E3F1710A4C50093A843 /* LYGZBarReadViewController.xib in Resources */,
 				04BDA46E171115DA00679B02 /* WWRSoftwareUsedViewController.xib in Resources */,
 				CEE0D39F1711575F00CE7B44 /* LGWeiBoViewController.xib in Resources */,
 				20C8B68E17121EAE0047C3BC /* LFListSortViewController.xib in Resources */,

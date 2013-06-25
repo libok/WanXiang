@@ -33,7 +33,25 @@
 - (IBAction) setting
 {
 	[self.currentTextFiled resignFirstResponder];
-	
+    if (self.weiboName.text == nil || [self.weiboName.text length]==0) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:nil message:@"请输入微博名称" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+    if (self.weiboHttp.text == nil || [self.weiboHttp.text length]==0) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:nil message:@"请输入微博地址" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+    if (![self.weiboHttp.text hasPrefix:@"http:"] && ![self.weiboHttp.text hasPrefix:@"www"]) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:nil message:@"请输入正确的微博地址" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+
+    }
 	NSCharacterSet *cs;
 	cs = [[NSCharacterSet characterSetWithCharactersInString:@"abcdefghjklimnopqrstuvwxyz:/,.?=%"] invertedSet]; 
 	NSString *filtered = [[self.weiboHttp.text componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];  //componentsSeparatedByCharactersInSet 方法是把输入框输入的字符string 根据cs中字符一个一个去除cs字符并分割成单字符并转化为 NSArray, 然后componentsJoinedByString 是把NSArray 的字符通过 ""无间隔连接成一个NSString字符 赋给filtered.就是只剩数字了.
