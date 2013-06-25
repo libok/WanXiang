@@ -7,11 +7,8 @@
 //
 
 #import "WWROrderViewController.h"
-
-@interface WWROrderViewController ()
-
-@end
-
+#import "LYGAppDelegate.h"
+#import "BYNLoginViewController.h"
 @implementation WWROrderViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -23,16 +20,28 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)xxxinit
+{
+    
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	
+}
+
+- (void)dealloc
+{
+    [super dealloc];
+}
+
 
 @end

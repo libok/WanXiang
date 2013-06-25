@@ -16,6 +16,8 @@
 #import "WWRFuKuanPingZhengViewController.h"
 #import "ASIHTTPRequest.h"
 #import "LYGAppDelegate.h"
+#import "WWROrderViewController.h"
+#import "LPCommodityViewController.h"
 @implementation LYGEveryPhenomenonViewController
 @synthesize ePCellLabelArray = _ePCellLabelArray;
 
@@ -154,6 +156,14 @@
 			WWREBaoKanShouCangViewController *viewController = [[WWREBaoKanShouCangViewController alloc]initWithNibName:@"WWREBaoKanShouCangViewController" bundle:nil];
 			[self.navigationController pushViewController:viewController animated:YES];
 			[viewController release];
+		}
+			break;
+        case 5:
+		{
+            
+			WWROrderViewController  * temp = [[WWROrderViewController  alloc]initWithNibName:@"LPCommodityViewController" bundle:nil];
+			[self.navigationController pushViewController:temp animated:YES];
+			[temp release];
 		}
 			break;
 		default:

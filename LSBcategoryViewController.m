@@ -95,7 +95,7 @@
     }
     
     NSDictionary *cate = [self.cates objectAtIndex:indexPath.row];
-    [cell.logo setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",SERVER_URL,[cate valueForKey:@"img_url"]]] placeholderImage:[UIImage imageNamed:@"品类图片1"]];
+    [cell.logo setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",SERVER_URL,[cate valueForKey:@"img_url"]]] placeholderImage:[UIImage imageNamed:@"place.png"]];
     cell.title.text = [cate objectForKey:@"Title"];
     
     NSMutableArray *subTitles = [[NSMutableArray alloc] init];

@@ -167,7 +167,7 @@
     LPShouCang *ad = [_dataArray objectAtIndex:indexPath.row];
     cell.titleLabel.text = ad.title;
     cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-    [cell.imgView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",SERVER_URL,ad.imgurl]] placeholderImage:[UIImage imageNamed:@"商品列表图片"]];
+    [cell.imgView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",SERVER_URL,ad.imgurl]] placeholderImage:[UIImage imageNamed:@"place.png"]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
     

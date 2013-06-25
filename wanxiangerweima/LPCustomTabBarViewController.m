@@ -261,26 +261,22 @@
         case 20:
         {
 
+            UITabBarController * tab = [[UITabBarController alloc]init];
             LYGZBarReadViewController * xxx = [[LYGZBarReadViewController alloc]init];
             LYGScanViewController     * scan = [[LYGScanViewController alloc]init];
-            //LYGTwoDimensionCodeHistoryViewController * history = [[LYGTwoDimensionCodeHistoryViewController alloc]init];
-            //LGHelpViewController      * help = [[LGHelpViewController alloc]init];
-            UITabBarController * tab = [[UITabBarController alloc]init];            
-            tab.viewControllers = [NSArray arrayWithObjects:scan,xxx,nil];
-            
-            tab.selectedIndex   = 0;
+            tab.viewControllers = [NSArray arrayWithObjects:scan,xxx,nil];                      
             [self.navigationController pushViewController:tab animated:YES];
+            tab.selectedIndex   = 0;
             [tab release];
-            //UITabBarController＊ tabBarController = [[UITabBarController alloc] init];
+
             [xxx release];
             [scan release];
-            //[help release];
             NSArray *array = [tab.view subviews];
             
             UITabBar *tabBar = [array objectAtIndex:1];
             CGRect rect = tabBar.frame;
             //UIView *  = [[UIView alloc]init];
-            MyTableView * view2 = (MyTableView*)[[[NSBundle mainBundle]loadNibNamed:@"MyTableView" owner:nil options:nil] objectAtIndex:0];
+            __block MyTableView * view2 = (MyTableView*)[[[NSBundle mainBundle]loadNibNamed:@"MyTableView" owner:nil options:nil] objectAtIndex:0];
             view2.tag = 1000;
             __block UITabBarController * myxxx = tab;
             __block LPCustomTabBarViewController * temp = self;
@@ -301,21 +297,25 @@
                     return;
                 }
                 myxxx.selectedIndex = x-1;
+                if (myxxx.selectedIndex == 0) {
+                    view2.myInDicatorView.hidden = NO;
+                }else
+                {
+                    view2.myInDicatorView.hidden = YES;
+                }
+
             };
             view2.frame   = rect;
             //view2.backgroundColor = [UIColor redColor];
-            [tab.view addSubview:view2];           
+            [tab.view addSubview:view2];
         }
             break;
         case 21:
         {
             LYGZBarReadViewController * xxx = [[LYGZBarReadViewController alloc]init];
             LYGScanViewController     * scan = [[LYGScanViewController alloc]init];
-            //LYGTwoDimensionCodeHistoryViewController * history = [[LYGTwoDimensionCodeHistoryViewController alloc]init];
-            //LGHelpViewController      * help = [[LGHelpViewController alloc]init];
             UITabBarController * tab = [[UITabBarController alloc]init];
             tab.viewControllers = [NSArray arrayWithObjects:scan,xxx,nil];
-            
             tab.selectedIndex   = 1;
             [self.navigationController pushViewController:tab animated:YES];
             [tab release];
@@ -328,7 +328,8 @@
             UITabBar *tabBar = [array objectAtIndex:1];
             CGRect rect = tabBar.frame;
             //UIView *  = [[UIView alloc]init];
-            MyTableView * view2 = (MyTableView*)[[[NSBundle mainBundle]loadNibNamed:@"MyTableView" owner:nil options:nil] objectAtIndex:0];
+            __block MyTableView * view2 = (MyTableView*)[[[NSBundle mainBundle]loadNibNamed:@"MyTableView" owner:nil options:nil] objectAtIndex:0];
+            view2.myInDicatorView.hidden = YES;
             view2.tag = 1000;
             __block UITabBarController * myxxx = tab;
             __block LPCustomTabBarViewController * temp = self;
@@ -349,9 +350,14 @@
                     return;
                 }
                 myxxx.selectedIndex = x-1;
+                if (myxxx.selectedIndex == 0) {
+                    view2.myInDicatorView.hidden = NO;
+                }else
+                {
+                    view2.myInDicatorView.hidden = YES;
+                }
             };
             view2.frame   = rect;
-            //view2.backgroundColor = [UIColor redColor];
             [tab.view addSubview:view2];
         }
             break;

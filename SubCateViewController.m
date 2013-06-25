@@ -53,7 +53,7 @@
                 action:@selector(subCateBtnAction:)
       forControlEvents:UIControlEventTouchUpInside];
    
-        [btn  setBackgroundImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",SERVER_URL,[data valueForKey:@"img_url"]]] placeholderImage:[UIImage imageNamed:@"图片1"]];
+        [btn  setBackgroundImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",SERVER_URL,[data valueForKey:@"img_url"]]] placeholderImage:[UIImage imageNamed:@"place.png"]];
                  btn.tag = [[data valueForKey:@"id"] intValue];
         
         [view addSubview:btn];
