@@ -264,10 +264,8 @@
 
 +(void)deletnotfinished:(int)x callBackFunction:(void (^)(BOOL result))function
 {
-    //int uid = [LYGAppDelegate getuid];
-    //NSString * urlstr = nil;
-   // NSString * urlString2 = [SERVER_URL stringByAppendingString:@"/API/order/delorder.aspx?id=%d",x];
-    NSString * urlString2 = [NSString stringWithFormat:@"%@/API/order/delorder.aspx?id=%d&T=1",SERVER_URL,x];
+
+    NSString * urlString2 = [NSString stringWithFormat:@"%@/API/order/delorder.aspx?id=%d&T=2",SERVER_URL,x];
     ASIHTTPRequest * request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:urlString2]];
     [request setCompletionBlock:^{
         NSLog(@"%@",request.responseString);

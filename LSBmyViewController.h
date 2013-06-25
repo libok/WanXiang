@@ -16,6 +16,7 @@
     UIActionSheet *_actionSheet;
     NSArray *_datilData;
 }
+@property (retain, nonatomic) IBOutlet UIButton *deletebutton;
 @property(nonatomic,retain) NSArray *datilData;
 @property(nonatomic,retain) UIActionSheet *actionSheet;
 @property(nonatomic,retain) NSMutableArray *dataArray;

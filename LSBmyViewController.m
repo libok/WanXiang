@@ -41,6 +41,7 @@
     [_dataArray release];
     [_tableView release];
    
+    [_deletebutton release];
     [super dealloc];
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -85,13 +86,13 @@
     _navSc.LKWidth = 320/3;
     _navSc.height = 40;
     [self.view addSubview:_navSc];
-    [_navSc release];
-        
+    [_navSc release];        
     
 }
 -(void)valueChange:(SVSegmentedControl *)aSvs
 {
     [self.tableView setEditing:NO];
+    self.deletebutton.hidden = (aSvs.selectedIndex == 1?YES:NO);
     __block LSBmyViewController * temp = self;
     int x = aSvs.selectedIndex;
     switch (x) {
@@ -112,6 +113,13 @@
             break;
         case 2:
         {
+            [MBProgressHUD showHUDAddedTo:self.view message:@"正在加载中" animated:YES];
+            [LSBengine hasNotFinishedTrade:1 callbackfunction:^(NSMutableArray * myarry){
+                temp.dataArray = myarry;
+                [temp.tableView reloadData];
+                [MBProgressHUD hideHUDForView:temp.view animated:YES];
+            }];
+
         }
             break;
             
@@ -174,7 +182,7 @@
 }
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.navSc.selectedIndex == 2) {
+    if (self.navSc.selectedIndex == 1) {
         return NO;
     }else
     {
@@ -195,6 +203,13 @@
         }
             break;
         case 1:
+        {
+//            [LSBengine deletnotfinished:[ad.ID intValue] callBackFunction:^(BOOL result) {
+//                
+//            }];
+        }
+            break;
+        case 2:
         {
             [LSBengine deletnotfinished:[ad.ID intValue] callBackFunction:^(BOOL result) {
                 
@@ -251,9 +266,9 @@
         case 2:
         {
  
-            if(self.navSc.selectedIndex == 2)
+            if(self.navSc.selectedIndex == 1)
             {
-                UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"已完成交易列表不能编辑" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"未完成交易列表不能编辑" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
                 [alert show];
                 [alert release];
                 return;
@@ -337,6 +352,7 @@
 
 - (void)viewDidUnload {
     [self setTableView:nil];
+    [self setDeletebutton:nil];
     [super viewDidUnload];
 }
 @end
