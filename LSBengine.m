@@ -76,6 +76,7 @@
         NSDecimalNumber *no = [dic valueForKey:@"NO"];
         NSString *adString = [dic objectForKey:@"Result"];
         NSArray *adArray = [json objectWithString:adString error:nil];
+        [json release];
         BOOL isSuccess = ([no intValue] != 0)?YES:NO;
         if (!isSuccess) {
             function(nil);
@@ -109,6 +110,7 @@
         NSDecimalNumber *no = [dic valueForKey:@"NO"];
         NSString *adString = [dic objectForKey:@"Result"];
         NSDictionary * dict = [json objectWithString:adString error:nil];
+        [json release];
         BOOL isSuccess = ([no intValue] != 0)?YES:NO;
         if (!isSuccess) {
             function(nil);
@@ -138,6 +140,7 @@
         NSString *adString = [dic objectForKey:@"Result"];
         NSMutableArray * mutablearry = [[NSMutableArray alloc]init];
         NSArray *adArray = [json objectWithString:adString error:nil];
+        [json release];
         BOOL isSuccess = ([no intValue] != 0)?YES:NO;
         if (!isSuccess) {
             function(nil);
@@ -197,6 +200,7 @@
         NSDictionary *dic = [json objectWithString:request.responseString error:nil];
         NSString *temp = [dic valueForKey:@"Result"];
         NSDictionary *tempDic = [json objectWithString:temp error:nil];
+        [json release];
         NSArray *proArray = [tempDic objectForKey:@"sheng"];
         NSMutableArray *mutProArray = [[[NSMutableArray alloc] init] autorelease];
         [self saveData:tempDic];
@@ -485,6 +489,7 @@
                     [_delegate getCategory:tempArray];
                     [temp1Array release];
                     [tempArray release];
+                    
                 }
                 
             }
@@ -493,6 +498,7 @@
                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"通知" message:[dic valueForKey:@"Msg"] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
                 [alertView show];
                 [alertView release];
+                [_delegate getCategory:nil];
                 
             }
             
@@ -666,6 +672,7 @@
         default:
             break;
     }
+    [json release];
     
 }
 - (void)getTimelineFailed:(ASIHTTPRequest *)request

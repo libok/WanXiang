@@ -163,6 +163,6 @@
 }
 -(void)getcategoryFail:(NSError *)aError
 {
-
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 @end

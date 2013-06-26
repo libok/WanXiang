@@ -52,6 +52,7 @@
 		 //NSLog(@"------ %@",request.responseString);
 		 SBJSON *json = [[SBJSON alloc] init];
 		 NSDictionary *dic = [json objectWithString:request.responseString error:nil];
+         [json release];
 		 int num = [[dic objectForKey:@"NO"] intValue];		 
          NSString *msg = [dic objectForKey:@"Msg"];
 	     [[NSUserDefaults standardUserDefaults] setValue:msg forKey:@"regist"];
@@ -114,12 +115,14 @@
 		 {
 			 
 			 completionBlock(nil,0);
+             [json release];
 			 
 		 }
 		 else 
 		 {
 			 
 			 NSDictionary *resultDic = [json objectWithString:contentStr error:nil];
+             [json release];
 		     BYNLogin *login = [[BYNLogin alloc] initWithDictionary:resultDic];
 			 login.ID = [resultDic objectForKey:@"id"];
 			 login.pwd = [resultDic objectForKey:@"Pwd"];
@@ -169,7 +172,7 @@
 		 NSString *contentStr = [dic objectForKey:@"Result"];
 		 NSString *msg = [dic objectForKey:@"Msg"];
 		 [[NSUserDefaults standardUserDefaults] setValue:msg forKey:@"findpwd"];
-		 
+		 [json release];
 		 if (num == 0) 
 		 {
 			 
@@ -219,7 +222,7 @@
          //NSLog(@"------ %@",request.responseString);
 		 SBJSON *json = [[SBJSON alloc]init];
 		 NSDictionary *dic = [json objectWithString:request.responseString error:nil];
-		 
+		 [json release];
 		 int num = [[dic objectForKey:@"NO"] intValue];
 		 NSString *msg = [dic objectForKey:@"Msg"];
 		 
@@ -269,6 +272,7 @@
 		 
 		 int num = [[dic objectForKey:@"NO"] intValue];
 		 NSString *msg = [dic objectForKey:@"Msg"];
+         [json release];
 		 [[NSUserDefaults standardUserDefaults] setValue:msg forKey:@"resetpwd"];
 		 
 		 if (num == 0) 
@@ -311,7 +315,7 @@
          //NSLog(@"------ %@",request.responseString);
 		 SBJSON *json = [[SBJSON alloc]init];
 		 NSDictionary *dic = [json objectWithString:request.responseString error:nil];
-		 
+		 [json release];
 		 int num = [[dic objectForKey:@"NO"] intValue];
 		 NSString *msg = [dic objectForKey:@"Msg"];
 		 [[NSUserDefaults standardUserDefaults] setValue:msg forKey:@"feedback"];
@@ -384,6 +388,7 @@
 			 completionBlock(tempArray,1);
 			 
 		 }
+         [json release];
 		 
 	 }];
 	
@@ -430,6 +435,7 @@
 			 completionBlock(msg,1);
 			 
 		 }
+         [json release];
 		 
 	 }];
 	
@@ -481,6 +487,7 @@
 			 completionBlock(1,msg);
 		 
 		 }
+         [json release];
 		 
 	 }];
 
@@ -541,7 +548,7 @@
 			 completionBlock(tempArray,1);
 			 
 		 }
-		 
+		 [json release];
 	 }];
 	
 	[request setFailedBlock:^
@@ -588,6 +595,7 @@
 			 completionBlock(1,msg);
 			 
 		 }
+         [json release];
 		 
 	 }];
 	
@@ -649,6 +657,7 @@
 			 completionBlock(tempArray,1);
 			 
 		 }
+         [json release];
 		 
 	 }];
 	

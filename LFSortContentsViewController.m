@@ -50,35 +50,56 @@
     
     
     __block LFSortContentsViewController * temp = self;
-    NSString * string2 = [NSString stringWithFormat:@"%@/api/book/DetailAd.aspx?s=%d",SERVER_URL,[self.oneSort.merchantID intValue]];
-    ASIHTTPRequest * request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:string2]];
-    [request setCompletionBlock:^{
-        NSLog(@"%@",request.responseString);
-        SBJSON * sb = [[SBJSON alloc]init];
-        NSDictionary * dict = [sb objectWithString:request.responseString];
-        NSArray  * arry  = [sb objectWithString:[dict valueForKey:@"Result"]];
-        __block int  x = 0;
-        if (arry == nil || [arry count] == 0) {
-            self.myTableView.frame = self.mainScrollview.bounds;
-        }
-        for (NSDictionary * dict in arry) {
-            NSLog(@"%@",dict);
-            UIButton *vi = [[UIButton alloc]initWithFrame:CGRectMake(x*320, 0, 320, 171)];
-            [temp.guangaoScroview addSubview:vi];
-            [vi release];
-            NSString * string = [NSString stringWithFormat:@"%@%@",SERVER_URL,[dict valueForKey:@"file_path"]];
-            [vi setImageWithURL:[NSURL URLWithString:string]];
-            x++;
-        }
-        temp.guangaoScroview.contentSize = CGSizeMake(320*[arry count], 171);
-    }];
-    [request setFailedBlock:^{
+    //NSString * string2 = [NSString stringWithFormat:@"%@/api/book/DetailAd.aspx?s=%d",SERVER_URL,[self.oneSort.merchantID intValue]];
+    //ASIHTTPRequest * request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:string2]];
+    //[request setCompletionBlock:^{
+//        NSLog(@"%@",request.responseString);
+//        SBJSON * sb = [[SBJSON alloc]init];
+//        NSDictionary * dict = [sb objectWithString:request.responseString];
+//        NSArray  * arry  = [sb objectWithString:[dict valueForKey:@"Result"]];
+//        __block int  x = 0;
+//        if (arry == nil || [arry count] == 0) {
+//            temp.myTableView.frame = temp.mainScrollview.bounds;
+//        }
+//        temp.arryCount = [arry count];
+//        for (NSDictionary * dict in arry) {
+//            NSLog(@"%@",dict);
+//            UIButton *vi = [[UIButton alloc]initWithFrame:CGRectMake(x*320, 0, 320, 171)];
+//            [temp.guangaoScroview addSubview:vi];
+//            [vi release];
+//            NSString * string = [NSString stringWithFormat:@"%@%@",SERVER_URL,[dict valueForKey:@"file_path"]];
+//            [vi setImageWithURL:[NSURL URLWithString:string]];
+//            x++;
+//        }
+//        temp.guangaoScroview.contentSize = CGSizeMake(320*[arry count], 171);
+//        if (dict.count > 1) {
+//            [temp changeImage:[dict count]];
+//        }
+    //}];
+    //[request setFailedBlock:^{
         
-    }];
-    [request startAsynchronous];
+   // }];
+    //[request startAsynchronous];
     //[self.huiKanImageView setImageWithURL:[NSURL URLWithString:string] placeholderImage:[UIImage imageNamed:@"会刊2-4.png"]];
     
     
+}
+-(void)changeImage:(int)count
+{
+    _myTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(changeSCroview) userInfo:nil repeats:YES];
+}
+-(void)changeSCroview
+{
+        static int i = 0;
+        static  int leftorright = 1;
+        NSLog(@"%f",self.guangaoScroview.contentOffset.x);
+        [self.guangaoScroview setContentOffset:CGPointMake(i*320, 0) animated:YES];
+        //[self.adPageControl setCurrentPage:i];
+        i+=leftorright;
+        NSLog(@"%d",i);
+        if (i==0 || i==self.arryCount-1 ) {
+            leftorright*=-1;
+        }
 }
 -(void)initGet
 {
@@ -139,9 +160,11 @@
         UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(5, 5, tableView.rowHeight - 10, tableView.rowHeight - 10)];
         imageView.tag = -1;
         [cell addSubview:imageView];
+        [imageView release];
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(100, 0, 200, tableView.rowHeight)];
         label.tag     = -2;
         [cell addSubview:label];
+        [label release];
     }
     UIImageView * imageView = (UIImageView*)[cell viewWithTag:-1];
     imageView.image         = nil;
@@ -163,6 +186,8 @@
 
 - (IBAction)gobackBtn:(id)sender
 {
+    [self.myTimer invalidate];
+    self.myTimer = nil;
     [self.navigationController popViewControllerAnimated:YES];
     
 }

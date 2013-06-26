@@ -171,6 +171,7 @@
             UIWebView * web = [[UIWebView alloc]init];
             //[web loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",((UILabel*)[cell viewWithTag:-100]).text]]]];
             [web loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://123456"]]]];
+            [web autorelease];
             return;
         }
 			

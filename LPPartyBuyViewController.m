@@ -216,6 +216,7 @@
         BYNLoginViewController * login = [[BYNLoginViewController alloc]init];
         //[self presentModalViewController:login animated:YES];
         [self presentViewController:login animated:YES completion:nil];
+        [login release];
         return;
     }
     else
@@ -230,6 +231,7 @@
         [request setCompletionBlock:^{
             SBJSON * json = [[SBJSON alloc]init];
             NSDictionary * dict = [json objectWithString:request.responseString];
+            [json release];
             NSString * string = [dict objectForKey:@"Result"];
             LPAffirmViewController *affirmVC = [[LPAffirmViewController alloc] init];
             affirmVC.oneCommodity            = temp2.oneCommodity;

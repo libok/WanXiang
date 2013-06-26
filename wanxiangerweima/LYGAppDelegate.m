@@ -216,6 +216,7 @@ static NSString * UUID = nil;
 {
     SBJSON * sb = [[SBJSON alloc]init];
     NSDictionary * dict = [sb objectWithString:astring];
+    [sb release];
     //int x = [[dict objectForKey:@"NO"] intValue];
     return [dict objectForKey:@"Msg"];
 }

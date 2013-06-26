@@ -166,7 +166,8 @@
     [request setCompletionBlock:^{
         SBJSON *json = [[SBJSON alloc] init];
         NSDictionary *dic = [json objectWithString:request.responseString error:nil];        
-        NSLog(@"response %@",request.responseString);        
+        NSLog(@"response %@",request.responseString);
+        [json release];
         NSDecimalNumber *no = [dic valueForKey:@"NO"];
         BOOL isSuccess = ([no intValue] != 0)?YES:NO;        
         //NSString *resultString = [dic objectForKey:@"Result"];
@@ -219,7 +220,7 @@
 	
     NSString *resultString = [dic objectForKey:@"Result"];
     NSArray *resultArray = [json objectWithString:resultString error:nil];
-	
+	[json release];
 	switch (request.tag)
 	{
 		case REQUEST_PREQRLIST:

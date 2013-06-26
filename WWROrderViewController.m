@@ -26,6 +26,7 @@
 	self.titleLabel.text = (self.type == 0?@"预定":@"签到");
 	self.removeButton.hidden = YES;
 	_tableView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"会刊3背景.png"]];
+    [_tableView.backgroundView autorelease];
 	_tableView.rowHeight = 114;
 	_tableView.showsVerticalScrollIndicator = NO;
 	_tableView.separatorColor = [UIColor clearColor];
@@ -78,6 +79,7 @@
         
 		self.type == 0 ?[_engine requestPreORDERListUser:u]:[_engine requestQianDaoListUser:u];
 		_engine.delegate = self;
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 	}
 	
 }
@@ -135,6 +137,15 @@
 {
     NSLog(@"xxxx");
 }
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.type == 1) {
+        return UITableViewCellEditingStyleNone;
+    }else
+    {
+        return UITableViewCellEditingStyleDelete;
+    }
+}
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     __block WWROrderViewController * temp = self;
@@ -144,14 +155,14 @@
     [request setCompletionBlock:^{
         int x = [LYGAppDelegate getAsihttpResult:request.responseString];
         if (x== 0) {
-            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"删除优惠券失败" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"删除预定失败" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
             [alert release];
             return;
         }
         [temp.statuesArray removeObjectAtIndex:indexPath.row];
         [temp.tableView reloadData];
-        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"删除优惠券成功" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"删除预定成功" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alert show];
         [alert release];
     }];
@@ -187,11 +198,13 @@
 
 -(void)getPreQRListSuccess:(NSMutableArray *)aArray
 {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 	self.statuesArray = aArray;
     [_tableView reloadData];
 }
 -(void)getPreQRListFail:(NSError *)aError
 {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"警告" message:@"获得优惠券列表失败，是否要重新加载" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"重新加载",nil];
 	[alertView show];
 	[alertView release];

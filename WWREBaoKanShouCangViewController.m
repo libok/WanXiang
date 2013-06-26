@@ -32,6 +32,7 @@
 	
 	UIImageView *backgroundImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"会刊3背景.png"]];
 	[self.view addSubview:backgroundImageView];
+    [backgroundImageView release];
 	[self.view sendSubviewToBack:backgroundImageView];
 
 	_tableView.rowHeight = 118;
@@ -283,7 +284,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 //    [longPressGesture release];
     LFTextViewController *textVC = [[LFTextViewController alloc] init];
     WWREBookStatus *status = [_statuesArray objectAtIndex:indexPath.row];
-    textVC.oneArticleModel = [[ArticleModel alloc]init];
+    textVC.oneArticleModel = [[[ArticleModel alloc]init] autorelease];
     textVC.oneArticleModel.ID  =  status.bookID;
     textVC.oneArticleModel.contents = status.contents;
     textVC.oneArticleModel.img =  status.img;

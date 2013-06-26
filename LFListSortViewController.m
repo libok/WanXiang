@@ -131,6 +131,7 @@
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         SBJSON *json = [[SBJSON alloc] init];
         NSDictionary *dic = [json objectWithString:request.responseString  error:nil];
+        [json release];
         //NSString *str = [dic valueForKey:@"Result"];
         int x = [[dic valueForKey:@"NO"] intValue];
         if (x==0) {

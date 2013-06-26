@@ -248,6 +248,7 @@
     AddPingLunViewController * temp = [[AddPingLunViewController alloc]init];
     temp.memArticleModel = self.oneArticleModel;
     [self.navigationController pushViewController:temp animated:YES];
+    [temp release];
 }
 
 - (IBAction)biggerFont:(id)sender

@@ -21,7 +21,9 @@
 {
     [super viewDidLoad];
 	self.titleLabel.text = @"会员卡";
-	_tableView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"会刊3背景.png"]];
+	UIImageView * tempView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"会刊3背景.png"]];
+    _tableView.backgroundView = tempView;
+    [tempView release];
 	_tableView.rowHeight = 114;
 	_tableView.showsVerticalScrollIndicator = NO;
 	_tableView.separatorColor = [UIColor clearColor];

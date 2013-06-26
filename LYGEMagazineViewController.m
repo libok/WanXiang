@@ -169,6 +169,7 @@
     {
         BYNLoginViewController * log = [[BYNLoginViewController alloc]init];
         [self.navigationController pushViewController:log animated:YES];
+        [log release];
         
     }
     _allKindsHuikanScrollview.contentSize = CGSizeMake(320, 379);
@@ -242,7 +243,7 @@
         return;
     }
     __block LFSortContentsViewController *SortContentsVC = [[LFSortContentsViewController alloc] init];
-    SortContentsVC.dict = [[NSMutableDictionary alloc]init];
+    SortContentsVC.dict = [[[NSMutableDictionary alloc]init] autorelease];
     int x = 0;
     if (index > 9000) {
         x =  [((LFESort *)[self.shangjiaArray objectAtIndex:index - 10000]).merchantID intValue];
@@ -408,9 +409,11 @@
         NSString *str = [dic valueForKey:@"Result"];
         int x = [[dic valueForKey:@"NO"] intValue];
         if (x==0) {
+            [json release];
             return ;
         }
         NSArray  *arr = [json objectWithString:str error:nil];
+        [json release];
         if ([arr count] == 0) {
             UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"没搜到" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
@@ -427,6 +430,7 @@
         temp2.kindsSort = @"1";
         //[mutHuikanArr release];
         [temp.navigationController pushViewController:temp2 animated:YES];
+        [temp2 release];
         
     }];
     [request setFailedBlock:^{        

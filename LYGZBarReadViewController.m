@@ -44,6 +44,7 @@
     {
         InPutString * tem = [[InPutString alloc]init];
         [self.navigationController pushViewController:tem animated:YES];
+        [tem release];
     }
 }
 
@@ -325,6 +326,7 @@
                 UIAlertView * alert       = [[UIAlertView alloc]initWithTitle:nil message:@"在线解析失败" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
                 [alert show];
                 [alert release];
+                [sb release];
                 return;
             }
             NSString*     resultString       = [dict objectForKey:@"Result"];
@@ -380,6 +382,7 @@
                     temp.goodID                = [[arry objectAtIndex:1] intValue];
                     [self.navigationController pushViewController:temp animated:YES];
                     [temp release];
+                    [json release];
                     return;
                 }
                     break;
@@ -401,12 +404,13 @@
                default:
                      break;
             }
-			
+			[sb release];
             [LYGTwoDimensionCodeDao insert:amodel];
             LYGTwoDimensionCodeDetailViewController * scan = [[LYGTwoDimensionCodeDetailViewController alloc]init];
             scan.amodel = amodel;
             //amodel.type   = 0;
             [self.navigationController pushViewController:scan animated:YES];
+            [scan release];
         }];
         
         [request setFailedBlock:^
@@ -526,6 +530,7 @@
         }
         temp.urlString = [NSString stringWithFormat:@"%@%@%@",SERVER_URL,tempstr,symbolString];
         [self.navigationController pushViewController:temp animated:YES];
+        [temp release];
         
 
     }
@@ -565,8 +570,9 @@
         [LYGTwoDimensionCodeDao insert:amodel];
         LYGTwoDimensionCodeDetailViewController * scan = [[LYGTwoDimensionCodeDetailViewController alloc]init];
         scan.amodel = amodel;
-        [self.navigationController pushViewController:scan animated:YES];        
-    }   
+        [self.navigationController pushViewController:scan animated:YES];
+        [scan release];
+    }
 }
 - (void) readerControllerDidFailToRead: (ZBarReaderController*) reader
                              withRetry: (BOOL) retry

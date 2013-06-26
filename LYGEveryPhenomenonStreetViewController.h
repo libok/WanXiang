@@ -45,6 +45,7 @@
 @property (nonatomic,retain)  NSTimer * myTimer;
 @property (nonatomic,assign)  BOOL isNeedRefresh;
 @property (nonatomic,retain)  NSArray *fenleiArry;
+@property (nonatomic,assign)  BOOL  isHasPresentLoginViewController;
 - (IBAction)end:(id)sender;
 - (IBAction)backClicked:(id)sender;
 

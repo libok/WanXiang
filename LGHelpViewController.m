@@ -46,6 +46,7 @@
         NSDictionary * dict = [json objectWithString:string];
         NSString  * tempString  = [dict valueForKey:@"Result"];
         NSArray   * arry        = [json objectWithString:tempString];
+        [json release];
         NSLog(@"%@",[[arry objectAtIndex:0] class]);
         for (NSDictionary * dict2 in arry) {
             //                    SBJSON * sj = [[SBJSON alloc]init];
@@ -138,6 +139,7 @@
     temp.contents     = class.Contents;
     NSLog(@"%@",temp.contents);
     [self.navigationController pushViewController:temp animated:YES];
+    [temp release];
 }
 
 

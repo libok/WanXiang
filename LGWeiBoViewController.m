@@ -176,7 +176,7 @@
 		NSDictionary *dic = [json objectWithString:request.responseString error:nil];
 		NSString *errorString = [dic objectForKey:@"error"];
 		NSString *accessToken = [dic objectForKey:@"access_token"];
-		
+		[json release];
 		NSLog(@"my accessToken is %@",accessToken);
 		
 		if (errorString || !accessToken)

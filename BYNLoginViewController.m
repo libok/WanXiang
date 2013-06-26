@@ -147,6 +147,7 @@
 			temp.email = login.email;
 			temp.clientID = login.clientID;
 			temp.phone = login.phone;
+            [login release];
 			[[NSNotificationCenter defaultCenter] postNotificationName:@"success" object:nil];
 			//UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[[NSUserDefaults standardUserDefaults] objectForKey:@"msg"] message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK",nil];
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"登录成功" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK",nil];

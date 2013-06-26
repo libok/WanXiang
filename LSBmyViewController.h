@@ -24,5 +24,6 @@
 - (IBAction)btnClick:(id)sender;
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,retain)  SVSegmentedControl   * navSc;
+@property (nonatomic,assign)  BOOL  isHasPresentLoginViewController;
 
 @end

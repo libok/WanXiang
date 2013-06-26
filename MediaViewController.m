@@ -64,6 +64,7 @@
         NSDecimalNumber *no = [dic valueForKey:@"NO"];
         NSString *adString = [dic objectForKey:@"Result"];
         NSArray *adArray = [json objectWithString:adString error:nil];
+        [json release];
         BOOL isSuccess = ([no intValue] != 0)?YES:NO;
 
         if (isSuccess) {

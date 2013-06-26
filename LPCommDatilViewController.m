@@ -291,6 +291,7 @@
         BYNLoginViewController * login = [[BYNLoginViewController alloc]init];
         //[self presentModalViewController:login animated:YES];
         [self presentViewController:login animated:YES completion:nil];
+        [login release];
         
         
     }

@@ -108,7 +108,7 @@ static int currentIndex = 0;
     [super viewDidLoad];
     _viewButton = [[DAReloadActivityButton alloc] init];
     [_viewButton addTarget:self action:@selector(animate:) forControlEvents:UIControlEventTouchUpInside];
-    _viewButton.frame = CGRectMake(288, 7, 39*0.5, 45*0.5);
+    _viewButton.frame = CGRectMake(288, 10, 39*0.5, 45*0.5);
     [_mainView addSubview:_viewButton];
     [_viewButton release];
     [self requestCategory];
@@ -146,6 +146,7 @@ static int currentIndex = 0;
              [temp.engine requestAd:city atype:0];
               NSData *data = [NSKeyedArchiver archivedDataWithRootObject:city];
              [[NSUserDefaults standardUserDefaults] setValue:data forKey:@"province"];
+             [city autorelease];
          }];
         [request startAsynchronous];
         
@@ -495,6 +496,7 @@ static int currentIndex = 0;
         NSDecimalNumber *no = [dic valueForKey:@"NO"];
         NSString *adString = [dic objectForKey:@"Result"];
         NSArray *adArray = [json objectWithString:adString error:nil];
+        [json release];
         BOOL isSuccess = ([no intValue] != 0)?YES:NO;
         if (isSuccess)
         {
@@ -527,6 +529,8 @@ static int currentIndex = 0;
                 [subArray release];
             }
             self.fenleiArry = tempArray;
+            [temp1Array release];
+            [tempArray release];
         //UIView * view = [self.view viewWithTag:1000];
         for (int i = 0 ; i<[self.fenleiArry count]; i++) {
             UIButton * button = (UIButton*)[_xialaView viewWithTag:10000+i+1];

@@ -25,6 +25,7 @@
 	self.titleLabel.text = @"付款凭证";
 	
 	_tableView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"会刊3背景.png"]];
+    [_tableView.backgroundView release];
 	_tableView.rowHeight = 80;
 	_tableView.showsVerticalScrollIndicator = NO;
 	_tableView.separatorColor = [UIColor clearColor];

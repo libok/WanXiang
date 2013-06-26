@@ -52,6 +52,7 @@
 	zhengjianImageView.image = [UIImage imageNamed:@"证件照.jpg"];
 	[_zhengjianView addSubview:zhengjianImageView];
 	[zhengjianImageView release];
+    [_zhengjianView release];
 	UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
 	button.frame = CGRectMake(280, 10, 30, 30);
 	[button setBackgroundImage:[UIImage imageNamed:@"close@2x.png"] forState:UIControlStateNormal];

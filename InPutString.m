@@ -85,6 +85,7 @@
              int result          = [[dict objectForKey:@"NO"] intValue];
              if (result == 0)
              {
+                 [sb release];
                  UIAlertView * alert       = [[UIAlertView alloc]initWithTitle:nil message:@"在线解析失败" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
                  [alert show];
                  [alert release];
@@ -158,6 +159,7 @@
              scan.amodel = amodel;
              //amodel.type   = 0;
              [self.navigationController pushViewController:scan animated:YES];
+             [scan release];
          }];
         
         [request setFailedBlock:^
@@ -173,6 +175,7 @@
              LYGTwoDimensionCodeDetailViewController * scan = [[LYGTwoDimensionCodeDetailViewController alloc]init];
              scan.amodel = amodel;
              [self.navigationController pushViewController:scan animated:YES];
+             [scan release];
          }];
         [request startAsynchronous];
                 
@@ -207,7 +210,8 @@
         amodel.isSecret   = NO;
         LYGTwoDimensionCodeDetailViewController * scan = [[LYGTwoDimensionCodeDetailViewController alloc]init];
         scan.amodel = amodel;
-        [self.navigationController pushViewController:scan animated:YES];        
+        [self.navigationController pushViewController:scan animated:YES];
+        [scan release];
     }   
 
 }

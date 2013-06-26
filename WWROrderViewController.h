@@ -11,7 +11,7 @@
 #import "WWRWXBEngine.h"
 #import "WWRYHLFatherCell.h"
 #import "LPCommodityViewController.h"
-@interface WWROrderViewController : WWRYHLFatherViewController<UIActionSheetDelegate>
+@interface WWROrderViewController : WWRYHLFatherViewController<UIActionSheetDelegate,UITableViewDelegate>
 {
 	WWRWXBEngine   *_engine;
 }

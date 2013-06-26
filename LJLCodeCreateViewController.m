@@ -166,6 +166,7 @@
             NSError * error = nil;
             NSDictionary * dict = [json objectWithString:request.responseString error:&error];
             NSString * returnsult = [dict objectForKey:@"NO"];
+            [json release];
             int a = [returnsult intValue];
             if (a == 0) {
                 UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"加密失败" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
@@ -309,6 +310,7 @@
 					weibo.openid = openid;
 					weibo.flag = weiboleixing;
 					[self.navigationController pushViewController:weibo animated:YES];
+                    [weibo release];
 					weibo.weiboImageView.image = self.erweimaImageView.image;
 					break;
 				}
@@ -333,7 +335,7 @@
 	self.share = [[UIWebView alloc] initWithFrame:self.view.bounds];
 	self.share.delegate = self;
 	[self.view addSubview:self.share];
-	[self.share release];
+	[_share release];
 	
 	NSString *urlString = [NSString stringWithFormat:@"%@?client_id=%@&redirect_uri=%@&display=mobile",AUTHORIZE_URL,CLIENT_KEY,REDIRECT_URL];
 	NSURL *url = [NSURL URLWithString:urlString]; 
@@ -347,7 +349,7 @@
 	self.share.delegate = self;
 	[self.view addSubview:self.share];
 	
-	[self.share release];
+	[_share release];
 	
 	NSString *urlString =@"https://open.t.qq.com/cgi-bin/oauth2/authorize?client_id=801371833&response_type=code&redirect_uri=http://www.wanxiangwang.net";
 	NSURL *url = [NSURL URLWithString:urlString]; 
@@ -465,6 +467,7 @@
 				weibo.flag = weiboleixing;
 				[self.navigationController pushViewController:weibo animated:YES];
 				weibo.weiboImageView.image = self.erweimaImageView.image;
+                [weibo release];
 
 				[self.share removeFromSuperview];
 			}
@@ -497,6 +500,7 @@
 				weibo.flag = weiboleixing;
 				[self.navigationController pushViewController:weibo animated:YES];
 				weibo.weiboImageView.image = self.erweimaImageView.image;
+                [weibo release];
 				[self.share removeFromSuperview];				
 			}
 			else 

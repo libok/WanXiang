@@ -230,6 +230,7 @@ enum {TEXT,PHONE,CARD,WEIBO,WEB,EMAIL,MAP,WIFI,MESSAGES,HTTP};
                 NSDictionary * dict = [json objectWithString:string];
                 NSString  * tempString  = [dict valueForKey:@"Result"];
                 NSArray   * arry        = [json objectWithString:tempString];
+                [json release];
                 NSLog(@"%@",[[arry objectAtIndex:0] class]);
                 for (NSDictionary * dict2 in arry) {
 //                    SBJSON * sj = [[SBJSON alloc]init];

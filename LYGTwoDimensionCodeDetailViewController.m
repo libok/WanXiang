@@ -373,6 +373,7 @@ didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 	{
         UIWebView * web = [[UIWebView alloc]init];
         [web loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",self.amodel.content]]]];
+        [web autorelease];
 	}
 }
 

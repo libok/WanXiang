@@ -75,6 +75,7 @@
             MainControllerAdsViewController * temp = [[MainControllerAdsViewController alloc]init];
             temp.myClass = classsx;
             [self.navigationController pushViewController:temp animated:YES];
+            [temp release];
         }
             break;
     }
@@ -100,6 +101,7 @@
     imageView.image         = [UIImage imageNamed:@"4.png"];
     imageView.tag           =  2;
     [self.adScrollView addSubview:imageView];
+    [imageView release];
     self.adScrollView.backgroundColor = [UIColor lightGrayColor];
     self.adScrollView.delegate   = self;
     self.adScrollView.tag        = 10;
@@ -232,6 +234,7 @@
                  temp.email = login.email;
                  temp.clientID = login.clientID;
                  temp.phone = login.phone;
+                 [login release];
                  //                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[[NSUserDefaults standardUserDefaults] objectForKey:@"msg"] message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK",nil];
                  //                 [alertView show];
                  //                 [alertView release];
@@ -243,6 +246,7 @@
     {
         BYNLoginViewController * log = [[BYNLoginViewController alloc]init];
         [self.navigationController pushViewController:log animated:YES];
+        [log release];
     }
 
 }
@@ -302,6 +306,7 @@
             LYGScanViewController     * scan = [[LYGScanViewController alloc]init];
             tab.viewControllers = [NSArray arrayWithObjects:scan,xxx,nil];                      
             [self.navigationController pushViewController:tab animated:YES];
+            tab.selectedIndex   = 1;
             tab.selectedIndex   = 0;
             [tab release];
 
@@ -324,12 +329,14 @@
                 if (x== 3) {
                     LYGTwoDimensionCodeHistoryViewController * history = [[LYGTwoDimensionCodeHistoryViewController alloc]init];
                     [self.navigationController pushViewController:history animated:YES];
+                    [history release];
                     //[]
                     return;
                 }
                 if (x==4) {
                     LGHelpViewController      * help = [[LGHelpViewController alloc]init];
                     [self.navigationController pushViewController:help animated:YES];
+                    [help release];
                     return;
                 }
                 myxxx.selectedIndex = x-1;
@@ -378,11 +385,13 @@
                     LYGTwoDimensionCodeHistoryViewController * history = [[LYGTwoDimensionCodeHistoryViewController alloc]init];
                     [self.navigationController pushViewController:history animated:YES];
                     //[]
+                    [history release];
                     return;
                 }
                 if (x==4) {
                     LGHelpViewController      * help = [[LGHelpViewController alloc]init];
                     [self.navigationController pushViewController:help animated:YES];
+                    [help release];
                     return;
                 }
                 myxxx.selectedIndex = x-1;

@@ -62,15 +62,14 @@
  - (void)viewDidLoad
 {
     [super viewDidLoad];
-    LoginedUserInfo * log = [LYGAppDelegate getSharedLoginedUserInfo];
-    if (log.ID == -1)
+    //LoginedUserInfo * log = [LYGAppDelegate getSharedLoginedUserInfo];
+    int myID = [LYGAppDelegate getuid];
+    if (myID == -1)
     {
         BYNLoginViewController * login = [[BYNLoginViewController alloc]init];
-        //[self presentModalViewController:login animated:YES];
         [self presentViewController:login animated:YES completion:nil];
         [login release];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:@"success" object:nil];
-         
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:@"success" object:nil];         
     }
     else
     {
@@ -89,16 +88,71 @@
     [_navSc release];        
     
 }
+-(void)viewDidAppear:(BOOL)animated
+{
+    //[self.tableView setEditing:NO];
+    //self.deletebutton.hidden = (aSvs.selectedIndex == 1?YES:NO);
+    __block LSBmyViewController * temp = self;
+    int x = self.navSc.selectedIndex;
+    int ID = [LYGAppDelegate getuid];
+    if (ID == -1) {
+        return;
+    }
+    switch (x) {
+        case 0:
+        {
+            [_engine requestDidshoucang:[LYGAppDelegate getSharedLoginedUserInfo].ID];
+        }
+            break;
+        case 1:
+        {
+            [MBProgressHUD showHUDAddedTo:self.view message:@"正在加载中" animated:YES];
+            [LSBengine hasNotFinishedTrade:0 callbackfunction:^(NSMutableArray * myarry){
+                temp.dataArray = myarry;
+                [temp.tableView reloadData];
+                [MBProgressHUD hideHUDForView:temp.view animated:YES];
+            }];
+        }
+            break;
+        case 2:
+        {
+            [MBProgressHUD showHUDAddedTo:self.view message:@"正在加载中" animated:YES];
+            [LSBengine hasNotFinishedTrade:1 callbackfunction:^(NSMutableArray * myarry){
+                temp.dataArray = myarry;
+                [temp.tableView reloadData];
+                [MBProgressHUD hideHUDForView:temp.view animated:YES];
+            }];
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
+
+}
+
 -(void)valueChange:(SVSegmentedControl *)aSvs
 {
     [self.tableView setEditing:NO];
     self.deletebutton.hidden = (aSvs.selectedIndex == 1?YES:NO);
     __block LSBmyViewController * temp = self;
     int x = aSvs.selectedIndex;
+    int ID = [LYGAppDelegate getuid];
+    if (ID == -1) {
+        if (self.presentedViewController) {
+            return;
+        }
+        BYNLoginViewController * login = [[BYNLoginViewController alloc]init];
+        //[self.navigationController pushViewController:login animated:YES];
+        [self presentViewController:login animated:YES completion:nil];
+        [login release];
+        return;
+    }
     switch (x) {
         case 0:
         {
-            [_engine requestDidshoucang:[LYGAppDelegate getSharedLoginedUserInfo].ID];            
+            [_engine requestDidshoucang:[LYGAppDelegate getSharedLoginedUserInfo].ID];
         }
             break;
         case 1:

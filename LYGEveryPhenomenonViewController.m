@@ -37,9 +37,11 @@
 {
     [super viewDidLoad];
 	
-	_ePCellLabelArray = [[NSArray alloc] initWithObjects:@"优惠券",@"会员卡",@"付款凭证",@"礼品券",@"e媒港收藏",@"预定",@"签到二维码",nil];
+	_ePCellLabelArray = [[NSArray alloc] initWithObjects:@"优惠券",@"会员卡",@"付款凭证",@"礼品券",@"e媒港收藏",@"预定",@"签到二维码",nil];	
 	
-	_tableView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"会刊3背景.png"]];
+    UIImageView *tempView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"会刊3背景.png"]];
+    _tableView.backgroundView = tempView;
+    [tempView release];
 	_tableView.rowHeight = 52;
 	_tableView.showsVerticalScrollIndicator = NO;
 	_tableView.separatorColor = [UIColor clearColor];
