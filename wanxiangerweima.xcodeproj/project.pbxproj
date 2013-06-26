@@ -369,6 +369,7 @@
 		585131631729E4D000054602 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5851315D1729E4D000054602 /* SBJsonWriter.m */; };
 		585131751729F20100054602 /* libZbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 585131741729F20100054602 /* libZbar.a */; };
 		585131941729FD5B00054602 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 585131931729FD5B00054602 /* MBProgressHUD.m */; };
+		586617F917799322003042DB /* WWROrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 586617F717799322003042DB /* WWROrderViewController.m */; };
 		586A29BC173F11070059412E /* qianjin.png in Resources */ = {isa = PBXBuildFile; fileRef = 586A29BB173F11060059412E /* qianjin.png */; };
 		587311A1170C55E800BC0CD5 /* 个人中心背景框区分0.png in Resources */ = {isa = PBXBuildFile; fileRef = 5873119C170C55E800BC0CD5 /* 个人中心背景框区分0.png */; };
 		587311A2170C55E800BC0CD5 /* 个人中心背景框区分7.png in Resources */ = {isa = PBXBuildFile; fileRef = 5873119D170C55E800BC0CD5 /* 个人中心背景框区分7.png */; };
@@ -388,7 +389,6 @@
 		588B6E01171C5C1000C0764F /* duanxin.png in Resources */ = {isa = PBXBuildFile; fileRef = 588B6E00171C5C1000C0764F /* duanxin.png */; };
 		588B6E05171C5D2700C0764F /* LYGTwoDimensionCodeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588B6E03171C5D2600C0764F /* LYGTwoDimensionCodeDetailViewController.m */; };
 		588E03F2174551100024A025 /* point.png in Resources */ = {isa = PBXBuildFile; fileRef = 588E03F11745510F0024A025 /* point.png */; };
-		589C24361764E9250017779A /* 主页背景1.png in Resources */ = {isa = PBXBuildFile; fileRef = 589C24351764E9250017779A /* 主页背景1.png */; };
 		589C243C17650F2A0017779A /* 主页背景1.png in Resources */ = {isa = PBXBuildFile; fileRef = 589C243B17650F2A0017779A /* 主页背景1.png */; };
 		589C24401765101D0017779A /* 记住密码未点击状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 589C243F1765101D0017779A /* 记住密码未点击状态.png */; };
 		589DBDCE174FDF65008BB2F6 /* 顶部.png in Resources */ = {isa = PBXBuildFile; fileRef = 589DBDCD174FDF64008BB2F6 /* 顶部.png */; };
@@ -439,6 +439,8 @@
 		58D981C51729CFC90027A584 /* RSADataVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D981BC1729CFC90027A584 /* RSADataVerifier.m */; };
 		58D981D11729D2D40027A584 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58D981CF1729D2D40027A584 /* libcrypto.a */; };
 		58D981D21729D2D40027A584 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58D981D01729D2D40027A584 /* libssl.a */; };
+		58DDF2FC177A955200AC79FD /* WWROrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DDF2FA177A955200AC79FD /* WWROrderDetailViewController.m */; };
+		58DDF2FD177A955200AC79FD /* WWROrderDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58DDF2FB177A955200AC79FD /* WWROrderDetailViewController.xib */; };
 		58E550861714583E0059386A /* LYGDataBaseUIlti.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E550851714583E0059386A /* LYGDataBaseUIlti.m */; };
 		58E550BF1714859C0059386A /* LYGTwoDimensionCodeDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E550BE1714859C0059386A /* LYGTwoDimensionCodeDao.m */; };
 		58E550C2171485C80059386A /* LYGTwoDimensionCodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E550C1171485C80059386A /* LYGTwoDimensionCodeModel.m */; };
@@ -1081,6 +1083,8 @@
 		585131741729F20100054602 /* libZbar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libZbar.a; sourceTree = "<group>"; };
 		585131921729FD5B00054602 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		585131931729FD5B00054602 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		586617F617799322003042DB /* WWROrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWROrderViewController.h; sourceTree = "<group>"; };
+		586617F717799322003042DB /* WWROrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWROrderViewController.m; sourceTree = "<group>"; };
 		586A29BB173F11060059412E /* qianjin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qianjin.png; sourceTree = "<group>"; };
 		5873119C170C55E800BC0CD5 /* 个人中心背景框区分0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "个人中心背景框区分0.png"; sourceTree = "<group>"; };
 		5873119D170C55E800BC0CD5 /* 个人中心背景框区分7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "个人中心背景框区分7.png"; sourceTree = "<group>"; };
@@ -1126,7 +1130,6 @@
 		5896AA0817123A680045F7E1 /* ZBarReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderViewController.h; sourceTree = "<group>"; };
 		5896AA0917123A680045F7E1 /* ZBarSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSDK.h; sourceTree = "<group>"; };
 		5896AA0A17123A680045F7E1 /* ZBarSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSymbol.h; sourceTree = "<group>"; };
-		589C24351764E9250017779A /* 主页背景1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "主页背景1.png"; sourceTree = "<group>"; };
 		589C243B17650F2A0017779A /* 主页背景1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "主页背景1.png"; sourceTree = "<group>"; };
 		589C243F1765101D0017779A /* 记住密码未点击状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "记住密码未点击状态.png"; sourceTree = "<group>"; };
 		589DBDCD174FDF64008BB2F6 /* 顶部.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "顶部.png"; sourceTree = "<group>"; };
@@ -1273,6 +1276,9 @@
 		58D981BC1729CFC90027A584 /* RSADataVerifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataVerifier.m; sourceTree = "<group>"; };
 		58D981CF1729D2D40027A584 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		58D981D01729D2D40027A584 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		58DDF2F9177A955200AC79FD /* WWROrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWROrderDetailViewController.h; sourceTree = "<group>"; };
+		58DDF2FA177A955200AC79FD /* WWROrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWROrderDetailViewController.m; sourceTree = "<group>"; };
+		58DDF2FB177A955200AC79FD /* WWROrderDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWROrderDetailViewController.xib; sourceTree = "<group>"; };
 		58E550841714583E0059386A /* LYGDataBaseUIlti.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYGDataBaseUIlti.h; sourceTree = "<group>"; };
 		58E550851714583E0059386A /* LYGDataBaseUIlti.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYGDataBaseUIlti.m; sourceTree = "<group>"; };
 		58E550BD1714859C0059386A /* LYGTwoDimensionCodeDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYGTwoDimensionCodeDao.h; sourceTree = "<group>"; };
@@ -1631,6 +1637,8 @@
 				04B18495170B6FBC00F94FB0 /* WWRYHLFatherCell.h */,
 				04B18496170B6FBC00F94FB0 /* WWRYHLFatherCell.m */,
 				04B18498170B6FD300F94FB0 /* WWRYHLFatherCell.xib */,
+				58DDF2FE177AA73E00AC79FD /* 签到 */,
+				586617F5177992A8003042DB /* 预定 */,
 				04B1848F170B570F00F94FB0 /* 礼品券 */,
 				04B1848E170B570600F94FB0 /* 会员卡 */,
 				04B1848D170B56FB00F94FB0 /* 优惠券 */,
@@ -2338,7 +2346,6 @@
 			isa = PBXGroup;
 			children = (
 				58426C98170B0704005818A1 /* 底部...png */,
-				589C24351764E9250017779A /* 主页背景1.png */,
 				58426C02170AE02F005818A1 /* 主页背景2.png */,
 			);
 			path = "主页背景";
@@ -2419,6 +2426,18 @@
 				585131931729FD5B00054602 /* MBProgressHUD.m */,
 			);
 			name = MBProgress;
+			sourceTree = "<group>";
+		};
+		586617F5177992A8003042DB /* 预定 */ = {
+			isa = PBXGroup;
+			children = (
+				586617F617799322003042DB /* WWROrderViewController.h */,
+				586617F717799322003042DB /* WWROrderViewController.m */,
+				58DDF2F9177A955200AC79FD /* WWROrderDetailViewController.h */,
+				58DDF2FA177A955200AC79FD /* WWROrderDetailViewController.m */,
+				58DDF2FB177A955200AC79FD /* WWROrderDetailViewController.xib */,
+			);
+			name = "预定";
 			sourceTree = "<group>";
 		};
 		5896A9F217123A680045F7E1 /* zbar */ = {
@@ -2642,6 +2661,13 @@
 				58D981BC1729CFC90027A584 /* RSADataVerifier.m */,
 			);
 			path = src;
+			sourceTree = "<group>";
+		};
+		58DDF2FE177AA73E00AC79FD /* 签到 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "签到";
 			sourceTree = "<group>";
 		};
 		58E55082171457A60059386A /* DataBase */ = {
@@ -3556,7 +3582,6 @@
 				58097F4E17607CA800BF7C51 /* 返回0.png in Resources */,
 				580720761762017100856FFC /* ChoujiangViewController.xib in Resources */,
 				5807207B1762151A00856FFC /* MediaViewController.xib in Resources */,
-				589C24361764E9250017779A /* 主页背景1.png in Resources */,
 				589C243C17650F2A0017779A /* 主页背景1.png in Resources */,
 				589C24401765101D0017779A /* 记住密码未点击状态.png in Resources */,
 				581326721765B30E00E2A632 /* MyTableView.xib in Resources */,
@@ -3567,6 +3592,7 @@
 				740EE0431774545B00829EF1 /* chexiao.png in Resources */,
 				740EE0441774545B00829EF1 /* xueren.png in Resources */,
 				740EE046177455B800829EF1 /* 订阅按钮.png in Resources */,
+				58DDF2FD177A955200AC79FD /* WWROrderDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3779,6 +3805,8 @@
 				58A5859917663C54001F1FD7 /* YanZhengViewController.m in Sources */,
 				744A8FE9176EE3630039CF8E /* NSString+MD5HexDigest.m in Sources */,
 				745C43231772E12E001129FA /* ReverseGeocoder.m in Sources */,
+				586617F917799322003042DB /* WWROrderViewController.m in Sources */,
+				58DDF2FC177A955200AC79FD /* WWROrderDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -29,4 +29,5 @@
 +(int)getAsihttpResult:(NSString*)astring;
 +(BOOL)isMobileNumber:(NSString *)mobileNum;
 +(NSString *)getAsihttpResultMsg:(NSString*)astring;
++(CLLocation*)getlocation2;
 @end

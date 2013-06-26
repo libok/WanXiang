@@ -47,18 +47,30 @@
 		self.goodID = [youHuiQuanDictionary objectForKey:@"goodid"];
 		self.gID = [youHuiQuanDictionary objectForKey:@"gid"];
 		self.imgURl = [youHuiQuanDictionary objectForKey:@"imgurl"];
+        if (self.imgURl == nil || self.imgURl.length == 0) {
+            self.imgURl = [youHuiQuanDictionary objectForKey:@"qrimg"];
+        }
 		self.addTime = [youHuiQuanDictionary objectForKey:@"addtime"];
 		self.type = [youHuiQuanDictionary objectForKey:@"type"];
 		self.status = [youHuiQuanDictionary objectForKey:@"Status"];
 		self.okTime = [youHuiQuanDictionary objectForKey:@"OKtime"];
 		self.isShow = [youHuiQuanDictionary objectForKey:@"isshow"];
 		self.title = [youHuiQuanDictionary objectForKey:@"title"];
+        if (self.title == nil || self.title.length == 0) {
+            self.title = [youHuiQuanDictionary objectForKey:@"shangjia"];
+        }
+
 		self.shangJia = [youHuiQuanDictionary objectForKey:@"shangjia"];
 		self.precontent = [youHuiQuanDictionary objectForKey:@"precontent"];
 		self.useTime = [youHuiQuanDictionary objectForKey:@"usetime"];
 		self.adress = [youHuiQuanDictionary objectForKey:@"adress"];
 		self.jianJie = [youHuiQuanDictionary objectForKey:@"jianjie"];
 		self.url     = [youHuiQuanDictionary objectForKey:@"imgurl"];
+        if (self.url == nil || self.url.length == 0) {
+            self.url = [youHuiQuanDictionary objectForKey:@"qrimg"];
+        }
+        self.content = [youHuiQuanDictionary objectForKey:@"content"];
+        self.contents = [youHuiQuanDictionary objectForKey:@"contents"];
 	}
 	return self;
 }

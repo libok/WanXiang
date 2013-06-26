@@ -49,7 +49,8 @@
 @property (nonatomic,copy) NSString  *adress;
 @property (nonatomic,copy) NSString  *jianJie;
 @property (nonatomic,copy) NSString  *url;
-
+@property (nonatomic,copy) NSString  *content;
+@property (nonatomic,copy) NSString  *contents;
 + (id)youHuiQuanWithDictionary:(NSDictionary *)youHuiQuanDictionary;
 - (id)initWithDictionary:(NSDictionary *)youHuiQuanDictionary;
 

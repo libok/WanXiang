@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface WWROrderViewController : UIViewController
-
+#import "WWRYHLFatherViewController.h"
+#import "WWRWXBEngine.h"
+#import "WWRYHLFatherCell.h"
+#import "LPCommodityViewController.h"
+@interface WWROrderViewController : WWRYHLFatherViewController<UIActionSheetDelegate>
+{
+	WWRWXBEngine   *_engine;
+}
+@property (nonatomic,retain) NSMutableArray  *statuesArray;
+@property(nonatomic,assign)  int type;
 @end
+

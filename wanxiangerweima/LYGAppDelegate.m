@@ -193,8 +193,16 @@ static NSString * UUID = nil;
         locationManger = [[CLLocationManager alloc]init];
         [locationManger startMonitoringSignificantLocationChanges];
     }
-    return locationManger.location.coordinate;
-    
+    return locationManger.location.coordinate;    
+}
++(CLLocation*)getlocation2
+{
+    if(locationManger == nil)
+    {
+        locationManger = [[CLLocationManager alloc]init];
+        [locationManger startMonitoringSignificantLocationChanges];
+    }
+    return locationManger.location;
 }
 +(int)getAsihttpResult:(NSString*)astring
 {

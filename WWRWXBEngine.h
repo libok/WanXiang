@@ -15,9 +15,11 @@
 
 }
 @property(nonatomic,assign) id  delegate;
-
+- (void)requestQianDaoListUser:(int)u;
 //请求优惠券列表
 - (void)requestPreQRListUser:(int)u;
+//请求订购列表
+- (void)requestPreORDERListUser:(int)u;
 //请求会员列表
 - (void)requestJoinShopPage:(int)p user:(int)u;
 //请求礼品券列表

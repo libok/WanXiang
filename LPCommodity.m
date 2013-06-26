@@ -57,6 +57,9 @@
         self.ID = [aDic valueForKey:@"id"];
         self.managerId = [aDic valueForKey:@"managerid"];
         self.title = [aDic valueForKey:@"Title"];
+        if (!self.title || self.title.length == 0) {
+            self.title = [aDic valueForKey:@"goodname"];
+        }
         self.classId = [aDic valueForKey:@"ClassId"];
         self.pClassID = [aDic valueForKey:@"PClassID"];
         self.price = [aDic valueForKey:@"price"];
@@ -68,6 +71,7 @@
         self.xuinfo = [aDic valueForKey:@"xuinfo"];
         self.click = [[aDic valueForKey:@"Click"] intValue];
         self.imgurl = [aDic valueForKey:@"imgurl"];
+
         self.addtime = [aDic valueForKey:@"addtime"];
         self.isok = [[aDic valueForKey:@"IsOk"] intValue];
         self.attr = [aDic valueForKey:@"Attr"];

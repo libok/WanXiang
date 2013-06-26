@@ -28,6 +28,7 @@
 #import "ShopViewController.h"
 #import "ASIHTTPRequest.h"
 #import "SBJSON.h"
+#import "LYGAppDelegate.h"
 static int currentIndex = 0;
 @implementation LYGEveryPhenomenonStreetViewController
 @synthesize xialaView = _xialaView;
@@ -62,6 +63,7 @@ static int currentIndex = 0;
     [_mainView release];
     [_adPageC release];
     [_myEdit release];
+    [_myLabel release];
     [super dealloc];
 }
 
@@ -104,90 +106,57 @@ static int currentIndex = 0;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    _viewButton = [[DAReloadActivityButton alloc] init];
-//    [_viewButton addTarget:self action:@selector(animate:) forControlEvents:UIControlEventTouchUpInside];
-//    _viewButton.frame = CGRectMake(288, 7, 39*0.5, 45*0.5);
-    //[_mainView addSubview:_viewButton];
+    _viewButton = [[DAReloadActivityButton alloc] init];
+    [_viewButton addTarget:self action:@selector(animate:) forControlEvents:UIControlEventTouchUpInside];
+    _viewButton.frame = CGRectMake(288, 7, 39*0.5, 45*0.5);
+    [_mainView addSubview:_viewButton];
+    [_viewButton release];
     [self requestCategory];
     _engine = [[LSBengine alloc] init];
     _engine.delegate = self;
-    LPCity *city = [self getCity];
-    if (city != nil)
-    {
-       // NSString * tempstr = [city.cityName substringToIndex:city.cityName.length - 1];
-        [_provincebtn setTitle:city.cityName forState:UIControlStateNormal];
+    _myGel = [[CLGeocoder alloc]init];
+    __block LYGEveryPhenomenonStreetViewController * temp = self;
+    __block CLLocation *location = [LYGAppDelegate getlocation2];
+    [_myGel reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        if (error) {
+            LPCity *city = [temp getCity];
+            if (city != nil)
+            {
+                // NSString * tempstr = [city.cityName substringToIndex:city.cityName.length - 1];
+                [temp.provincebtn setTitle:city.cityName forState:UIControlStateNormal];
+            }
+            [temp.engine requestAd:city atype:0];
+            return;
+        }
+
+        NSLog(@"%@",placemarks);
+        NSString * string  = [[placemarks objectAtIndex:0]locality];
+        if (!string) {
+            string  = [[placemarks objectAtIndex:0]administrativeArea];
+        }        
+        NSLog(@"%@",string);
+        [temp.provincebtn setTitle:string forState:UIControlStateNormal];
+        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[[NSString stringWithFormat:@"http://119.161.221.204:801/API/city/getcityid.aspx?city=%@",string] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+        [request setCompletionBlock:
+         ^{
+             LPCity *city = [[LPCity alloc] init];
+             city.cityName = string;
+             city.proID = [[request.responseString  componentsSeparatedByString:@"|"] objectAtIndex:1];
+             city.cityID = [[request.responseString  componentsSeparatedByString:@"|"] objectAtIndex:0];
+             [temp.engine requestAd:city atype:0];
+              NSData *data = [NSKeyedArchiver archivedDataWithRootObject:city];
+             [[NSUserDefaults standardUserDefaults] setValue:data forKey:@"province"];
+         }];
+        [request startAsynchronous];
         
-    }
-    [_engine requestAd:city atype:0];
-    
-    self.geocoder = [[[ReverseGeocoder alloc] init] autorelease];
-    self.geocoder.geocoderDelegate = self;
-    CLAuthorizationStatus authStatus = [self.geocoder getAuthStatus];
-    if (authStatus == kCLAuthorizationStatusNotDetermined || authStatus == kCLAuthorizationStatusAuthorized)
-    {
-        [self.geocoder reverseGeocode];
-    } else
-    {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"警告" message:@"定位城市失败,请在系统设置中打开GPS" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-        [alertView show];
-        [alertView release];
-    }
-    //[_engine requestAd:<#(LPCity *)#>]
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];    
+    }];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //NSLog(@"%d",self.retainCount);
 }
 
 
 #pragma mark - 
 #pragma mark ReverseGEODelegate
-
-- (void)gotUserLocation {
-    [self updateFieldsWithError:NO];
-}
-
-- (void)gotUserLocationError {
-    [self updateFieldsWithError:YES];
-}
-
-- (void)gotUserPlacemarks {
-    [self updateFieldsWithError:NO];
-}
-
-- (void)gotUserPlacemarksError {
-    [self updateFieldsWithError:YES];
-}
-- (void)locationServicesDisabled
-{
-    
-}
-
-- (void)updateFieldsWithError:(BOOL)error {
-    if (error)
-    {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"警告" message:@"定位城市失败,请手动选择城市!" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-        [alertView show];
-        [alertView release];
-    }
-    else
-    {
-        NSLog(@"定位到城市  %@",self.geocoder.city);
-        [_provincebtn setTitle:self.geocoder.city forState:UIControlStateNormal];
-        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[[NSString stringWithFormat:@"http://119.161.221.204:801/API/city/getcityid.aspx?city=%@",self.geocoder.city] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
-        [request setCompletionBlock:
-        ^{
-            NSLog(@"_____________  %@",request.responseString);
-            LPCity *city = [[LPCity alloc] init];
-            city.cityName = self.geocoder.city;
-            city.proID = [[request.responseString  componentsSeparatedByString:@"|"] objectAtIndex:1];
-            city.cityID = [[request.responseString  componentsSeparatedByString:@"|"] objectAtIndex:0];
-            [_engine requestAd:city atype:0];
-            
-            NSData *data = [NSKeyedArchiver archivedDataWithRootObject:city];
-            [[NSUserDefaults standardUserDefaults] setValue:data forKey:@"province"];
-        }];
-        [request startAsynchronous];
-    
-    }
-}
 
 
 -(void)viewDidAppear:(BOOL)animated
@@ -227,6 +196,7 @@ static int currentIndex = 0;
     [self setMainView:nil];
     [self setAdPageC:nil];
     [self setMyEdit:nil];
+    [self setMyLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -297,6 +267,9 @@ static int currentIndex = 0;
             break;
         case  SHOU_YE:
         {
+            [_myTimer invalidate];
+            _myTimer = nil;
+            NSLog(@"%d",self.retainCount);
             [self.navigationController popViewControllerAnimated:YES];
         }
             break;
@@ -408,10 +381,6 @@ static int currentIndex = 0;
         }
     }
     LPAd *ad = [_adArray objectAtIndex:indexPath.row];
-//    cell.titleLabel.text = ad.title;
-//    cell.contentTextView.text = ad.contents;
-//    cell.classLabel.text = [NSString stringWithFormat:@"%d",ad.classID];
-//    cell.label.text = ad.shopname;
     
     [cell.imgView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",SERVER_URL,ad.imgurl]] placeholderImage:[UIImage imageNamed:@"place.png"]];
     //cell.imgView.contentMode = UIViewContentModeScaleAspectFit;

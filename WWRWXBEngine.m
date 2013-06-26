@@ -40,6 +40,32 @@
     [request startAsynchronous];
 	
 }
+- (void)requestPreORDERListUser:(int)u
+{  
+	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/goods/yuList.aspx?u=%d",SERVER_URL,u]]];
+    request.delegate = self;
+	request.tag = 1000;
+    //手动设置结束方法
+    [request setDidFinishSelector:@selector(getTimelineFinised:)];
+	[request setDidFailSelector:@selector(getTimelineFailed:)];
+	request.timeOutSeconds = TIMEOUTSECONDS;
+    [request startAsynchronous];
+	
+}
+
+- (void)requestQianDaoListUser:(int)u
+{
+	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/qd/qdlist.aspx?u=%d",SERVER_URL,u]]];
+    request.delegate = self;
+	request.tag = 2000;
+    //手动设置结束方法
+    [request setDidFinishSelector:@selector(getTimelineFinised:)];
+	[request setDidFailSelector:@selector(getTimelineFailed:)];
+	request.timeOutSeconds = TIMEOUTSECONDS;
+    [request startAsynchronous];
+	
+}
+
 //请求会员列表
 - (void)requestJoinShopPage:(int)p user:(int)u
 {
@@ -220,6 +246,66 @@
 			else
 			{
 				UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"通知" message:@"服务器没有返回优惠券信息" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+				[alertView show];
+				[alertView release];
+				
+			}
+		}
+			break;
+        case 1000:
+		{
+			if (isSuccess)
+			{
+				
+				NSLog(@"优惠券  %@",resultString);
+				NSMutableArray *tempArray = [[NSMutableArray alloc] initWithCapacity:0];
+				for (NSDictionary *dic in resultArray)
+				{
+					WWRStatus *status = [[WWRStatus alloc] initWithDictionary:dic];
+					[tempArray addObject:status];
+					[status release];
+				}
+				if ([_delegate respondsToSelector:@selector(getPreQRListSuccess:)])
+				{
+					
+					[_delegate getPreQRListSuccess:tempArray];
+					[tempArray release];
+				}
+				
+			}
+			else
+			{
+				UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"通知" message:@"服务器没有返回订购列表" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+				[alertView show];
+				[alertView release];
+				
+			}
+		}
+			break;
+        case 2000:
+		{
+			if (isSuccess)
+			{
+				
+				NSLog(@"优惠券  %@",resultString);
+				NSMutableArray *tempArray = [[NSMutableArray alloc] initWithCapacity:0];
+				for (NSDictionary *dic in resultArray)
+				{
+					WWRStatus *status = [[WWRStatus alloc] initWithDictionary:dic];
+					[tempArray addObject:status];
+					[status release];
+				}
+				if ([_delegate respondsToSelector:@selector(getPreQRListSuccess:)])
+				{
+					
+					[_delegate getPreQRListSuccess:tempArray];
+					[tempArray release];
+				}
+				
+			}
+			else
+			{
+				UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"通知" message:@"服务器没有返回订购列表" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
 				[alertView show];
 				[alertView release];
 				

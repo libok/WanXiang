@@ -167,6 +167,42 @@
     }];
 	
     [self performSelector:@selector(login) withObject:nil afterDelay:0.1];
+//    __block CLLocation *location = [LYGAppDelegate getlocation2];
+//    [_myGel reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+//        if (error) {
+//            LPCity *city = [temp getCity];
+//            if (city != nil)
+//            {
+//                // NSString * tempstr = [city.cityName substringToIndex:city.cityName.length - 1];
+//                [temp.provincebtn setTitle:city.cityName forState:UIControlStateNormal];
+//            }
+//            [temp.engine requestAd:city atype:0];
+//            return;
+//        }
+//        
+//        NSLog(@"%@",placemarks);
+//        NSString * string  = [[placemarks objectAtIndex:0]locality];
+//        if (!string) {
+//            string  = [[placemarks objectAtIndex:0]administrativeArea];
+//        }
+//        NSLog(@"%@",string);
+//        [temp.provincebtn setTitle:string forState:UIControlStateNormal];
+//        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[[NSString stringWithFormat:@"http://119.161.221.204:801/API/city/getcityid.aspx?city=%@",string] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+//        [request setCompletionBlock:
+//         ^{
+//             LPCity *city = [[LPCity alloc] init];
+//             city.cityName = string;
+//             city.proID = [[request.responseString  componentsSeparatedByString:@"|"] objectAtIndex:1];
+//             city.cityID = [[request.responseString  componentsSeparatedByString:@"|"] objectAtIndex:0];
+//             [temp.engine requestAd:city atype:0];
+//             NSData *data = [NSKeyedArchiver archivedDataWithRootObject:city];
+//             [[NSUserDefaults standardUserDefaults] setValue:data forKey:@"province"];
+//         }];
+//        [request startAsynchronous];
+//        
+//    }];
+    //[MBProgressHUD showHUDAddedTo:self.view animated:YES];
+
 }
 -(void)login
 {

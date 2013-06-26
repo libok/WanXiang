@@ -16,9 +16,7 @@
 	NSString   *_nick_name;
 	NSString   *_email;
 	NSString   *_clientID;
-	NSString   *_phone;
-	
-	
+	NSString   *_phone;	
 }
 @property(nonatomic,assign)int    ID;
 @property(nonatomic,copy)NSString *pwd;

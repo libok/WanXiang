@@ -12,5 +12,6 @@
 - (IBAction)buttonClick:(id)sender;
 @property(nonatomic,assign)id delegate;
 @property(nonatomic,copy)void (^oneBlock)(int);
+@property (retain, nonatomic) IBOutlet UIView *myInDicatorView;
 @end
 

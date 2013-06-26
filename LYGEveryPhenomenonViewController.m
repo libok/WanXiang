@@ -161,7 +161,17 @@
         case 5:
 		{
             
-			WWROrderViewController  * temp = [[WWROrderViewController  alloc]initWithNibName:@"LPCommodityViewController" bundle:nil];
+			WWROrderViewController  * temp = [[WWROrderViewController  alloc]initWithNibName:@"WWRYHLFatherViewController" bundle:nil];
+            temp.type = 0;
+			[self.navigationController pushViewController:temp animated:YES];
+			[temp release];
+		}
+			break;
+        case 6:
+		{
+            
+			WWROrderViewController  * temp = [[WWROrderViewController  alloc]initWithNibName:@"WWRYHLFatherViewController" bundle:nil];
+            temp.type = 1;      
 			[self.navigationController pushViewController:temp animated:YES];
 			[temp release];
 		}
