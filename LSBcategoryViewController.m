@@ -14,6 +14,7 @@
 #import "LPGoogsClass.h"
 #import "UIImageView+WebCache.h"
 #import "MBProgressHUD.h"
+#import "LYGAppDelegate.h"
 @interface LSBcategoryViewController ()<UIFolderTableViewDelegate> 
 
 @property (retain, nonatomic) SubCateViewController *subVc;
@@ -53,10 +54,19 @@
 {
     [super viewDidLoad];
     _engine = [[LSBengine alloc] init];
+    _engine.delegate = self;
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+            [alert release];
+        return;
+    }
+
     [_engine requestCategory];
     // [SVProgressHUD showWithStatus:@"正在努力加载"];
     [MBProgressHUD showHUDAddedTo:self.view message:@"正在努力加载" animated:YES];
-    _engine.delegate = self;
+    
 }
 
 - (void)didReceiveMemoryWarning

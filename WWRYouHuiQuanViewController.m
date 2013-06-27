@@ -139,6 +139,13 @@
 }
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
     __block WWRYouHuiQuanViewController * temp = self;
     WWRStatus *status = [_statuesArray objectAtIndex:indexPath.row];
     NSString * urlString = [NSString stringWithFormat:@"%@/api/goods/DelpreQr.aspx?id=%d",SERVER_URL,[status.iD intValue]];

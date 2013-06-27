@@ -243,12 +243,26 @@
             break;
         case 6:
         {
-            
-            int u = [LYGAppDelegate getSharedLoginedUserInfo].ID;
+            BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+            if (!isAailble) {
+                UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                [alert show];
+                [alert release];
+                return;
+            }
+
+            int u = [LYGAppDelegate getuid];
+            if (u == -1) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"通知" message:@"请先登录" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登陆", nil];
+                [alert show];
+                [alert release];
+                return;
+            }
             int s = [[_dataDictionary valueForKey:@"managerid"] intValue];
-            NSArray *array = [_dataDictionary valueForKey:@"imglist"];
-            NSDictionary *tempDictionary = [array objectAtIndex:0];
-            int g =[[tempDictionary valueForKey:@"goodid"] intValue];
+//            NSLog(@"%@",_dataDictionary);
+//            NSArray *array = [_dataDictionary valueForKey:@"imglist"];
+//            NSDictionary *tempDictionary = [array objectAtIndex:0];
+            int g =[[_dataDictionary valueForKey:@"id"] intValue];
             [_engine requestshoucangU:u s:s g:g];
         }
             break;
@@ -267,22 +281,10 @@
 }
 -(void)getmes:(NSDictionary *)adic
 {
-    LoginedUserInfo * log = [LYGAppDelegate getSharedLoginedUserInfo];
-    if (log.ID == -1)
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"通知" message:@"请先登录" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登陆", nil];
-        [alert show];
-        [alert release];
-        
-    }
-    else
-    {
+
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"通知" message:[adic valueForKey:@"Msg"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
         [alert show];
-        [alert release];
-        
-    }
-    
+        [alert release]; 
     
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -291,8 +293,7 @@
         BYNLoginViewController * login = [[BYNLoginViewController alloc]init];
         //[self presentModalViewController:login animated:YES];
         [self presentViewController:login animated:YES completion:nil];
-        [login release];
-        
+        [login release];     
         
     }
 }

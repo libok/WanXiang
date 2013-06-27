@@ -49,13 +49,14 @@ static int currentIndex = 0;
 - (void)dealloc
 {    
     [_adArray release];
-    [_myArray release];
-    [_viewButton release];
+    [_myArray release];    
     [_engine release];
     [_xialaView release];
     [_provincebtn release];
     [_tableView release];
     [_btnArray release];
+    
+    
     [_sanjiao release];
     [_btnwanxiang release];
     [_scrollView release];
@@ -115,9 +116,21 @@ static int currentIndex = 0;
     _engine = [[LSBengine alloc] init];
     _engine.delegate = self;
     _myGel = [[CLGeocoder alloc]init];
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        if (self.isHaveAlertView == NO) {
+            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+            [alert release];
+            self.isHaveAlertView = YES;
+        }        
+        return;
+    }
+
     __block LYGEveryPhenomenonStreetViewController * temp = self;
     __block CLLocation *location = [LYGAppDelegate getlocation2];
-    [_myGel reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+    
+        [_myGel reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
         if (error) {
             LPCity *city = [temp getCity];
             if (city != nil)
@@ -136,6 +149,7 @@ static int currentIndex = 0;
         }        
         NSLog(@"%@",string);
         [temp.provincebtn setTitle:string forState:UIControlStateNormal];
+        
         ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[[NSString stringWithFormat:@"http://119.161.221.204:801/API/city/getcityid.aspx?city=%@",string] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
         [request setCompletionBlock:
          ^{
@@ -171,10 +185,25 @@ static int currentIndex = 0;
             [_provincebtn setTitle:city.cityName forState:UIControlStateNormal];
             
         }
+        BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+        if (!isAailble) {
+            if (self.isHaveAlertView == NO) {
+                UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                [alert show];
+                [alert release];
+            }            
+            self.adArray = nil;
+            [_tableView reloadData];
+            return;
+        }
         [_engine requestAd:city atype:0];
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     }
     self.isNeedRefresh = NO;
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    self.isHaveAlertView = NO;
 }
 - (void)animate:(DAReloadActivityButton *)button
 {
@@ -268,9 +297,11 @@ static int currentIndex = 0;
             break;
         case  SHOU_YE:
         {
-            [_myTimer invalidate];
-            _myTimer = nil;
-            NSLog(@"%d",self.retainCount);
+            if (_myTimer) {
+                [_myTimer invalidate];
+                _myTimer = nil;
+            }
+            
             [self.navigationController popViewControllerAnimated:YES];
         }
             break;
@@ -487,6 +518,17 @@ static int currentIndex = 0;
 
 -(void)requestCategory
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        if (self.isHaveAlertView == NO) {
+            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+            [alert release];
+            self.isHaveAlertView = YES;
+        }
+        
+        return;
+    }
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/Goods/GoodsClass.aspx",SERVER_URL]]];
     
     [request setCompletionBlock:^{

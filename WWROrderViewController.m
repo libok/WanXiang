@@ -148,9 +148,16 @@
 }
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
     __block WWROrderViewController * temp = self;
     WWRStatus *status = [_statuesArray objectAtIndex:indexPath.row];
-    NSString * urlString = [NSString stringWithFormat:@"%@/api/goods/DelpreQr.aspx?id=%d",SERVER_URL,[status.iD intValue]];
+    NSString * urlString = [NSString stringWithFormat:@"%@/API/goods/delyu.aspx?id=%d",SERVER_URL,[status.iD intValue]];
     ASIHTTPRequest * request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:urlString]];
     [request setCompletionBlock:^{
         int x = [LYGAppDelegate getAsihttpResult:request.responseString];
@@ -167,7 +174,7 @@
         [alert release];
     }];
     [request setFailedBlock:^{
-        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"删除优惠券失败" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"删除预定失败" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alert show];
         [alert release];
         

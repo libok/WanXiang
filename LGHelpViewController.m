@@ -12,6 +12,7 @@
 #import "ASIHTTPRequest.h"
 #import "SBJSON.h"
 #import "LYGScanViewController.h"
+#import "LYGAppDelegate.h"
 @implementation LGHelpViewController
 @synthesize helpView = _helpView;
 
@@ -36,6 +37,14 @@
 }
 -(void)loadxxx
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+
     __block LGHelpViewController *helpVC = self;
     NSString * str1 = [NSString stringWithFormat:@"%@/API/News/List.aspx?type=1",SERVER_URL];
     ASIHTTPRequest * request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:str1]];

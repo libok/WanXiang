@@ -37,6 +37,14 @@
 	answerContent:(NSString *)answerStr  
 	completionBlock:(void (^) (NSString *,int))aCompletionBlock
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+
 	
 	//NSString * uuid = [(LYGAppDelegate*)([UIApplication sharedApplication].delegate) getuuid];
     NSString * uuid   = [LYGAppDelegate getUUID];
@@ -90,6 +98,14 @@
 
 + (void)getLoginPhoneContent:(NSString *)phoneNumStr passwordContent:(NSString *)passwordStr completionBlock:(void (^) (NSDictionary *,int))completionBlock
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+
 	NSLog(@"%@ %@",phoneNumStr,passwordStr);
 	//NSString * uuid = [(LYGAppDelegate*)([UIApplication sharedApplication].delegate) getuuid];	
     NSString * uuid   = [LYGAppDelegate getUUID];
@@ -158,7 +174,14 @@
 + (void)getFoundPwdPhoneContent:(NSString *)phoneNumStr  completionBlock:(void (^) (NSString *,int))completionBlock
 {
 	
-	
+	BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+
 	NSString * str = [NSString stringWithFormat:@"%@/api/user/findpwd.aspx?name=%@&step=1",SERVER_URL,phoneNumStr];
 	NSURL *url = [NSURL URLWithString:str];
 	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];	
@@ -210,6 +233,14 @@
 #pragma mark 找回密码（2）
 + (void)getSafetyQuestionContent:(NSString *)answerStr completionBlock:(void (^) (NSString *,int))completionBlock
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+
 	int uid = [[[NSUserDefaults standardUserDefaults] objectForKey:@"uidStr"] intValue];
 	
 	NSString * str = [NSString stringWithFormat:@"%@/api/user/findpwd.aspx?answer=%@&step=2&uid=%d",SERVER_URL,answerStr,uid];
@@ -257,7 +288,14 @@
 #pragma mark 找回密码（3）
 + (void)getResetPwdContent:(NSString *)pwdStr completionBlock:(void (^) (int,NSString *))completionBlock
 {
-	
+	BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+
 	int uid = [[[NSUserDefaults standardUserDefaults] objectForKey:@"uidStr"] intValue];
 		
 	NSString * str = [NSString stringWithFormat:@"%@/api/user/findpwd.aspx?step=3&uid=%d&pwd=%@",SERVER_URL,uid,pwdStr];	
@@ -304,7 +342,14 @@
 #pragma mark 意见反馈
 + (void)getFeedbackContent:(NSString *)contentStr contactStr:(NSString *)phoneNumStr completionBlock:(void (^) (NSString *,int))completionBlock
 {
-	
+	BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+
 	int uid= [LYGAppDelegate getSharedLoginedUserInfo].ID;
 		
 	NSString * str = [NSString stringWithFormat:@"%@/Api/yijian/Default.aspx?uid=%d&con=%@&phone=%@&name=%@",SERVER_URL,uid,contentStr,phoneNumStr,phoneNumStr];
@@ -350,7 +395,14 @@
 #pragma mark  关于我们
 + (void)getAboutUSContent:(void (^) (NSArray *,int))completionBlock
 {
-	
+	BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+
 	NSString * str = [NSString stringWithFormat:@"%@/API/News/List.aspx",SERVER_URL];
 	NSURL *url = [NSURL URLWithString:str];	
 	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
@@ -407,7 +459,14 @@
 #pragma mark  关于我们----详细
 + (void)getSoftwareUsedContentWithID:(NSString *)aID completionBlock:(void (^) (NSString *,int))completionBlock
 {
-	
+	BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+
 	NSString * str = [NSString stringWithFormat:@"%@/API/News/GetContent.aspx?id=%@",SERVER_URL,aID];
 	NSURL *url = [NSURL URLWithString:str];
 	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
@@ -456,7 +515,14 @@
 
 + (void)switchPushSetting:(int)currentValue completionBlock:(void (^) (int,NSString *))completionBlock
 {
-	
+	BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+
 	int uid= [LYGAppDelegate getSharedLoginedUserInfo].ID;
 	
 	NSString * str = [NSString stringWithFormat:@"%@/API/User/Ispush.aspx?uid=%d&value=%d",SERVER_URL,uid,currentValue];
@@ -508,7 +574,14 @@
 #pragma mark 会员管理
 + (void)getMemberInfo:(void (^) (NSArray *,int))completionBlock
 {
-	
+	BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+
 	int uid= [LYGAppDelegate getSharedLoginedUserInfo].ID;
        	
 	NSString * str = [NSString stringWithFormat:@"%@/API/User/joinShop.aspx?p=0&u=%d",SERVER_URL,uid];
@@ -567,7 +640,14 @@
 +(void)logoutMemberSettingWithID:(NSString *)aSuid completionBlock:(void (^) (int,NSString *))completionBlock
 {
 	
-	
+	BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+
 	NSString * str = [NSString stringWithFormat:@"%@/Api/shop/DelShopUser.aspx?id=%@",SERVER_URL,aSuid];
 	
 	NSURL *url = [NSURL URLWithString:str];
@@ -615,6 +695,14 @@
 #pragma mark  精品推荐
 + (void)getjpDetailContentSearch:(NSString *)searchStr  completionBlock:(void (^) (NSArray *,int))completionBlock
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+
 	NSString *str;
 	if ([searchStr isEqualToString:@""]|| searchStr == nil) 
 	{

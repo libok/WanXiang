@@ -31,10 +31,13 @@ static LoginedUserInfo * loginedUserInfo =nil;
 @synthesize viewController = _viewController;
 static CLLocationManager * locationManger = nil;
 static NSString * UUID = nil;
-
+static Reachability * reach = nil;
 +(BOOL)netWorkIsAvailable
 {
-    Reachability * reach = [Reachability reachabilityWithHostName:@"www.baidu.com"];
+    if (!reach) {
+        reach = [[Reachability reachabilityWithHostName:@"www.baidu.com"] retain];
+        //[reach startNotifier];
+    }    
     if (reach.currentReachabilityStatus == NotReachable) {
         return NO;
     }else

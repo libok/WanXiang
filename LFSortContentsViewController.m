@@ -16,6 +16,7 @@
 #import "ASIHTTPRequest.h"
 #import "SBJSON.h"
 #import "UIButton+WebCache.h"
+#import "LYGAppDelegate.h"
 @implementation HuiKanGuangGao
 -(id)initWithaDictionary:(NSDictionary*)adictionary
 {
@@ -51,6 +52,14 @@
     
     __block LFSortContentsViewController * temp = self;
     NSString * string2 = [NSString stringWithFormat:@"%@/api/book/DetailAd.aspx?s=%d",SERVER_URL,[self.oneSort.merchantID intValue]];
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+
     ASIHTTPRequest * request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:string2]];
 [request setCompletionBlock:^{
         NSLog(@"%@",request.responseString);
@@ -186,8 +195,11 @@
 
 - (IBAction)gobackBtn:(id)sender
 {
-    [self.myTimer invalidate];
-    self.myTimer = nil;
+    if (_myTimer) {
+        [_myTimer invalidate];
+        _myTimer = nil;
+    }
+    
     [self.navigationController popViewControllerAnimated:YES];
     
 }

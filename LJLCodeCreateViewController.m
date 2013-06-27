@@ -154,6 +154,15 @@
 //            [_mySwitch setOn:NO animated:YES];
 //            return;
 //        }
+        BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+        if (!isAailble) {
+            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+            [alert release];
+            _mySwitch.on = NO;
+            return;
+        }
+
         
         ASIHTTPRequest * request = [[ASIFormDataRequest alloc]initWithURL:[NSURL URLWithString:[self.urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
         

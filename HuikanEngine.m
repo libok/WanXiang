@@ -59,6 +59,14 @@ static NSMutableArray * requestArry = nil;
 }
 +(void)getQualityOrMyMagzines:(int)type userId:(int)uid pageCounts:(int)num callbackfunction:(void (^)(NSArray* myarray))function
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/book/list.aspx?type=%d&uid=%d&p=%d",SERVER_URL,type,uid,num]]];
     //NSMutableArray * resultArry = [[NSMutableArray alloc]init];
     request.tag = 0;
@@ -89,8 +97,16 @@ static NSMutableArray * requestArry = nil;
 }
 +(void)mangzineClassify:(int)shopID callbackfunction:(void (^)(NSArray* myarray))function
 {
-        
-        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/book/DetailClass.aspx?s=%d",SERVER_URL,shopID]]];
+    
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/book/DetailClass.aspx?s=%d",SERVER_URL,shopID]]];
     request.tag = 12;
     if (requestArry == nil) {
         requestArry = [[NSMutableArray alloc]init];
@@ -122,7 +138,15 @@ static NSMutableArray * requestArry = nil;
         [request startAsynchronous];
 }
 +(void)mangzineClassifyContents:(LFCategorizeSort*)asort callbackfunction:(void (^)(NSArray* myarray))function
-{    
+{
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/book/DetailList.aspx?t=%@&s=%@",SERVER_URL,asort.aId,asort.sortUid]]];
     request.tag = 25;
     if (requestArry == nil) {
@@ -157,6 +181,14 @@ static NSMutableArray * requestArry = nil;
 }
 +(void)mangzineCollection:(ArticleModel *) aarticle callbackfunction:(void (^)(bool isWin,NSString * result))function
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/Api/book/fav.aspx?bid=%@&uid=%d",SERVER_URL,aarticle.ID,[LYGAppDelegate getuid]]]];
     request.tag = 50;
     if (requestArry == nil) {
@@ -194,6 +226,14 @@ static NSMutableArray * requestArry = nil;
 //}
 +(void)getHuiKanPingLun:(ArticleModel *) aarticle   arry:(NSMutableArray*)myarry callbackfunction:(void (^)(bool isWin,NSMutableArray * arry))function
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/book/bookMsg.aspx?p=1&u=%d&bid=%@",SERVER_URL,[LYGAppDelegate getuid],aarticle.ID]]];
     //NSLog(@"%@",[request.url absoluteString]);
     request.tag = 50;
@@ -228,6 +268,14 @@ static NSMutableArray * requestArry = nil;
 
 +(void)addHuiKanPingLun:(ArticleModel *) aarticle con:(NSString*)str callbackfunction:(void (^)(bool isWin))function
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+
     //NSLog(@"%@   %d",aarticle.ID,[LYGAppDelegate getuid]);
     NSString * string = [NSString stringWithFormat:@"%@/Api/book/addbookMsg.aspx?con=%@&u=%d&bid=%@",SERVER_URL,str,[LYGAppDelegate getuid],aarticle.ID];
     NSString * str2 = [string stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];

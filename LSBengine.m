@@ -42,6 +42,13 @@
 //获取未完成交易
 +(void)orderAtOnce:(int)mangerID good:(int)goodID  content:(NSString *)astr callbackFunction:(void (^)(NSString* msg))aFunction
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
     int uid = [LYGAppDelegate getuid];
     NSString * str = [NSString stringWithFormat:@"%@/API/goods/yu.aspx?u=%d&s=%d&g=%d&con=%@",SERVER_URL,uid,mangerID,goodID,astr];
     ASIHTTPRequest *request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:str]];
@@ -64,6 +71,13 @@
 //g 产品id
 +(void)hasNotFinishedTrade:(int)status callbackfunction:(void (^)(NSMutableArray*))function
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
     int ID = [LYGAppDelegate getuid];
     NSString * string = [NSString stringWithFormat:@"%@/API/Order/OrderList.aspx?status=%d&u=%d",SERVER_URL,status,ID];
     __block NSMutableArray * mutablearry = [[NSMutableArray alloc]init];
@@ -100,6 +114,13 @@
 //获得商户信息
 +(void)getUserInfo:(int)aMangerID callbackfunction:(void (^)(ShopInfo*))function
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
     NSString * string = [NSString stringWithFormat:@"%@/API/shop/GetShop.aspx?s=%d",SERVER_URL,aMangerID];
     ASIHTTPRequest * request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:string]];
     [request setCompletionBlock:^{
@@ -129,6 +150,13 @@
 
 +(void)getGoodsArry:(int)aMangerID callbackfunction:(void (^)(NSArray*))function
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
     NSString * string = [NSString stringWithFormat:@"%@/API/Goods/goodsByShop.aspx?s=%d",SERVER_URL,aMangerID];
     ASIHTTPRequest * request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:string]];
     [request setCompletionBlock:^{
@@ -193,6 +221,13 @@
 }
 -(void)readURl
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:PROVINCE_URL]];
     [_requestArry addObject:request];
     [request setCompletionBlock:^{
@@ -228,6 +263,13 @@
 }
 +(void)deletOfMyCollection:(int)x callBackFunction:(void (^)(BOOL result))function
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
     int uid = [LYGAppDelegate getuid];
     NSString * urlstr = nil;
     switch (x) {
@@ -268,7 +310,13 @@
 
 +(void)deletnotfinished:(int)x callBackFunction:(void (^)(BOOL result))function
 {
-
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
     NSString * urlString2 = [NSString stringWithFormat:@"%@/API/order/delorder.aspx?id=%d&T=2",SERVER_URL,x];
     ASIHTTPRequest * request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:urlString2]];
     [request setCompletionBlock:^{
@@ -285,6 +333,13 @@
 
 -(void)requestCategory
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/Goods/GoodsClass.aspx",SERVER_URL]]];
     [_requestArry addObject:request];
     request.delegate = self;
@@ -297,6 +352,13 @@
 }
 -(void)requestAd:(LPCity *)aCity atype:(int)type
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
     if (aCity == nil) {
         ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/AD/wxad.aspx?sheng=17&shi=187&C=%d&p=1",SERVER_URL,type]]];
         [_requestArry addObject:request];
@@ -509,8 +571,7 @@
             
                 if ([_delegate respondsToSelector:@selector(getmes:)]) {
                     [_delegate getmes:dic];
-                }
-            
+                }         
             
         }
             break;
@@ -751,6 +812,13 @@
 }
 -(void)requestSingleCommodit:(int)aId
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/Goods/GetGoods.aspx?id=%d",SERVER_URL,aId]]];
     [_requestArry addObject:request];
     request.delegate = self;
@@ -767,6 +835,13 @@
 
 -(void)requestCommodity:(int)p class:(int)c index:(int)aIndex
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
     //API/Goods/GoodsList.aspx?p=1&c=1&djd=&dwd=
     CLLocationCoordinate2D xx = [LYGAppDelegate getlocation];
     ASIHTTPRequest * request = nil;
@@ -800,6 +875,13 @@
 }
 -(void)requestCommodityDatil:(int)p category:(int)c
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/Goods/goodsByShop.aspx?p=%d&s=%d",SERVER_URL,p,c]]];
     [_requestArry addObject:request];
     request.delegate = self;
@@ -824,6 +906,13 @@
 }
 -(void)requestDidshoucang:(int)u
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/Goods/FavGoodsList.aspx?u=%d",SERVER_URL,u]]];
     [_requestArry addObject:request];
     request.delegate = self;
@@ -837,6 +926,13 @@
 }
 -(void)requestDeleshouCang:(int)favId
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/Goods/DelFav.aspx?favid=%d",SERVER_URL,favId]]];
     [_requestArry addObject:request];
     request.delegate = self;
@@ -850,6 +946,13 @@
 }
 -(void)requestYHQ:(int)u managerID:(int)s commodityID:(int)g
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/goods/preqr.aspx?u=%d&s=%d&g=%d",SERVER_URL,u,s,g]]];
     [_requestArry addObject:request];
     request.delegate = self;
@@ -862,6 +965,13 @@
 }
 -(void)reQuestHY:(int)u managerID:(int)s
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/shop/JoinShopUser.aspx?u=%d&s=%d",SERVER_URL,u,s]]];
     [_requestArry addObject:request];
     request.delegate = self;
@@ -875,6 +985,13 @@
 }
 -(void)requestShangjiaInfo:(int)s
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/shop/GetShop.aspx?s=%d",SERVER_URL,s]]];
     [_requestArry addObject:request];
     request.delegate = self;
@@ -887,6 +1004,13 @@
 }
 -(void)requestSearch:(NSString *)aStr
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
     NSString *urlStr = [NSString stringWithFormat:@"%@/API/goods/search.aspx?k=%@",SERVER_URL,aStr ];
     urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:urlStr]];

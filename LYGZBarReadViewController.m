@@ -280,6 +280,7 @@
         break;   
     __block LYGTwoDimensionCodeModel * amodel = [[LYGTwoDimensionCodeModel alloc]init];
     amodel.isCreated = NO;
+    NSLog(@"%@",symbol.data);
     NSString *symbolString = nil;
     if ([symbol.data hasPrefix:SERVER_URL]) {
         symbolString = [symbol.data lowercaseString];
@@ -301,8 +302,9 @@
         amodel.type             = [[arry2 objectAtIndex:0] intValue];
         amodel.isSecret         = YES;
         amodel.encryptedString  = symbolString;
-        NSString * urlString    = [[self createUrlString:symbolString] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString * urlString    = [[self createUrlString:symbolString] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         ASIHTTPRequest * request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:urlString]];
+        request.timeOutSeconds    = 20;
         [request setCompletionBlock:^
         {
             if (isOpenFromSaveAlbum) {
@@ -353,6 +355,8 @@
                     break;
                 case 2:
                 {
+                    NSString * str = [dict objectForKey:@"content"];
+                    NSDictionary * contetDict = [sb objectWithString:str];
                     amodel.content = [NSString stringWithFormat:@"%@;%@;%@;%@;%@;%@;",[contetDict objectForKey:@"xing"],[contetDict objectForKey:@"ming"],[contetDict objectForKey:@"tel"],[contetDict objectForKey:@"org"],[contetDict objectForKey:@"title"],[contetDict objectForKey:@"email"]];//[contetDict objectForKey:@"tel"]];
                 }
                     break;

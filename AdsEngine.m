@@ -40,6 +40,13 @@
 @implementation AdsEngine
 +(void)getAdsArry:(int)type function:(void (^)(NSMutableArray * arry))afunction
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
     __block NSMutableArray * arry = [[NSMutableArray alloc]init];
     NSString * string     = [NSString stringWithFormat:@"%@/API/AD/ad.aspx?t=%d",SERVER_URL,type];
     ASIHTTPRequest * request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:string]];

@@ -221,6 +221,13 @@
     }
     else
     {
+        BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+        if (!isAailble) {
+            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+            [alert release];
+            return;
+        }
         NSString * temp   = [NSString  stringWithFormat:@"/API/Order/CreateOrder.aspx?u=%d&Detail=[{\"goodsid\":%d,\"managerid\":%d,\"num\":%d,\"price\":%f}]",log.ID,[self.oneCommodity.ID intValue],[self.oneCommodity.managerId intValue],[self.textField.text intValue],[self.oneCommodity.price floatValue]*[self.textField.text intValue]];
         //API/Order/CreateOrder.aspx?u=**&Detail=**
         NSString * string = [NSString  stringWithFormat:@"%@%@",SERVER_URL,temp];

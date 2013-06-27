@@ -21,7 +21,7 @@
 #import "LYGTwoDimensionCodeHistoryViewController.h"
 #import "LGEmailViewController.h"
 #import "LGHelpViewController.h"
- 
+#import "LYGAppDelegate.h"
 #import "LYGZBarReadViewController.h"
 #import "SBJSON.h"
 enum {MIAN,GREATE, SCAN, HISTORY,HELP};
@@ -220,6 +220,13 @@ enum {TEXT,PHONE,CARD,WEIBO,WEB,EMAIL,MAP,WIFI,MESSAGES,HTTP};
 
 		case HELP:
 		{
+            BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+            if (!isAailble) {
+                UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                [alert show];
+                [alert release];
+                return;
+            }
 			__block LGHelpViewController *helpVC = [[LGHelpViewController alloc] init];
             NSString * str1 = [NSString stringWithFormat:@"%@/API/News/List.aspx?type=1",SERVER_URL];
             ASIHTTPRequest * request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:str1]];

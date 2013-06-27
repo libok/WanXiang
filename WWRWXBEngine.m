@@ -24,12 +24,20 @@
 #import "WWRLiPinQuanStatus.h"
 #import "WWREBookStatus.h"
 #import "WWREBaoKanPingLunStatus.h"
+#import "LYGAppDelegate.h"
 @implementation WWRWXBEngine
 @synthesize delegate = _delegate;
 
 //获取优惠券列表
 - (void)requestPreQRListUser:(int)u
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
 	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/goods/GetPreQRList.aspx?u=%d",SERVER_URL,u]]];
     request.delegate = self;
 	request.tag = REQUEST_PREQRLIST;
@@ -41,7 +49,14 @@
 	
 }
 - (void)requestPreORDERListUser:(int)u
-{  
+{
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
 	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/goods/yuList.aspx?u=%d",SERVER_URL,u]]];
     request.delegate = self;
 	request.tag = 1000;
@@ -55,6 +70,13 @@
 
 - (void)requestQianDaoListUser:(int)u
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
 	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/qd/qdlist.aspx?u=%d",SERVER_URL,u]]];
     request.delegate = self;
 	request.tag = 2000;
@@ -69,6 +91,13 @@
 //请求会员列表
 - (void)requestJoinShopPage:(int)p user:(int)u
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
 	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@//API/User/joinShop.aspx?p=%d&u=%d",SERVER_URL,p,u]]];
     request.delegate = self;
 	request.tag = REQUEST_JOINSHOP;
@@ -82,6 +111,13 @@
 //获取礼品券列表
 - (void)requestGetGiftListUser:(int)u
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
 	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/Api/gift/List.aspx?u=%d",SERVER_URL,u]]];
     request.delegate = self;
 	request.tag = REQUEST_GETGIFTLIST;
@@ -95,6 +131,13 @@
 //查看电子凭证
 - (void)requestYoOKOrderListUser:(int)u
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
 	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/Api/order/OKOrderList.aspx?u=%d",SERVER_URL,u]]];
     request.delegate = self;
 	request.tag = REQUEST_YOOKORDERLIST;
@@ -112,6 +155,13 @@
 //删除未完成交易
 - (void)requestDelorderODID:(int)o
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
 	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/order/delorder.aspx?id=%d",SERVER_URL,o]]];
     request.delegate = self;
 	request.tag = REQUEST_DELORDERODID;
@@ -125,6 +175,13 @@
 //请求e报刊收藏列表
 - (void)requestEBookFavListUser:(int)u
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
 	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/Api/book/FavList.aspx?u=%d&p=1",SERVER_URL,u]]];
     request.delegate = self;
 	request.tag = REQUEST_EBOOKFAVLIST;
@@ -138,6 +195,13 @@
 //删除e报刊收藏数据
 - (void)requestEBookDelFavListUser:(int)b
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
 	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/Api/book/DelFav.aspx?id=%d",SERVER_URL,b]]];
     request.delegate = self;
 	request.tag = REQUEST_EBOOKDELFAVLIST;
@@ -151,6 +215,13 @@
 //删除所有e报刊收藏
 - (void)requestEBookDelFavAllListUser:(int)u
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
 	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/Api/book/Delfavall.aspx?id=%d",SERVER_URL,u]]];
     request.delegate = self;
 	request.tag = REQUEST_EBOOKDELFAVALLLIST;
@@ -162,6 +233,13 @@
 }
 +(void)requestEBookDelFavAllListUser:(int)u callbackfunction:(void (^)(bool isWin))function
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/Api/book/Delfavall.aspx?id=%d",SERVER_URL,u]]];
     [request setCompletionBlock:^{
         SBJSON *json = [[SBJSON alloc] init];
@@ -184,6 +262,13 @@
 //获取当前会刊个人评论
 - (void)requestEBookMsgUser:(int)u bookID:(int)b
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
 	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/book/bookMsg.aspx?p=1&u=%d&bid=%d",SERVER_URL,u,b]]];
     request.delegate = self;
 	request.tag = REQUEST_EBOOKMSG;
@@ -197,6 +282,13 @@
 //添加会刊评论
 - (void)requestAddBookMsgCon:(NSString *)contentStr user:(int)u bookID:(int)b
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
 	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/Api/book/addbookMsg.aspx?con=%@&u=%d&did=%d",SERVER_URL,contentStr,u,b]]];
     request.delegate = self;
 	request.tag = REQUEST_EBOOKADDMSG;

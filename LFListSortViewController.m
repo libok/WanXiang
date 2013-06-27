@@ -122,6 +122,16 @@
 
 -(void)orderButtonClick:(UIButton*)sender
 {
+   
+
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+
     int x =  [((LFESort *)[_kindSortArray objectAtIndex:sender.tag]).merchantID intValue];
     int uid = [LYGAppDelegate getuid];
     NSString  * urlString = [NSString  stringWithFormat:@"%@/API/book/JoinHK.aspx?u=%d&s=%d",SERVER_URL,uid,x];

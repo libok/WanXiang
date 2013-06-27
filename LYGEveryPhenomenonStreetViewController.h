@@ -11,7 +11,7 @@
 #import "ReverseGeocoder.h"
 
 @class DAReloadActivityButton;
-@interface LYGEveryPhenomenonStreetViewController : UIViewController <LSBengineAdDelegate>
+@interface LYGEveryPhenomenonStreetViewController : UIViewController <LSBengineAdDelegate,UIAlertViewDelegate>
 {
     LSBengine *_engine;
     NSArray   *_adArray;
@@ -45,7 +45,7 @@
 @property (nonatomic,retain)  NSTimer * myTimer;
 @property (nonatomic,assign)  BOOL isNeedRefresh;
 @property (nonatomic,retain)  NSArray *fenleiArry;
-@property (nonatomic,assign)  BOOL  isHasPresentLoginViewController;
+@property (nonatomic,assign)  BOOL  isHaveAlertView;
 - (IBAction)end:(id)sender;
 - (IBAction)backClicked:(id)sender;
 

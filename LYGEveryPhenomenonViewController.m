@@ -18,6 +18,7 @@
 #import "LYGAppDelegate.h"
 #import "WWROrderViewController.h"
 #import "LPCommodityViewController.h"
+#import "MBProgressHUD.h"
 @implementation LYGEveryPhenomenonViewController
 @synthesize ePCellLabelArray = _ePCellLabelArray;
 
@@ -51,6 +52,13 @@
 }
 -(void)xxxx
 {
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
     int uid = [LYGAppDelegate getuid];
     if (uid == 0) {
         return;
@@ -59,6 +67,7 @@
     __block LYGEveryPhenomenonViewController * temp = self;
     ASIHTTPRequest * requeset = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:string]];
     [requeset setCompletionBlock:^{
+        [MBProgressHUD hideHUDForView:temp.view animated:YES];
         NSArray * arry = [requeset.responseString componentsSeparatedByString:@","];
         NSString  * string = requeset.responseString;
         NSLog(@"%@",string);
@@ -68,9 +77,10 @@
         }
     }];
     [requeset setFailedBlock:^{
-        
+        [MBProgressHUD hideHUDForView:temp.view animated:YES];
     }];
     [requeset startAsynchronous];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -123,6 +133,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    WWREveryPhenomenonCell *cell = (WWREveryPhenomenonCell *)[tableView cellForRowAtIndexPath:indexPath];
+    
+     int x = [cell.numLabel.text intValue];
+    if (x==0) {
+        return;
+    }
+
 	switch (indexPath.row)
 	{
 		case 0:
