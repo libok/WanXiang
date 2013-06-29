@@ -75,7 +75,8 @@
     {
         _engine = [[LSBengine alloc] init];
         [_engine requestDidshoucang:[LYGAppDelegate getSharedLoginedUserInfo].ID];
-        _engine.delegate = self;        
+        _engine.delegate = self;
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     }
 
     _navSc = [[SVSegmentedControl alloc] initWithSectionTitles:[NSArray arrayWithObjects:@"收藏",@"未完成交易",@"已完成交易", nil]];
@@ -152,6 +153,7 @@
     switch (x) {
         case 0:
         {
+            [MBProgressHUD showHUDAddedTo:self.view message:@"正在加载中" animated:YES];
             [_engine requestDidshoucang:[LYGAppDelegate getSharedLoginedUserInfo].ID];
         }
             break;
@@ -191,12 +193,13 @@
 //得到收藏列表
 -(void)getShouCangTableViewSuccess:(NSMutableArray *)aArray
 {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
     self.dataArray = aArray;
     [self.tableView reloadData];
 }
 -(void)getshoucangtableviewFail:(NSError *)aError
 {
-    
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 #pragma mark-

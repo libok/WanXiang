@@ -5,7 +5,7 @@
 //  Created by  on 13-4-6.
 //  Copyright (c) 2013年 __MyCompanyName__. All rights reserved.
 //
-#import "ChoujiangViewController.h"
+/*#import "ChoujiangViewController.h"
 #import "LYGZBarReadViewController.h"
 #import "LYGScanResultViewController.h"
 #import "LYGTwoDimensionCodeDao.h"
@@ -48,143 +48,9 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
-#pragma mark - View lifecycle
--(void)setOverlayPickerView
-{
-    for (UIView *temp in [self.view subviews]) {        
-        
-        for (UIButton *button in [temp subviews]) {
-            
-            if ([button isKindOfClass:[UIButton class]]) {                
-                
-                [button removeFromSuperview];               
-                
-            }
-            
-        }        
-        
-        for (UIToolbar *toolbar in [temp subviews]) {               
-            
-            if ([toolbar isKindOfClass:[UIToolbar class]]) {                
-                
-                [toolbar setHidden:YES];
-                
-                [toolbar removeFromSuperview];
-                
-            }
-            
-        }
-        
-        
-    }
-//    for (UIView *temp in [self.view subviews]) {
-//        [temp removeFromSuperview];
-//    }
-//    self.view.backgroundColor = [UIColor clearColor];
-
-    //画中间的基准线
-  
-	line = [[UIView alloc] init];
-	line.frame = CGRectMake(0, 85, 320, 3);
-    
-    line.backgroundColor = [UIColor greenColor];
-	[self.view addSubview:line];
-	[line release];
-	
 
 
-    //[line release];   
-    
-    //最上部view
-    
-    UIView* upView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
-    upView.alpha = 0.5;
-    
-    upView.backgroundColor = [UIColor blackColor];
-    
-    [self.view addSubview:upView];
-    
-    //用于说明的label
-    
-    UILabel * labIntroudction= [[UILabel alloc] init];
-    
-    labIntroudction.backgroundColor = [UIColor clearColor];
-    
-    labIntroudction.frame=CGRectMake(80, 45, 290, 50);
-    
-    labIntroudction.numberOfLines=2;   
-    
-    labIntroudction.textColor=[UIColor whiteColor];
-    
-    labIntroudction.text=@"正在扫描二维码/条码";
-    
-    [self.view addSubview:labIntroudction];
-    
-    [labIntroudction release];
-    
-    [upView release];    
-    
-    
-    
-    UIView * downView = [[UIView alloc] initWithFrame:CGRectMake(0, 380, 320, 85)];
-    
-    downView.alpha = 0.5;
-    
-    downView.backgroundColor = [UIColor blackColor];
-    
-    [self.view addSubview:downView];
-    
-    [downView release];           
-    
-    
-    
-    //拐角
-    UIImageView * imgView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 120, 300, 240)];
-    imgView.image = [UIImage imageNamed:@"二维码中的一个按钮.png"];
-    [self.view addSubview:imgView];
-    [imgView release];
-    
-    
-    
-    //上面的两个button
-    UIButton *openPhotoLib = [[UIButton alloc]init];    
-    
-    [openPhotoLib setFrame:CGRectMake(15, 10, 50, 40)]; 
-    [openPhotoLib setImage:[UIImage imageNamed:@"二维码上边的两个按钮1.png"] forState:UIControlStateNormal];
-    //[openPhotoLib setTitle:@"取消" forState:UIControlStateNormal];
-    openPhotoLib.tag = 1;
-    [openPhotoLib.titleLabel setFont:[UIFont boldSystemFontOfSize:20]];
-    
-    [openPhotoLib addTarget:self action:@selector(buttonClick:)forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:openPhotoLib];
-    [openPhotoLib release];
-    
-    
-    
-    UIButton *openPhotoLib2 = [[UIButton alloc]init];    
-    
-    //openPhotoLib2.alpha = 0.5;
-    
-    [openPhotoLib2 setFrame:CGRectMake(255, 10, 50, 40)]; 
-    [openPhotoLib2 setImage:[UIImage imageNamed:@"二维码上边的两个按钮2.png"] forState:UIControlStateNormal];
-    //[openPhotoLib setTitle:@"取消" forState:UIControlStateNormal];
-    
-    [openPhotoLib2.titleLabel setFont:[UIFont boldSystemFontOfSize:20]];
-    openPhotoLib.tag = 2;
-    [openPhotoLib2 addTarget:self action:@selector(buttonClick:)forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:openPhotoLib2];
-    [openPhotoLib2 release];  
-    
 
-}
 -(void)viewWillDisappear:(BOOL)animated
 {
     [_timer invalidate];
@@ -235,7 +101,7 @@
 
     self.wantsFullScreenLayout = NO;
     self.showsZBarControls = NO;
-    self.cameraViewTransform = CGAffineTransformMakeScale(1.5, 1.5);
+    //self.cameraViewTransform = CGAffineTransformMakeScale(1.5, 1.5);
     [self setOverlayPickerView];
 	
 	//找到声音文件路径
@@ -595,4 +461,4 @@
 }
 
 
-@end
+@end*/

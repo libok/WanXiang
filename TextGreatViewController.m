@@ -9,7 +9,7 @@
 #import "TextGreatViewController.h"
 #import "NSString+Base64.h"
 
-#import "ZBarSDK.h"
+//#import "ZBarSDK.h"
 #import "QRCodeGenerator.h"
 #import "LJLCodeCreateViewController.h"
 
@@ -53,7 +53,7 @@
 #pragma mark UITextViewDelegate
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text   
 {   
-    if (range.location>=60)
+    if (range.length >=50)
     {   
 		if ([text isEqualToString:@"\n"])
 		{

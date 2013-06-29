@@ -26,6 +26,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import "MyTableView.h"
 #import "LGHelpViewController.h"
+#import <./ZXingWidgetController.h>
+//#import <RootViewController.h>
+//#import <./MultiFormatReader.h>
 @implementation LPCustomTabBarViewController
 @synthesize adScrollView;
 @synthesize adPageViewController;
@@ -274,7 +277,16 @@
         {
 
             UITabBarController * tab = [[UITabBarController alloc]init];
-            LYGZBarReadViewController * xxx = [[LYGZBarReadViewController alloc]init];
+//            ZXingWidgetController * xxx = [[ZXingWidgetController alloc]init];
+//            xxx.delegate                = (id)xxx;
+//            NSMutableSet *readers = [[NSMutableSet alloc ] init];
+//            
+//
+//            [readers release];
+            CustomViewController * xxx = [[CustomViewController alloc]init];
+
+            //LYGZBarReadViewController * xxx = [[LYGZBarReadViewController alloc]init];
+            //RootViewController * xxx = [[RootViewController  alloc]init];
             LYGScanViewController     * scan = [[LYGScanViewController alloc]init];
             tab.viewControllers = [NSArray arrayWithObjects:scan,xxx,nil];                      
             [self.navigationController pushViewController:tab animated:YES];
@@ -327,7 +339,12 @@
             break;
         case 21:
         {
-            LYGZBarReadViewController * xxx = [[LYGZBarReadViewController alloc]init];
+            //LYGZBarReadViewController * xxx = [[LYGZBarReadViewController alloc]init];
+            //RootViewController * xxx = [[RootViewController  alloc]init];
+            //CustomViewController *xxx = [[CustomViewController alloc]init];
+//            ZXingWidgetController * xxx = [[ZXingWidgetController alloc]init];
+//            xxx.delegate                = (id)xxx;
+            CustomViewController * xxx = [[CustomViewController alloc]init];
             LYGScanViewController     * scan = [[LYGScanViewController alloc]init];
             UITabBarController * tab = [[UITabBarController alloc]init];
             tab.viewControllers = [NSArray arrayWithObjects:scan,xxx,nil];

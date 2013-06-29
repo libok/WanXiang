@@ -11,7 +11,7 @@
 #import "ASIHTTPRequest.h"
 #import "ASIFormDataRequest.h"
 #import "Reachability.h"
-#import "ZBarSDK.h"
+//#import "ZBarSDK.h"
 #import "QRCodeGenerator.h"
 #import "NSString+Base64.h"
 #import "SBJSON.h"
@@ -45,17 +45,13 @@
 	//NSLog(@"2222%@",self.contentStr);
     [super viewDidLoad];
     self.currentColor = [UIColor blackColor];
-    self.erweimaImageView.image = [QRCodeGenerator qrImageForString:self.contentStr imageSize:self.erweimaImageView.bounds.size.width color:[UIColor blackColor]];
+    self.erweimaImageView.image = [QRCodeGenerator qrImageForString:self.contentStr imageSize:500 color:[UIColor blackColor]];
     _oneModel                   = [[LYGTwoDimensionCodeModel alloc]init];
     _oneModel.type              = self.codeType;
 	_oneModel.myType            = self.myType;
     _oneModel.isCreated         = YES;
-//    NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
-//    _oneModel.content    = [self.contentStr stringByAddingPercentEscapesUsingEncoding:enc];
+
     _oneModel.content    = self.contentStr;
-//    NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
-//    const char* cstring = [self.contentStr cStringUsingEncoding:enc];
-//    _oneModel.content     = [NSString  stringWithCString:cstring encoding:enc];
 }
 
 
@@ -75,13 +71,13 @@
     //合并图片的方法
 	
 	//背景图片的大小
-	CGSize finalSize = {192,192};
+	CGSize finalSize = {backImage.size.width,backImage.size.height};
 	//前景图的大小
  	UIGraphicsBeginImageContext(finalSize);
 	
 	//把下面的画在上面的，注意顺序
 	[backImage drawInRect:CGRectMake(0,0,finalSize.width,finalSize.height)];
-	[topImage drawInRect:CGRectMake(82.25,82.25,28.5,28.5)];
+	[topImage drawInRect:CGRectMake((backImage.size.width-backImage.size.width/5)/2,(backImage.size.width-backImage.size.width/5)/2,backImage.size.width/5,backImage.size.width/5)];
 	UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
 	
 	return newImage;
@@ -98,10 +94,10 @@
     UIImage *image = nil;    
     self.currentColor = sender.backgroundColor;
     if (self.mySwitch.on) {
-        image = [QRCodeGenerator qrImageForString:self.oneModel.encryptedString imageSize:192 color:self.currentColor];
+        image = [QRCodeGenerator qrImageForString:self.oneModel.encryptedString imageSize:500 color:self.currentColor];
     }else
     {
-        image = [QRCodeGenerator qrImageForString:self.oneModel.content imageSize:192 color:self.currentColor];
+        image = [QRCodeGenerator qrImageForString:self.oneModel.content imageSize:500 color:self.currentColor];
     }
     
     if (infoImage)
@@ -210,7 +206,7 @@
 	}
 	else 
 	{
-        UIImage *image = [QRCodeGenerator qrImageForString:self.contentStr imageSize:self.erweimaImageView.bounds.size.width color:self.currentColor];
+        UIImage *image = [QRCodeGenerator qrImageForString:self.contentStr imageSize:500 color:self.currentColor];
         if (infoImage)
         {
             
@@ -225,7 +221,7 @@
 
 - (IBAction) gexingshengma
 {
-	if (_mySwitch.on == YES) 
+	if (1!=1)
 	{
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络加密无法添加个性码" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
 		[alert show];
@@ -383,6 +379,7 @@
 {
 	NSLog(@"333%@",_oneModel.myType);
     [LYGTwoDimensionCodeDao insert:_oneModel];
+
     UIImageWriteToSavedPhotosAlbum(self.erweimaImageView.image, nil, nil, nil);
     UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"已经保存到照片库" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
     [alert show];

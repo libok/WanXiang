@@ -11,7 +11,7 @@
 #import "LYGAppDelegate.h"
 #import "NSString+Base64.h"
 
-#import "ZBarSDK.h"
+//#import "ZBarSDK.h"
 #import "QRCodeGenerator.h"
 
 @implementation LGPhoneViewController

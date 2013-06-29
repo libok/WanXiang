@@ -21,8 +21,6 @@
 #import "DataVerifier.h"
 #import <sys/utsname.h>
 #import "WelcomeViewController.h"
-#import <MapKit/MapKit.h>
-#import <CoreLocation/CLLocationManager.h>
 #import "SBJSON.h"
 @implementation LYGAppDelegate
 
