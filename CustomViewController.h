@@ -37,6 +37,7 @@
 {
     NSTimer * _timer;
     NSURL *soundToPlay;
+    SystemSoundID beepSound;
     UIView  * _albumView;
     NSThread * mythread;
 }

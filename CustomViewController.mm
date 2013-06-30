@@ -62,6 +62,13 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     self.isScanning = YES;
+    if (self.soundToPlay != nil) {
+        OSStatus error = AudioServicesCreateSystemSoundID((CFURLRef)[self soundToPlay], &beepSound);
+        if (error != kAudioServicesNoError) {
+            NSLog(@"Problem loading nearSound.caf");
+        }
+    }
+
 }
 
 
@@ -411,13 +418,30 @@
         
     }];
 }
+- (void)dealloc {
+    if (beepSound != (SystemSoundID)-1) {
+        AudioServicesDisposeSystemSoundID(beepSound);
+    }
+    
+    //[self stopCapture];
+    
+    //[result release];
+    [soundToPlay release];
+    //[overlayView release];
+    //[readers release];
+    [super dealloc];
+}
+
 
 #pragma mark - DecoderDelegate
 
 - (void)decoder:(Decoder *)decoder didDecodeImage:(UIImage *)image usingSubset:(UIImage *)subset withResult:(TwoDDecoderResult *)result2
 {
     
-    
+    if (beepSound != (SystemSoundID)-1) {
+        AudioServicesPlaySystemSound(beepSound);
+    }
+
     //[self dismissModalViewControllerAnimated:YES];
     //if (self.captureSession.running) {
     if (self.captureSession.running) {
