@@ -77,7 +77,13 @@
 	
 	//把下面的画在上面的，注意顺序
 	[backImage drawInRect:CGRectMake(0,0,finalSize.width,finalSize.height)];
-	[topImage drawInRect:CGRectMake((backImage.size.width-backImage.size.width/5)/2,(backImage.size.width-backImage.size.width/5)/2,backImage.size.width/5,backImage.size.width/5)];
+    if (self.mySwitch.on) {
+        [topImage drawInRect:CGRectMake((backImage.size.width-backImage.size.width/5)/2,(backImage.size.width-backImage.size.width/5)/2,backImage.size.width/5,backImage.size.width/5)];
+    }else
+    {
+        [topImage drawInRect:CGRectMake((backImage.size.width-backImage.size.width/7)/2,(backImage.size.width-backImage.size.width/7)/2,backImage.size.width/7,backImage.size.width/7)];
+    }
+	
 	UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
 	
 	return newImage;
