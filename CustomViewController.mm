@@ -51,12 +51,18 @@
 
 -(void)viewDidDisappear:(BOOL)animated
 {
-        self.isScanning = NO;
-    [self.captureSession stopRunning];
+    self.isScanning = NO;
+    if (self.captureSession.running) {
+        [self.captureSession stopRunning];
+    }
+
 }
 -(void)viewWillDisappear:(BOOL)animated
 {
-    [self.captureSession stopRunning];
+    if (self.captureSession.isRunning) {
+        [self.captureSession stopRunning];
+    }
+    
     self.isScanning = YES;
 }
 -(void)viewWillAppear:(BOOL)animated
@@ -84,7 +90,7 @@
 {
     while(1)
     {
-        CGRect rect;
+        static CGRect rect;
         rect = _line.frame;
         rect.origin.y += 3;
         if (rect.origin.y >= 400)
@@ -442,8 +448,7 @@
         AudioServicesPlaySystemSound(beepSound);
     }
 
-    //[self dismissModalViewControllerAnimated:YES];
-    //if (self.captureSession.running) {
+
     if (self.captureSession.running) {
         [self.captureSession stopRunning];
         return;
@@ -507,10 +512,10 @@
              }
              [tempCOntroller dismissModalViewControllerAnimated:NO];
              tempCOntroller.isScanning = NO;
-             NSString*     resultString       = [dict objectForKey:@"Result"];
-             NSDictionary*   dictResult       = [sb objectWithString:resultString error:nil];
-             NSString  *     contentStr       = [dictResult objectForKey:@"Contents"];
-             NSDictionary  * contetDict       = [sb objectWithString:contentStr error:nil];
+             NSString*     resultString       = [dict objectForKey:@"content"];
+             NSDictionary*   contetDict       = [sb objectWithString:resultString error:nil];
+//             NSString  *     contentStr       = [dictResult objectForKey:@"content"];
+//             NSDictionary  * contetDict       = [sb objectWithString:contentStr error:nil];
              switch (amodel.type)
              {
                  case 0:
@@ -599,20 +604,17 @@
              UIAlertView * alert       = [[UIAlertView alloc]initWithTitle:nil message:@"在线解析失败" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
              [alert show];
              [alert release];
-             [tempCOntroller.captureSession startRunning];
+             if (!tempCOntroller.presentedViewController) {
+                 [tempCOntroller.captureSession startRunning];
+             }
+             
              return;
          }];
         [request startAsynchronous];
         [MBProgressHUD showHUDAddedTo:tempView message:@"网络解密中" animated:YES];
         
     }else if (range2.length > 0)
-    {
-//        if (isOpenFromSaveAlbum)
-//        {
-//            //[reader dismissModalViewControllerAnimated:YES];
-//            [reader dismissViewControllerAnimated:YES completion:nil];
-//        }
-        
+    {        
         NSArray * arry = [result2.text componentsSeparatedByString:@"|"];
         if(arry.count <2)
         {

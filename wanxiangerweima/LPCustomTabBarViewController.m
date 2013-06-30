@@ -277,12 +277,7 @@
         {
 
             UITabBarController * tab = [[UITabBarController alloc]init];
-//            ZXingWidgetController * xxx = [[ZXingWidgetController alloc]init];
-//            xxx.delegate                = (id)xxx;
-//            NSMutableSet *readers = [[NSMutableSet alloc ] init];
-//            
-//
-//            [readers release];
+
             CustomViewController * xxx = [[CustomViewController alloc]init];
 
             //LYGZBarReadViewController * xxx = [[LYGZBarReadViewController alloc]init];
@@ -339,21 +334,17 @@
             break;
         case 21:
         {
-            //LYGZBarReadViewController * xxx = [[LYGZBarReadViewController alloc]init];
-            //RootViewController * xxx = [[RootViewController  alloc]init];
-            //CustomViewController *xxx = [[CustomViewController alloc]init];
-//            ZXingWidgetController * xxx = [[ZXingWidgetController alloc]init];
-//            xxx.delegate                = (id)xxx;
             CustomViewController * xxx = [[CustomViewController alloc]init];
             LYGScanViewController     * scan = [[LYGScanViewController alloc]init];
             UITabBarController * tab = [[UITabBarController alloc]init];
             tab.viewControllers = [NSArray arrayWithObjects:scan,xxx,nil];
-            tab.selectedIndex   = 1;
-            [self.navigationController pushViewController:tab animated:YES];
-            [tab release];
-            //UITabBarController＊ tabBarController = [[UITabBarController alloc] init];
             [xxx release];
             [scan release];
+            [self.navigationController pushViewController:tab animated:YES];
+            tab.selectedIndex   = 1;
+            [tab release];
+            //UITabBarController＊ tabBarController = [[UITabBarController alloc] init];
+            
             //[help release];
             NSArray *array = [tab.view subviews];
             
