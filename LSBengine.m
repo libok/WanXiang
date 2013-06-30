@@ -76,6 +76,7 @@
         UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alert show];
         [alert release];
+        function(nil);
         return;
     }
     int ID = [LYGAppDelegate getuid];
@@ -109,6 +110,7 @@
     [request setFailedBlock:^{
         NSLog(@"%@",request.responseString);
     }];
+    request.timeOutSeconds = TIMEOUTSECONDS;
     [request startAsynchronous];
 }
 //获得商户信息

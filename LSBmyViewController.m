@@ -62,6 +62,10 @@
  - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _engine = [[LSBengine alloc] init];
+    //[_engine requestDidshoucang:[LYGAppDelegate getSharedLoginedUserInfo].ID];
+    _engine.delegate = self;
+
     //LoginedUserInfo * log = [LYGAppDelegate getSharedLoginedUserInfo];
     int myID = [LYGAppDelegate getuid];
     if (myID == -1)
@@ -71,13 +75,7 @@
         [login release];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:@"success" object:nil];         
     }
-    else
-    {
-        _engine = [[LSBengine alloc] init];
-        [_engine requestDidshoucang:[LYGAppDelegate getSharedLoginedUserInfo].ID];
-        _engine.delegate = self;
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    }
+    
 
     _navSc = [[SVSegmentedControl alloc] initWithSectionTitles:[NSArray arrayWithObjects:@"收藏",@"未完成交易",@"已完成交易", nil]];
     [_navSc addTarget:self action:@selector(valueChange:) forControlEvents:UIControlEventValueChanged];
@@ -102,7 +100,8 @@
     switch (x) {
         case 0:
         {
-            [_engine requestDidshoucang:[LYGAppDelegate getSharedLoginedUserInfo].ID];
+//             [MBProgressHUD showHUDAddedTo:self.view message:@"正在加载中" animated:YES];
+//            [_engine requestDidshoucang:[LYGAppDelegate getSharedLoginedUserInfo].ID];
         }
             break;
         case 1:
