@@ -30,8 +30,9 @@
     self.button1.layer.cornerRadius =5;
     self.button2.layer.cornerRadius =5;
     self.myTextView.layer.borderWidth = 2;
-    self.myTextView.layer.borderColor = [UIColor blueColor].CGColor;
+    self.myTextView.layer.borderColor = [UIColor darkGrayColor].CGColor;
     self.myTextView.layer.cornerRadius = 4;
+    [self.myTextView becomeFirstResponder];
     // Do any additional setup after loading the view from its nib.
 }
 
