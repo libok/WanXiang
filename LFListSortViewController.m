@@ -92,14 +92,13 @@
     [HuikanEngine mangzineClassify:x callbackfunction:^(NSArray *arry){
         [SortContentsVC.mySegmentController removeAllSegments];
         if ([arry count] > 0) {
-            SortContentsVC.fenleiArry = arry;            
+            SortContentsVC.fenleiArry = arry;
             int i = 0;
             for (LFCategorizeSort * cat in SortContentsVC.fenleiArry) {
                 [SortContentsVC.mySegmentController insertSegmentWithTitle:cat.title atIndex:i++ animated:NO];
             }
-
         }
-                //SortContentsVC.mySegmentController.selected = 0;
+        //SortContentsVC.mySegmentController.selected = 0;
         [SortContentsVC.mySegmentController setSelectedSegmentIndex:0];
         [SortContentsVC initGet];
     }];

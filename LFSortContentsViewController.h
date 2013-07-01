@@ -33,7 +33,9 @@
 @property (retain, nonatomic) IBOutlet UILabel *className;
 
 - (IBAction)gobackBtn:(id)sender;
--(void)initGet;
+- (void) initGet;
+
+@property (retain, nonatomic) IBOutlet UIScrollView *segScroll;
 @property (retain, nonatomic) IBOutlet UISegmentedControl *mySegmentController;
 @property (retain, nonatomic) IBOutlet UITableView *myTableView;
 @property (retain, nonatomic) IBOutlet UIImageView *huiKanImageView;

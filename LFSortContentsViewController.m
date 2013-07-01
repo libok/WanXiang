@@ -26,6 +26,7 @@
     return self;
 }
 @end
+
 @interface LFSortContentsViewController ()
 
 @end
@@ -34,11 +35,13 @@
 
 @synthesize categorize = _categorize;
 @synthesize className  = _className;
+@synthesize segScroll;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization         
+
     }
     return self;
 }
@@ -47,8 +50,6 @@
 {
     [super viewDidLoad];
     self.className.text = self.oneSort.aSortName;
-   // NSString * string = [NSString stringWithFormat:@"%@%@",SERVER_URL,self.oneSort.aSortImg];
-    
     
     __block LFSortContentsViewController * temp = self;
     NSString * string2 = [NSString stringWithFormat:@"%@/api/book/DetailAd.aspx?s=%d",SERVER_URL,[self.oneSort.merchantID intValue]];
@@ -61,7 +62,7 @@
     }
 
     ASIHTTPRequest * request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:string2]];
-[request setCompletionBlock:^{
+    [request setCompletionBlock:^{
         NSLog(@"%@",request.responseString);
         SBJSON * sb = [[SBJSON alloc]init];
         NSDictionary * dict = [sb objectWithString:request.responseString];
@@ -91,8 +92,8 @@
     [request startAsynchronous];
     //[self.huiKanImageView setImageWithURL:[NSURL URLWithString:string] placeholderImage:[UIImage imageNamed:@"会刊2-4.png"]];
     
-    
 }
+
 -(void)changeImage:(int)count
 {
     _myTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(changeSCroview) userInfo:nil repeats:YES];
@@ -110,11 +111,17 @@
             leftorright*=-1;
         }
 }
+
 -(void)initGet
 {
+    if (_fenleiArry.count>3) {
+        self.segScroll.showsHorizontalScrollIndicator=NO;
+        self.segScroll.frame=CGRectMake(26, 48, 274, 32);
+        self.segScroll.contentSize=CGSizeMake(_fenleiArry.count*90, 32);
+        self.mySegmentController.frame=CGRectMake(1, 1, _fenleiArry.count*90, 30);
+    }
+    
     LFSortContentsViewController * temp = self;
-    NSLog(@"%d",[_fenleiArry count]);
-    //__block LFSortContentsViewController * temp = self;
     [MBProgressHUD showHUDAddedTo:self.view message:@"正在加载" animated:YES];
     [HuikanEngine mangzineClassifyContents:[_fenleiArry objectAtIndex:0] callbackfunction:^(NSArray * arry){
         if (arry == nil) {
@@ -122,9 +129,7 @@
             return ;
         }
         temp.currentArry = arry;
-        //[temp.dict setObject:arry forKey:[temp.fenleiArry objectAtIndex:0]];
         [temp.dict setObject:arry forKey:[NSNumber numberWithInt:0]];
-        //[arry release];
         [temp.myTableView reloadData];
         [MBProgressHUD hideHUDForView:temp.view animated:YES];
     }];
@@ -185,9 +190,6 @@
     label.text      = @"";
     label.text      = ((ArticleModel*)([self.currentArry objectAtIndex:indexPath.row])).title;
     //cell.textLabel.text = ((ArticleModel*)([self.currentArry objectAtIndex:indexPath.row])).title;
-    
-    
-
     return cell;
 
 }
@@ -231,14 +233,11 @@
         _currentIndex = x;
         if ([temp.dict objectForKey:[NSNumber numberWithInt:x]] == nil)
         {
-            //NSLog(@"%@",[temp.dict all]);
             [HuikanEngine mangzineClassifyContents:[_fenleiArry objectAtIndex:x] callbackfunction:^(NSArray * arry){
                 temp.currentArry = arry;
                 [temp.dict setObject:arry forKey:[NSNumber numberWithInt:x]];
-                //[arry release];
                 [temp.myTableView reloadData];
             }];
-
         }else
         {
             temp.currentArry = [temp.dict objectForKey:[NSNumber numberWithInt:x]];
@@ -246,7 +245,5 @@
         }
 
     }
-
-
 }
 @end
