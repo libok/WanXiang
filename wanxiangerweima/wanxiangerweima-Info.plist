@@ -2,75 +2,79 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
-	<key>CFBundleDisplayName</key>
+	<key>CFBundleName</key>
 	<string>${PRODUCT_NAME}</string>
-	<key>CFBundleExecutable</key>
-	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleIconFiles</key>
-	<array>
-		<string>57x57.png</string>
-		<string>114x114.png</string>
-	</array>
+	<key>CFBundleIdentifier</key>
+	<string>com.xgTest.wanxiangerweima</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
 	<key>CFBundleIcons</key>
 	<dict>
 		<key>CFBundlePrimaryIcon</key>
 		<dict>
+			<key>UIPrerenderedIcon</key>
+			<false/>
 			<key>CFBundleIconFiles</key>
 			<array>
 				<string>57x57.png</string>
 				<string>114x114.png</string>
 			</array>
-			<key>UIPrerenderedIcon</key>
-			<false/>
 		</dict>
 	</dict>
-	<key>CFBundleIdentifier</key>
-	<string>com.lovephone.wanxiangerweima</string>
-	<key>CFBundleInfoDictionaryVersion</key>
-	<string>6.0</string>
-	<key>CFBundleName</key>
-	<string>${PRODUCT_NAME}</string>
-	<key>CFBundlePackageType</key>
-	<string>APPL</string>
-	<key>CFBundleShortVersionString</key>
+	<key>CFBundleVersion</key>
 	<string>1.0</string>
-	<key>CFBundleSignature</key>
-	<string>????</string>
+	<key>PRIVATE</key>
+	<string>MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAMQaSm0yUpOYyJnUPTcEY+XAjoEfqZ9n6EEFLksCCSRKf2YEUUpCv9fgAoHrkKPmuYTiRv3iGIwgSDjHecnFBtQ6t7BC77zl/wW6IK3fv8R2zOnLoPnbioastISkE8ARgFDLKTSg5WkMwRSYBDsrBdyxUuJ4zsiMFse33myH4q+hAgMBAAECgYAgmDIYtk2NZM6q6uEF3P/xtzC4e5fI/A9Zh0/rfbohQxSr0znjuvaCHiSsjYfsBjR9xtJ/7m2gFNmMPnOautnob3066mnjXrVC76OElD3Fhe8hYOVt471aCVxdjJfNbAO7g3QLqZGpCqSUC86X8/OvKDLUYdr5BNTC73Wqh5TytQJBAP+LTgU3sMlu4pdBWrafKlzhGYYGVNiwQ3NXgHj/XyWqGWLPrJE/nW8HCgNWWZOK5rr2IKtrVKfa78ZKftF7D8cCQQDEc9d/YuIx1ySkhL7fd0fIcz6QIZ4lEJpZqxD6PE6YMSFz+EG7DwsiElfYFuoQGQEy4Oo1X5/8EbwQ3hNVExVXAkEAhOvH7GzYVx6HXFfRQJav6Vno9c7LSV795rwIBmgG7Md6puwQ/ghR8pN9wNikhVtFwtANlDyi7yCxgbn0FzBktwJBALUHqsWQcbBL+VBBo0J5wIRO7pAS6pBtRE7s/LAbcrF8VL9xPeEKc8/p51kRhI9g+2HPMQQOInc+QHeqrVXwR/ECQGT+Fu8pNgVaLPfo5J0qHF4BL84UPDLbJyYcFzlpiLdaH+fGKuMqS/AFhbBZ3n+4rK3E+6eAo9JgnLZLLa/c1mM=</string>
+	<key>CFBundleExecutable</key>
+	<string>${EXECUTABLE_NAME}</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>57x57.png</string>
+		<string>114x114.png</string>
+	</array>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>CFBundleDisplayName</key>
+	<string>${PRODUCT_NAME}</string>
+	<key>PUBLIC</key>
+	<string>MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAMQaSm0yUpOYyJnUPTcEY+XAjoEfqZ9n6EEFLksCCSRKf2YEUUpCv9fgAoHrkKPmuYTiRv3iGIwgSDjHecnFBtQ6t7BC77zl/wW6IK3fv8R2zOnLoPnbioastISkE8ARgFDLKTSg5WkMwRSYBDsrBdyxUuJ4zsiMFse33myH4q+hAgMBAAECgYAgmDIYtk2NZM6q6uEF3P/xtzC4e5fI/A9Zh0/rfbohQxSr0znjuvaCHiSsjYfsBjR9xtJ/7m2gFNmMPnOautnob3066mnjXrVC76OElD3Fhe8hYOVt471aCVxdjJfNbAO7g3QLqZGpCqSUC86X8/OvKDLUYdr5BNTC73Wqh5TytQJBAP+LTgU3sMlu4pdBWrafKlzhGYYGVNiwQ3NXgHj/XyWqGWLPrJE/nW8HCgNWWZOK5rr2IKtrVKfa78ZKftF7D8cCQQDEc9d/YuIx1ySkhL7fd0fIcz6QIZ4lEJpZqxD6PE6YMSFz+EG7DwsiElfYFuoQGQEy4Oo1X5/8EbwQ3hNVExVXAkEAhOvH7GzYVx6HXFfRQJav6Vno9c7LSV795rwIBmgG7Md6puwQ/ghR8pN9wNikhVtFwtANlDyi7yCxgbn0FzBktwJBALUHqsWQcbBL+VBBo0J5wIRO7pAS6pBtRE7s/LAbcrF8VL9xPeEKc8/p51kRhI9g+2HPMQQOInc+QHeqrVXwR/ECQGT+Fu8pNgVaLPfo5J0qHF4BL84UPDLbJyYcFzlpiLdaH+fGKuMqS/AFhbBZ3n+4rK3E+6eAo9JgnLZLLa/c1mM=</string>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+	</array>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
 			<key></key>
 			<string></string>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLIconFile</key>
-			<string>1</string>
 			<key>CFBundleURLName</key>
 			<string>wanxiangerweima</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>wanxiangerweima</string>
 			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLIconFile</key>
+			<string>1</string>
 		</dict>
 	</array>
-	<key>CFBundleVersion</key>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
-	<key>PRIVATE</key>
-	<string>MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAMQaSm0yUpOYyJnUPTcEY+XAjoEfqZ9n6EEFLksCCSRKf2YEUUpCv9fgAoHrkKPmuYTiRv3iGIwgSDjHecnFBtQ6t7BC77zl/wW6IK3fv8R2zOnLoPnbioastISkE8ARgFDLKTSg5WkMwRSYBDsrBdyxUuJ4zsiMFse33myH4q+hAgMBAAECgYAgmDIYtk2NZM6q6uEF3P/xtzC4e5fI/A9Zh0/rfbohQxSr0znjuvaCHiSsjYfsBjR9xtJ/7m2gFNmMPnOautnob3066mnjXrVC76OElD3Fhe8hYOVt471aCVxdjJfNbAO7g3QLqZGpCqSUC86X8/OvKDLUYdr5BNTC73Wqh5TytQJBAP+LTgU3sMlu4pdBWrafKlzhGYYGVNiwQ3NXgHj/XyWqGWLPrJE/nW8HCgNWWZOK5rr2IKtrVKfa78ZKftF7D8cCQQDEc9d/YuIx1ySkhL7fd0fIcz6QIZ4lEJpZqxD6PE6YMSFz+EG7DwsiElfYFuoQGQEy4Oo1X5/8EbwQ3hNVExVXAkEAhOvH7GzYVx6HXFfRQJav6Vno9c7LSV795rwIBmgG7Md6puwQ/ghR8pN9wNikhVtFwtANlDyi7yCxgbn0FzBktwJBALUHqsWQcbBL+VBBo0J5wIRO7pAS6pBtRE7s/LAbcrF8VL9xPeEKc8/p51kRhI9g+2HPMQQOInc+QHeqrVXwR/ECQGT+Fu8pNgVaLPfo5J0qHF4BL84UPDLbJyYcFzlpiLdaH+fGKuMqS/AFhbBZ3n+4rK3E+6eAo9JgnLZLLa/c1mM=</string>
-	<key>PUBLIC</key>
-	<string>MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAMQaSm0yUpOYyJnUPTcEY+XAjoEfqZ9n6EEFLksCCSRKf2YEUUpCv9fgAoHrkKPmuYTiRv3iGIwgSDjHecnFBtQ6t7BC77zl/wW6IK3fv8R2zOnLoPnbioastISkE8ARgFDLKTSg5WkMwRSYBDsrBdyxUuJ4zsiMFse33myH4q+hAgMBAAECgYAgmDIYtk2NZM6q6uEF3P/xtzC4e5fI/A9Zh0/rfbohQxSr0znjuvaCHiSsjYfsBjR9xtJ/7m2gFNmMPnOautnob3066mnjXrVC76OElD3Fhe8hYOVt471aCVxdjJfNbAO7g3QLqZGpCqSUC86X8/OvKDLUYdr5BNTC73Wqh5TytQJBAP+LTgU3sMlu4pdBWrafKlzhGYYGVNiwQ3NXgHj/XyWqGWLPrJE/nW8HCgNWWZOK5rr2IKtrVKfa78ZKftF7D8cCQQDEc9d/YuIx1ySkhL7fd0fIcz6QIZ4lEJpZqxD6PE6YMSFz+EG7DwsiElfYFuoQGQEy4Oo1X5/8EbwQ3hNVExVXAkEAhOvH7GzYVx6HXFfRQJav6Vno9c7LSV795rwIBmgG7Md6puwQ/ghR8pN9wNikhVtFwtANlDyi7yCxgbn0FzBktwJBALUHqsWQcbBL+VBBo0J5wIRO7pAS6pBtRE7s/LAbcrF8VL9xPeEKc8/p51kRhI9g+2HPMQQOInc+QHeqrVXwR/ECQGT+Fu8pNgVaLPfo5J0qHF4BL84UPDLbJyYcFzlpiLdaH+fGKuMqS/AFhbBZ3n+4rK3E+6eAo9JgnLZLLa/c1mM=</string>
-	<key>UIRequiredDeviceCapabilities</key>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>zh_CN</string>
+	<key>CFBundleLocalizations</key>
 	<array>
-		<string>armv7</string>
-	</array>
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>zh_CN</string>
 	</array>
 </dict>
 </plist>
