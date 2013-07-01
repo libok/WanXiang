@@ -23,11 +23,12 @@
     return self;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self.myWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.urlString]]];
-    // Do any additional setup after loading the view from its nib.
+    self.titleLab.text=self.titleString;
 }
 
 - (void)didReceiveMemoryWarning

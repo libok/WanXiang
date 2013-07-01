@@ -405,7 +405,7 @@
 {
     UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
     __block CustomViewController *xxx = self;
-    //[self dismissViewControllerAnimated:YES completion:^{[xxx decodeImage:image];}];
+//    [self dismissViewControllerAnimated:YES completion:^{[xxx decodeImage:image];}];
     [xxx decodeImage:image];
     //[self.captureSession stopRunning];
 }
@@ -448,7 +448,6 @@
         AudioServicesPlaySystemSound(beepSound);
     }
 
-
     if (self.captureSession.running) {
         [self.captureSession stopRunning];
         return;
@@ -457,10 +456,9 @@
         
     }
     
-   // }
 
     
-    NSLog(@"%@",result2.text);
+    NSLog(@"--decoder----->%@",result2.text);
 
     __block LYGTwoDimensionCodeModel * amodel = [[LYGTwoDimensionCodeModel alloc]init];
     amodel.isCreated = NO;
@@ -475,8 +473,30 @@
     NSRange range2              = [symbolString rangeOfString:[NSString stringWithFormat:@"%@/page/page.aspx?id=",SERVER_URL]];
     NSRange range3              = [symbolString rangeOfString:[NSString stringWithFormat:@"%@/page/lottery.aspx?id=",SERVER_URL]];
     NSRange range4              = [symbolString rangeOfString:[NSString stringWithFormat:@"河南宝丰石桥水泉"]];
+    NSRange range5              = [symbolString rangeOfString:@"/vote.aspx"];
     
-    if (range.length > 0)
+    
+    if (range5.length>0) {
+        
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+        
+        int uid = [LYGAppDelegate getuid];
+        if (uid == 0 ) {
+            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"必须处于登录状态才能进行问卷调查" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+            [alert release];
+        }else
+        {
+            ChoujiangViewController * temp = [[ChoujiangViewController alloc]init];
+            temp.urlString = [NSString stringWithFormat:@"%@/page/getvote.aspx?id=8&uid=%d",SERVER_URL,uid];
+            temp.titleString=@"问卷调查";
+            [self.navigationController pushViewController:temp animated:YES];
+              
+        }
+        
+    }else if (range.length > 0)
     {
         NSArray * arry          = [symbolString componentsSeparatedByString:@"="];
         NSArray * arry2         = [[arry objectAtIndex:1] componentsSeparatedByString:@"&"];
@@ -613,7 +633,8 @@
         [request startAsynchronous];
         [MBProgressHUD showHUDAddedTo:tempView message:@"网络解密中" animated:YES];
         
-    }else if (range2.length > 0)
+    }
+    else if (range2.length > 0)
     {        
         NSArray * arry = [result2.text componentsSeparatedByString:@"|"];
         if(arry.count <2)
@@ -627,11 +648,10 @@
         [temp release];
     }else if (range3.length > 0)
     {
-//        if (isOpenFromSaveAlbum)
-//        {
-//            //[reader dismissModalViewControllerAnimated:YES];
-//            [reader dismissViewControllerAnimated:YES completion:nil];
-//        }
+
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+        }];
         
         NSArray * arry = [result2.text componentsSeparatedByString:@"id="];
         int uid = [LYGAppDelegate getuid];
@@ -642,7 +662,8 @@
         }else
         {
             ChoujiangViewController * temp = [[ChoujiangViewController alloc]init];
-            temp.urlString = [NSString stringWithFormat:@"%@/page/getlottery.aspx?id=%@uid=%d",SERVER_URL,[arry lastObject],uid];
+            temp.urlString = [NSString stringWithFormat:@"%@/page/getlottery.aspx?id=%@&uid=%d",SERVER_URL,[arry lastObject],uid];
+            temp.titleString=@"抽奖";
             [self.navigationController pushViewController:temp animated:YES];
         }
     }else if (range4.length > 0)

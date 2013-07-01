@@ -152,11 +152,7 @@
 				[btn setTitle:@"打开链接" forState:UIControlStateNormal];
 				[btn addTarget:self action:@selector(openURL:) forControlEvents:UIControlEventTouchUpInside];
 				[self.view addSubview:btn];
-                
-                //如果当前的http为问卷连接，直接打开
-                if ([self.amodel.content rangeOfString:@"/vote.aspx"].length>0) {
-                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[self.amodel.content stringByReplacingOccurrencesOfString:@"/vote.aspx" withString:@"/getvote.aspx" ]]];
-                }
+            
 			}
 			
 			break;
