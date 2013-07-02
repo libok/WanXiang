@@ -20,6 +20,11 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        if (IS_IPHONE5) {
+            self.view.frame=CGRectMake(0, 0, 320, 568);
+            self.button1.frame=CGRectMake(20, 222, 145, 45);
+            self.button2.frame=CGRectMake(205, 222, 95, 45);
+        }
     }
     return self;
 }
