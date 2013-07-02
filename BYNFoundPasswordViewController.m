@@ -9,7 +9,7 @@
 #import "BYNFoundPasswordViewController.h"
 #import "BYNSafetyQuestionViewController.h"
 #import "BYNUserCenterEngine.h"
-
+#import "MBProgressHUD.h"
 @implementation BYNFoundPasswordViewController
 @synthesize phoneNumTF = _phoneNumTF;
 
@@ -26,21 +26,21 @@
 	
 	NSString *str = [_phoneNumTF.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];	
 	
+    [MBProgressHUD showHUDAddedTo:self.view message:@"努力请求中..." animated:YES];
 	if ([str isEqualToString:@""]) return;
 	
 
 		[BYNUserCenterEngine getFoundPwdPhoneContent:_phoneNumTF.text completionBlock:^(NSString *msgStr,int num)
 		 {
-			 
+            [MBProgressHUD hideHUDForView:self.view  animated:YES];
 			 msgStr = [[NSUserDefaults standardUserDefaults] objectForKey:@"findpwd"];
-						
 			 if (num == 0) 
 			 {
-				 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:msgStr delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK",nil];
+               
+				 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:msgStr delegate:nil cancelButtonTitle:nil otherButtonTitles:@"我知道了",nil];
 				 [alertView show];
 				 [alertView release];
 			 }
-			 
 			 else 
 			 {
 				 
