@@ -183,11 +183,12 @@
     }
     
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
+
 #pragma mark - LSBengineShouCangDelegate
 //得到收藏列表
 -(void)getShouCangTableViewSuccess:(NSMutableArray *)aArray
@@ -236,10 +237,11 @@
     return cell;
     
 }
+
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.navSc.selectedIndex == 1) {
-        return NO;
+        return YES;
     }else
     {
         return YES;
@@ -260,9 +262,9 @@
             break;
         case 1:
         {
-//            [LSBengine deletnotfinished:[ad.ID intValue] callBackFunction:^(BOOL result) {
-//                
-//            }];
+            [LSBengine deletnotfinished:[ad.ID intValue] callBackFunction:^(BOOL result) {
+                
+            }];
         }
             break;
         case 2:
@@ -276,8 +278,6 @@
         default:
             break;
     }
-    
-    
     //在数组中把对应的数据删除，必须在删除单元格之前
     [self.dataArray removeObjectAtIndex:indexPath.row];
     //在表格中把对应的单元格删除
@@ -290,7 +290,6 @@
 {
 
     LPShouCang *ad = [_dataArray objectAtIndex:indexPath.row];
-    
     __block LSBmyViewController * xxx = self;
     __block LPCommDatilViewController *datilViewController = [[LPCommDatilViewController alloc] init];
     //datilViewController.oneCommodity = ad;
@@ -302,8 +301,8 @@
         [xxx.navigationController pushViewController:datilViewController animated:YES];
         [datilViewController release];
     }];
-
 }
+
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return UITableViewCellEditingStyleDelete;
