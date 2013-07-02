@@ -450,8 +450,9 @@
 
     if (self.captureSession.running) {
         [self.captureSession stopRunning];
-        return;
-    }else
+//        return;
+    }
+    else
     {
         
     }
@@ -470,7 +471,7 @@
         symbolString = result2.text;
     }
     NSRange range               = [symbolString rangeOfString:[NSString stringWithFormat:@"%@/page/qr.aspx?type",SERVER_URL]];
-    NSRange range2              = [symbolString rangeOfString:[NSString stringWithFormat:@"%@/page/page.aspx?id=",SERVER_URL]];
+    NSRange range2              = [symbolString rangeOfString:[NSString stringWithFormat:@"%@/page/page.aspx?id=",SERVER_URL]];//富媒体
     NSRange range3              = [symbolString rangeOfString:[NSString stringWithFormat:@"%@/page/lottery.aspx?id=",SERVER_URL]];
     NSRange range4              = [symbolString rangeOfString:[NSString stringWithFormat:@"河南宝丰石桥水泉"]];
     NSRange range5              = [symbolString rangeOfString:@"/vote.aspx"];
@@ -635,7 +636,10 @@
         
     }
     else if (range2.length > 0)
-    {        
+    {//-----
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+        }];
         NSArray * arry = [result2.text componentsSeparatedByString:@"|"];
         if(arry.count <2)
         {
