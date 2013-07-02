@@ -40,7 +40,9 @@
     SystemSoundID beepSound;
     UIView  * _albumView;
     NSThread * mythread;
+    UIImage  *currentSelectImage;
 }
+@property (nonatomic, retain) UIImage *currentSelectImage;
 @property (nonatomic, retain) NSURL *soundToPlay;
 @property (nonatomic,retain)  UIView * line;
 @property (nonatomic, assign) id<CustomViewControllerDelegate> delegate;

@@ -57,8 +57,12 @@
     {
         image = [QRCodeGenerator qrImageForString:self.amodel.content imageSize:400 color:[UIColor blackColor]];
     }
-    self.myImageView.image  = image;
-	
+    if (self.amodel.erweimaImage) {
+        self.myImageView.image=self.amodel.erweimaImage;
+    }else{
+       self.myImageView.image  = image; 
+    }
+    
 	[self moreMessege];
 }
 

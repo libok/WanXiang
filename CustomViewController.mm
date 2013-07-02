@@ -18,6 +18,8 @@
 
 @implementation CustomViewController
 
+@synthesize currentSelectImage;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -379,6 +381,7 @@
 
 - (void)decodeImage:(UIImage *)image
 {
+    NSLog(@"--decodeImage-----");
     NSMutableSet *qrReader = [[NSMutableSet alloc] initWithCapacity:1];
     QRCodeReader *qrcoderReader = [[QRCodeReader alloc] init];
     [qrReader addObject:qrcoderReader];
@@ -405,6 +408,9 @@
 {
     UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
     __block CustomViewController *xxx = self;
+    if (image) {
+        self.currentSelectImage=image;
+    }
 //    [self dismissViewControllerAnimated:YES completion:^{[xxx decodeImage:image];}];
     [xxx decodeImage:image];
     //[self.captureSession stopRunning];
@@ -441,35 +447,33 @@
 
 #pragma mark - DecoderDelegate
 
+bool isHaveDecoder=NO;
+
 - (void)decoder:(Decoder *)decoder didDecodeImage:(UIImage *)image usingSubset:(UIImage *)subset withResult:(TwoDDecoderResult *)result2
 {
+    if (isHaveDecoder) {
+        return;
+    }
+    isHaveDecoder=YES;
     
     if (beepSound != (SystemSoundID)-1) {
         AudioServicesPlaySystemSound(beepSound);
     }
-
     if (self.captureSession.running) {
         [self.captureSession stopRunning];
-//        return;
+//      return;
     }
-    else
-    {
-        
-    }
-    
-
     
     NSLog(@"--decoder----->%@",result2.text);
-
     __block LYGTwoDimensionCodeModel * amodel = [[LYGTwoDimensionCodeModel alloc]init];
     amodel.isCreated = NO;
     NSString *symbolString = nil;
     if ([result2.text hasPrefix:SERVER_URL]) {
         symbolString = [result2.text lowercaseString];
-    }else
-    {
+    }else{
         symbolString = result2.text;
     }
+    
     NSRange range               = [symbolString rangeOfString:[NSString stringWithFormat:@"%@/page/qr.aspx?type",SERVER_URL]];
     NSRange range2              = [symbolString rangeOfString:[NSString stringWithFormat:@"%@/page/page.aspx?id=",SERVER_URL]];//富媒体
     NSRange range3              = [symbolString rangeOfString:[NSString stringWithFormat:@"%@/page/lottery.aspx?id=",SERVER_URL]];
@@ -478,9 +482,7 @@
     
     
     if (range5.length>0) {
-        
         [self dismissViewControllerAnimated:YES completion:^{
-            
         }];
         
         int uid = [LYGAppDelegate getuid];
@@ -494,10 +496,10 @@
             temp.urlString = [NSString stringWithFormat:@"%@/page/getvote.aspx?id=8&uid=%d",SERVER_URL,uid];
             temp.titleString=@"问卷调查";
             [self.navigationController pushViewController:temp animated:YES];
-              
         }
-        
-    }else if (range.length > 0)
+        isHaveDecoder=NO;
+    }
+    else if (range.length > 0)
     {
         NSArray * arry          = [symbolString componentsSeparatedByString:@"="];
         NSArray * arry2         = [[arry objectAtIndex:1] componentsSeparatedByString:@"&"];
@@ -517,6 +519,7 @@
         request.timeOutSeconds    = 20;
         [request setCompletionBlock:^
          {
+             isHaveDecoder=NO;
              [MBProgressHUD hideHUDForView:tempView animated:YES];
              NSString * responseString     = request.responseString;
              //NSLog(@"lijinliang%@",request.responseString);
@@ -611,6 +614,8 @@
                      break;
              }
              [sb release];
+             isHaveDecoder=NO;
+             [MBProgressHUD hideHUDForView:tempView animated:YES]; 
              [LYGTwoDimensionCodeDao insert:amodel];
              LYGTwoDimensionCodeDetailViewController * scan = [[LYGTwoDimensionCodeDetailViewController alloc]init];
              scan.amodel = amodel;
@@ -621,6 +626,7 @@
         
         [request setFailedBlock:^
          {
+             isHaveDecoder=NO;
              [MBProgressHUD hideHUDForView:tempView animated:YES];             
              UIAlertView * alert       = [[UIAlertView alloc]initWithTitle:nil message:@"在线解析失败" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
              [alert show];
@@ -628,7 +634,6 @@
              if (!tempCOntroller.presentedViewController) {
                  [tempCOntroller.captureSession startRunning];
              }
-             
              return;
          }];
         [request startAsynchronous];
@@ -637,6 +642,7 @@
     }
     else if (range2.length > 0)
     {//-----
+        isHaveDecoder=NO;
         [self dismissViewControllerAnimated:YES completion:^{
             
         }];
@@ -652,7 +658,7 @@
         [temp release];
     }else if (range3.length > 0)
     {
-
+        isHaveDecoder=NO;
         [self dismissViewControllerAnimated:YES completion:^{
             
         }];
@@ -670,6 +676,7 @@
             temp.titleString=@"抽奖";
             [self.navigationController pushViewController:temp animated:YES];
         }
+        
     }else if (range4.length > 0)
     {
 //        if (isOpenFromSaveAlbum)
@@ -683,6 +690,7 @@
         
     }else if([symbolString hasPrefix:@"y"] || [symbolString hasPrefix:@"p"] || [symbolString hasPrefix:@"q"] || [symbolString hasPrefix:@"l"])
     {
+        isHaveDecoder=NO;
 //        if (isOpenFromSaveAlbum)
 //        {
 //            //[reader dismissModalViewControllerAnimated:YES];
@@ -720,8 +728,6 @@
         temp.urlString = [NSString stringWithFormat:@"%@%@%@",SERVER_URL,tempstr,symbolString];
         [self.navigationController pushViewController:temp animated:YES];
         [temp release];
-        
-        
     }
     else       //来自其它软件的二维码或者本软件产生的未被加过密的二维码；
     {
@@ -730,6 +736,7 @@
 //            //[reader dismissModalViewControllerAnimated:YES];
 //            [reader dismissViewControllerAnimated:YES completion:nil];
 //        }
+        isHaveDecoder=NO;
         [self dismissModalViewControllerAnimated:NO];
         if ([symbolString canBeConvertedToEncoding:NSShiftJISStringEncoding])
         {
@@ -757,6 +764,9 @@
         
         amodel.isCreated  = NO;
         amodel.isSecret   = NO;
+        if (self.currentSelectImage) {
+            amodel.erweimaImage=self.currentSelectImage;
+        }
         [LYGTwoDimensionCodeDao insert:amodel];
         LYGTwoDimensionCodeDetailViewController * scan = [[LYGTwoDimensionCodeDetailViewController alloc]init];
         scan.amodel = amodel;
