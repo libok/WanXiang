@@ -422,6 +422,7 @@ static int currentIndex = 0;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [MBProgressHUD showHUDAddedTo:self.view message:@"努力请求中..." animated:YES];
     __block LPAd *ad = [_adArray objectAtIndex:indexPath.row];
     __block ShopViewController * shop = [[ShopViewController alloc]init];
     shop.height                       = 161;
@@ -437,8 +438,7 @@ static int currentIndex = 0;
 //        shop.jianjieTextView.frame = rect;
         [xxx getGoodsArry:shop mangetID:ad.managerid];
      }];
-    
-    
+    [MBProgressHUD hideHUDForView:self.view  animated:YES];
 }
 -(void)getGoodsArry:(ShopViewController*)oneShop mangetID:(int)aID
 {
