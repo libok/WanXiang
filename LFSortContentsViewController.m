@@ -190,6 +190,9 @@
     label.text      = @"";
     label.text      = ((ArticleModel*)([self.currentArry objectAtIndex:indexPath.row])).title;
     //cell.textLabel.text = ((ArticleModel*)([self.currentArry objectAtIndex:indexPath.row])).title;
+    
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 
 }

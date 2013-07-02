@@ -9,7 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "ArticleModel.h"
 
-@interface LFTextViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
+@interface LFTextViewController : UIViewController <UITableViewDelegate,UITableViewDataSource,UIWebViewDelegate>
+{
+    int rowHeight;
+    float textFontSize;
+    NSString *content;
+}
+
+@property (nonatomic,retain) NSString *content;
 @property (retain, nonatomic) IBOutlet UILabel *titleLabel;
 @property (retain, nonatomic) IBOutlet UILabel *createTimeLabel;
 @property (retain, nonatomic) IBOutlet UIImageView *myImageView;
