@@ -51,11 +51,17 @@
 
 -(void)viewDidDisappear:(BOOL)animated
 {
+    NSLog(@"viewDidDisappear");
     self.isScanning = NO;
     if (self.captureSession.running) {
         [self.captureSession stopRunning];
     }
-
+    if (_sem)
+     {
+            dispatch_release(_sem);
+         _xxx = 0;
+     }
+    _sem = dispatch_semaphore_create(0);
 }
 -(void)viewWillDisappear:(BOOL)animated
 {
@@ -84,29 +90,11 @@
     if (!self.captureSession.isRunning) {
         [self.captureSession startRunning];
     }
+    _xxx = 1;
+    dispatch_semaphore_signal(_sem);
 }
 
-- (void)lineMove
-{
-    while(1)
-    {
-        static CGRect rect;
-        rect = _line.frame;
-        rect.origin.y += 3;
-        if (rect.origin.y >= 400)
-        {
-            rect.origin.y = 85;
-        }
-        
-        dispatch_queue_t tt = dispatch_get_main_queue();
-        dispatch_async(tt, ^{
-            _line.frame = rect;
-        });
-        [NSThread sleepForTimeInterval:0.05];
-    }
-	
-	
-}
+
 
 -(void)setOverlayPickerView
 {
@@ -243,28 +231,37 @@
     //mythread = [[NSThread alloc]initWithTarget:self selector:nil object:nil];
     self.soundToPlay = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"beep-beep" ofType:@"aiff"] isDirectory:NO];
     [super viewDidLoad];
-    dispatch_queue_t tt2 = dispatch_get_global_queue(2, 0);
-    dispatch_async(tt2, ^{
+    //dispatch_queue_t tt2 = dispatch_get_global_queue(2, 0);
+    _myqueue = dispatch_queue_create("movexxxx",DISPATCH_QUEUE_SERIAL);
+    _sem = dispatch_semaphore_create(0);
+    _xxx = 1;
+        
+    [self setOverlayPickerView];
+    dispatch_async(_myqueue, ^{
         while(1)
         {
-            CGRect rect;
-            rect = _line.frame;
-            rect.origin.y += 3;
-            if (rect.origin.y >= 400)
+            if(_xxx)
             {
-                rect.origin.y = 85;
+                static CGRect rect;
+                rect = _line.frame;
+                rect.origin.y += 3;
+                if (rect.origin.y >= 400)
+                {
+                    rect.origin.y = 85;
+                }
+                
+                dispatch_queue_t tt = dispatch_get_main_queue();
+                dispatch_async(tt, ^{
+                    _line.frame = rect;
+                });
+                [NSThread sleepForTimeInterval:0.05];
+            }else{
+                dispatch_semaphore_wait(_sem, DISPATCH_TIME_FOREVER);
             }
             
-            dispatch_queue_t tt = dispatch_get_main_queue();
-            dispatch_async(tt, ^{
-                _line.frame = rect;
-            });
-            [NSThread sleepForTimeInterval:0.05];
         }
-
     });
-    
-    [self setOverlayPickerView];
+
 }
 
 
@@ -285,8 +282,7 @@
     AVCaptureVideoDataOutput *captureOutput = [[AVCaptureVideoDataOutput alloc] init];
     captureOutput.alwaysDiscardsLateVideoFrames = YES;
     
-//    dispatch_queue_t tt = dispatch_get_global_queue(0, 0);
-//    dispatch_queue_attr_t atter;
+
     dispatch_queue_t tt2 = dispatch_queue_create("myqueue",DISPATCH_QUEUE_SERIAL);
     [captureOutput setSampleBufferDelegate:self queue:tt2];
     
