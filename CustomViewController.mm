@@ -411,7 +411,7 @@
     if (image) {
         self.currentSelectImage=image;
     }
-//    [self dismissViewControllerAnimated:YES completion:^{[xxx decodeImage:image];}];
+//  [self dismissViewControllerAnimated:YES completion:^{[xxx decodeImage:image];}];
     [xxx decodeImage:image];
     //[self.captureSession stopRunning];
 }
@@ -654,8 +654,10 @@ bool isHaveDecoder=NO;
         MediaViewController * temp = [[MediaViewController alloc]init];
         temp.urlString = [arry objectAtIndex:0];
         temp.goodID                = [[arry objectAtIndex:1] intValue];
+        temp.shopID                = [[arry objectAtIndex:2] intValue];
         [self.navigationController pushViewController:temp animated:YES];
         [temp release];
+        
     }else if (range3.length > 0)
     {
         isHaveDecoder=NO;

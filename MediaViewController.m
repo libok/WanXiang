@@ -37,11 +37,23 @@
         UIButton * smallbutton = (UIButton*)[self.view viewWithTag:i];
         smallbutton.layer.cornerRadius =5;
         smallbutton.clipsToBounds      = YES;
+        smallbutton.hidden  =   YES;
     }
     [self.myWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.urlString]]];
     NSLog(@"%@",self.urlString);
-    [self performSelector:@selector(xxcc) withObject:self afterDelay:0.01];
-    // Do any additional setup after loading the view from its nib.
+    
+    UIButton * joinbutton = (UIButton*)[self.view viewWithTag:2];
+    if (self.shopID) {
+        joinbutton.hidden=NO;
+    }else{
+        joinbutton.hidden=YES;
+    }
+    
+    if (self.goodID) {
+        [self performSelector:@selector(xxcc) withObject:self afterDelay:0.01];
+    }
+    
+    
 }
 -(void)xxcc
 {
@@ -58,7 +70,7 @@
     }
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/Goods/GetGoods.aspx?id=%d",SERVER_URL,aId]]];
     request.delegate = self;
-    //手动设置结束方法
+//    手动设置结束方法
 //    [request setDidFinishSelector:@selector(getTimelineFinised:)];
 //    [request setDidFailSelector:@selector(getTimelineFailed:)];
     __block MediaViewController * temp = self;
@@ -82,29 +94,30 @@
                 switch (i) {
                     case 1:
                     {
+                        smallbutton.hidden = temp.oneCommodity.buytype;
                         smallbutton.enabled = temp.oneCommodity.buytype;
                         smallbutton.userInteractionEnabled = temp.oneCommodity.buytype;
                     }
                         break;
                     case 2:
                     {
+                        smallbutton.hidden = temp.oneCommodity.isjoin;
                         smallbutton.enabled = temp.oneCommodity.isjoin;
                         smallbutton.userInteractionEnabled = temp.oneCommodity.isjoin;
-
                     }
                         break;
                     case 3:
                     {
+                        smallbutton.hidden = temp.oneCommodity.isbuy;
                         smallbutton.enabled = temp.oneCommodity.isbuy;
                         smallbutton.userInteractionEnabled = temp.oneCommodity.isbuy;
-
                     }
                         break;
                     case 4:
                     {
+                        smallbutton.hidden = temp.oneCommodity.isyd;
                         smallbutton.enabled = temp.oneCommodity.isyd;
                         smallbutton.userInteractionEnabled = temp.oneCommodity.isyd;
-
                     }
                         break;
                         
@@ -112,31 +125,6 @@
                         break;
                 }
             }
-//            temp.label1.text    = [temp.oneCommodity.price description];
-//            temp.label2.text    = [temp.oneCommodity.price2 description];
-//            int x = temp.oneCommodity.buytype + temp.oneCommodity.isbuy + temp.oneCommodity.isjoin + temp.oneCommodity.isyd;
-//            int a[4] = {1,2,3,4};
-//            BOOL myarry[4] = {temp.oneCommodity.buytype,}
-//            int width = 100;
-//            int height = 50;
-//            int offset = 0;
-//            if (IS_IPHONE5) {
-//                offset = 400 + 576-480;
-//            }else
-//            {
-//                offset = 400;
-//            }
-//            int borderWidth = (320-x*width)/(x+1);
-//            for (int i = 0; i< x ; i++) {
-//                for (int j = i+1; j<5; i++) {
-//                    UIButton * button = [self.view viewWithTag:j]
-//                }
-//                UIButton * button = [[UIButton alloc]init];
-//                button.frame      = CGRectMake(borderWidth + i*(borderWidth+width), offset, width, height);
-//                button.alpha      = 0.5;
-//                //[self.view addSubview:button];
-//                [button release];
-//            }
         }
         
     }];

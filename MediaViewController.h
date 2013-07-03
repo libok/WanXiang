@@ -14,8 +14,10 @@
 @property (retain, nonatomic) IBOutlet UILabel *label1;
 @property (retain, nonatomic) IBOutlet UILabel *label2;
 @property(nonatomic,copy)NSString * urlString;
-- (IBAction)buttonClick:(id)sender;
+-(IBAction)buttonClick:(id)sender;
 @property (nonatomic,assign)  int goodID;
+@property (nonatomic,assign)  int shopID;
+
 @property (nonatomic,retain)NSDictionary *  dataDictionary;
 @property(nonatomic,retain) LPCommodity * oneCommodity;
 @end
