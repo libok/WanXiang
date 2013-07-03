@@ -70,7 +70,8 @@
 		_engine.delegate = self;
         
 	}
-	
+    
+    self.tableView.rowHeight=71;
 }
 
 - (IBAction)backButtonClick
@@ -224,7 +225,7 @@
 	WWREBookStatus *status = [_statuesArray objectAtIndex:indexPath.row];
 	
 	cell.titleTextView.text = status.title;
-	cell.detailTextView.text = status.contents;
+    cell.detailTextView.text= status.contents;
 	cell.dateLabel.text = [[status.addTime description] substringToIndex:19];
     NSString * string = [NSString stringWithFormat:@"%@%@",SERVER_URL,status.img];
     [cell.leftImageView setImageWithURL:[NSURL URLWithString:string]];
@@ -282,15 +283,16 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 //	UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
 //    [self.tableView addGestureRecognizer:longPressGesture];
 //    [longPressGesture release];
+    
     LFTextViewController *textVC = [[LFTextViewController alloc] init];
     WWREBookStatus *status = [_statuesArray objectAtIndex:indexPath.row];
-    textVC.oneArticleModel = [[[ArticleModel alloc]init] autorelease];
+    textVC.oneArticleModel = [[ArticleModel alloc]init] ;
     textVC.oneArticleModel.ID  =  status.bookID;
     textVC.oneArticleModel.contents = status.contents;
     textVC.oneArticleModel.img =  status.img;
     textVC.oneArticleModel.title = status.title;
     textVC.oneArticleModel.height= 0;
-    //self.title = [dict objectForKey:@"title"];
+    
     textVC.oneArticleModel.height += 54;
     if ([textVC.oneArticleModel.img length] > 3) {
         textVC.oneArticleModel.height += 110;
@@ -298,7 +300,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     UIFont * font = [UIFont systemFontOfSize:14];
     CGSize size = [textVC.oneArticleModel.contents sizeWithFont:font constrainedToSize:CGSizeMake(320, 1000) lineBreakMode:UILineBreakModeWordWrap];
     textVC.oneArticleModel.height += size.height;
-    //self.height = x;
 
     [self.navigationController pushViewController:textVC animated:YES];
     UIView * view             = [textVC.view viewWithTag:2];
