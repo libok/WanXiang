@@ -22,6 +22,8 @@
 
 @implementation LFTextViewController
 
+@synthesize content;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -37,7 +39,7 @@
     //self.myScrollView.contentSize =
     self.contenTItleLabel.text = @"内容";
     
-    
+    textFontSize = 1;
         
 }
 -(void)viewDidAppear:(BOOL)animated
@@ -105,9 +107,11 @@
     if (indexPath.row == 0)
     {
         //return ((LygMyTableViewCell*)[tableView cellForRowAtIndexPath:indexPath]).height;
-        ArticleModel * temp = [self.myArry objectAtIndex:indexPath.row];
-        NSLog(@"%f",temp.height);
-        return temp.height;
+//        ArticleModel * temp = [self.myArry objectAtIndex:indexPath.row];
+//        NSLog(@"%f",temp.height);
+//        return temp.height;
+        
+        return rowHeight;
     }else
     {
         PingLunModel * temp = [self.myArry objectAtIndex:indexPath.row];
@@ -135,27 +139,27 @@
             NSArray *nib0 = [[NSBundle mainBundle] loadNibNamed:@"LygMyTableViewCell" owner:self options:nil];
             cell = [nib0 objectAtIndex:0];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            LygMyTableViewCell* cell2 =  (LygMyTableViewCell*)cell;
-            if (self.oneArticleModel.img.length > 3)
-            {
-                CGRect rect          = cell2.textView.frame;
-                rect.size.height     = self.oneArticleModel.heightOfTextView;
-                cell2.textView.frame =  rect;
-                
-            }
-            else
-            {
-                self.height          = cell2.myContentImageView.frame.size.height;
-                [cell2.myContentImageView removeFromSuperview];
-                CGRect rect          = cell2.textView.frame;
-                rect.origin.y       -= self.height;
-                rect.size.height     = self.oneArticleModel.heightOfTextView;
-                cell2.textView.frame =  rect;
-                
-                rect                 = cell2.frame;
-                rect.size.height     = self.oneArticleModel.height;
-                cell2.frame          = rect;
-            }
+//            LygMyTableViewCell* cell2 =  (LygMyTableViewCell*)cell;
+//            if (self.oneArticleModel.img.length > 3)
+//            {
+//                CGRect rect          = cell2.textView.frame;
+//                rect.size.height     = self.oneArticleModel.heightOfTextView;
+//                cell2.textView.frame =  rect;
+//                
+//            }
+//            else
+//            {
+//                self.height          = cell2.myContentImageView.frame.size.height;
+//                [cell2.myContentImageView removeFromSuperview];
+//                CGRect rect          = cell2.textView.frame;
+//                rect.origin.y       -= self.height;
+//                rect.size.height     = self.oneArticleModel.heightOfTextView;
+//                cell2.textView.frame =  rect;
+//                
+//                rect                 = cell2.frame;
+//                rect.size.height     = self.oneArticleModel.height;
+//                cell2.frame          = rect;
+//            }
 
         }
         LygMyTableViewCell* cell2 =  (LygMyTableViewCell*)cell;
@@ -165,7 +169,14 @@
             NSString * str = [NSString stringWithFormat:@"%@%@",SERVER_URL,self.oneArticleModel.img];
             [cell2.myContentImageView setImageWithURL:[NSURL URLWithString:str] placeholderImage:[UIImage imageNamed:@"place.png"]];
         }
-        cell2.textView.text = self.oneArticleModel.contents;
+        cell2.textView.delegate = self;
+       
+        NSMutableString *tempString = [[NSMutableString alloc] init];
+        [tempString appendFormat:@"<body>%@</body>",self.oneArticleModel.contents];
+        self.content = tempString;
+        [cell2.textView loadHTMLString:tempString baseURL:[NSURL URLWithString:SERVER_URL]];
+         NSLog(@"______________**************  %@",tempString);
+        [tempString release];
     }else
     {
         PingLunModel * temp = [self.myArry objectAtIndex:indexPath.row];
@@ -225,6 +236,9 @@
         }
         
     }
+    
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 
 }
@@ -254,20 +268,41 @@
 - (IBAction)biggerFont:(id)sender
 {
     LygMyTableViewCell *cell = (LygMyTableViewCell *)[self.myTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    if (cell.textView.font.pointSize <= 20)
-    {
-        cell.textView.font = [UIFont systemFontOfSize:cell.textView.font.pointSize + 1];
-    }
+    textFontSize = (textFontSize < 1.5) ? textFontSize + 0.1 : textFontSize;
+    NSString *jsString = [[NSString alloc] initWithFormat:@"document.getElementsByTagName('body')[0].style.zoom= '%f'",textFontSize];
+    [cell.textView stringByEvaluatingJavaScriptFromString:jsString];
+    [jsString release];
+    
+//    cell.textView.delegate = self;
+//    [cell.textView loadHTMLString:self.content baseURL:[NSURL URLWithString:SERVER_URL]];
     
 }
 
 - (IBAction)smallerFont:(id)sender
 {
     LygMyTableViewCell *cell = (LygMyTableViewCell *)[self.myTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    if (cell.textView.font.pointSize >= 10)
-    {
-        cell.textView.font = [UIFont systemFontOfSize:cell.textView.font.pointSize - 1];
-    }
+    textFontSize = (textFontSize > 0.5) ? textFontSize -0.1 : textFontSize;
+    //document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%
+    NSString *jsString = [[NSString alloc]
+                          initWithFormat:@"document.getElementsByTagName('body')[0].style.zoom= '%f'",
+                          textFontSize];
+    [cell.textView stringByEvaluatingJavaScriptFromString:jsString];
+    [jsString release];
+    
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    CGRect frame = webView.frame;
+    NSString *fitHeight = [webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollHeight;"];
+    frame.size.height = [fitHeight floatValue];
+    rowHeight = [fitHeight intValue] + webView.frame.origin.y;
+    webView.frame = frame;
+    webView.delegate = nil;
+    
+    [self.myTableView beginUpdates];
+    
+    [self.myTableView endUpdates];
 }
 
 
