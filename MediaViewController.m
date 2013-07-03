@@ -40,6 +40,7 @@
         smallbutton.hidden  =   YES;
     }
     [self.myWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.urlString]]];
+    self.myWebView.delegate=self;
     NSLog(@"%@",self.urlString);
     
     UIButton * joinbutton = (UIButton*)[self.view viewWithTag:2];
@@ -55,6 +56,15 @@
     
     
 }
+
+- (void)webViewDidStartLoad:(UIWebView *)webView{
+        [MBProgressHUD showHUDAddedTo:self.view message:@"努力加载中..." animated:YES];
+}
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+
+
 -(void)xxcc
 {
     [self requestSingleCommodit:self.goodID];
@@ -70,9 +80,9 @@
     }
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/Goods/GetGoods.aspx?id=%d",SERVER_URL,aId]]];
     request.delegate = self;
-//    手动设置结束方法
-//    [request setDidFinishSelector:@selector(getTimelineFinised:)];
-//    [request setDidFailSelector:@selector(getTimelineFailed:)];
+//  手动设置结束方法
+//  [request setDidFinishSelector:@selector(getTimelineFinised:)];
+//  [request setDidFailSelector:@selector(getTimelineFailed:)];
     __block MediaViewController * temp = self;
     [request setCompletionBlock:^{
         [MBProgressHUD hideHUDForView:temp.view animated:YES];

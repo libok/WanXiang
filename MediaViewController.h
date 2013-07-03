@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "LPCommDatilViewController.h"
 #import "LPCommodity.h"
-@interface MediaViewController : UIViewController
+@interface MediaViewController : UIViewController<UIWebViewDelegate>
 @property (retain, nonatomic) IBOutlet UIWebView *myWebView;
 @property (retain, nonatomic) IBOutlet UILabel *label1;
 @property (retain, nonatomic) IBOutlet UILabel *label2;
