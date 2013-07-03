@@ -62,12 +62,20 @@
 	NSString *httpStr = [self.httpTextFiled.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	NSString *addressStr = [self.addressTextFiled.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	NSString *jobStr = [self.jobTextFiled.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];		
-	
+#pragma mark 名片生成-西瓜修改-
 	if (![xingStr isEqualToString:@""] && ![nameStr isEqualToString:@""] && ![phoneStr isEqualToString:@""] && [self CheckLegitimacy:self.phoneTextFiled.text])
 	{				
 		LJLCodeCreateViewController * codeCreateViewController = [[LJLCodeCreateViewController alloc] init];
-        codeCreateViewController.contentStr = [NSString stringWithFormat:@"%@;%@;%@;%@;%@;%@;%@;%@",
-										  xingStr,nameStr,phoneStr,emailStr,companyStr,httpStr,addressStr,jobStr];
+        codeCreateViewController.contentStr =
+        [NSString stringWithFormat:@"姓名:%@%@\n电话:%@\n邮箱:%@\n公司:%@\n网址:%@\n地址:%@\n职位:%@\n",
+                                          xingStr,
+                                          nameStr,
+                                          phoneStr,
+                                          (emailStr?emailStr:@""),
+                                          (companyStr?companyStr:@""),
+                                          (httpStr?httpStr:@""),
+                                          (addressStr?addressStr:@""),
+                                          (jobStr?jobStr:@"")];
         codeCreateViewController.urlString = [NSString stringWithFormat:@"%@/API/QR/QRmi.aspx?Type=2&n=%@&m=%@&p=%@&e=%@&d=%@&u=%@&z=%@&w=%@",SERVER_URL,xingStr,nameStr,phoneStr,emailStr,companyStr,httpStr,addressStr,jobStr];
 		codeCreateViewController.codeType = 2;        
 		[self.navigationController pushViewController:codeCreateViewController animated:YES];
