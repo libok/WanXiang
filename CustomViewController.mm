@@ -690,7 +690,7 @@ bool isHaveDecoder=NO;
         [alert show];
         [alert release];
         
-    }else if([symbolString hasPrefix:@"y"] || [symbolString hasPrefix:@"p"] || [symbolString hasPrefix:@"q"] || [symbolString hasPrefix:@"l"])
+    }else if([symbolString hasPrefix:@"y"] || [symbolString hasPrefix:@"p"] || [symbolString hasPrefix:@"q"] || [symbolString hasPrefix:@"L"])
     {
         isHaveDecoder=NO;
 //        if (isOpenFromSaveAlbum)
