@@ -14,6 +14,7 @@
 #import "LYGAppDelegate.h"
 #import "BYNLoginViewController.h"
 #import "UIImageView+WebCache.h"
+#import "ASIHTTPRequest.h"
 @implementation WWRLiPinQuanViewController
 @synthesize statuesArray = _statuesArray;
 
@@ -69,6 +70,58 @@
 	return [_statuesArray count];
 }
 
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+    if (!isAailble) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+    __block WWRLiPinQuanViewController * temp = self;
+    WWRLiPinQuanStatus *status = [_statuesArray objectAtIndex:indexPath.row];
+    NSString * urlString;
+    NSString * alertMsgS;
+    NSString * alertMsgF;
+    
+    urlString = [NSString stringWithFormat:@"%@/API/gift/Delgift.aspx?id=%d",SERVER_URL,[status.iD intValue]];
+    alertMsgS=@"礼品卷删除成功";
+    alertMsgF=@"礼品卷删除失败";
+
+    ASIHTTPRequest * request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:urlString]];
+    [request setCompletionBlock:^{
+        int x = [LYGAppDelegate getAsihttpResult:request.responseString];
+        if (x== 0) {
+            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:alertMsgF delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+            [alert release];
+            return;
+        }
+        [temp.statuesArray removeObjectAtIndex:indexPath.row];
+        [_tableView reloadData];
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:alertMsgS delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+    }];
+    [request setFailedBlock:^{
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:alertMsgF delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        
+    }];
+    [request startAsynchronous];
+    
+    
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	static NSString *cellIdentifer = @"CellIdentifier";
@@ -90,7 +143,6 @@
 	
 	
 	WWRLiPinQuanStatus *status = [_statuesArray objectAtIndex:indexPath.row];
-	
 	cell.typeImageView.image = [UIImage imageNamed:@"礼品券.png"];
 	//cell.erWeiMaImageView.image = nil;
 	//[cell.erWeiMaImageView setImageWithURL:[NSURL URLWithString:status.imgURl]];
@@ -107,10 +159,7 @@
 		cell.goodStateLabel.text = nil;
 	}
 	
-	
-	
 	return cell;
-	
 }
 
 #pragma mark -

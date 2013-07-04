@@ -13,10 +13,10 @@
 
 {
 	WWRWXBEngine   *_engine;
-    NSArray        *_statuesArray;
+    NSMutableArray        *_statuesArray;
 	
 }
-@property (nonatomic,retain) NSArray  *statuesArray;
+@property (nonatomic,retain) NSMutableArray  *statuesArray;
 
 
 @end
