@@ -40,6 +40,9 @@
     SystemSoundID beepSound;
     UIView  * _albumView;
     NSThread * mythread;
+    dispatch_semaphore_t _sem;
+    dispatch_queue_t     _myqueue;
+    int                  _xxx;
 }
 @property (nonatomic, retain) NSURL *soundToPlay;
 @property (nonatomic,retain)  UIView * line;
