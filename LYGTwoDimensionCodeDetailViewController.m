@@ -164,13 +164,13 @@
 		case 2:
 		{
 			
-			NSString *xing = [[self.amodel.content componentsSeparatedByString:@";"] objectAtIndex:0];
-			NSString *ming = [[self.amodel.content componentsSeparatedByString:@";"] objectAtIndex:1];
-			NSString *phone = [[self.amodel.content componentsSeparatedByString:@";"] objectAtIndex:2];
+//			NSString *xing = [[self.amodel.content componentsSeparatedByString:@";"] objectAtIndex:0];
+//			NSString *ming = [[self.amodel.content componentsSeparatedByString:@";"] objectAtIndex:1];
+//			NSString *phone = [[self.amodel.content componentsSeparatedByString:@";"] objectAtIndex:2];
 			self.NameLabel.text = @"姓  名：";
 			self.HttpLabel.text = @"电  话：";
-			self.Name.text = [NSString stringWithFormat:@"%@%@",xing,ming];
-			self.Http.text = phone;
+			self.Name.text = [[[[self.amodel.content componentsSeparatedByString:@"\n"] objectAtIndex:0]componentsSeparatedByString:@":"]objectAtIndex:1];
+			self.Http.text = [[[[self.amodel.content componentsSeparatedByString:@"\n"] objectAtIndex:1]componentsSeparatedByString:@":"]objectAtIndex:1];
 			break;
 		}
 		case 3:
@@ -339,9 +339,8 @@ didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 			break;
 		default:
 			break;
-}
-
-//[self dismissModalViewControllerAnimated:YES];
+    }
+    //[self dismissModalViewControllerAnimated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -364,7 +363,7 @@ didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 			[[[[controller viewControllers] lastObject] navigationItem] setTitle:@"发送短信"];//修改短信界面标题
 			[controller release];
 		}
-		else
+        else
 		{
 			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示信息" 
 															message:@"该设备不支持短信功能" 

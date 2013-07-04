@@ -145,7 +145,7 @@
         timelabel.alpha = 0.5;
         timelabel.tag = -3;
         
-        UIButton * button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 40)];
+        UIButton * button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 24)];
         [button setImage:[UIImage imageNamed:@"历史记录按钮4.png"] forState:UIControlStateNormal];
         cell.accessoryView = button;
 		button.tag = indexPath.row;
@@ -216,11 +216,13 @@
 -(void)buttonClicked:(UIButton*)sender
 {
     LYGTwoDimensionCodeModel * model = [self.myarry objectAtIndex:sender.tag];
+    
     LYGTwoDimensionCodeDetailViewController * detai = [[LYGTwoDimensionCodeDetailViewController alloc]init];
     detai.amodel = model;
 	
     [self.navigationController pushViewController:detai animated:YES];
-    [detai release];    
+    [detai release];
+    
 }
 - (void)tableView:(UITableView*)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath
 {
