@@ -518,7 +518,7 @@ bool isHaveDecoder=NO;
         }
         request.timeOutSeconds    = 20;
         [request setCompletionBlock:^
-         {
+         {//解密返回数据
              isHaveDecoder=NO;
              [MBProgressHUD hideHUDForView:tempView animated:YES];
              NSString * responseString     = request.responseString;
@@ -560,9 +560,19 @@ bool isHaveDecoder=NO;
                      break;
                  case 2:
                  {
+                     amodel.type=0;
                      NSString * str = [dict objectForKey:@"content"];
                      NSDictionary * contetDict = [sb objectWithString:str];
-                     amodel.content = [NSString stringWithFormat:@"%@;%@;%@;%@;%@;%@;",[contetDict objectForKey:@"xing"],[contetDict objectForKey:@"ming"],[contetDict objectForKey:@"tel"],[contetDict objectForKey:@"org"],[contetDict objectForKey:@"title"],[contetDict objectForKey:@"email"]];//[contetDict objectForKey:@"tel"]];
+//                     amodel.content = [NSString stringWithFormat:@"%@;%@;%@;%@;%@;%@;",[contetDict objectForKey:@"xing"],[contetDict objectForKey:@"ming"],[contetDict objectForKey:@"tel"],[contetDict objectForKey:@"org"],[contetDict objectForKey:@"title"],[contetDict objectForKey:@"email"]];
+                     amodel.content=        [NSString stringWithFormat:@"姓名:%@%@\n电话:%@\n邮箱:%@\n公司:%@\n网址:%@\n地址:%@\n职位:%@\n",
+                                             [contetDict objectForKey:@"xing"],
+                                             [contetDict objectForKey:@"ming"],
+                                             [contetDict objectForKey:@"tel"],
+                                             ([contetDict objectForKey:@"email"]?[contetDict objectForKey:@"email"]:@""),
+                                             ([contetDict objectForKey:@"org"]?[contetDict objectForKey:@"org"]:@""),
+                                             ([contetDict objectForKey:@"url"]?[contetDict objectForKey:@"url"]:@""),
+                                             ([contetDict objectForKey:@"ads"]?[contetDict objectForKey:@"ads"]:@""),
+                                             ([contetDict objectForKey:@"title"]?[contetDict objectForKey:@"title"]:@"")];
                  }
                      break;
                  case 3:
