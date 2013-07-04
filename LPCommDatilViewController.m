@@ -15,6 +15,7 @@
 #import "LPShangjiaViewController.h"
 #import "LYGAppDelegate.h"
 #import "SDImageCache.h"
+#import "MBProgressHUD.h"
 #import "BYNLoginViewController.h"
 @interface LPCommDatilViewController ()
 
@@ -204,7 +205,7 @@
             break;
         case 2:
         {
-            
+            /*
             LPYouhuiViewController *youhuiViewController = [[LPYouhuiViewController alloc] init];
             youhuiViewController.viewControllerTag = 200;
             youhuiViewController.user_id = [LYGAppDelegate getSharedLoginedUserInfo].ID;
@@ -213,7 +214,13 @@
             [self presentViewController:youhuiViewController animated:YES completion:nil];
             youhuiViewController.title_label.text = @"加入会员";
             [youhuiViewController release];
+            */
+            [MBProgressHUD showHUDAddedTo:self.view message:@"努力请求中..." animated:YES];
+           
+            [_engine reQuestHY:[LYGAppDelegate getSharedLoginedUserInfo].ID managerID:[[_dataDictionary valueForKey:@"managerid"] intValue]];
             
+            [MBProgressHUD hideHUDForView:self.view  animated:YES];
+
         }
             break;
         case 3:

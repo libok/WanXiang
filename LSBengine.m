@@ -983,8 +983,8 @@
 	[request setDidFailSelector:@selector(getTimelineFailed:)];
 	request.timeOutSeconds = TIMEOUTSECONDS;
     [request startAsynchronous];
-    
 }
+
 -(void)requestShangjiaInfo:(int)s
 {
     BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];

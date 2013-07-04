@@ -114,22 +114,21 @@
 	}
 	
 	WWRStatus *status = [_statuesArray objectAtIndex:indexPath.row];
+    
 	NSString  * urstring = [NSString stringWithFormat:@"%@%@",SERVER_URL,status.url];
 	[cell.erWeiMaImageView setImageWithURL:[NSURL URLWithString:urstring]];
-    //[cell.erWeiMaImageView setImageWithURL:[NSURL URLWithString:status.imgURl]];
+
 	if ([status.status intValue] == 1)
 	{
-		cell.goodStateLabel.text = @"[已用]";
+		cell.goodStateLabel.text = @"【已使用】";
 	}
 	else 
 	{
-		cell.goodStateLabel.text = nil;
+		cell.goodStateLabel.text = @"【未使用】";
 	}
 	cell.goodNameLabel.text = status.title;
 	cell.goodTypeLabel.text = @"优惠券";
-
-
-	
+    
 	return cell;
 	
 }

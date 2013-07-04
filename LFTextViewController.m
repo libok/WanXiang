@@ -46,7 +46,7 @@
 {
     __block LFTextViewController * temp = self;
     self.myArry = [[[NSMutableArray alloc]init] autorelease];
-    [_myArry addObject:self.oneArticleModel];
+    [self.myArry addObject:self.oneArticleModel];
     [_oneArticleModel release];
     [temp.myTableView reloadData];
     

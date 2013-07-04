@@ -157,6 +157,7 @@ static NSMutableArray * requestArry = nil;
         [requestArry addObject:request];
     }
     NSLog(@"%@",[request.url absoluteString]);
+    
     [request setCompletionBlock:^{
         NSLog(@"%@",request.responseString);
         SBJSON *json = [[SBJSON alloc] init];

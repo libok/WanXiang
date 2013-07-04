@@ -242,7 +242,8 @@
 {
     if (self.navSc.selectedIndex == 1) {
         return YES;
-    }else
+    }
+    else
     {
         return YES;
     }
