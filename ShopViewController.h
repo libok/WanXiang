@@ -22,7 +22,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *phoneLabel;
 @property (retain, nonatomic) IBOutlet UILabel *qqLabel;
 @property(nonatomic,retain)NSArray  * oneArry;
-@property (retain, nonatomic) IBOutlet UITextView *jianjieTextView;
+@property (retain, nonatomic) IBOutlet UILabel *jianjieTextView;
 @property (retain, nonatomic) IBOutlet UILabel *addressLabel;
 @property (retain, nonatomic) IBOutlet UILabel *shopNameLabel;
 @property (nonatomic,assign)  int   height;

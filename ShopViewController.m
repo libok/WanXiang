@@ -54,7 +54,7 @@
     self.jianjieTextView.text = self.oneShopInfo.Contents;    
     UIFont *font = [UIFont systemFontOfSize:14];
     CGSize contentSize = [(self.oneShopInfo.Contents ? self.oneShopInfo.Contents : @"") sizeWithFont:font constrainedToSize:CGSizeMake(220, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap];
-    self.jianjieTextView.frame = CGRectMake(88,159,self.jianjieTextView.bounds.size.width, contentSize.height + 15);
+    self.jianjieTextView.frame = CGRectMake(69,151,self.jianjieTextView.bounds.size.width, contentSize.height + 15);
     
     [self.button1 setTitle:self.oneShopInfo.phone forState:UIControlStateNormal];
     NSString *str = nil;
