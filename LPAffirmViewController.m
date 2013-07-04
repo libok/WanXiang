@@ -94,17 +94,17 @@
 {
     AlixPayOrder *order = [[AlixPayOrder alloc] init];
 	order.partner = PARTER;
-	order.seller = SELLER;
+	order.seller  = SELLER;
 	order.tradeNO = self.orderID; //订单ID（由商家自行制定）
 	order.productName = self.oneCommodity.title; //商品标题
-	order.productDescription = self.oneCommodity.info; //商品描述
-	//order.amount = [NSString stringWithFormat:@"%.2f",100]; //商品价格
-    order.amount   = [NSString stringWithFormat:@"%.2f",0.01];
-	//order.notifyURL =  @"http://www.xxx.com"; //回调URL
+//  order.productName = @""; //商品标题
+	order.productDescription = @"我要买东西"; //商品描述
+    //商品价格
+    NSLog(@"---->%@---->%@",self.oneCommodity.price,self.oneCommodity.price2);
+    order.amount      = [NSString stringWithFormat:@"%.2f",[self.oneCommodity.price2 floatValue]*self.num];
     order.notifyURL   = [NSString stringWithFormat:@"%@/alipay/notify.aspx",SERVER_URL];
     //	//应用注册scheme,在AlixPayDemo-Info.plist定义URL types,用于安全支付成功后重新唤起商户应用
 	NSString *appScheme = @"wanxiangerweima";
-    //
     //	//将商品信息拼接成字符串
     NSString *orderSpec = [order description];
     //	NSLog(@"orderSpec = %@",orderSpec);
@@ -120,6 +120,7 @@
 		orderString = [NSString stringWithFormat:@"%@&sign=\"%@\"&sign_type=\"%@\"",orderSpec, signedString, @"RSA"];
         //orderString = @"partner=\"xxxx\"&seller=\"yyyy\"&out_trade_no=\"zzzz\"&subject=\"Ipone4\"&body=\"秒杀\"&total_fee=\"1\"&notify_url=\"http%3A%2F%2Fnotify.java.jpxx.org%2Findex.jsp\"&sign_type=\"RSA\"&sign=\"O0I1APPVQcK5bbSgdeFx9HB3YunCQCV8iDjcNxGHwhtCT09bVVf0wbaOiHXvAYzWlvPhy R+0= \"";
         //获取安全支付单例并调用安全支付接口
+        
         AlixPay * alixpay = [AlixPay shared];
         int ret = [alixpay pay:orderString applicationScheme:appScheme];
         
@@ -128,7 +129,7 @@
                                                                  message:@"您还没有安装支付宝快捷支付，请先安装。"
                                                                 delegate:self
                                                        cancelButtonTitle:@"确定"
-                                                       otherButtonTitles:nil];
+                                                       otherButtonTitles:@"取消",nil];
             [alertView setTag:123];
             [alertView show];
             [alertView release];
@@ -139,6 +140,12 @@
         
     }
 }
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSString * URLString = [NSString stringWithString:@"http://itunes.apple.com/cn/app/id535715926?mt=8"];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:URLString]];
+}
+
 - (void)viewDidUnload {
     [self setSmallimg:nil];
     [self setPrice:nil];

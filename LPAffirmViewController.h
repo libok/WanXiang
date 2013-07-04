@@ -33,6 +33,6 @@
 @property (nonatomic,retain)  LPCommodity      *oneCommodity;
 @property (nonatomic,copy)    NSString         *orderID;
 @property (nonatomic,retain)  ShopInfo         *myShopInfo;
-@property (nonatomic,assign)  int               num;
+@property (nonatomic,assign)  int              num;
 
 @end
