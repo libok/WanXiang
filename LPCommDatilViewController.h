@@ -39,7 +39,7 @@
 @property(retain,nonatomic) NSDictionary *dataDictionary;
 @property (retain, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (retain, nonatomic) IBOutlet UILabel *title1;
-@property (retain, nonatomic) IBOutlet UILabel *info;
+@property (retain, nonatomic) IBOutlet UIWebView *info;
 @property (retain, nonatomic) IBOutlet UILabel *manager;
 @property (retain, nonatomic) IBOutlet UILabel *location;
 @property (retain, nonatomic) IBOutlet UILabel *buykonw;

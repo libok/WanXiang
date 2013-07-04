@@ -137,7 +137,7 @@
     self.price.text = [ NSString stringWithFormat:@"%@%@",@"￥",[aDic valueForKey:@"price2"] ];
     self.price1.text = [ NSString stringWithFormat:@"%@",[aDic valueForKey:@"price"]];
     self.title1.text = [ NSString stringWithFormat:@"%@",[aDic valueForKey:@"Title"]];
-    self.info.text = [ NSString stringWithFormat:@"%@",[aDic valueForKey:@"info" ]];
+    [self.info loadHTMLString:[aDic valueForKey:@"info" ] baseURL:nil];
     self.manager.text = [ NSString stringWithFormat:@"%@",[aDic valueForKey:@"managerid" ]];
     self.location.text = [ NSString stringWithFormat:@"%@",[aDic valueForKey:@"sheng" ]];
     self.buykonw.text = [ NSString stringWithFormat:@"%@",[aDic valueForKey:@"xuinfo" ]];
@@ -215,6 +215,7 @@
             youhuiViewController.title_label.text = @"加入会员";
             [youhuiViewController release];
             */
+            
             [MBProgressHUD showHUDAddedTo:self.view message:@"努力请求中..." animated:YES];
            
             [_engine reQuestHY:[LYGAppDelegate getSharedLoginedUserInfo].ID managerID:[[_dataDictionary valueForKey:@"managerid"] intValue]];
