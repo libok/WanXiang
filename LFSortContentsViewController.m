@@ -46,11 +46,15 @@
     return self;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.className.text = self.oneSort.aSortName;
     
+    
+    [MBProgressHUD showHUDAddedTo:self.view message:@"努力加载中..." animated:YES];
+    
+    self.className.text = self.oneSort.aSortName;
     __block LFSortContentsViewController * temp = self;
     NSString * string2 = [NSString stringWithFormat:@"%@/api/book/DetailAd.aspx?s=%d",SERVER_URL,[self.oneSort.merchantID intValue]];
     BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
@@ -62,7 +66,9 @@
     }
 
     ASIHTTPRequest * request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:string2]];
+    [request setTimeOutSeconds:10];
     [request setCompletionBlock:^{
+
         NSLog(@"%@",request.responseString);
         SBJSON * sb = [[SBJSON alloc]init];
         NSDictionary * dict = [sb objectWithString:request.responseString];
@@ -90,8 +96,8 @@
 
          }];
     [request startAsynchronous];
-    //[self.huiKanImageView setImageWithURL:[NSURL URLWithString:string] placeholderImage:[UIImage imageNamed:@"会刊2-4.png"]];
     
+    //[self.huiKanImageView setImageWithURL:[NSURL URLWithString:string] placeholderImage:[UIImage imageNamed:@"会刊2-4.png"]];
 }
 
 -(void)changeImage:(int)count
@@ -114,6 +120,8 @@
 
 -(void)initGet
 {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    
     if (_fenleiArry.count>3) {
         self.segScroll.showsHorizontalScrollIndicator=NO;
         self.segScroll.frame=CGRectMake(26, 48, 274, 32);
