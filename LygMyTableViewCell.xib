@@ -80,19 +80,20 @@
 							<object class="IBUIImageView" id="24804720">
 								<reference key="NSNextResponder" ref="61745616"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{0, 54}, {321, 110}}</string>
+								<string key="NSFrame">{{0, 54}, {320, 227}}</string>
 								<reference key="NSSuperview" ref="61745616"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
+								<reference key="NSNextKeyView" ref="970655058"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<reference key="IBUIBackgroundColor" ref="571584233"/>
+								<int key="IBUIContentMode">2</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
 							<object class="IBUIWebView" id="970655058">
 								<reference key="NSNextResponder" ref="61745616"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{0, 165}, {320, 126}}</string>
+								<string key="NSFrame">{{0, 279}, {320, 12}}</string>
 								<reference key="NSSuperview" ref="61745616"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView"/>
