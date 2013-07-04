@@ -27,7 +27,9 @@
 @synthesize useTime = _useTime;
 @synthesize adress = _adress;
 @synthesize jianJie = _jianJie;
-
+@synthesize meetTime;
+@synthesize meetAdd;
+@synthesize meetCon;
 
 
 + (id)youHuiQuanWithDictionary:(NSDictionary *)youHuiQuanDictionary
@@ -71,6 +73,10 @@
         }
         self.content = [youHuiQuanDictionary objectForKey:@"content"];
         self.contents = [youHuiQuanDictionary objectForKey:@"contents"];
+        
+        self.meetTime = [[youHuiQuanDictionary objectForKey:@"shijian"] isEqual:[NSNull null]]?@"":[youHuiQuanDictionary objectForKey:@"shijian"];
+        self.meetAdd =[[youHuiQuanDictionary objectForKey:@"address"] isEqual:[NSNull null]]?@"":[youHuiQuanDictionary objectForKey:@"address"];
+        self.meetCon = [[youHuiQuanDictionary objectForKey:@"phone"] isEqual:[NSNull null]]?@"":[youHuiQuanDictionary objectForKey:@"phone"];
 	}
 	return self;
 }

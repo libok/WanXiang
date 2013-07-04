@@ -18,15 +18,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.meetTimeLab.text = self.oneStatus.meetTime;
+    self.meetAddLab.text = self.oneStatus.meetAdd;
+    self.meetContact.text = self.oneStatus.meetCon;
+    
     self.shangpinMingcheng.text = self.oneStatus.title;
     self.huiyuanmingcheng.text  = self.oneStatus.shangJia;
     self.shangjiaxinxi.text     = self.oneStatus.content;
     self.dianpudizhi.text       = self.oneStatus.adress;
-    self.shiyongxuzhi.text      = self.oneStatus.contents;
+    
+    self.shiyongxuzhi.backgroundColor=[UIColor clearColor];
+    [self.shiyongxuzhi setOpaque:NO];
+  
+    
+    [self.shiyongxuzhi loadHTMLString:self.oneStatus.contents baseURL:nil];
+    
     if (self.type == 1) {
         self.titleLabel.text = @"签到";
         self.firstLabel.text = @"会议名称";
-        self.lastLabel.text  = @"商品简介";
+        self.lastLabel.text  = @"商品简介:";
     }
 
 //	self.titleLabel.text = @"预定";

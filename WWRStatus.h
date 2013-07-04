@@ -28,9 +28,15 @@
 	NSString  *_useTime;
 	NSString  *_adress;
 	NSString  *_jianJie;
+    
+    NSString  *meetTime;
+    NSString  *meetAdd;
+    NSString  *meetCon;
 
 }
-
+@property (nonatomic,copy) NSString  *meetTime;
+@property (nonatomic,copy) NSString  *meetAdd;
+@property (nonatomic,copy) NSString  *meetCon;
 @property (nonatomic,copy) NSString  *iD;
 @property (nonatomic,copy) NSString  *uID;
 @property (nonatomic,copy) NSString  *managerID;
