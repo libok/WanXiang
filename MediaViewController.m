@@ -49,7 +49,6 @@
     }else{
         joinbutton.hidden=YES;
     }
-    
     if (self.goodID) {
         [self performSelector:@selector(xxcc) withObject:self afterDelay:0.01];
     }
@@ -194,7 +193,8 @@
             LPYouhuiViewController *youhuiViewController = [[LPYouhuiViewController alloc] init];
             youhuiViewController.viewControllerTag = 200;
             youhuiViewController.user_id = [LYGAppDelegate getSharedLoginedUserInfo].ID;
-            youhuiViewController.manager_id = [[_dataDictionary valueForKey:@"managerid"] intValue];
+//            youhuiViewController.manager_id = [[_dataDictionary valueForKey:@"managerid"] intValue];
+            youhuiViewController.manager_id = self.shopID;
             //[self presentModalViewController:youhuiViewController animated:YES];
             [self presentViewController:youhuiViewController animated:YES completion:nil];
             youhuiViewController.title_label.text = @"加入会员";

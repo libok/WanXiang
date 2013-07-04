@@ -17,6 +17,7 @@
 	_scrollView.showsVerticalScrollIndicator = NO;
 	
 }
+
 //自定义方法 用来设置label自适应大小
 - (void)setSomeLabelToFit:(UILabel *)aLabel withPreviousLabel:(UILabel *)previousLabel withLabelText:(NSString *)aStr
 {

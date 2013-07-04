@@ -428,6 +428,7 @@ static int currentIndex = 0;
     shop.height                       = 161;
     __block LYGEveryPhenomenonStreetViewController * xxx = self;
     [LSBengine getUserInfo:ad.managerid callbackfunction:^(ShopInfo * info){
+        [MBProgressHUD hideHUDForView:self.view  animated:YES];
         shop.oneShopInfo = info;
         UIFont * font = [UIFont systemFontOfSize:14];
         CGSize size = [shop.oneShopInfo.Contents sizeWithFont:font constrainedToSize:CGSizeMake(shop.jianjieTextView.frame.size.width, 1000) lineBreakMode:UILineBreakModeWordWrap];
@@ -438,7 +439,7 @@ static int currentIndex = 0;
 //        shop.jianjieTextView.frame = rect;
         [xxx getGoodsArry:shop mangetID:ad.managerid];
      }];
-    [MBProgressHUD hideHUDForView:self.view  animated:YES];
+   
 }
 -(void)getGoodsArry:(ShopViewController*)oneShop mangetID:(int)aID
 {

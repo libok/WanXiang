@@ -192,15 +192,15 @@
 						<reference key="IBUIFontDescription" ref="652086114"/>
 						<reference key="IBUIFont" ref="364297880"/>
 					</object>
-					<object class="IBUIScrollView" id="870907775">
+					<object class="IBUIScrollView" id="350861063">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">268</int>
 						<array class="NSMutableArray" key="NSSubviews">
 							<object class="IBUISegmentedControl" id="871061676">
-								<reference key="NSNextResponder" ref="870907775"/>
+								<reference key="NSNextResponder" ref="350861063"/>
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{0, 1}, {264, 30}}</string>
-								<reference key="NSSuperview" ref="870907775"/>
+								<reference key="NSSuperview" ref="350861063"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="284344793"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -248,7 +248,6 @@
 								<string key="NSFrame">{{0, 172}, {320, 204}}</string>
 								<reference key="NSSuperview" ref="60814286"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<reference key="IBUIBackgroundColor" ref="1000644713"/>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -354,7 +353,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">segScroll</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="870907775"/>
+						<reference key="destination" ref="350861063"/>
 					</object>
 					<int key="connectionID">27</int>
 				</object>
@@ -412,7 +411,7 @@
 							<reference ref="284344793"/>
 							<reference ref="1028720864"/>
 							<reference ref="60814286"/>
-							<reference ref="870907775"/>
+							<reference ref="350861063"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -478,7 +477,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">26</int>
-						<reference key="object" ref="870907775"/>
+						<reference key="object" ref="350861063"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="871061676"/>
 						</array>
@@ -487,7 +486,7 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">10</int>
 						<reference key="object" ref="871061676"/>
-						<reference key="parent" ref="870907775"/>
+						<reference key="parent" ref="350861063"/>
 					</object>
 				</array>
 			</object>

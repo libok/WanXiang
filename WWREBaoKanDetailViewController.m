@@ -25,7 +25,6 @@
 @synthesize titleStr = _titleStr;
 @synthesize dateStr = _dateStr;
 @synthesize contentStr = _contentStr;
-
 @synthesize statuesArray = _statuesArray;
 
 
@@ -38,7 +37,6 @@
 	self.titleLabel.text = self.titleStr;
 	//获取时间
 	self.dateLabel.text = self.dateStr;
-	
 	//文章内容
 	self.contentLabel.text = self.contentStr;
 	//_contentLabel.text = @"    中华网内置了几个好用的函数可以方便的计算出来字符串被现实出来时占有的屏幕高度内置了几个好用的函数可以方便的计算出来字符串被现实出来时占有的屏幕.\n      高度内置了几个好用的函数可以方便的计算出来字符串被现实出来时占有的屏幕高度内置了几个好用的函数可以方便的计算出来字符串被现实出来.\n      时占有的屏幕高度内置了几个好用的函数可以方便的计算出来字符串被现实出来时占有的屏幕高度内置了几个好用的函数可以方便的计算出来字符串被现实出来时占有的屏幕高度";
@@ -92,9 +90,6 @@
 	//请求获得当前报刊评论
 	[_engine requestEBookMsgUser:u bookID:self.bookId];
 	_engine.delegate = self;
-	
-	
-
 }
 
 
@@ -164,12 +159,11 @@
 	WWREBaoKanPingLunStatus *status = [_statuesArray objectAtIndex:indexPath.row];
 	NSLog(@"status.userName %@",status.userName);
 	cell.userName.text = status.userName;
-	
 	cell.userMessageDate.text = status.addtime;
 	cell.userMessage.text = status.contents;
 	cell.goodAnswerDate.text = status.reptime;
 	cell.goodAnswer.text = status.replaycon;
-
+    
 	return cell;
 }
 

@@ -116,7 +116,7 @@
 {
     //NSLog(@"jingping个数%d",[self.kindSortArray count]);
     return  [self.kindSortArray count];
-
+    
 }
 
 -(void)orderButtonClick:(UIButton*)sender
