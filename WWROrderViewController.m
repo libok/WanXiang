@@ -128,11 +128,9 @@
 	cell.goodNameLabel.text = status.title;
 	cell.goodTypeLabel.text = (self.type == 0?@"预定":@"签到");
     
-    
-	
 	return cell;
-	
 }
+
 - (void)tableView:(UITableView*)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"xxxx");
@@ -140,7 +138,7 @@
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.type == 1) {
-        return UITableViewCellEditingStyleNone;
+        return UITableViewCellEditingStyleDelete;
     }else
     {
         return UITableViewCellEditingStyleDelete;
@@ -157,24 +155,36 @@
     }
     __block WWROrderViewController * temp = self;
     WWRStatus *status = [_statuesArray objectAtIndex:indexPath.row];
-    NSString * urlString = [NSString stringWithFormat:@"%@/API/goods/delyu.aspx?id=%d",SERVER_URL,[status.iD intValue]];
+    NSString * urlString;
+    NSString * alertMsgS;
+    NSString * alertMsgF;
+    if (self.type==0) {//预定
+        urlString = [NSString stringWithFormat:@"%@/API/goods/delyu.aspx?id=%d",SERVER_URL,[status.iD intValue]];
+        alertMsgS=@"删除预定成功";
+        alertMsgF=@"删除预定失败";
+    }else{//签到
+        urlString = [NSString stringWithFormat:@"%@/API/qd/Delqd.aspx?id=%d",SERVER_URL,[status.iD intValue]];
+        alertMsgS=@"删除签到成功";
+        alertMsgF=@"删除签到失败";
+    }
+
     ASIHTTPRequest * request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:urlString]];
     [request setCompletionBlock:^{
         int x = [LYGAppDelegate getAsihttpResult:request.responseString];
         if (x== 0) {
-            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"删除预定失败" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:alertMsgF delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
             [alert release];
             return;
         }
         [temp.statuesArray removeObjectAtIndex:indexPath.row];
         [temp.tableView reloadData];
-        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"删除预定成功" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:alertMsgS delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alert show];
         [alert release];
     }];
     [request setFailedBlock:^{
-        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"删除预定失败" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:alertMsgF delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alert show];
         [alert release];
         
