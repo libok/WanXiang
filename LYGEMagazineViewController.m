@@ -51,7 +51,8 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];       
+    [super viewDidLoad];
+    [MBProgressHUD showHUDAddedTo:self.view message:@"努力加载中..." animated:YES];
     self.view.backgroundColor = [UIColor lightGrayColor];
     UIButton *gobackBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     gobackBtn.frame = CGRectMake(0, 0, 44, 44);
@@ -89,6 +90,8 @@
         }];
         
         [HuikanEngine getAdQualityMine:uid typename:@"jingpin" callbackfunction:^(NSArray* myArry){
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            
             temp.jingpinArray = myArry;
             UIScrollView * scroview = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 30, 320, 115)];
             //scroview.backgroundColor = [UIColor redColor];
@@ -124,6 +127,8 @@
         }];
         int x = 130;
         [HuikanEngine getAdQualityMine:uid typename:@"shangjia" callbackfunction:^(NSArray* myArry){
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            
             temp.shangjiaArray = myArry;
             UIScrollView * scroview = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 41+x, 320, 115)];
             //scroview.backgroundColor = [UIColor redColor];
@@ -164,16 +169,17 @@
                 
                 
             }
-        }];        
-    }else
+        }];
+    }
+    else
     {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         BYNLoginViewController * log = [[BYNLoginViewController alloc]init];
         [self.navigationController pushViewController:log animated:YES];
         [log release];
         
     }
     _allKindsHuikanScrollview.contentSize = CGSizeMake(320, 379);
-    //_mineSortName1.text = @"hahahh";
 }
 
 - (void)viewDidUnload
