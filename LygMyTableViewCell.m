@@ -31,7 +31,7 @@
     //[_label release];
     //[_imageView release];
     [_textView release];
-    [_myContentImageView release];
+    //[_myContentImageView release];
     [super dealloc];
 }
 @end
