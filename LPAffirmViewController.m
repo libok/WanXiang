@@ -62,8 +62,6 @@
     self.shangjiaLabel2.text = self.myShopInfo.adress;
     self.shangjiaLabel3.text = self.myShopInfo.Contents;
     
-    
-    
     self.price.text         = [self.oneCommodity.price description];
     self.yhprice.text       = [self.oneCommodity.price2 description];
     self.number.text        = [NSString stringWithFormat:@"%d",self.num];
@@ -90,6 +88,7 @@
     //[self dismissModalViewControllerAnimated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 -(void)payForTheOrder
 {
     AlixPayOrder *order = [[AlixPayOrder alloc] init];
@@ -103,13 +102,12 @@
     NSLog(@"---->%@---->%@",self.oneCommodity.price,self.oneCommodity.price2);
     order.amount      = [NSString stringWithFormat:@"%.2f",[self.oneCommodity.price2 floatValue]*self.num];
     order.notifyURL   = [NSString stringWithFormat:@"%@/alipay/notify.aspx",SERVER_URL];
-    //	//应用注册scheme,在AlixPayDemo-Info.plist定义URL types,用于安全支付成功后重新唤起商户应用
+    //应用注册scheme,在AlixPayDemo-Info.plist定义URL types,用于安全支付成功后重新唤起商户应用
 	NSString *appScheme = @"wanxiangerweima";
     //	//将商品信息拼接成字符串
     NSString *orderSpec = [order description];
-    //	NSLog(@"orderSpec = %@",orderSpec);
-    //
-    //	//获取私钥并将商户信息签名,外部商户可以根据情况存放私钥和签名,只需要遵循RSA签名规范,并将签名字符串base64编码和UrlEncode
+    //NSLog(@"orderSpec = %@",orderSpec);
+    //获取私钥并将商户信息签名,外部商户可以根据情况存放私钥和签名,只需要遵循RSA签名规范,并将签名字符串base64编码和UrlEncode
     id<DataSigner> signer = CreateRSADataSigner([[NSBundle mainBundle] objectForInfoDictionaryKey:@"PRIVATE"]);
     NSString *signedString = [signer signString:orderSpec];
     //
@@ -123,7 +121,6 @@
         
         AlixPay * alixpay = [AlixPay shared];
         int ret = [alixpay pay:orderString applicationScheme:appScheme];
-        
         if (ret == kSPErrorAlipayClientNotInstalled) {
             UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示"
                                                                  message:@"您还没有安装支付宝快捷支付，请先安装。"
@@ -140,6 +137,7 @@
         
     }
 }
+
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     NSString * URLString = [NSString stringWithString:@"http://itunes.apple.com/cn/app/id535715926?mt=8"];

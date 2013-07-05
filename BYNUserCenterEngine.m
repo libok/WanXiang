@@ -44,36 +44,29 @@
         [alert release];
         return;
     }
-
-	
-	//NSString * uuid = [(LYGAppDelegate*)([UIApplication sharedApplication].delegate) getuuid];
     NSString * uuid   = [LYGAppDelegate getUUID];
     passwordStr = [[passwordStr md5EncodeString] lowercaseString];
 	NSString * str = [NSString stringWithFormat:@"%@/API/User/reg.aspx?u=%@&p=%@&ct=%d&clientid=%@&e=%@&q=%@&a=%@",SERVER_URL,phoneStr,passwordStr,1,uuid,emailStr,questionStr,answerStr];
 	
-	NSURL *url = [NSURL URLWithString:str];
-	
+	NSURL *url = [NSURL URLWithString:[str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url]; 
 	
 	[request setCompletionBlock:^
 	 {
-		 //NSLog(@"------ %@",request.responseString);
+		 NSLog(@"------ %@",request.responseString);
 		 SBJSON *json = [[SBJSON alloc] init];
 		 NSDictionary *dic = [json objectWithString:request.responseString error:nil];
          [json release];
 		 int num = [[dic objectForKey:@"NO"] intValue];		 
          NSString *msg = [dic objectForKey:@"Msg"];
 	     [[NSUserDefaults standardUserDefaults] setValue:msg forKey:@"regist"];
-		 
+		 [[NSUserDefaults standardUserDefaults] synchronize];
 		 if (num == 0)
 		 {
 			 aCompletionBlock(msg,0);
-			 
 		 }
-		 
 		 else
 		 {
-			 
 			 aCompletionBlock(msg,1);
 		 }	
 		 
@@ -87,7 +80,7 @@
 	 }];
 	
 	request.timeOutSeconds = TIMEOUTSECONDS; 
-	[request startAsynchronous];
+	[request startSynchronous];
 	
 	
 }

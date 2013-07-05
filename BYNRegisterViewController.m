@@ -38,7 +38,7 @@
     [BYNUserCenterEngine sendRegisterPhoneContent:_phoneNumberField.text passwordContent:_passwordField.text emailContent:_emailField.text questionContent:_questionField.text answerContent:_answerField.text completionBlock:^(NSString *msgStr,int num)
 		
 	 {
-         		 msgStr = [[NSUserDefaults standardUserDefaults] objectForKey:@"regist"];
+//         msgStr = [[NSUserDefaults standardUserDefaults] objectForKey:@"regist"];
 				 
 		 if (num == 0) 
 		 {

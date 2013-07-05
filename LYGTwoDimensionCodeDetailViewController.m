@@ -84,10 +84,10 @@
 	{
 		case 0:
 		{	
-			UIImageView *beijingImageView = [[UIImageView alloc] initWithFrame:CGRectMake(77, 303, 162, 122)];
+			UIImageView *beijingImageView = [[UIImageView alloc] initWithFrame:CGRectMake(48, 302, 224, 124)];
 			beijingImageView.image = [UIImage imageNamed:@"文本生码的背景框.png"];
 			[self.view addSubview:beijingImageView];
-			UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(78, 304, 160, 120)];
+			UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(50, 304, 220, 120)];
 			textView.font = [UIFont systemFontOfSize:15];
 			textView.editable = NO;
 			//NSLog(@"11111%@",self.amodel.content);
