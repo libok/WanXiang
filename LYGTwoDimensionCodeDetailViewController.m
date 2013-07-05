@@ -82,7 +82,7 @@
 {
 	switch (self.amodel.type) 
 	{
-		case 0:
+		case 0://文本
 		{	
 			UIImageView *beijingImageView = [[UIImageView alloc] initWithFrame:CGRectMake(48, 302, 224, 124)];
 			beijingImageView.image = [UIImage imageNamed:@"文本生码的背景框.png"];
@@ -97,7 +97,7 @@
 			[beijingImageView release];
 			break;
 		}
-		case 1:
+		case 1://微薄
 		{
             if ([self.amodel.myType isEqualToString:@"weibo"]) 
 			{
@@ -161,7 +161,7 @@
 			
 			break;
 		}
-		case 2:
+		case 2://名片
 		{
 			
 //			NSString *xing = [[self.amodel.content componentsSeparatedByString:@";"] objectAtIndex:0];
@@ -173,7 +173,7 @@
 			self.Http.text = [[[[self.amodel.content componentsSeparatedByString:@"\n"] objectAtIndex:1]componentsSeparatedByString:@":"]objectAtIndex:1];
 			break;
 		}
-		case 3:
+		case 3://电话
 		{
 			UITextField *phoneTextField = [[UITextField alloc] initWithFrame:CGRectMake(82, 324, 120, 30)]; 
 			phoneTextField.enabled = NO;
@@ -189,7 +189,7 @@
 			[self.view addSubview:phoneBtn];
 			break;
 		}
-		case 4:
+		case 4://邮箱
 		{
 			UIImageView *beijingImageView = [[UIImageView alloc] initWithFrame:CGRectMake(85, 303, 152, 80)];
 			beijingImageView.image = [UIImage imageNamed:@"文本生码的背景框.png"];
@@ -211,7 +211,7 @@
 			[self.view addSubview:btn];
 			break;
 		}
-		case 6:
+		case 6://短信 
 		{
 			NSString *name = [[self.amodel.content componentsSeparatedByString:@";"] objectAtIndex:0];
 			NSString *http = [[self.amodel.content componentsSeparatedByString:@";"] objectAtIndex:1];
@@ -243,7 +243,7 @@
 			break;
 			
 		}
-		case 7:
+		case 7://wifi
 		{
 			NSString *name = [[self.amodel.content componentsSeparatedByString:@";"] objectAtIndex:0];
 			NSString *http = [[self.amodel.content componentsSeparatedByString:@";"] objectAtIndex:1];
@@ -253,7 +253,7 @@
 			self.Http.text = http;			
 			break;
 		}
-		case 8:
+		case 8://地图
 		{
 			NSString *lat = [[self.amodel.content componentsSeparatedByString:@","] objectAtIndex:0];
 			NSString *lng = [[self.amodel.content componentsSeparatedByString:@","] objectAtIndex:1];
