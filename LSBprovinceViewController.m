@@ -247,6 +247,9 @@
     LYGEveryPhenomenonStreetViewController *temp = (LYGEveryPhenomenonStreetViewController *)_delegate;
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:city];
     [temp.provincebtn setTitle:city.cityName  forState:UIControlStateNormal];
+    if ([temp respondsToSelector:@selector(setProiD:cityID:)]) {
+        [temp setProiD:[city.proID intValue] cityID:[city.cityID intValue]];
+    }
     [[NSUserDefaults standardUserDefaults] setValue:data forKey:@"province"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     //[self dismissModalViewControllerAnimated:YES];

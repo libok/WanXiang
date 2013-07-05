@@ -120,10 +120,51 @@
 	//[SVProgressHUD dismiss];
     //MBProgressHUD showHUDAddedTo:self.view message:<#(NSString *)#> animated:<#(BOOL)#>
    // [MBProgressHUD showHUDAddedTo:self.view message:@"微博发表成功" animated:YES];
+    
+    NSLog(@"______________   %@",request.responseString);
+    
     [MBProgressHUD hideHUDForView:self.view animated:YES];
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"恭喜" message:@"微博发表成功" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-    [alertView show];
-    [alertView release];
+    SBJSON *json = [[SBJSON alloc] init];
+    NSDictionary *dic = [json objectWithString:request.responseString error:nil];
+    
+    
+    if ([self.flag isEqualToString:@"xinlang"])
+	{
+		
+        if (![dic objectForKey:@"error"])
+        {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"恭喜" message:@"微博发表成功" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+            [alertView show];
+            [alertView release];
+        }
+        else
+        {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"恭喜" message:@"微博发表失败" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+            [alertView show];
+            [alertView release];
+        }
+
+    }
+	else
+    {
+        if ([[dic objectForKey:@"errcode"] intValue] == 0)
+        {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"恭喜" message:@"微博发表成功" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+            [alertView show];
+            [alertView release];
+        }
+        else
+        {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"恭喜" message:@"微博发表失败" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+            [alertView show];
+            [alertView release];
+        }
+
+    
+    }
+    
+    
+       
     
 }
 - (void) Filed:(ASIHTTPRequest *)request

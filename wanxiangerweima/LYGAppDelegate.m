@@ -32,10 +32,12 @@ static NSString * UUID = nil;
 static Reachability * reach = nil;
 +(BOOL)netWorkIsAvailable
 {
-    if (!reach) {
+//    if (!reach)
+//    {
+    [reach release];
         reach = [[Reachability reachabilityWithHostName:@"www.baidu.com"] retain];
         //[reach startNotifier];
-    }    
+//    }    
     if (reach.currentReachabilityStatus == NotReachable) {
         return NO;
     }else

@@ -10,7 +10,7 @@
 #import "BYNRegisterViewController.h"
 #import "BYNLoginViewController.h"
 #import "BYNFoundPasswordViewController.h"
-
+#import "BYNUserInfoViewController.h"
 
 @implementation BYNAccountManagementViewController
 
@@ -57,6 +57,13 @@
 			BYNFoundPasswordViewController *foundPasswordVC = [[BYNFoundPasswordViewController alloc]init];
 			[self.navigationController pushViewController:foundPasswordVC animated:YES];
 			[foundPasswordVC release];
+		}
+		    break;
+        case 4:
+		{
+            BYNUserInfoViewController* userInfoVC = [[BYNUserInfoViewController alloc]init];
+            [self.navigationController pushViewController:userInfoVC animated:YES];
+            [userInfoVC release];
 		}
 		    break;
 		default:

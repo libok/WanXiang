@@ -51,10 +51,16 @@
     self.addressLabel.text  = self.oneShopInfo.adress;
     //self.phoneLabel.text    = self.oneShopInfo.phone;
     //self.qqLabel.text       = self.oneShopInfo.qq;
-    self.jianjieTextView.text = self.oneShopInfo.Contents;    
+    self.jianjieTextView.text = self.oneShopInfo.Contents;
     UIFont *font = [UIFont systemFontOfSize:14];
+    self.jianjieTextView.font = font;
+    
     CGSize contentSize = [(self.oneShopInfo.Contents ? self.oneShopInfo.Contents : @"") sizeWithFont:font constrainedToSize:CGSizeMake(220, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap];
-    self.jianjieTextView.frame = CGRectMake(69,151,self.jianjieTextView.bounds.size.width, contentSize.height + 15);
+
+  //  self.jianjieTextView.frame = CGRectMake(69,151,self.jianjieTextView.bounds.size.width, contentSize.height + 15);
+
+    self.jianjieTextView.frame = CGRectMake(88,159,self.jianjieTextView.bounds.size.width, contentSize.height + 15+50);
+
     
     [self.button1 setTitle:self.oneShopInfo.phone forState:UIControlStateNormal];
     NSString *str = nil;
@@ -118,6 +124,7 @@
         NSArray * arry    = [[NSBundle mainBundle]loadNibNamed:@"UICustomButton" owner:nil options:nil];
         UICustomButton * button = (UICustomButton*)[arry objectAtIndex:0];
         button.frame  = CGRectMake((i%2+1)*6 + (i%2)*151, self.jianjieTextView.frame.origin.y + self.jianjieTextView.frame.size.height + (i/2+1)*6 + (i/2)*160,151, 160);
+        NSLog(@"button frame is %@",NSStringFromCGRect(button.frame));
         button.clipsToBounds      = YES;
         [self.myScrollview addSubview:button];
         NSString * string  = [NSString stringWithFormat:@"%@%@",SERVER_URL,com.imgurl];

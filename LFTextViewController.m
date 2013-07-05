@@ -112,6 +112,7 @@
 //        return temp.height;
         
         return rowHeight;
+
     }else
     {
         PingLunModel * temp = [self.myArry objectAtIndex:indexPath.row];
@@ -123,6 +124,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSLog(@"%d",[self.myArry count]);
     return [self.myArry count];
 }
 
@@ -164,11 +166,11 @@
         }
         LygMyTableViewCell* cell2 =  (LygMyTableViewCell*)cell;
         cell2.label.text = self.oneArticleModel.title;
-        if (self.oneArticleModel.img.length > 3) {
-            NSLog(@"%@",self.oneArticleModel.img);
-            NSString * str = [NSString stringWithFormat:@"%@%@",SERVER_URL,self.oneArticleModel.img];
-            [cell2.myContentImageView setImageWithURL:[NSURL URLWithString:str] placeholderImage:[UIImage imageNamed:@"place.png"]];
-        }
+//        if (self.oneArticleModel.img.length > 3) {
+//            NSLog(@"%@",self.oneArticleModel.img);
+//            NSString * str = [NSString stringWithFormat:@"%@%@",SERVER_URL,self.oneArticleModel.img];
+//            [cell2.myContentImageView setImageWithURL:[NSURL URLWithString:str] placeholderImage:[UIImage imageNamed:@"place.png"]];
+//        }
         cell2.textView.delegate = self;
        
         NSMutableString *tempString = [[NSMutableString alloc] init];

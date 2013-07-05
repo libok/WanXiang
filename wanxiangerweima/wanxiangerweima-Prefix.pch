@@ -12,7 +12,9 @@
     #import <Foundation/Foundation.h>
 #endif
 #define IS_IPHONE5 (([[UIScreen mainScreen] bounds].size.height-568)?NO:YES)
+
 //#define SERVER_URL @"http://119.161.221.204:801"
+
 #define SERVER_URL @"http://218.28.12.103"
 #define DECIPERURLSTRING  @"/page/Qr.aspx?type="
 

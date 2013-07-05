@@ -12,7 +12,6 @@
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBProxyObject</string>
-			<string>IBUIImageView</string>
 			<string>IBUILabel</string>
 			<string>IBUITableViewCell</string>
 			<string>IBUIWebView</string>
@@ -47,7 +46,7 @@
 								<string key="NSFrame">{{63, 6}, {193, 46}}</string>
 								<reference key="NSSuperview" ref="61745616"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="24804720"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -60,7 +59,7 @@
 									<bytes key="NSRGB">MCAwIDAAA</bytes>
 									<string key="IBUIColorCocoaTouchKeyPath">darkTextColor</string>
 								</object>
-								<object class="NSColor" key="IBUIHighlightedColor" id="571584233">
+								<object class="NSColor" key="IBUIHighlightedColor">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MQA</bytes>
 								</object>
@@ -77,25 +76,12 @@
 								</object>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 							</object>
-							<object class="IBUIImageView" id="24804720">
-								<reference key="NSNextResponder" ref="61745616"/>
-								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{0, 54}, {321, 110}}</string>
-								<reference key="NSSuperview" ref="61745616"/>
-								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
-								<string key="NSReuseIdentifierKey">_NS:9</string>
-								<reference key="IBUIBackgroundColor" ref="571584233"/>
-								<bool key="IBUIUserInteractionEnabled">NO</bool>
-								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-							</object>
 							<object class="IBUIWebView" id="970655058">
 								<reference key="NSNextResponder" ref="61745616"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{0, 165}, {320, 126}}</string>
+								<string key="NSFrame">{{0, 60}, {320, 231}}</string>
 								<reference key="NSSuperview" ref="61745616"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">1</int>
@@ -145,14 +131,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">myContentImageView</string>
-						<reference key="source" ref="250987404"/>
-						<reference key="destination" ref="24804720"/>
-					</object>
-					<int key="connectionID">61</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">textView</string>
 						<reference key="source" ref="250987404"/>
 						<reference key="destination" ref="970655058"/>
@@ -184,7 +162,6 @@
 						<reference key="object" ref="250987404"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="724054596"/>
-							<reference ref="24804720"/>
 							<reference ref="970655058"/>
 						</array>
 						<reference key="parent" ref="0"/>
@@ -192,11 +169,6 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">54</int>
 						<reference key="object" ref="724054596"/>
-						<reference key="parent" ref="250987404"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">55</int>
-						<reference key="object" ref="24804720"/>
 						<reference key="parent" ref="250987404"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -213,7 +185,6 @@
 				<string key="3.CustomClassName">LygMyTableViewCell</string>
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="54.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="55.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="62.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
@@ -229,17 +200,12 @@
 					<string key="superclassName">UITableViewCell</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="label">UILabel</string>
-						<string key="myContentImageView">UIImageView</string>
 						<string key="textView">UIWebView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="label">
 							<string key="name">label</string>
 							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="myContentImageView">
-							<string key="name">myContentImageView</string>
-							<string key="candidateClassName">UIImageView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="textView">
 							<string key="name">textView</string>
