@@ -192,15 +192,15 @@
 						<reference key="IBUIFontDescription" ref="652086114"/>
 						<reference key="IBUIFont" ref="364297880"/>
 					</object>
-					<object class="IBUIScrollView" id="569213727">
+					<object class="IBUIScrollView" id="533369280">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">274</int>
 						<array class="NSMutableArray" key="NSSubviews">
 							<object class="IBUISegmentedControl" id="871061676">
-								<reference key="NSNextResponder" ref="569213727"/>
+								<reference key="NSNextResponder" ref="533369280"/>
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{1, 1}, {264, 30}}</string>
-								<reference key="NSSuperview" ref="569213727"/>
+								<reference key="NSSuperview" ref="533369280"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="284344793"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -354,7 +354,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">segScroll</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="569213727"/>
+						<reference key="destination" ref="533369280"/>
 					</object>
 					<int key="connectionID">27</int>
 				</object>
@@ -412,7 +412,7 @@
 							<reference ref="284344793"/>
 							<reference ref="1028720864"/>
 							<reference ref="60814286"/>
-							<reference ref="569213727"/>
+							<reference ref="533369280"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -479,7 +479,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">26</int>
-						<reference key="object" ref="569213727"/>
+						<reference key="object" ref="533369280"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="871061676"/>
 						</array>
@@ -488,7 +488,7 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">10</int>
 						<reference key="object" ref="871061676"/>
-						<reference key="parent" ref="569213727"/>
+						<reference key="parent" ref="533369280"/>
 					</object>
 				</array>
 			</object>
