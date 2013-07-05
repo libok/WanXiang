@@ -2480,8 +2480,8 @@
 			isa = PBXGroup;
 			children = (
 				58E5F7A7172B293C00F978C5 /* scan_tip.wav */,
-				58EA8E361710A4C50093A843 /* LYGScanResultViewController.m */,
 				58EA8E371710A4C50093A843 /* LYGScanResultViewController.h */,
+				58EA8E361710A4C50093A843 /* LYGScanResultViewController.m */,
 				58EA8E381710A4C50093A843 /* LYGScanResultViewController.xib */,
 				580720721762016E00856FFC /* ChoujiangViewController.h */,
 				580720731762016E00856FFC /* ChoujiangViewController.m */,
@@ -2665,8 +2665,8 @@
 				58C381FE177DE1E30011482B /* beep-beep.aiff */,
 				58C381EA177DD6750011482B /* ZXingWidget.xcodeproj */,
 				5813266E1765B2EF00E2A632 /* MyTableView.h */,
-				581326711765B30D00E2A632 /* MyTableView.xib */,
 				5813266F1765B2F000E2A632 /* MyTableView.m */,
+				581326711765B30D00E2A632 /* MyTableView.xib */,
 				58E6FBE2170A27610029BAAD /* 个人中心 */,
 				58E6FBDB170A26C80029BAAD /* 万象街道 */,
 				4DF0E4EA170B0C3800F54BA5 /* LSBengine.h */,
@@ -3840,8 +3840,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: yali liu (ZXHENKXVL6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yali liu (ZXHENKXVL6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: gaoyuan wu (VUNZFL28SQ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: gaoyuan wu (VUNZFL28SQ)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -3871,8 +3871,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "";
-				PROVISIONING_PROFILE = "A268A4D0-083C-407D-BD05-CF739FE70FDB";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A268A4D0-083C-407D-BD05-CF739FE70FDB";
+				PROVISIONING_PROFILE = "1F96D63A-1A50-4EDD-928F-FCA8B81299A4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1F96D63A-1A50-4EDD-928F-FCA8B81299A4";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				SDKROOT = iphoneos;
@@ -3888,8 +3888,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: yali liu (ZXHENKXVL6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yali liu (ZXHENKXVL6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: gaoyuan wu (VUNZFL28SQ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: gaoyuan wu (VUNZFL28SQ)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -3907,8 +3907,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "";
-				PROVISIONING_PROFILE = "A268A4D0-083C-407D-BD05-CF739FE70FDB";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A268A4D0-083C-407D-BD05-CF739FE70FDB";
+				PROVISIONING_PROFILE = "1F96D63A-1A50-4EDD-928F-FCA8B81299A4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1F96D63A-1A50-4EDD-928F-FCA8B81299A4";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				SDKROOT = iphoneos;
@@ -3919,8 +3919,8 @@
 		58E6FB6A170A1BF30029BAAD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: yali liu (ZXHENKXVL6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yali liu (ZXHENKXVL6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: gaoyuan wu (VUNZFL28SQ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: gaoyuan wu (VUNZFL28SQ)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
@@ -3941,8 +3941,8 @@
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "万象二维码";
-				PROVISIONING_PROFILE = "33CABFB6-F4FF-4D86-84EB-7B031DFDD16F";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "33CABFB6-F4FF-4D86-84EB-7B031DFDD16F";
+				PROVISIONING_PROFILE = "1F96D63A-1A50-4EDD-928F-FCA8B81299A4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1F96D63A-1A50-4EDD-928F-FCA8B81299A4";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -3952,8 +3952,8 @@
 		58E6FB6B170A1BF30029BAAD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: yali liu (ZXHENKXVL6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yali liu (ZXHENKXVL6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: gaoyuan wu (VUNZFL28SQ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: gaoyuan wu (VUNZFL28SQ)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
@@ -3974,8 +3974,8 @@
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "33CABFB6-F4FF-4D86-84EB-7B031DFDD16F";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "33CABFB6-F4FF-4D86-84EB-7B031DFDD16F";
+				PROVISIONING_PROFILE = "1F96D63A-1A50-4EDD-928F-FCA8B81299A4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1F96D63A-1A50-4EDD-928F-FCA8B81299A4";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
