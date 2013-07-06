@@ -10,4 +10,5 @@
 
 @interface ShowAdViewController : UIViewController
 
+-(void)setHeadTitle:(NSString *)titleVal showType :(int) showType  adContent:(NSString *)adContent adImageUrl:(NSString *)adImageUrl;
 @end
