@@ -62,7 +62,6 @@
     }else{
        self.myImageView.image  = image; 
     }
-    
 	[self moreMessege];
 }
 

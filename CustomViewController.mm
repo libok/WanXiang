@@ -401,8 +401,10 @@
     if (image) {
         self.currentSelectImage=image;
     }
-    [xxx decodeImage:image];
+    [xxx decodeImage:self.currentSelectImage];
 }
+
+
 
 -(NSString *)createUrlString:(NSString *)symbol
 {
@@ -826,6 +828,7 @@ bool isHaveDecoder=NO;
                             thePerson.addRess,
                             thePerson.jobTitle];
         }
+        
         [LYGTwoDimensionCodeDao insert:amodel];
         LYGTwoDimensionCodeDetailViewController * scan = [[LYGTwoDimensionCodeDetailViewController alloc]init];
         scan.amodel = amodel;
