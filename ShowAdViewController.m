@@ -47,6 +47,7 @@
     if (showType==1) {
         UITextView *adText=[[UITextView alloc] initWithFrame:CGRectMake(0, 50, 320, 200)];
         adText.text=adContent;
+        adText.editable=NO;
         [self.view addSubview:adText];
         [adText release];
         adText.backgroundColor=[UIColor clearColor];

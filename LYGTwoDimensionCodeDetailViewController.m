@@ -136,8 +136,6 @@
 			}
 			else //if ([self.amodel.myType isEqualToString:@"http"]) 
 			{
-
-                
 				UIImageView *beijingImageView = [[UIImageView alloc] initWithFrame:CGRectMake(80, 308, 160, 82)];
 				beijingImageView.image = [UIImage imageNamed:@"文本生码的背景框.png"];
 				[self.view addSubview:beijingImageView];

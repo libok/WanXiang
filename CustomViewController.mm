@@ -10,7 +10,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <QRCodeReader.h>
 #import <TwoDDecoderResult.h>
-
+#import "ZYAddPerson.h"
 
 @interface CustomViewController ()
 
@@ -432,6 +432,82 @@
 }
 
 
+/*
+ 作者；西瓜
+ 解析vcf文件
+*/
+-(ZYAddPerson *)parseVCardString:(NSString*)vcardString {
+    NSArray *lines = [vcardString componentsSeparatedByString:@"\n"];
+    ZYAddPerson *thePerson=NULL;
+    for(NSString* line in lines) {
+        if ([line hasPrefix:@"BEGIN"]) {
+            if (thePerson) {
+                [thePerson release];
+                thePerson=NULL;
+            }
+            thePerson=[[ZYAddPerson alloc] init];
+        } else if ([line hasPrefix:@"END"]) {
+            if (thePerson) {
+                return thePerson;
+            }
+        } else if ([line hasPrefix:@"N:"]) {
+            NSArray *upperComponents = [line componentsSeparatedByString:@":"];
+            NSArray *components = [[upperComponents objectAtIndex:1] componentsSeparatedByString:@";"];
+            NSString * lastName = [components objectAtIndex:0];
+            NSString * firstName = [components objectAtIndex:1];
+            if (thePerson) {
+                thePerson.fisrtName=firstName;
+                thePerson.lastName=lastName;
+            }
+            NSLog(@"name %@ %@",firstName,lastName);
+        } else if ([line hasPrefix:@"EMAIL:"]) {
+            NSArray *components = [line componentsSeparatedByString:@":"];
+            NSString * emailAddress = [components objectAtIndex:1];
+            NSLog(@"emailAddress %@",emailAddress);
+            if (thePerson) {
+                thePerson.emailArr=emailAddress;
+//                [thePerson.emailArr addObject:emailAddress];
+            }
+        } else if ([line hasPrefix:@"TEL:"]) {
+            NSArray *components = [line componentsSeparatedByString:@":"];
+            NSString *  phoneNumber = [components objectAtIndex:1];
+            phoneNumber=[phoneNumber stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+            phoneNumber=[phoneNumber stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            NSLog(@"phoneNumber %@",phoneNumber);
+            if (thePerson) {
+                thePerson.phoneNumArr=phoneNumber;
+//                [thePerson.phoneNumArr addObject:phoneNumber];
+            }
+        } else if ([line hasPrefix:@"ORG:"]) {
+            NSArray *upperComponents = [line componentsSeparatedByString:@":"];
+            NSArray *components = [[upperComponents objectAtIndex:1] componentsSeparatedByString:@";"];
+            NSString *  userName = [components objectAtIndex:0];
+            if (thePerson) {
+                thePerson.username=userName;
+            }
+        } else if ([line hasPrefix:@"ADR:"]) {
+            NSArray *upperComponents = [line componentsSeparatedByString:@":"];
+            NSString *addRess = [upperComponents objectAtIndex:1];
+            if (thePerson) {
+                thePerson.addRess=addRess;
+            }
+        } else if ([line hasPrefix:@"TITLE:"]) {
+            NSArray *upperComponents = [line componentsSeparatedByString:@":"];
+            NSString *jobTitle = [upperComponents objectAtIndex:1];
+            if (thePerson) {
+                thePerson.jobTitle=jobTitle;
+            }
+        } else if ([line hasPrefix:@"URL:"]) {
+            NSArray *upperComponents = [line componentsSeparatedByString:@":"];
+            NSString *url = [upperComponents objectAtIndex:1];
+            if (thePerson) {
+                thePerson.url =url;
+            }
+        }
+    }
+}
+
+
 #pragma mark - DecoderDelegate
 
 bool isHaveDecoder=NO;
@@ -738,6 +814,18 @@ bool isHaveDecoder=NO;
             amodel.erweimaImage=self.currentSelectImage;
         }
         // 6 短信 7 wifi
+        if ([result2.text hasPrefix:@"BEGIN:VCARD"]) {
+            ZYAddPerson  *thePerson=[self parseVCardString:symbolString];
+            amodel.content=[NSString stringWithFormat:@"姓名:%@%@\n电话:%@\n邮箱:%@\n公司:%@\n网址:%@\n地址:%@\n职位:%@\n",
+                            thePerson.lastName,
+                            thePerson.fisrtName,
+                            thePerson.phoneNumArr,
+                            thePerson.emailArr,
+                            thePerson.username,
+                            thePerson.url,
+                            thePerson.addRess,
+                            thePerson.jobTitle];
+        }
         [LYGTwoDimensionCodeDao insert:amodel];
         LYGTwoDimensionCodeDetailViewController * scan = [[LYGTwoDimensionCodeDetailViewController alloc]init];
         scan.amodel = amodel;
