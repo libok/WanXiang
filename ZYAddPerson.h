@@ -14,12 +14,22 @@
     NSString *fisrtName;
     NSString *lastName;
     NSString *phoneNum;
-    NSMutableArray *phoneNumArr;
-    NSMutableArray *emailArr;
+    
+    NSString *phoneNumArr;
+    NSString *emailArr;
+    
+    NSString *addRess;
+    NSString *jobTitle;
+    NSString *url;
 }
 @property (nonatomic,retain)NSString *fisrtName;
 @property (nonatomic,retain)NSString *lastName;
 @property (nonatomic,retain)NSString *username;
-@property (nonatomic,retain)NSMutableArray *phoneNumArr;
-@property (nonatomic,retain)NSMutableArray *emailArr;
+
+@property (nonatomic,retain)NSString *addRess;
+@property (nonatomic,retain)NSString *jobTitle;
+@property (nonatomic,retain)NSString *url;
+
+@property (nonatomic,retain)NSString *phoneNumArr;
+@property (nonatomic,retain)NSString *emailArr;
 @end

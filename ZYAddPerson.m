@@ -14,6 +14,9 @@
 @synthesize  emailArr;
 @synthesize  fisrtName;
 @synthesize  lastName;
+@synthesize  addRess;
+@synthesize  jobTitle;
+@synthesize  url;
 
 
 -(id)init{
@@ -22,8 +25,11 @@
         self.lastName=@"";
         self.username=@"";
         self.fisrtName=@"";
-        self.phoneNumArr=[NSMutableArray arrayWithCapacity:0];
-        self.emailArr=[NSMutableArray arrayWithCapacity:0];
+        self.phoneNumArr=@"";;
+        self.emailArr=@"";
+        self.addRess=@"";;
+        self.jobTitle=@"";;
+        self.url=@"";;
     }
     return  self;
 }
