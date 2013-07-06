@@ -31,15 +31,15 @@ static NSMutableArray * requestArry = nil;
         [requestArry addObject:request];
     }
     [request setCompletionBlock:^{
-        NSLog(@"%@",request.responseString);
+        NSLog(@"e-g-scroll-%@",request.responseString);
         SBJSON *json = [[SBJSON alloc] init];
         NSDictionary *dic = [json objectWithString:request.responseString error:nil];
         NSString *temp = [dic valueForKey:@"Result"];
         NSDictionary *tempDic = [json objectWithString:temp error:nil];
-        
         NSMutableArray *myarry = [[NSMutableArray alloc] init];
         NSArray *jingpinArr = [tempDic objectForKey:aname];
         if ([aname isEqualToString:@"AD"]) {
+            //1 文字 ，2 图片 0 啥都不跳
             for (NSDictionary *temp in jingpinArr)
             {
                 [myarry  addObject:[LFESortAD initWithDictionary:temp]];

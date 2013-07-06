@@ -368,7 +368,7 @@
 								<string key="NSFrame">{{0, 413}, {320, 23}}</string>
 								<reference key="NSSuperview" ref="571939647"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="449099953"/>
+								<reference key="NSNextKeyView" ref="95966299"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<int key="IBUIContentMode">4</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -479,6 +479,7 @@
 								<string key="NSFrame">{{17, 605}, {284, 42}}</string>
 								<reference key="NSSuperview" ref="571939647"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -734,6 +735,7 @@
 								<string key="NSFrame">{{13, 313}, {293, 107}}</string>
 								<reference key="NSSuperview" ref="571939647"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="449099953"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">1</int>
@@ -992,15 +994,6 @@
 						<int key="IBEventType">7</int>
 					</object>
 					<int key="connectionID">49</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">btnClick:</string>
-						<reference key="source" ref="449099953"/>
-						<reference key="destination" ref="372490531"/>
-						<int key="IBEventType">7</int>
-					</object>
-					<int key="connectionID">51</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">

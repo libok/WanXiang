@@ -10,7 +10,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <QRCodeReader.h>
 #import <TwoDDecoderResult.h>
-
+#import "ZYAddPerson.h"
 
 @interface CustomViewController ()
 
@@ -260,14 +260,9 @@
             }else{
                 dispatch_semaphore_wait(_sem, DISPATCH_TIME_FOREVER);
             }
-            
         }
     });
-
 }
-
-
-
 
 - (void)initCapture
 {
@@ -394,7 +389,6 @@
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection
 {
     UIImage *image = [self imageFromSampleBuffer:sampleBuffer];
-    
     [self decodeImage:image];
 }
 
@@ -407,16 +401,15 @@
     if (image) {
         self.currentSelectImage=image;
     }
-//  [self dismissViewControllerAnimated:YES completion:^{[xxx decodeImage:image];}];
-    [xxx decodeImage:image];
-    //[self.captureSession stopRunning];
+    [xxx decodeImage:self.currentSelectImage];
 }
+
+
 
 -(NSString *)createUrlString:(NSString *)symbol
 {
     NSRange range = [symbol rangeOfString:@"qr"];
     NSString * string = [symbol stringByReplacingCharactersInRange:range withString:@"getqr"];
-    
     return string;
 }
 
@@ -441,6 +434,82 @@
 }
 
 
+/*
+ 作者；西瓜
+ 解析vcf文件
+*/
+-(ZYAddPerson *)parseVCardString:(NSString*)vcardString {
+    NSArray *lines = [vcardString componentsSeparatedByString:@"\n"];
+    ZYAddPerson *thePerson=NULL;
+    for(NSString* line in lines) {
+        if ([line hasPrefix:@"BEGIN"]) {
+            if (thePerson) {
+                [thePerson release];
+                thePerson=NULL;
+            }
+            thePerson=[[ZYAddPerson alloc] init];
+        } else if ([line hasPrefix:@"END"]) {
+            if (thePerson) {
+                return thePerson;
+            }
+        } else if ([line hasPrefix:@"N:"]) {
+            NSArray *upperComponents = [line componentsSeparatedByString:@":"];
+            NSArray *components = [[upperComponents objectAtIndex:1] componentsSeparatedByString:@";"];
+            NSString * lastName = [components objectAtIndex:0];
+            NSString * firstName = [components objectAtIndex:1];
+            if (thePerson) {
+                thePerson.fisrtName=firstName;
+                thePerson.lastName=lastName;
+            }
+            NSLog(@"name %@ %@",firstName,lastName);
+        } else if ([line hasPrefix:@"EMAIL:"]) {
+            NSArray *components = [line componentsSeparatedByString:@":"];
+            NSString * emailAddress = [components objectAtIndex:1];
+            NSLog(@"emailAddress %@",emailAddress);
+            if (thePerson) {
+                thePerson.emailArr=emailAddress;
+//                [thePerson.emailArr addObject:emailAddress];
+            }
+        } else if ([line hasPrefix:@"TEL:"]) {
+            NSArray *components = [line componentsSeparatedByString:@":"];
+            NSString *  phoneNumber = [components objectAtIndex:1];
+            phoneNumber=[phoneNumber stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+            phoneNumber=[phoneNumber stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            NSLog(@"phoneNumber %@",phoneNumber);
+            if (thePerson) {
+                thePerson.phoneNumArr=phoneNumber;
+//                [thePerson.phoneNumArr addObject:phoneNumber];
+            }
+        } else if ([line hasPrefix:@"ORG:"]) {
+            NSArray *upperComponents = [line componentsSeparatedByString:@":"];
+            NSArray *components = [[upperComponents objectAtIndex:1] componentsSeparatedByString:@";"];
+            NSString *  userName = [components objectAtIndex:0];
+            if (thePerson) {
+                thePerson.username=userName;
+            }
+        } else if ([line hasPrefix:@"ADR:"]) {
+            NSArray *upperComponents = [line componentsSeparatedByString:@":"];
+            NSString *addRess = [upperComponents objectAtIndex:1];
+            if (thePerson) {
+                thePerson.addRess=addRess;
+            }
+        } else if ([line hasPrefix:@"TITLE:"]) {
+            NSArray *upperComponents = [line componentsSeparatedByString:@":"];
+            NSString *jobTitle = [upperComponents objectAtIndex:1];
+            if (thePerson) {
+                thePerson.jobTitle=jobTitle;
+            }
+        } else if ([line hasPrefix:@"URL:"]) {
+            NSArray *upperComponents = [line componentsSeparatedByString:@":"];
+            NSString *url = [upperComponents objectAtIndex:1];
+            if (thePerson) {
+                thePerson.url =url;
+            }
+        }
+    }
+}
+
+
 #pragma mark - DecoderDelegate
 
 bool isHaveDecoder=NO;
@@ -455,9 +524,9 @@ bool isHaveDecoder=NO;
     if (beepSound != (SystemSoundID)-1) {
         AudioServicesPlaySystemSound(beepSound);
     }
+    
     if (self.captureSession.running) {
         [self.captureSession stopRunning];
-//      return;
     }
     
     NSLog(@"--decoder----->%@",result2.text);
@@ -476,11 +545,10 @@ bool isHaveDecoder=NO;
     NSRange range4              = [symbolString rangeOfString:[NSString stringWithFormat:@"河南宝丰石桥水泉"]];
     NSRange range5              = [symbolString rangeOfString:@"/vote.aspx"];
     
-    
+    //问卷调查
     if (range5.length>0) {
         [self dismissViewControllerAnimated:YES completion:^{
         }];
-        
         int uid = [LYGAppDelegate getuid];
         if (uid == 0 ) {
             UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"必须处于登录状态才能进行问卷调查" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
@@ -495,11 +563,11 @@ bool isHaveDecoder=NO;
         }
         isHaveDecoder=NO;
     }
-    else if (range.length > 0)
+    else if (range.length > 0)//解密---返回
     {
         NSArray * arry          = [symbolString componentsSeparatedByString:@"="];
         NSArray * arry2         = [[arry objectAtIndex:1] componentsSeparatedByString:@"&"];
-        amodel.type             = [[arry2 objectAtIndex:0] intValue];
+        amodel.type             = [[arry2 objectAtIndex:0] intValue];//类型
         amodel.isSecret         = YES;
         amodel.encryptedString  = symbolString;
         NSString * urlString    = [[self createUrlString:symbolString] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -513,8 +581,7 @@ bool isHaveDecoder=NO;
             tempView = self.view;
         }
         request.timeOutSeconds    = 20;
-        [request setCompletionBlock:^
-         {//解密返回数据
+        [request setCompletionBlock:^{//解密返回数据
              isHaveDecoder=NO;
              [MBProgressHUD hideHUDForView:tempView animated:YES];
              NSString * responseString     = request.responseString;
@@ -534,8 +601,6 @@ bool isHaveDecoder=NO;
              tempCOntroller.isScanning = NO;
              NSString*     resultString       = [dict objectForKey:@"content"];
              NSDictionary*   contetDict       = [sb objectWithString:resultString error:nil];
-//             NSString  *     contentStr       = [dictResult objectForKey:@"content"];
-//             NSDictionary  * contetDict       = [sb objectWithString:contentStr error:nil];
              switch (amodel.type)
              {
                  case 0:
@@ -549,12 +614,11 @@ bool isHaveDecoder=NO;
                      amodel.content = [contetDict objectForKey:@"url"];
                      if (![amodel.content hasPrefix:@"http://"]) {
                          amodel.content = [NSString stringWithFormat:@"http://%@",amodel.content];
-                         //amodel.contentStr = [@"http://" stringByAppendingString:amodel.content];
                      }
                      NSLog(@"%@",amodel.content);
                  }
                      break;
-                 case 2:
+                 case 2://名片
                  {
                      amodel.type=0;
                      NSString * str = [dict objectForKey:@"content"];
@@ -571,20 +635,18 @@ bool isHaveDecoder=NO;
                                              ([contetDict objectForKey:@"title"]?[contetDict objectForKey:@"title"]:@"")];
                  }
                      break;
-                 case 3:
+                 case 3://电话
                  {
                      amodel.content = [contetDict objectForKey:@"tel"];
                  }
                      break;
-                 case 4:
+                 case 4://邮件
                  {
                      amodel.content = [contetDict objectForKey:@"email"];
                  }
                      break;
                  case 5:
                  {
-                     //MediaViewController * temp = [[MediaViewController alloc]init];
-                     //temp.urlString             =
                      NSLog(@"%@",request.responseString);
                      SBJSON * json = [[SBJSON alloc]init];
                      NSDictionary * dict = [json objectWithString:request.responseString];
@@ -603,7 +665,7 @@ bool isHaveDecoder=NO;
                      break;
                  case 6:
                  {
-                     amodel.content = [NSString stringWithFormat:@"%@;%@",[contetDict objectForKey:@"content"],[contetDict objectForKey:@"tel"]];
+                     amodel.content = [NSString stringWithFormat:@"%@;%@",[contetDict objectForKey:@"tel"],[contetDict objectForKey:@"content"]];
                  }
                      break;
                  case 7:
@@ -625,13 +687,10 @@ bool isHaveDecoder=NO;
              [LYGTwoDimensionCodeDao insert:amodel];
              LYGTwoDimensionCodeDetailViewController * scan = [[LYGTwoDimensionCodeDetailViewController alloc]init];
              scan.amodel = amodel;
-             //amodel.type   = 0;
              [self.navigationController pushViewController:scan animated:YES];
              [scan release];
          }];
-        
-        [request setFailedBlock:^
-         {
+        [request setFailedBlock:^{
              isHaveDecoder=NO;
              [MBProgressHUD hideHUDForView:tempView animated:YES];             
              UIAlertView * alert       = [[UIAlertView alloc]initWithTitle:nil message:@"在线解析失败" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
@@ -644,10 +703,9 @@ bool isHaveDecoder=NO;
          }];
         [request startAsynchronous];
         [MBProgressHUD showHUDAddedTo:tempView message:@"网络解密中" animated:YES];
-        
     }
-    else if (range2.length > 0)
-    {//-----
+    else if (range2.length > 0)//富媒体
+    {
         isHaveDecoder=NO;
         [self dismissViewControllerAnimated:YES completion:^{
             
@@ -664,13 +722,13 @@ bool isHaveDecoder=NO;
         [self.navigationController pushViewController:temp animated:YES];
         [temp release];
         
-    }else if (range3.length > 0)
+    }
+    else if (range3.length > 0)//抽奖
     {
         isHaveDecoder=NO;
         [self dismissViewControllerAnimated:YES completion:^{
             
         }];
-        
         NSArray * arry = [result2.text componentsSeparatedByString:@"id="];
         int uid = [LYGAppDelegate getuid];
         if (uid == 0 ) {
@@ -685,25 +743,17 @@ bool isHaveDecoder=NO;
             [self.navigationController pushViewController:temp animated:YES];
         }
         
-    }else if (range4.length > 0)
+    }
+    else if (range4.length > 0)//测试
     {
-//        if (isOpenFromSaveAlbum)
-//        {
-//            //[reader dismissModalViewControllerAnimated:YES];
-//            [reader dismissViewControllerAnimated:YES completion:nil];
-//        }
         UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"版权所有" message:@"制作人：刘永刚  电话 18638572661" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alert show];
         [alert release];
         
-    }else if([symbolString hasPrefix:@"y"] || [symbolString hasPrefix:@"p"] || [symbolString hasPrefix:@"q"] || [symbolString hasPrefix:@"L"])
+    }
+    else if([symbolString hasPrefix:@"y"] || [symbolString hasPrefix:@"p"] || [symbolString hasPrefix:@"q"] || [symbolString hasPrefix:@"L"])//其它判断
     {
         isHaveDecoder=NO;
-//        if (isOpenFromSaveAlbum)
-//        {
-//            //[reader dismissModalViewControllerAnimated:YES];
-//            [reader dismissViewControllerAnimated:YES completion:nil];
-//        }
         YanZhengViewController * temp = [[YanZhengViewController alloc]init];
         
         unichar ss = [result2.text characterAtIndex:0];
@@ -737,63 +787,63 @@ bool isHaveDecoder=NO;
         [self.navigationController pushViewController:temp animated:YES];
         [temp release];
     }
-    else       //来自其它软件的二维码或者本软件产生的未被加过密的二维码；
+    else//来自其它软件的二维码或者本软件产生的未被加过密的二维码；
     {
-//        if (isOpenFromSaveAlbum)
-//        {
-//            //[reader dismissModalViewControllerAnimated:YES];
-//            [reader dismissViewControllerAnimated:YES completion:nil];
-//        }
         isHaveDecoder=NO;
         [self dismissModalViewControllerAnimated:NO];
         if ([symbolString canBeConvertedToEncoding:NSShiftJISStringEncoding])
         {
-            
             NSString * str = [NSString stringWithCString:[result2.text cStringUsingEncoding: NSShiftJISStringEncoding] encoding:NSUTF8StringEncoding];
             NSLog(@"%@",str);
-            amodel.content = str;
-            
+            amodel.content = str;  
         }
         if(!amodel.content)
         {
-            amodel.content    = [symbolString stringByReplacingPercentEscapesUsingEncoding:kCFStringEncodingGB_18030_2000];
+            amodel.content = [symbolString stringByReplacingPercentEscapesUsingEncoding:kCFStringEncodingGB_18030_2000];
         }
         if(!amodel.content)
         {
             amodel.content    = symbolString;
         }
-		
         if ([amodel.content hasPrefix:@"http"]) {
             amodel.type       = 1;
-        }else
-        {
+        }else{
             amodel.type       = 0;
         }
-        
         amodel.isCreated  = NO;
         amodel.isSecret   = NO;
         if (self.currentSelectImage) {
             amodel.erweimaImage=self.currentSelectImage;
         }
+        // 6 短信 7 wifi
+        if ([result2.text hasPrefix:@"BEGIN:VCARD"]) {
+            ZYAddPerson  *thePerson=[self parseVCardString:symbolString];
+            amodel.content=[NSString stringWithFormat:@"姓名:%@%@\n电话:%@\n邮箱:%@\n公司:%@\n网址:%@\n地址:%@\n职位:%@\n",
+                            thePerson.lastName,
+                            thePerson.fisrtName,
+                            thePerson.phoneNumArr,
+                            thePerson.emailArr,
+                            thePerson.username,
+                            thePerson.url,
+                            thePerson.addRess,
+                            thePerson.jobTitle];
+        }
+        
         [LYGTwoDimensionCodeDao insert:amodel];
         LYGTwoDimensionCodeDetailViewController * scan = [[LYGTwoDimensionCodeDetailViewController alloc]init];
         scan.amodel = amodel;
         [self.navigationController pushViewController:scan animated:YES];
         [scan release];
     }
-
 }
 
 - (void)decoder:(Decoder *)decoder failedToDecodeImage:(UIImage *)image usingSubset:(UIImage *)subset reason:(NSString *)reason
 {
-    
     if (!self.isScanning && !self.captureSession.isRunning) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"没有发现二维码" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
         [alertView show];
         [alertView release];
     }
-    
-
 }
 
 #pragma mark - UIAlertViewDelegate

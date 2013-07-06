@@ -21,6 +21,9 @@
 #import "ASIHTTPRequest.h"
 #import "SBJSON.h"
 #import "MBProgressHUD.h"
+#import "ShowAdViewController.h"
+
+
 @interface LYGEMagazineViewController (Private)
 {
 
@@ -68,9 +71,7 @@
         [HuikanEngine getAdQualityMine:uid typename:@"AD" callbackfunction:^(NSArray * myArry){
             temp.AdArray = myArry;
             temp.huikanHomepageScrollView.contentSize = CGSizeMake(320 * [temp.AdArray count], 130);
-            //temp.huikanHomepageScrollView.backgroundColor = [UIColor lightGrayColor];
             temp.adPageControl.numberOfPages = [temp.AdArray count];
-            //NSLog(@"$$$$$$$$广告图片个数 %d",[self.AdArray count]);
             for (int i = 0; i < [temp.AdArray count]; i ++)
             {
                 UIImageView *adView = [[UIImageView alloc] initWithFrame:CGRectMake(320 * i, 0, 320, 130)];                
@@ -79,22 +80,24 @@
                 adView.backgroundColor = [UIColor lightGrayColor];
                 adView.tag = i + 1;
                 
+                UIButton *adShowBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+                adShowBtn.frame=CGRectMake(320 * i, 0, 320, 130);
+                adShowBtn.tag=700+i;
+                [adShowBtn addTarget:self action:@selector(adBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+                [temp.huikanHomepageScrollView addSubview:adShowBtn];
+                
                 NSString *urlString = SERVER_URL;
                 NSString *adUrlString =[urlString stringByAppendingString: ((LFESortAD *)[temp.AdArray objectAtIndex:i]).adImgUrl];
-                
                 [adView setImageWithURL:[NSURL URLWithString:adUrlString] placeholderImage:[UIImage imageNamed:@"place.png"]];
             }
-            
             temp.aTimer = [[NSTimer scheduledTimerWithTimeInterval:3 target:temp selector:@selector(changeImg) userInfo:nil repeats:YES] autorelease];
             [temp.aTimer fire];
         }];
         
         [HuikanEngine getAdQualityMine:uid typename:@"jingpin" callbackfunction:^(NSArray* myArry){
             [MBProgressHUD hideHUDForView:self.view animated:YES];
-            
             temp.jingpinArray = myArry;
             UIScrollView * scroview = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 30, 320, 115)];
-            //scroview.backgroundColor = [UIColor redColor];
             [temp.allKindsHuikanScrollview addSubview:scroview];
 
             scroview.contentSize      = CGSizeMake(15+85* [temp.jingpinArray count],115);
@@ -135,7 +138,6 @@
             [temp.allKindsHuikanScrollview addSubview:scroview];
             
             scroview.contentSize      = CGSizeMake(15+85* [temp.shangjiaArray count],115);
-;
             [scroview release];
 
             for (int i = 0; i < [temp.shangjiaArray count]; i ++)
@@ -180,6 +182,29 @@
         
     }
     _allKindsHuikanScrollview.contentSize = CGSizeMake(320, 379);
+}
+
+/*
+  广告按钮点击
+ */
+-(void)adBtnClick:(UIButton *)sender{
+    LFESortAD *currentAdObj=(LFESortAD *)[self.AdArray objectAtIndex:sender.tag-700];
+
+    NSLog(@"------im-----g--%@",currentAdObj.adTitle);
+    NSLog(@"---------c---%@",currentAdObj.adContents);
+    NSLog(@"------im-----g--%@",currentAdObj.adContentsimg);
+    if ([currentAdObj.adType intValue]==1) {//文字
+        ShowAdViewController *showVc=[[ShowAdViewController alloc] init];
+        [showVc setHeadTitle:currentAdObj.adTitle showType:[currentAdObj.adType intValue] adContent:currentAdObj.adContents adImageUrl:@""];
+        [self presentViewController:showVc animated:YES completion:nil];
+        [showVc release];
+    }else  if ([currentAdObj.adType intValue]==2){//图片
+        ShowAdViewController *showVc=[[ShowAdViewController alloc] init];
+        [showVc setHeadTitle:currentAdObj.adTitle showType:[currentAdObj.adType intValue] adContent:@"" adImageUrl:currentAdObj.adContentsimg];
+        [self presentViewController:showVc animated:YES completion:nil];
+        [showVc release];
+    }
+
 }
 
 - (void)viewDidUnload
@@ -379,8 +404,6 @@
     textField_userId.backgroundColor = [UIColor whiteColor];
 	textField_userId.font=[UIFont systemFontOfSize:25];
     [textField_userId release];
-    
-    
     
     //让上面的按钮都往下移
     for(UIView *vi in [alertView subviews])

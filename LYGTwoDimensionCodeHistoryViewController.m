@@ -12,10 +12,6 @@
 #import "LYGDataBaseUIlti.h"
 #import "LYGTwoDimensionCodeDetailViewController.h"
 
-
-
-
-
 @implementation LYGTwoDimensionCodeHistoryViewController
 @synthesize myTableView = _myTableView;
 @synthesize moveToTrashButton = _moveToTrashButton;
