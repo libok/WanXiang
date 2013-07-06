@@ -130,27 +130,23 @@ static int currentIndex = 0;
     __block LYGEveryPhenomenonStreetViewController * temp = self;
     __block CLLocation *location = [LYGAppDelegate getlocation2];
     
-        [_myGel reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+    [_myGel reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
         if (error) {
             LPCity *city = [temp getCity];
             if (city != nil)
             {
-                // NSString * tempstr = [city.cityName substringToIndex:city.cityName.length - 1];
                 [temp.provincebtn setTitle:city.cityName forState:UIControlStateNormal];
             }
             [temp.engine requestAd:city atype:0];
             return;
         }
-
-        NSLog(@"%@",placemarks);
         NSString * string  = [[placemarks objectAtIndex:0]locality];
         if (!string) {
             string  = [[placemarks objectAtIndex:0]administrativeArea];
         }        
-        NSLog(@"%@",string);
         [temp.provincebtn setTitle:string forState:UIControlStateNormal];
         
-        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[[NSString stringWithFormat:@"http://119.161.221.204:801/API/city/getcityid.aspx?city=%@",string] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[[NSString stringWithFormat:@"%@/API/city/getcityid.aspx?city=%@",SERVER_URL,string] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
         [request setCompletionBlock:
          ^{
              LPCity *city = [[LPCity alloc] init];
@@ -166,7 +162,6 @@ static int currentIndex = 0;
         
     }];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    //NSLog(@"%d",self.retainCount);
 }
 
 

@@ -255,14 +255,8 @@
             [MBProgressHUD hideHUDForView:temp2.view animated:YES];            
         }];
         [request startAsynchronous];
-
     }
-        
-
-        
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    //[self payForTheOrder];
-    
 }
 -(NSString*)generateTradeNO
 {

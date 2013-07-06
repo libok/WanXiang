@@ -50,9 +50,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSDictionary *dic = [_wareModel.imgList objectAtIndex:0];
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",SERVER_URL,[dic valueForKey:@"Small_img"]]];
-    [_smallimg setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place.png"]];
+    if ([_wareModel.imgList count]>0) {
+        
+          NSDictionary *dic = [_wareModel.imgList objectAtIndex:0];
+          NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",SERVER_URL,[dic valueForKey:@"Small_img"]]];
+          [_smallimg setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place.png"]];
+    }else{
+        _smallimg.image=[UIImage imageNamed:@"place.png"];
+    }
+
     _smallimg.contentMode = UIViewContentModeScaleAspectFit;
     self.cdname.text = _wareModel.title;
     self.price.text = _wareModel.price;
@@ -140,8 +146,10 @@
 
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    NSString * URLString = [NSString stringWithString:@"http://itunes.apple.com/cn/app/id535715926?mt=8"];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:URLString]];
+    if (buttonIndex==0) {
+        NSString * URLString = [NSString stringWithString:@"http://itunes.apple.com/cn/app/id535715926?mt=8"];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:URLString]];
+    }
 }
 
 - (void)viewDidUnload {
