@@ -140,8 +140,13 @@
 - (IBAction)xxxxclick:(id)sender {
     int x = ((UIButton*)sender).tag;
     if (x==0) {
-        UIWebView * web = [[UIWebView alloc]init];
+     
+        UIWebView * web = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
+        //[web loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",((UILabel*)[cell viewWithTag:-100]).text]]]];
         [web loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",((UIButton*)sender).titleLabel.text]]]];
+        web.hidden = YES;
+        [self.view addSubview:web];
+        [web autorelease];
     }
 }
 @end
