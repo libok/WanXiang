@@ -543,6 +543,8 @@
 		740EE0431774545B00829EF1 /* chexiao.png in Resources */ = {isa = PBXBuildFile; fileRef = 740EE0411774545A00829EF1 /* chexiao.png */; };
 		740EE0441774545B00829EF1 /* xueren.png in Resources */ = {isa = PBXBuildFile; fileRef = 740EE0421774545A00829EF1 /* xueren.png */; };
 		740EE046177455B800829EF1 /* 订阅按钮.png in Resources */ = {isa = PBXBuildFile; fileRef = 740EE045177455B800829EF1 /* 订阅按钮.png */; };
+		7416A92617887A4A00EDB775 /* ZYAddPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 7416A92517887A4A00EDB775 /* ZYAddPerson.m */; };
+		7416A92A17887AA100EDB775 /* ShowAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7416A92917887AA100EDB775 /* ShowAdViewController.m */; };
 		744A8FE9176EE3630039CF8E /* NSString+MD5HexDigest.m in Sources */ = {isa = PBXBuildFile; fileRef = 744A8FE8176EE3630039CF8E /* NSString+MD5HexDigest.m */; };
 		745C431F1772A86A001129FA /* section_height.png in Resources */ = {isa = PBXBuildFile; fileRef = 745C431D1772A86A001129FA /* section_height.png */; };
 		745C43201772A86A001129FA /* to.png in Resources */ = {isa = PBXBuildFile; fileRef = 745C431E1772A86A001129FA /* to.png */; };
@@ -1440,6 +1442,10 @@
 		740EE0411774545A00829EF1 /* chexiao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chexiao.png; sourceTree = "<group>"; };
 		740EE0421774545A00829EF1 /* xueren.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xueren.png; sourceTree = "<group>"; };
 		740EE045177455B800829EF1 /* 订阅按钮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "订阅按钮.png"; sourceTree = "<group>"; };
+		7416A92417887A4A00EDB775 /* ZYAddPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYAddPerson.h; sourceTree = "<group>"; };
+		7416A92517887A4A00EDB775 /* ZYAddPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYAddPerson.m; sourceTree = "<group>"; };
+		7416A92817887AA100EDB775 /* ShowAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowAdViewController.h; sourceTree = "<group>"; };
+		7416A92917887AA100EDB775 /* ShowAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowAdViewController.m; sourceTree = "<group>"; };
 		744A8FE7176EE3630039CF8E /* NSString+MD5HexDigest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5HexDigest.h"; sourceTree = "<group>"; };
 		744A8FE8176EE3630039CF8E /* NSString+MD5HexDigest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5HexDigest.m"; sourceTree = "<group>"; };
 		745C431D1772A86A001129FA /* section_height.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = section_height.png; sourceTree = "<group>"; };
@@ -2951,6 +2957,10 @@
 		58E6FBE2170A27610029BAAD /* 个人中心 */ = {
 			isa = PBXGroup;
 			children = (
+				7416A92817887AA100EDB775 /* ShowAdViewController.h */,
+				7416A92917887AA100EDB775 /* ShowAdViewController.m */,
+				7416A92417887A4A00EDB775 /* ZYAddPerson.h */,
+				7416A92517887A4A00EDB775 /* ZYAddPerson.m */,
 				58E6FBE3170A27980029BAAD /* LYGUserCenterViewController.h */,
 				58E6FBE4170A27980029BAAD /* LYGUserCenterViewController.m */,
 				58E6FBE5170A27980029BAAD /* LYGUserCenterViewController.xib */,
@@ -3838,6 +3848,8 @@
 				58C38218177E0D950011482B /* CustomViewController.mm in Sources */,
 				74A7CB6F1785267900C5F402 /* BYNUserInfoViewController.m in Sources */,
 				74A7CB77178581E700C5F402 /* ProvinceCityParser.m in Sources */,
+				7416A92617887A4A00EDB775 /* ZYAddPerson.m in Sources */,
+				7416A92A17887AA100EDB775 /* ShowAdViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3872,8 +3884,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: yali liu (ZXHENKXVL6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yali liu (ZXHENKXVL6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lili He (4FCQ67TXMC)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lili He (4FCQ67TXMC)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -3903,11 +3915,12 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "";
-				PROVISIONING_PROFILE = "A268A4D0-083C-407D-BD05-CF739FE70FDB";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A268A4D0-083C-407D-BD05-CF739FE70FDB";
+				PROVISIONING_PROFILE = "DC51A4D7-C05E-4C1C-8653-22379B85D0AF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DC51A4D7-C05E-4C1C-8653-22379B85D0AF";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -3920,8 +3933,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: yali liu (ZXHENKXVL6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yali liu (ZXHENKXVL6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lili He (4FCQ67TXMC)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lili He (4FCQ67TXMC)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -3939,12 +3952,13 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "";
-				PROVISIONING_PROFILE = "A268A4D0-083C-407D-BD05-CF739FE70FDB";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A268A4D0-083C-407D-BD05-CF739FE70FDB";
+				PROVISIONING_PROFILE = "DC51A4D7-C05E-4C1C-8653-22379B85D0AF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DC51A4D7-C05E-4C1C-8653-22379B85D0AF";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;
 		};
