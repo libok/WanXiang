@@ -373,9 +373,14 @@ didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 	}	
 	else
 	{
-        UIWebView * web = [[UIWebView alloc]init];
+        
+        UIWebView * web = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
+        //[web loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",((UILabel*)[cell viewWithTag:-100]).text]]]];
         [web loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",self.amodel.content]]]];
+        web.hidden = YES;
+        [self.view addSubview:web];
         [web autorelease];
+
 	}
 }
 
