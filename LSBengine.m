@@ -17,7 +17,7 @@
 #define REQUEST_SINGLE 100
 #define REQUEST_SHANGPIN 110
 #define REQUEST_SEARCH 120
-#define PROVINCE_URL @"http://119.161.221.204:801/API/city/sheng.aspx"
+#define PROVINCE_URL @"http://218.28.12.103/API/city/sheng.aspx"
 #import "LSBengine.h"
 #import "ASIHTTPRequest.h"
 #import "SBJSON.h"

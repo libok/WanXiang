@@ -67,7 +67,7 @@
 		
 	}
 	
-	_contentArray = [[NSArray alloc] initWithObjects:@"账户管理",@"会员管理",@"软件设置",@"推荐给好友",@"意见反馈",@"关于我们",@"帮我打分",@"版本更新",@"清除缓存",@"精品推荐",@"客户热线 4006-xxxx-xxxx",nil];
+	_contentArray = [[NSArray alloc] initWithObjects:@"账户管理",@"会员管理",@"软件设置",@"推荐给好友",@"意见反馈",@"关于我们",@"帮我打分",@"版本更新",@"清除缓存",@"精品推荐",@"客户热线 4006612988",nil];
 
 }
 
@@ -168,9 +168,11 @@
 			break;
 		case CUSTOMERHOTLINE:
         {
-            UIWebView * web = [[UIWebView alloc]init];
+            UIWebView * web = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
             //[web loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",((UILabel*)[cell viewWithTag:-100]).text]]]];
-            [web loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://123456"]]]];
+            [web loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://4006612988"]]]];
+            web.hidden = YES;
+            [self.view addSubview:web];
             [web autorelease];
             return;
         }
