@@ -142,21 +142,22 @@
 	}
 	
 	
-	WWRLiPinQuanStatus *status = [_statuesArray objectAtIndex:indexPath.row];
+	WWRLiPinQuanStatus *status = [self.statuesArray objectAtIndex:indexPath.row];
 	cell.typeImageView.image = [UIImage imageNamed:@"礼品券.png"];
-	//cell.erWeiMaImageView.image = nil;
-	//[cell.erWeiMaImageView setImageWithURL:[NSURL URLWithString:status.imgURl]];
     NSString * str = [NSString stringWithFormat:@"%@%@",SERVER_URL,status.qRImg];
 	[cell.erWeiMaImageView setImageWithURL:[NSURL URLWithString:str]];
-	cell.goodTypeLabel.text = @"礼品券"; 
+	cell.goodTypeLabel.text = @"礼品券";
+
 	cell.goodNameLabel.text = status.managerName;
-	if (status.status == 0)
+    cell.goodStateLabel.textColor =[UIColor whiteColor];
+    
+	if ([status.status intValue] == 0)
 	{
-		cell.goodStateLabel.text = @"[已用]";
+		cell.goodStateLabel.text = @"【已使用】";
 	}
 	else 
 	{
-		cell.goodStateLabel.text = nil;
+		cell.goodStateLabel.text = @"【未使用】";
 	}
 	
 	return cell;
@@ -189,7 +190,7 @@
 
 -(void)getGiftListSuccess:(NSArray *)aArray
 {
-	self.statuesArray = aArray;
+	self.statuesArray = (NSMutableArray *)aArray;
     [_tableView reloadData];
 }
 -(void)getGiftListFail:(NSError *)aError

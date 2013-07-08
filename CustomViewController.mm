@@ -557,7 +557,7 @@ bool isHaveDecoder=NO;
         }else
         {
             ChoujiangViewController * temp = [[ChoujiangViewController alloc]init];
-            temp.urlString = [NSString stringWithFormat:@"%@/page/getvote.aspx?id=8&uid=%d",SERVER_URL,uid];
+            temp.urlString = [NSString stringWithFormat:@"%@/page/getvote.aspx?id=%d&uid=%d",SERVER_URL,[[[symbolString componentsSeparatedByString:@"id="] objectAtIndex:1] intValue],uid];
             temp.titleString=@"问卷调查";
             [self.navigationController pushViewController:temp animated:YES];
         }
@@ -585,7 +585,6 @@ bool isHaveDecoder=NO;
              isHaveDecoder=NO;
              [MBProgressHUD hideHUDForView:tempView animated:YES];
              NSString * responseString     = request.responseString;
-             //NSLog(@"lijinliang%@",request.responseString);
              SBJSON * sb                   = [[SBJSON alloc]init];
              NSDictionary * dict           = [sb objectWithString:responseString error:nil];
              int result          = [[dict objectForKey:@"NO"] intValue];
@@ -720,8 +719,7 @@ bool isHaveDecoder=NO;
         temp.goodID                = [[arry objectAtIndex:1] intValue];
         temp.shopID                = [[arry objectAtIndex:2] intValue];
         [self.navigationController pushViewController:temp animated:YES];
-        [temp release];
-        
+        [temp release];  
     }
     else if (range3.length > 0)//抽奖
     {
@@ -751,39 +749,23 @@ bool isHaveDecoder=NO;
         [alert release];
         
     }
-    else if([symbolString hasPrefix:@"y"] || [symbolString hasPrefix:@"p"] || [symbolString hasPrefix:@"q"] || [symbolString hasPrefix:@"L"])//其它判断
+    else if([symbolString hasPrefix:@"y"] || [symbolString hasPrefix:@"p"] || [symbolString hasPrefix:@"q"] || [symbolString hasPrefix:@"L"] || [symbolString hasPrefix:@"d"])//其它判断
     {
         isHaveDecoder=NO;
         YanZhengViewController * temp = [[YanZhengViewController alloc]init];
-        
-        unichar ss = [result2.text characterAtIndex:0];
-        NSString * tempstr = nil;
-        switch (ss) {
-            case 'y':
-            {
-                tempstr = @"/api/pz/yh.aspx?key=";
-            }
-                break;
-            case 'p':
-            {
-                tempstr = @"/api/pz/pz.aspx?key=";
-            }
-                break;
-            case 'q':
-            {
-                tempstr = @"/api/pz/qd.aspx?key=";
-            }
-                break;
-            case 'l':
-            {
-                tempstr = @"/api/pz/lp.aspx?key=";
-            }
-                break;
-                
-            default:
-                break;
+         NSString * tempstr = nil;
+        if ([result2.text hasPrefix:@"y"]) {
+            tempstr = @"/api/pz/yh.aspx?key=";
+        }else if ([result2.text hasPrefix:@"p"]){
+            tempstr = @"/api/pz/pz.aspx?key=";
+        }else if ([result2.text hasPrefix:@"q"]){
+            tempstr = @"/api/pz/qd.aspx?key=";
+        }else if ([result2.text hasPrefix:@"L"]){
+            tempstr = @"/api/pz/lp.aspx?key=";
+        }else if ([result2.text hasPrefix:@"d"]){
+            tempstr = @"api/pz/yd.aspx?key=";
         }
-        temp.urlString = [NSString stringWithFormat:@"%@%@%@",SERVER_URL,tempstr,symbolString];
+        temp.urlString = [NSString stringWithFormat:@"%@%@%@",SERVER_URL,tempstr,[symbolString substringFromIndex:1]];
         [self.navigationController pushViewController:temp animated:YES];
         [temp release];
     }

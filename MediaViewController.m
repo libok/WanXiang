@@ -94,7 +94,6 @@
         NSArray *adArray = [json objectWithString:adString error:nil];
         [json release];
         BOOL isSuccess = ([no intValue] != 0)?YES:NO;
-
         if (isSuccess) {
             temp.dataDictionary = (NSDictionary *)adArray;
             temp.oneCommodity   = [[LPCommodity alloc]initWithDictionary:(NSDictionary *)adArray];
@@ -103,28 +102,28 @@
                 switch (i) {
                     case 1:
                     {
-                        smallbutton.hidden = temp.oneCommodity.buytype;
+                        smallbutton.hidden = !temp.oneCommodity.buytype;
                         smallbutton.enabled = temp.oneCommodity.buytype;
                         smallbutton.userInteractionEnabled = temp.oneCommodity.buytype;
                     }
                         break;
                     case 2:
                     {
-                        smallbutton.hidden = temp.oneCommodity.isjoin;
+                        smallbutton.hidden = !temp.oneCommodity.isjoin;
                         smallbutton.enabled = temp.oneCommodity.isjoin;
                         smallbutton.userInteractionEnabled = temp.oneCommodity.isjoin;
                     }
                         break;
                     case 3:
                     {
-                        smallbutton.hidden = temp.oneCommodity.isbuy;
+                        smallbutton.hidden = !temp.oneCommodity.isbuy;
                         smallbutton.enabled = temp.oneCommodity.isbuy;
                         smallbutton.userInteractionEnabled = temp.oneCommodity.isbuy;
                     }
                         break;
                     case 4:
                     {
-                        smallbutton.hidden = temp.oneCommodity.isyd;
+                        smallbutton.hidden = !temp.oneCommodity.isyd;
                         smallbutton.enabled = temp.oneCommodity.isyd;
                         smallbutton.userInteractionEnabled = temp.oneCommodity.isyd;
                     }

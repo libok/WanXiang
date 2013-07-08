@@ -147,6 +147,7 @@ static int currentIndex = 0;
         [temp.provincebtn setTitle:string forState:UIControlStateNormal];
         
         ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[[NSString stringWithFormat:@"%@/API/city/getcityid.aspx?city=%@",SERVER_URL,string] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+        request.timeOutSeconds=15;
         [request setCompletionBlock:
          ^{
              LPCity *city = [[LPCity alloc] init];
@@ -161,7 +162,8 @@ static int currentIndex = 0;
         [request startAsynchronous];
         
     }];
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view message:@"努力加载中..." animated:YES];
+//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 
 
@@ -192,7 +194,7 @@ static int currentIndex = 0;
             return;
         }
         [_engine requestAd:city atype:0];
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [MBProgressHUD showHUDAddedTo:self.view message:@"努力加载中..." animated:YES];
     }
     self.isNeedRefresh = NO;
 }

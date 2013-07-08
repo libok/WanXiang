@@ -117,15 +117,30 @@
 	NSString  * urstring = [NSString stringWithFormat:@"%@%@",SERVER_URL,status.url];
 	[cell.erWeiMaImageView setImageWithURL:[NSURL URLWithString:urstring]];
     //[cell.erWeiMaImageView setImageWithURL:[NSURL URLWithString:status.imgURl]];
-	if ([status.status intValue] == 1)
-	{
-		cell.goodStateLabel.text = @"[已用]";
-	}
-	else
-	{
-		cell.goodStateLabel.text = nil;
-	}
+    
+    if (self.type == 0) {//预定   
+        if ([status.status intValue] == 1)
+        {
+            cell.goodStateLabel.text = @"【已使用】";
+        }
+        else
+        {
+            cell.goodStateLabel.text = @"【未使用】";
+        }
+    }else{
+        if ([status.status intValue] == 1)
+        {
+            cell.goodStateLabel.text = @"【已签到】";
+        }
+        else
+        {
+            cell.goodStateLabel.text = @"【未签到】";
+        }
+    }
+
+    
 	cell.goodNameLabel.text = status.title;
+    
 	cell.goodTypeLabel.text = (self.type == 0?@"预定":@"签到");
     
 	return cell;

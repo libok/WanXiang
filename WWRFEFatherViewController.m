@@ -115,7 +115,7 @@
 	if ([status.status intValue] == 1)
 	{
 		//已使用的凭证只能显示，不能删除 ststus＝1 表示已使用
-		cell.usedStateLabel.text = @"[已用]";
+		cell.usedStateLabel.text = @"【已使用】";
 		_deleteButton.hidden = YES;
 	}
 	else 
