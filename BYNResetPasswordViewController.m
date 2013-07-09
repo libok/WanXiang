@@ -9,6 +9,7 @@
 #import "BYNResetPasswordViewController.h"
 #import "BYNUserCenterEngine.h"
 #import "BYNLoginViewController.h"
+#import "NSString+MD5HexDigest.h"
 
 @implementation BYNResetPasswordViewController
 @synthesize pwdTextField = _pwdTextField;
@@ -48,7 +49,7 @@
 	
 	
 	
-	[BYNUserCenterEngine getResetPwdContent:_pwdTextField.text completionBlock:^(int num,NSString *msgStr)
+	[BYNUserCenterEngine getResetPwdContent:[_pwdTextField.text md5EncodeString] completionBlock:^(int num,NSString *msgStr)
 	 {
 		 msgStr = [[NSUserDefaults standardUserDefaults] objectForKey:@"resetpwd"];
 		 		 

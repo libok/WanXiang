@@ -238,7 +238,7 @@
 	
 	NSString * str = [NSString stringWithFormat:@"%@/api/user/findpwd.aspx?answer=%@&step=2&uid=%d",SERVER_URL,answerStr,uid];
 	
-	NSURL *url = [NSURL URLWithString:str];
+	NSURL *url = [NSURL URLWithString:[str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
 	
 	[request setCompletionBlock:^
