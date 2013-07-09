@@ -40,6 +40,7 @@
 @property (retain, nonatomic) IBOutlet UITableView *myTableView;
 @property (retain, nonatomic) IBOutlet UIImageView *huiKanImageView;
 @property (retain, nonatomic) NSTimer              *myTimer;
+@property (retain, nonatomic) NSArray              *adArrary;
 @property (nonatomic,assign)  int                  arryCount;
 - (IBAction)segmentValueChanged:(id)sender;
 

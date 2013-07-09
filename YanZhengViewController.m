@@ -41,6 +41,7 @@
     [_myWebView release];
     [super dealloc];
 }
+
 - (void)viewDidUnload {
     [self setMyWebView:nil];
     [self setMyWebView:nil];

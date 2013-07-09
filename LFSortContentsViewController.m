@@ -17,6 +17,7 @@
 #import "SBJSON.h"
 #import "UIButton+WebCache.h"
 #import "LYGAppDelegate.h"
+#import "ShowAdViewController.h"
 @implementation HuiKanGuangGao
 -(id)initWithaDictionary:(NSDictionary*)adictionary
 {
@@ -77,10 +78,13 @@
         if (arry == nil || [arry count] == 0) {
             temp.myTableView.frame = temp.mainScrollview.bounds;
         }
+        temp.adArrary=arry;
         temp.arryCount = [arry count];
         for (NSDictionary * dict in arry) {
-            NSLog(@"%@",dict);
+            NSLog(@"-dict--------%@",dict);
             UIButton *vi = [[UIButton alloc]initWithFrame:CGRectMake(x*320, 0, 320, 171)];
+            vi.tag = 800+x;
+            [vi addTarget:self action:@selector(adBtnClick:) forControlEvents:UIControlEventTouchUpInside];
             [temp.guangaoScroview addSubview:vi];
             [vi release];
             NSString * string = [NSString stringWithFormat:@"%@%@",SERVER_URL,[dict valueForKey:@"file_path"]];
@@ -96,8 +100,30 @@
 
          }];
     [request startAsynchronous];
+
+}
+
+/*
+ 广告按钮点击
+ */
+-(void)adBtnClick:(UIButton *)sender{
+//    LFESortAD *currentAdObj=(LFESortAD *)[self.AdArray objectAtIndex:sender.tag-800];
+    int adType=[[[self.adArrary objectAtIndex:sender.tag-800] objectForKey:@"type"] intValue];
+    NSString *title=[[self.adArrary objectAtIndex:sender.tag-800] objectForKey:@"title"];
+    NSString *contents=[[self.adArrary objectAtIndex:sender.tag-800] objectForKey:@"contents"];
+    NSString *contentimg=[[self.adArrary objectAtIndex:sender.tag-800] objectForKey:@"contentimg"];
+    if (adType==1) {//文字
+        ShowAdViewController *showVc=[[ShowAdViewController alloc] init];
+        [showVc setHeadTitle:title showType:adType adContent:contents adImageUrl:@""];
+        [self presentViewController:showVc animated:YES completion:nil];
+        [showVc release];
+    }else  if (adType==2){//图片
+        ShowAdViewController *showVc=[[ShowAdViewController alloc] init];
+        [showVc setHeadTitle:title showType:adType adContent:@"" adImageUrl:contentimg];
+        [self presentViewController:showVc animated:YES completion:nil];
+        [showVc release];
+    }
     
-    //[self.huiKanImageView setImageWithURL:[NSURL URLWithString:string] placeholderImage:[UIImage imageNamed:@"会刊2-4.png"]];
 }
 
 -(void)changeImage:(int)count
