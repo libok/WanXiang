@@ -153,11 +153,11 @@
     
 	if ([status.status intValue] == 0)
 	{
-		cell.goodStateLabel.text = @"【已使用】";
+		cell.goodStateLabel.text = @"【未使用】";
 	}
 	else 
 	{
-		cell.goodStateLabel.text = @"【未使用】";
+		cell.goodStateLabel.text = @"【已使用】";
 	}
 	
 	return cell;
