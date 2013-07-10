@@ -763,9 +763,9 @@ bool isHaveDecoder=NO;
         }else if ([result2.text hasPrefix:@"L"]){
             tempstr = @"/api/pz/lp.aspx?key=";
         }else if ([result2.text hasPrefix:@"d"]){
-            tempstr = @"api/pz/yd.aspx?key=";
+            tempstr = @"/api/pz/yd.aspx?key=";
         }
-        temp.urlString = [NSString stringWithFormat:@"%@%@%@",SERVER_URL,tempstr,[symbolString substringFromIndex:1]];
+        temp.urlString = [NSString stringWithFormat:@"%@%@%@",SERVER_URL,tempstr,symbolString];
         [self.navigationController pushViewController:temp animated:YES];
         [temp release];
     }

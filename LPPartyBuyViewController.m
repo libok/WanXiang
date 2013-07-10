@@ -113,7 +113,7 @@
     [self.imgView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place.png"]];
     self.imgView.contentMode = UIViewContentModeScaleAspectFit;
     self.titleName.text = [_dataDictionary valueForKey:@"Title"];
-    danjia = [[_dataDictionary valueForKey:@"price2"] intValue];
+    danjia = [[_dataDictionary valueForKey:@"price2"] floatValue];
     self.price.text = [NSString stringWithFormat:@"%@",[_dataDictionary valueForKey:@"price2"]];
     [self.view bringSubviewToFront:self.naviImageView];
     [self.view bringSubviewToFront:self.backButton];
@@ -199,7 +199,7 @@
     //[_myScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
         self.view.frame = CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height);
     _myScrollView.scrollEnabled = YES;
-    self.price.text = [NSString stringWithFormat:@"%d",[_textField.text intValue]*danjia ];    
+    self.price.text = [NSString stringWithFormat:@"%.2f",[_textField.text intValue]*danjia ];
 }
 
 - (IBAction)btnClick:(id)sender {
@@ -228,7 +228,7 @@
             [alert release];
             return;
         }
-        NSString * temp   = [NSString  stringWithFormat:@"/API/Order/CreateOrder.aspx?u=%d&Detail=[{\"goodsid\":%d,\"managerid\":%d,\"num\":%d,\"price\":%f}]",log.ID,[self.oneCommodity.ID intValue],[self.oneCommodity.managerId intValue],[self.textField.text intValue],[self.oneCommodity.price floatValue]*[self.textField.text intValue]];
+        NSString * temp   = [NSString  stringWithFormat:@"/API/Order/CreateOrder.aspx?u=%d&Detail=[{\"goodsid\":%d,\"managerid\":%d,\"num\":%d,\"price\":%.3f}]",log.ID,[self.oneCommodity.ID intValue],[self.oneCommodity.managerId intValue],[self.textField.text intValue],[self.oneCommodity.price2 floatValue]*[self.textField.text intValue]];
         //API/Order/CreateOrder.aspx?u=**&Detail=**
         NSString * string = [NSString  stringWithFormat:@"%@%@",SERVER_URL,temp];
         NSString * str2  = [string stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];

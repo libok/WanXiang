@@ -176,10 +176,9 @@
 	viewController.imageurling =  status.qRImg;
 	viewController.gidString = status.tag;
 	viewController.preContentString = status.contents;
-	viewController.useTimeString = [NSString stringWithFormat:@"%@-%@",status.addTime,status.endTime];
+	viewController.useTimeString = [LYGAppDelegate getServerTime:[[status.addTime stringByReplacingOccurrencesOfString:@"/Date(" withString:@""] stringByReplacingOccurrencesOfString:@")/" withString:@""]];
 	viewController.jianjieString = status.title;
 	viewController.adressString = status.adress;
-	
 	[self.navigationController pushViewController:viewController animated:YES];
 	[viewController release];
 }

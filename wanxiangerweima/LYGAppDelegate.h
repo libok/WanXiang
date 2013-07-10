@@ -30,4 +30,5 @@
 +(BOOL)isMobileNumber:(NSString *)mobileNum;
 +(NSString *)getAsihttpResultMsg:(NSString*)astring;
 +(CLLocation*)getlocation2;
++(NSString *)getServerTime:(NSString *)serverTime;
 @end

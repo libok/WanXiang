@@ -42,12 +42,16 @@
 		self.tag = [liPinQuanDictionary objectForKey:@"tag"];
 		self.contents = [liPinQuanDictionary objectForKey:@"contents"];
 		self.addTime = [liPinQuanDictionary objectForKey:@"addtime"];
-		self.endTime = [liPinQuanDictionary objectForKey:@"endtime"];
+        if (([liPinQuanDictionary objectForKey:@"endtime"]==[NSNull null])) {
+            self.endTime = @"";
+        }else{
+            self.endTime =[liPinQuanDictionary objectForKey:@"endtime"];
+        }
 		self.qRImg = [liPinQuanDictionary objectForKey:@"QRimg"];
 		self.title = [liPinQuanDictionary objectForKey:@"title"];
 		self.lid = [liPinQuanDictionary objectForKey:@"lid"];
 		self.uid = [liPinQuanDictionary objectForKey:@"uid"];
-		self.status = [liPinQuanDictionary objectForKey:@"status"];
+		self.status = ([liPinQuanDictionary objectForKey:@"status"]?[liPinQuanDictionary objectForKey:@"status"]:@"");
 	}
 	return self;
 }

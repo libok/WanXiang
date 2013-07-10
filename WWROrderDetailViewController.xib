@@ -146,7 +146,7 @@
 								<string key="NSFrame">{{97, 18}, {126, 126}}</string>
 								<reference key="NSSuperview" ref="1021711030"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="684036499"/>
+								<reference key="NSNextKeyView" ref="750372657"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -215,6 +215,7 @@
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
+								<int key="IBUITag">100</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">会员名称:</string>
@@ -236,6 +237,7 @@
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
+								<int key="IBUITag">102</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">商家信息:</string>
@@ -257,6 +259,7 @@
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
+								<int key="IBUITag">104</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">店铺地址:</string>
@@ -273,11 +276,12 @@
 								<string key="NSFrame">{{20, 336}, {54, 21}}</string>
 								<reference key="NSSuperview" ref="1021711030"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
+								<reference key="NSNextKeyView" ref="727475809"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
+								<int key="IBUITag">201</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">使用须知:</string>
@@ -299,6 +303,7 @@
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
+								<int key="IBUITag">101</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">会员名称</string>
@@ -312,7 +317,7 @@
 							<object class="IBUILabel" id="569371419">
 								<reference key="NSNextResponder" ref="1021711030"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{85, 279}, {170, 21}}</string>
+								<string key="NSFrame">{{85, 278}, {170, 21}}</string>
 								<reference key="NSSuperview" ref="1021711030"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="758963044"/>
@@ -320,6 +325,7 @@
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
+								<int key="IBUITag">103</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">会员名称</string>
@@ -341,6 +347,7 @@
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
+								<int key="IBUITag">105</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">会员名称</string>
@@ -462,6 +469,7 @@
 								<string key="NSFrame">{{85, 199}, {170, 21}}</string>
 								<reference key="NSSuperview" ref="1021711030"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="684036499"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -487,6 +495,7 @@
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MSAxIDEgMAA</bytes>
 								</object>
+								<int key="IBUITag">202</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIDataDetectorTypes">1</int>
 								<bool key="IBUIDetectsPhoneNumbers">YES</bool>
@@ -667,8 +676,6 @@
 							<reference ref="19800243"/>
 							<reference ref="240793371"/>
 							<reference ref="758963044"/>
-							<reference ref="160805787"/>
-							<reference ref="569371419"/>
 							<reference ref="408613267"/>
 							<reference ref="750372657"/>
 							<reference ref="582080897"/>
@@ -677,6 +684,8 @@
 							<reference ref="635317843"/>
 							<reference ref="954977133"/>
 							<reference ref="727475809"/>
+							<reference ref="569371419"/>
+							<reference ref="160805787"/>
 						</array>
 						<reference key="parent" ref="970390965"/>
 					</object>

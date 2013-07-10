@@ -24,6 +24,7 @@
     self.meetContact.text = self.oneStatus.meetCon;
     
     self.shangpinMingcheng.text = self.oneStatus.title;
+    
     self.huiyuanmingcheng.text  = self.oneStatus.shangJia;
     self.shangjiaxinxi.text     = self.oneStatus.content;
     self.dianpudizhi.text       = self.oneStatus.adress;
@@ -36,8 +37,19 @@
     
     if (self.type == 1) {
         self.titleLabel.text = @"签到";
-        self.firstLabel.text = @"会议名称";
-        self.lastLabel.text  = @"商品简介:";
+        self.firstLabel.text = @"会议名称:";
+        self.lastLabel.text  = @"会议内容:";
+        
+        for (int i=0; i<6; i++) {
+            UILabel *hiddenLab=(UILabel *)[self.view viewWithTag:100+i];
+            hiddenLab.hidden=YES;
+        }
+        
+        UILabel *tempLab=(UILabel *)[self.view viewWithTag:201];
+        tempLab.frame=CGRectMake(20, 249, 54, 21);
+        
+        UIWebView *tempWeb=(UIWebView *)[self.view viewWithTag:202];
+        tempWeb.frame=CGRectMake(85, 249, 193, 101);
     }
 
 //	self.titleLabel.text = @"预定";

@@ -30,5 +30,4 @@
 @property (nonatomic,assign)  int type;
 @property (retain, nonatomic) IBOutlet UILabel *firstLabel;
 @property (retain, nonatomic) IBOutlet UILabel *lastLabel;
-
 @end

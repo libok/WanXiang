@@ -34,7 +34,7 @@ static Reachability * reach = nil;
 {
 //    if (!reach)
 //    {
-    [reach release];
+        [reach release];
         reach = [[Reachability reachabilityWithHostName:@"www.baidu.com"] retain];
         //[reach startNotifier];
 //    }    
@@ -132,11 +132,13 @@ static Reachability * reach = nil;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //1373352758000  1373352804000
+    NSLog(@"--serverTime------>%@",[LYGAppDelegate getServerTime:@"1373362758000"]);
     //[UIApplication sharedApplication].applicationIconBadgeNumber += 1;
     //[UIApplication sharedApplication].applicationIconBadgeNumber +=;
 
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-     UIRemoteNotificationTypeBadge];
+     UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound|UIRemoteNotificationTypeAlert];
     
     if (launchOptions != nil)
 	{
@@ -235,6 +237,7 @@ static Reachability * reach = nil;
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     //[UIApplication sharedApplication].applicationIconBadgeNumber += 1;
     /*
      Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
@@ -257,27 +260,42 @@ static Reachability * reach = nil;
      See also applicationDidEnterBackground:.
      */
 }
+/*
+ 作者：西瓜
+ 转化服务器时间
+ */
++(NSString *)getServerTime:(NSString *)serverTime{
+    NSDate *sayDate=[NSDate dateWithTimeIntervalSince1970:[serverTime floatValue]/1000.0];
+    NSDateFormatter* formatter = [[[NSDateFormatter alloc] init] autorelease];
+//  [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSString* str = [formatter stringFromDate:sayDate];
+    return str;
+}
+
+//获取服务器返回的信息
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+	NSString *getContent=[[userInfo objectForKey:@"aps"] objectForKey:@"content"];
+    if (getContent) {
+     	UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"温馨提示" message:getContent delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+    }
+}
+
+
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
     //[UIApplication sharedApplication].applicationIconBadgeNumber += 1;
-    //之前记录的老的token
 	NSString* oldToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"PUSH_DEVICE_TOKEN"];
-    
 	NSString* newToken = [deviceToken description];
 	newToken = [newToken stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
 	newToken = [newToken stringByReplacingOccurrencesOfString:@" " withString:@""];
-//    NSString * str = [[self class] getUUID];
-////    str = newToken;
-//    NSLog(@"%@",str);
     [[NSUserDefaults standardUserDefaults] setObject:newToken forKey:@"PUSH_DEVICE_TOKEN"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-	//NSLog(@"My token is: %@", newToken);
-    
-    
 	if (![newToken isEqualToString:oldToken])
 	{
 		//发送更新服务器token的信息
-        
 	}
 }
 
@@ -292,14 +310,13 @@ static Reachability * reach = nil;
  The app is currently running in the foreground. Nothing happens on the screen and no sound is played, but your app delegate gets a notification. It is up to the app to do something in response to the notification.
  The app is closed, either the iPhone’s home screen is active or some other app is running. An alert view pops up with the message text and a sound is played. The user can press Close to dismiss the notification or View to open your app. If the user presses Close, then your app will never be told about this notification.
  The iPhone is locked. Now also an alert view pops up and a sound is played but the alert does not have Close/View buttons. Instead, unlocking the phone opens the app.
- 
  ***************/
 
-- (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo
-{
-	 //NSLog(@"Received notification: %@", userInfo);
-    [UIApplication sharedApplication].applicationIconBadgeNumber += 1;
-}
+//- (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo
+//{
+//	 //NSLog(@"Received notification: %@", userInfo);
+//    [UIApplication sharedApplication].applicationIconBadgeNumber += 1;
+//}
 
 +(NSDate*)changeToLocalTime:(NSString *)aStr
 {

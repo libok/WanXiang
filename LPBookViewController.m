@@ -89,13 +89,13 @@
         [view release];
         return;
     }
-    if (self.addressLabel.text == nil || [self.addressLabel.text length]==0) {
-        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"请输入地址" message:nil delegate:nil
-                                              cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [alert show];
-        [alert release];
-        return;
-    }
+//    if (self.addressLabel.text == nil || [self.addressLabel.text length]==0) {
+//        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"请输入地址" message:nil delegate:nil
+//                                              cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//        [alert show];
+//        [alert release];
+//        return;
+//    }
 
     
     __block LPBookViewController * temp = self;

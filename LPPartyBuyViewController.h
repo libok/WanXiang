@@ -12,7 +12,7 @@
 @interface LPPartyBuyViewController : UIViewController
 {
     NSDictionary *_dataDictionary;
-    int danjia;    
+    float danjia;
 }
 @property(nonatomic,retain) NSDictionary *dataDictionary;
 @property(nonatomic,retain) NSArray      * attrArry;

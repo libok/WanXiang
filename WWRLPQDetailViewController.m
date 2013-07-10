@@ -5,7 +5,7 @@
 //  Created by mac on 13-4-4.
 //  Copyright 2013 __MyCompanyName__. All rights reserved.
 //
-
+//-------7-9-xigua-
 #import "WWRLPQDetailViewController.h"
 #import "UIImageView+WebCache.h"
 @implementation WWRLPQDetailViewController
@@ -21,7 +21,7 @@
 	
 	//[self setNameLabelStr:@"预售年货20种口味 诺梵 手工黑松露大礼盒零食进口"];
 	//领券时间
-	self.dateLabel.text = @"领券时间：2010-01-03";
+	self.dateLabel.text =[NSString stringWithFormat:@"领券时间：%@",self.useTimeString];
 	self.dateLabel.frame = CGRectMake(10, _nameLabel.frame.origin.y + _nameLabel.frame.size.height, 320, 20);
 	//使用状态
 	self.stateLabel.text = nil;
@@ -42,16 +42,15 @@
 	
 	[self setSomeLabelToFit:_usedKnownLabel withPreviousLabel:_numberLabel withLabelText:@"使用须知:"];
 	self.usedKnownLabel.frame = CGRectMake(2, _usedKnownDetailLabel.frame.origin.y - 10, 60, 40);
-	//有效期
-	[self setSomeLabelToFit:_usedDateNumLabel withPreviousLabel:_usedKnownDetailLabel withLabelText:@"20100305-20101205"];
-
+	//有效期 时间
+//	[self setSomeLabelToFit:_usedDateNumLabel withPreviousLabel:_usedKnownDetailLabel withLabelText:self.useTimeString];
     
-	[self setSomeLabelToFit:_usedDateLabel withPreviousLabel:_usedKnownDetailLabel withLabelText:@"有效期: "];
+    [self setSomeLabelToFit:_usedDateNumLabel withPreviousLabel:_usedKnownDetailLabel withLabelText:@""];
+	[self setSomeLabelToFit:_usedDateLabel withPreviousLabel:_usedKnownDetailLabel withLabelText:@""];
 	self.usedDateLabel.frame = CGRectMake(2, _usedDateNumLabel.frame.origin.y - 10, 60, 40);
 	
 	
 	//商家信息
-
 	[self setSomeLabelToFit:_goodInfoDetailLabel	withPreviousLabel:_usedDateNumLabel withLabelText:self.adressString];
 	[self setSomeLabelToFit:_goodInfoLabel withPreviousLabel:_usedDateNumLabel withLabelText:@"商家信息: "];
 	self.goodInfoLabel.frame = CGRectMake(2, _goodInfoDetailLabel.frame.origin.y - 10, 60, 40);

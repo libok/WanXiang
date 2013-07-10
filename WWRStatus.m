@@ -54,7 +54,7 @@
         }
 		self.addTime = [youHuiQuanDictionary objectForKey:@"addtime"];
 		self.type = [youHuiQuanDictionary objectForKey:@"type"];
-		self.status = [youHuiQuanDictionary objectForKey:@"Status"];
+		self.status = [youHuiQuanDictionary objectForKey:@"status"];
 		self.okTime = [youHuiQuanDictionary objectForKey:@"OKtime"];
 		self.isShow = [youHuiQuanDictionary objectForKey:@"isshow"];
 		self.title = [youHuiQuanDictionary objectForKey:@"title"];
