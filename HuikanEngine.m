@@ -172,7 +172,7 @@ static NSMutableArray * requestArry = nil;
         NSMutableArray *mutArr = [[NSMutableArray alloc] init];
         for (NSDictionary *temp in arr )
         {
-            [mutArr addObject:[ArticleModel   ArticleModelWithDictionary:temp]];
+            [mutArr addObject:[ArticleModel  ArticleModelWithDictionary:temp]];
         }
         function(mutArr);
         [mutArr release];

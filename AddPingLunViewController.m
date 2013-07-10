@@ -19,6 +19,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        self.inType=0;
         // Custom initialization
         if (IS_IPHONE5) {
             self.view.frame=CGRectMake(0, 0, 320, 568);
@@ -48,8 +49,14 @@
 }
 
 - (IBAction)goBackButtonClick:(id)sender {
-    [HuikanEngine delete:100];
-    [self.navigationController popViewControllerAnimated:YES];
+    if (self.inType==1) {
+        [HuikanEngine delete:100];
+        [self dismissModalViewControllerAnimated:YES];
+    }else{
+        [HuikanEngine delete:100];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+
 }
 - (void)dealloc {
     [_titleLabel release];

@@ -14,9 +14,11 @@
     int rowHeight;
     float textFontSize;
     NSString *content;
+    int inType;
 }
 
-@property (nonatomic,retain) NSString *content;
+@property (nonatomic,assign)  int  inType;
+@property (nonatomic,retain)  NSString *content;
 @property (retain, nonatomic) IBOutlet UILabel *titleLabel;
 @property (retain, nonatomic) IBOutlet UILabel *createTimeLabel;
 @property (retain, nonatomic) IBOutlet UIImageView *myImageView;
@@ -34,5 +36,7 @@
 
 - (IBAction)biggerFont:(id)sender;
 - (IBAction)smallerFont:(id)sender;
+
+-(void)sendRequest;
 
 @end

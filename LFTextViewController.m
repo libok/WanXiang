@@ -16,6 +16,9 @@
 #import "AddPingLunViewController.h"
 #import "WWREBaoKanDetailCell.h"
 #import "PingLunModel.h"
+#import "ASIHTTPRequest.h"
+#import "LYGAppDelegate.h"
+#import "SBJSON.h"
 @interface LFTextViewController ()
 
 @end
@@ -23,12 +26,14 @@
 @implementation LFTextViewController
 
 @synthesize content;
+@synthesize inType;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        inType=0;
     }
     return self;
 }
@@ -36,25 +41,63 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //self.myScrollView.contentSize =
-    self.contenTItleLabel.text = @"内容";
-    
-    textFontSize = 1;
-        
+
+}
+-(void)sendRequest{
+    if (inType==1) {
+        BOOL isAailble = [LYGAppDelegate netWorkIsAvailable];
+        if (!isAailble) {
+            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"网络连接不可用" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+            [alert release];
+            return;
+        }
+        __block LFTextViewController * tempSelf = self;
+        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/book/DetailCon.aspx?id=%@",SERVER_URL,self.oneArticleModel.ID]]];
+        request.tag = 25;
+        NSLog(@"%@",[request.url absoluteString]);
+        [request setCompletionBlock:^{
+            NSLog(@"%@",request.responseString);
+            SBJSON *json = [[SBJSON alloc] init];
+            NSDictionary *dic = [json objectWithString:request.responseString  error:nil];
+            NSString *str = [dic valueForKey:@"Result"];
+            int x = [[dic valueForKey:@"NO"] intValue];
+            if (x==0) {
+                return;
+            }
+            NSDictionary  *resultDic = [json objectWithString:str error:nil];
+            self.oneArticleModel = [ArticleModel  ArticleModelWithDictionary:resultDic];
+            tempSelf.myArry=[[[NSMutableArray alloc] init] autorelease];
+            [tempSelf.myArry addObject:self.oneArticleModel];
+            [tempSelf.myTableView reloadData];
+            
+            [HuikanEngine getHuiKanPingLun:tempSelf.oneArticleModel  arry:tempSelf.myArry callbackfunction:^(bool isWin, NSMutableArray *arry) {
+                [tempSelf.myTableView reloadData];
+            }];
+        }];
+        request.timeOutSeconds = TIMEOUTSECONDS;
+        [request startAsynchronous];
+    }
 }
 -(void)viewDidAppear:(BOOL)animated
 {
-    __block LFTextViewController * temp = self;
-    self.myArry = [[[NSMutableArray alloc]init] autorelease];
-    [self.myArry addObject:self.oneArticleModel];
-    [_oneArticleModel release];
-    [temp.myTableView reloadData];
-    
-    
-    [HuikanEngine getHuiKanPingLun:self.oneArticleModel  arry:self.myArry callbackfunction:^(bool isWin, NSMutableArray *arry) {
+    textFontSize = 1;
+    if (inType==1) {
+        self.contenTItleLabel.text = @"万象通知";
+    }else{
+        self.contenTItleLabel.text = @"内容";
+    }
+    if (inType==0) {
+        __block LFTextViewController * temp = self;
+        self.myArry = [[[NSMutableArray alloc]init] autorelease];
+        [self.myArry addObject:self.oneArticleModel];
+        [_oneArticleModel release];
         [temp.myTableView reloadData];
-    }];
-
+        [HuikanEngine getHuiKanPingLun:self.oneArticleModel  arry:self.myArry callbackfunction:^(bool isWin, NSMutableArray *arry) {
+            [temp.myTableView reloadData];
+        }];
+   
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -72,8 +115,13 @@
     {
         case 1:
         {
-            [HuikanEngine delete:50];
-             [self.navigationController popViewControllerAnimated:YES];
+            if (inType==1) {
+                 [HuikanEngine delete:50];
+                 [self.view removeFromSuperview];
+            }else{
+                 [HuikanEngine delete:50];
+                 [self.navigationController popViewControllerAnimated:YES];
+            }
         }
            
             break;
@@ -110,11 +158,8 @@
 //        ArticleModel * temp = [self.myArry objectAtIndex:indexPath.row];
 //        NSLog(@"%f",temp.height);
 //        return temp.height;
-        
         return rowHeight;
-
-    }else
-    {
+    }else{
         PingLunModel * temp = [self.myArry objectAtIndex:indexPath.row];
         return temp.height;
     }
@@ -186,10 +231,7 @@
         if (cell == nil) {
             NSArray *nib0 = [[NSBundle mainBundle] loadNibNamed:@"WWREBaoKanDetailCell" owner:self options:nil];
             cell = [nib0 objectAtIndex:0];
-            
-
         }
-        
         ////////
         WWREBaoKanDetailCell* cell3 =  (WWREBaoKanDetailCell*)cell;
         cell3.userMessage.lineBreakMode  = NSLineBreakByWordWrapping;
@@ -261,10 +303,19 @@
     [super viewDidUnload];
 }
 - (IBAction)addPinglun:(id)sender {
-    AddPingLunViewController * temp = [[AddPingLunViewController alloc]init];
-    temp.memArticleModel = self.oneArticleModel;
-    [self.navigationController pushViewController:temp animated:YES];
-    [temp release];
+    if (inType==1) {
+        AddPingLunViewController * temp = [[AddPingLunViewController alloc]init];
+        temp.memArticleModel = self.oneArticleModel;
+        temp.inType=1;
+        [self presentModalViewController:temp animated:YES];
+        [temp release];
+    }else{
+        AddPingLunViewController * temp = [[AddPingLunViewController alloc]init];
+        temp.memArticleModel = self.oneArticleModel;
+        temp.inType=1;
+        [self.navigationController pushViewController:temp animated:YES];
+        [temp release];
+    }
 }
 
 - (IBAction)biggerFont:(id)sender

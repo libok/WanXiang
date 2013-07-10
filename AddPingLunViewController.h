@@ -17,4 +17,5 @@
 @property (retain, nonatomic) IBOutlet UIButton *button2;
 @property (nonatomic,retain)  ArticleModel * memArticleModel;
 @property (retain, nonatomic) IBOutlet UIButton *button1;
+@property (assign, nonatomic) int inType;
 @end

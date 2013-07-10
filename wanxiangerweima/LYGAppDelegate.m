@@ -22,6 +22,9 @@
 #import <sys/utsname.h>
 #import "WelcomeViewController.h"
 #import "SBJSON.h"
+#import "ArticleModel.h"
+#import "LFCategorizeSort.h"
+#import "LFTextViewController.h"
 @implementation LYGAppDelegate
 
 static LoginedUserInfo * loginedUserInfo =nil;
@@ -147,8 +150,25 @@ static Reachability * reach = nil;
 		NSDictionary* dictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
 		if (dictionary != nil)
 		{
-			NSLog(@"Launched from push notification: %@", dictionary);
-            [UIApplication sharedApplication].applicationIconBadgeNumber += 1;
+            LFTextViewController *textVC=nil;
+            if (!textVC) {
+                textVC=[[LFTextViewController alloc] initWithNibName:@"LFTextViewController" bundle:nil];
+            }
+            NSString *getContent=[[dictionary objectForKey:@"aps"] objectForKey:@"content"];
+            if (getContent) {
+                ArticleModel *showArticle=[[ArticleModel alloc] init];
+                if (IS_IPHONE5) {
+                    textVC.view.frame=CGRectMake(0, 20, 320, 548);
+                }else{
+                    textVC.view.frame=CGRectMake(0, 20, 320, 460);
+                }
+                showArticle.ID=getContent;
+                textVC.oneArticleModel       = showArticle;
+                textVC.inType = 1;
+                [textVC sendRequest];
+                [self.window addSubview:textVC.view];
+                [self.window bringSubviewToFront:textVC.view];
+            }
 			
 		}
         //[UIApplication sharedApplication].applicationIconBadgeNumber = 10;
@@ -275,11 +295,24 @@ static Reachability * reach = nil;
 
 //获取服务器返回的信息
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    LFTextViewController *textVC=nil;
+    if (!textVC) {
+        textVC=[[LFTextViewController alloc] initWithNibName:@"LFTextViewController" bundle:nil];
+    }
 	NSString *getContent=[[userInfo objectForKey:@"aps"] objectForKey:@"content"];
     if (getContent) {
-     	UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"温馨提示" message:getContent delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil];
-        [alert show];
-        [alert release];
+        ArticleModel *showArticle=[[ArticleModel alloc] init];
+        if (IS_IPHONE5) {
+          textVC.view.frame=CGRectMake(0, 20, 320, 548);
+        }else{
+          textVC.view.frame=CGRectMake(0, 20, 320, 460);
+        }
+        showArticle.ID=getContent;
+        textVC.oneArticleModel       = showArticle;
+        textVC.inType = 1;
+        [textVC sendRequest];
+        [self.window addSubview:textVC.view];
+        [self.window bringSubviewToFront:textVC.view];
     }
 }
 
@@ -317,6 +350,7 @@ static Reachability * reach = nil;
 //	 //NSLog(@"Received notification: %@", userInfo);
 //    [UIApplication sharedApplication].applicationIconBadgeNumber += 1;
 //}
+
 
 +(NSDate*)changeToLocalTime:(NSString *)aStr
 {
