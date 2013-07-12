@@ -709,7 +709,7 @@ bool isHaveDecoder=NO;
         [self dismissViewControllerAnimated:YES completion:^{
             
         }];
-        NSArray * arry = [result2.text componentsSeparatedByString:@"|"];
+        NSArray * arry = [result2.text componentsSeparatedByString:@"&"];
         if(arry.count <2)
         {
             return;

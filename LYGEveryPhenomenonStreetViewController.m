@@ -101,6 +101,8 @@ static int currentIndex = 0;
 	NSData *data = [[NSUserDefaults standardUserDefaults] valueForKey:@"province"];
 	//把打包后的data 重新“解包” 为  数组 ，解包的时候会自动的调用对象的initWithCoder: 方法
     LPCity *city = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    LYGAppDelegate *app=[UIApplication sharedApplication].delegate;
+    app.currentSelectCity=city;
     return city;
 }
 

@@ -850,7 +850,12 @@
     switch (aIndex) {
         case 0:
         {
-            request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/Goods/GoodsList.aspx?c=%d&djd=%f&dwd=%f",SERVER_URL,c,xx.longitude,xx.latitude]]];
+            LYGAppDelegate *app=[UIApplication sharedApplication].delegate;
+            if (!app.currentSelectCity) {
+                request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/Goods/GoodsList.aspx?c=%d&djd=%f&dwd=%f&sheng=%@&shi=%@",SERVER_URL,c,xx.longitude,xx.latitude,@"17",@"187"]]];
+            }else{
+                request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/API/Goods/GoodsList.aspx?c=%d&djd=%f&dwd=%f&sheng=%@&shi=%@",SERVER_URL,c,xx.longitude,xx.latitude,app.currentSelectCity.proID,app.currentSelectCity.cityID]]];
+            }
             [_requestArry addObject:request];
 
         }

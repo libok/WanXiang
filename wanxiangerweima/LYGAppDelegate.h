@@ -11,12 +11,14 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CLLocationManager.h>
 @class LYGViewController;
-
+@class LPCity;
 @interface LYGAppDelegate : UIResponder <UIApplicationDelegate>
 {
     UIWindow * _window;
     LYGViewController *_viewController;
+    LPCity *currentSelectCity;
 }
+@property (retain,nonatomic)  LPCity *currentSelectCity;
 @property (retain, nonatomic) UIWindow *window;
 @property (retain, nonatomic) LYGViewController *viewController;
 +(CLLocationCoordinate2D)getlocation;

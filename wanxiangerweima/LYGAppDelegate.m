@@ -26,6 +26,7 @@
 #import "LFCategorizeSort.h"
 #import "LFTextViewController.h"
 @implementation LYGAppDelegate
+@synthesize currentSelectCity;
 
 static LoginedUserInfo * loginedUserInfo =nil;
 @synthesize window = _window;
@@ -143,10 +144,31 @@ static Reachability * reach = nil;
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound|UIRemoteNotificationTypeAlert];
     
+    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    //self.window.layer.cornerRadius = 20;
+    self.window.clipsToBounds      = YES;
+    NSString * string = [[NSUserDefaults standardUserDefaults]objectForKey:@"FIRSR"];
+    [[NSUserDefaults standardUserDefaults]setValue:@"FIRSR" forKey:@"FIRSR"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+    if (string) {
+        LPCustomTabBarViewController * mainViewController = [[LPCustomTabBarViewController alloc]init];
+        UINavigationController * navi = [[UINavigationController alloc]initWithRootViewController:mainViewController];
+        [mainViewController release];
+        
+        navi.navigationBarHidden  = YES;
+        self.window.rootViewController = navi;
+        [navi release];
+    }else
+    {
+        [self displayWelcom];
+    }
+	
+    [self.window makeKeyAndVisible];
+    
     if (launchOptions != nil)
 	{
         [UIApplication sharedApplication].applicationIconBadgeNumber += 1;
-
+        
 		NSDictionary* dictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
 		if (dictionary != nil)
 		{
@@ -171,28 +193,7 @@ static Reachability * reach = nil;
             }
 			
 		}
-        //[UIApplication sharedApplication].applicationIconBadgeNumber = 10;
 	}
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    //self.window.layer.cornerRadius = 20;
-    self.window.clipsToBounds      = YES;
-    NSString * string = [[NSUserDefaults standardUserDefaults]objectForKey:@"FIRSR"];
-    [[NSUserDefaults standardUserDefaults]setValue:@"FIRSR" forKey:@"FIRSR"];
-    [[NSUserDefaults standardUserDefaults]synchronize];
-    if (string) {
-        LPCustomTabBarViewController * mainViewController = [[LPCustomTabBarViewController alloc]init];
-        UINavigationController * navi = [[UINavigationController alloc]initWithRootViewController:mainViewController];
-        [mainViewController release];
-        
-        navi.navigationBarHidden  = YES;
-        self.window.rootViewController = navi;
-        [navi release];
-    }else
-    {
-        [self displayWelcom];
-    }
-	
-    [self.window makeKeyAndVisible];
     return YES;
 }
 -(void)displayWelcom
