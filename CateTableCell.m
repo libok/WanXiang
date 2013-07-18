@@ -38,7 +38,7 @@
         self.title.opaque = NO;
         [self.contentView addSubview:self.title];
         
-        self.subTtile = [[[UILabel alloc] initWithFrame:CGRectMake(80, 40, 230, 14)] autorelease];
+        self.subTtile = [[[UILabel alloc] initWithFrame:CGRectMake(80, 40, 235, 14)] autorelease];
         self.subTtile.font = [UIFont systemFontOfSize:12.0f];
         self.subTtile.textColor = [UIColor colorWithRed:158/255.0 
                                                   green:158/255.0 

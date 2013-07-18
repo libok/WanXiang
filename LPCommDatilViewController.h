@@ -42,7 +42,7 @@
 @property (retain, nonatomic) IBOutlet UIWebView *info;
 @property (retain, nonatomic) IBOutlet UILabel *manager;
 @property (retain, nonatomic) IBOutlet UILabel *location;
-@property (retain, nonatomic) IBOutlet UILabel *buykonw;
+@property (retain, nonatomic) IBOutlet UIWebView *buykonw;
 @property (retain, nonatomic) IBOutlet UIImageView *imgView;
 - (IBAction)btnClick:(id)sender;
 //@property(nonatomic,assign) int managerid;

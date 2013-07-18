@@ -209,10 +209,13 @@
         imageView.tag = -1;
         [cell addSubview:imageView];
         [imageView release];
-        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(100, 0, 200, tableView.rowHeight)];
+        
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(70, 7, 230, 25)];
+        label.textColor=[UIColor blackColor];
         label.tag     = -2;
         [cell addSubview:label];
         [label release];
+
     }
     UIImageView * imageView = (UIImageView*)[cell viewWithTag:-1];
     imageView.image         = nil;
@@ -220,11 +223,10 @@
         NSString * str = [NSString stringWithFormat:@"%@%@",SERVER_URL,((ArticleModel*)([self.currentArry objectAtIndex:indexPath.row])).img];
         [imageView setImageWithURL:[NSURL URLWithString:str] placeholderImage:[UIImage imageNamed:@"place.png"]];        
     }
+    
     UILabel * label = (UILabel*)[cell viewWithTag:-2];
     label.text      = @"";
     label.text      = ((ArticleModel*)([self.currentArry objectAtIndex:indexPath.row])).title;
-    //cell.textLabel.text = ((ArticleModel*)([self.currentArry objectAtIndex:indexPath.row])).title;
-    
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;

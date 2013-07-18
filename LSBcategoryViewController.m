@@ -105,6 +105,7 @@
     }
     
     NSDictionary *cate = [self.cates objectAtIndex:indexPath.row];
+    
     [cell.logo setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",SERVER_URL,[cate valueForKey:@"img_url"]]] placeholderImage:[UIImage imageNamed:@"place.png"]];
     cell.title.text = [cate objectForKey:@"Title"];
     
@@ -113,7 +114,8 @@
     for (int i=0; i < MIN(4,  subClass.count); i++) {
         [subTitles addObject:[[subClass objectAtIndex:i] objectForKey:@"remark"]];
     }
-    cell.subTtile.text = [subTitles componentsJoinedByString:@"/"];
+//    cell.subTtile.text = [subTitles componentsJoinedByString:@"/"];
+    cell.subTtile.text = [cate objectForKey:@"remark"];
     [subTitles release];
     
     return cell;

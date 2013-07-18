@@ -135,12 +135,13 @@
     [self hideFourButton];
     [_viewButton stopAnimating];
     self.price.text = [ NSString stringWithFormat:@"%@%@",@"￥",[aDic valueForKey:@"price2"] ];
-    self.price1.text = [ NSString stringWithFormat:@"%@",[aDic valueForKey:@"price"]];
+    self.price1.text = [ NSString stringWithFormat:@"￥%@",[aDic valueForKey:@"price"]];
     self.title1.text = [ NSString stringWithFormat:@"%@",[aDic valueForKey:@"Title"]];
     [self.info loadHTMLString:[aDic valueForKey:@"info" ] baseURL:nil];
     self.manager.text = [ NSString stringWithFormat:@"%@",[aDic valueForKey:@"managerid" ]];
     self.location.text = [ NSString stringWithFormat:@"%@",[aDic valueForKey:@"sheng" ]];
-    self.buykonw.text = [ NSString stringWithFormat:@"%@",[aDic valueForKey:@"xuinfo" ]];
+//    self.buykonw.text = [ NSString stringWithFormat:@"%@",[aDic valueForKey:@"xuinfo" ]];
+    [self.buykonw loadHTMLString:[aDic valueForKey:@"xuinfo" ] baseURL:nil];
     self.imglistArray = [aDic valueForKey:@"imglist"];
     
     self.mangerNameLabel.text  = self.m_shopInfo.NickName;

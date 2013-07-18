@@ -137,7 +137,7 @@ static Reachability * reach = nil;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     //1373352758000  1373352804000
-    NSLog(@"--serverTime------>%@",[LYGAppDelegate getServerTime:@"1373362758000"]);
+//    NSLog(@"--serverTime------>%@",[LYGAppDelegate getServerTime:@"1373362758000"]);
     //[UIApplication sharedApplication].applicationIconBadgeNumber += 1;
     //[UIApplication sharedApplication].applicationIconBadgeNumber +=;
 
